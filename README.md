@@ -1,4 +1,8 @@
-<h1 style="text-align: center;" align="center">Shine Design</h1>
+<p align="center">
+  <a href="javascript:;" rel="noopener" target="_blank"><img width="50%" src="https://cdn.qulongjun.cn/shine/logo_blue.png" alt="Shine. logo"></a></p>
+</p>
+
+------
 
 <div align="center">
 
