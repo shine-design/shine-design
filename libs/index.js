@@ -1,3 +1,2 @@
-
-//按钮组件a
-export {default as Button} from 'libs/components/button/button';
+//按钮组件
+export {default as Button} from 'shine/button/button';
