@@ -1,8 +1,9 @@
 <p align="center">
-  <a href="javascript:;" rel="noopener" target="_blank"><img width="70%" src="https://cdn.qulongjun.cn/shine/logo_blue.png" alt="Shine. logo"></a></p>
+  <a href="javascript:;" rel="noopener" target="_blank"><img width="50%" src="https://cdn.qulongjun.cn/shine/logo_blue.png" alt="Shine. logo"></a></p>
 </p>
 
 ------
+
 <div align="center">
 
 ![](https://img.shields.io/badge/node-%3E%3D9.0.0-brightgreen.svg) ![](https://img.shields.io/badge/npm-%3E%3D6.1.0-brightgreen.svg) ![](https://img.shields.io/appveyor/ci/gruntjs/grunt.svg)  ![](https://img.shields.io/badge/stable-v0.0.1-blue.svg) ![](https://img.shields.io/badge/beta-v0.0.1-blue.svg) ![](https://img.shields.io/npm/l/express.svg)
