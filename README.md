@@ -1,4 +1,4 @@
-<h1 style="text-align:center;">Shine Design</h1>
+<h1 style="text-align: center;" align="center">Shine Design</h1>
 
 <div align="center">
 
