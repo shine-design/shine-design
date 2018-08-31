@@ -1,11 +1,10 @@
 import React, {Component, Fragment} from 'react';
-import {Button} from "../libs";
-
+import '../libs';
 class App extends Component {
     render() {
         return (
             <Fragment>
-                <Button/>
+
             </Fragment>
         );
     }

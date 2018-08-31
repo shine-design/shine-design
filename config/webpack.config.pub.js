@@ -81,7 +81,7 @@ module.exports = {
         // https://github.com/facebookincubator/create-react-app/issues/290
         // `web` extension prefixes have been added for better support
         // for React Native Web.
-        extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
+        extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx','.scss'],
         alias: {
 
             // Support React Native Web
@@ -160,7 +160,7 @@ module.exports = {
                     // use the "style" loader inside the async code so CSS from them won't be
                     // in the main CSS file.
                     {
-                        test: /\.css$/,
+                        test: /\.(css|scss)$/,
                         loader: ExtractTextPlugin.extract(
                             Object.assign(
                                 {
@@ -178,6 +178,9 @@ module.exports = {
                                                 minimize: true,
                                                 sourceMap: shouldUseSourceMap,
                                             },
+                                        },
+                                        {
+                                          loader:require.resolve( 'sass-loader')
                                         },
                                         {
                                             loader: require.resolve('postcss-loader'),

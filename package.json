@@ -120,5 +120,9 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "node-sass": "^4.9.3",
+    "sass-loader": "^7.1.0"
+  }
 }
