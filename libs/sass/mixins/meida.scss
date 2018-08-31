@@ -1,0 +1,77 @@
+/**
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2018/8/31 下午4:15
+ */
+
+//布局临界点
+@import "../config/layout";
+
+// 媒体查询：小于某尺寸
+@mixin responsive-below($width) {
+  @media (max-width: #{$width}) {
+    @content;
+  }
+}
+
+// 媒体查询：大于某尺寸
+@mixin responsive-above($width) {
+  @media (min-width: #{$width}) {
+    @content;
+  }
+}
+
+// 媒体查询：Desktop尺寸
+@mixin minimal-desktop {
+  @media (min-width: #{map-get($m--layout-breakpoints, lg) + 1px}) and (max-width: #{map-get($m--layout-breakpoints, xl)}) {
+    @content;
+  }
+}
+
+// 媒体查询：小于等于Desktop尺寸
+@mixin minimal-desktop-and-below {
+  @media (max-width: #{map-get($m--layout-breakpoints, xl)}) {
+    @content;
+  }
+}
+
+// 媒体查询：大于Desktop尺寸
+@mixin desktop {
+  @media (min-width: #{map-get($m--layout-breakpoints, lg) + 1px}) {
+    @content;
+  }
+}
+
+// 媒体查询：大于Tablet尺寸
+@mixin desktop-and-tablet {
+  @media (min-width: #{map-get($m--layout-breakpoints, md) + 1px}) {
+    @content;
+  }
+}
+
+// 媒体查询：Desktop和Tablet尺寸
+@mixin tablet {
+  @media (min-width: #{map-get($m--layout-breakpoints, md) + 1px}) and (max-width: #{map-get($m--layout-breakpoints, lg)}) {
+    @content;
+  }
+}
+
+// 媒体查询：小于Tablet尺寸
+@mixin tablet-and-mobile {
+  @media (max-width: #{map-get($m--layout-breakpoints, lg)}) {
+    @content;
+  }
+}
+
+// 媒体查询：Mobile 尺寸
+@mixin mobile {
+  @media (max-width: #{map-get($m--layout-breakpoints, md)}) {
+    @content;
+  }
+}
+
+//== Edge 全版本 hack
+@mixin hack-edge-all {
+  @supports (-ms-ime-align:auto) {
+    @content;
+  }
+}

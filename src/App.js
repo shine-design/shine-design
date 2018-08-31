@@ -1,10 +1,21 @@
 import React, {Component, Fragment} from 'react';
 import '../libs';
+import {Row, Col} from '../libs';
+
 class App extends Component {
     render() {
         return (
             <Fragment>
-
+                <Row {...{
+                    justify: 'center',
+                    wrap: 'nowrap',
+                    align: 'center',
+                    alignContent: 'flex-start',
+                    root: true
+                }}>
+                    <Col order={3} part={['md-1','sm-2']} offset={2}>col-1</Col>
+                    <Col order={3} part='md-6'>col-2</Col>
+                </Row>
             </Fragment>
         );
     }

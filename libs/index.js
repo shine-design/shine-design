@@ -9,3 +9,6 @@ if (ENV !== 'production' &&
         'please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundle size.',
     );
 }
+
+export {default as Row} from './components/Row/Row';
+export {default as Col} from './components/Col/Col';

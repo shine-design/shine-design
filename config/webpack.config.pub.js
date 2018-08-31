@@ -33,7 +33,7 @@ if (env.stringified['process.env'].NODE_ENV !== '"production"') {
 
 // Note: defined here because it will be used more than once.
 // const cssFilename = 'static/css/[name].[contenthash:8].css';
-const cssFilename = 'index.css';
+const cssFilename = './index.css';
 
 // ExtractTextPlugin expects the build output to be flat.
 // (See https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/27)
@@ -41,7 +41,7 @@ const cssFilename = 'index.css';
 // To have this structure working with relative paths, we have to use custom options.
 const extractTextPluginOptions = shouldUseRelativeAssetPaths
     ? // Making sure that the publicPath goes back to to build folder.
-    {publicPath: Array(cssFilename.split('/').length).join('../')}
+    {publicPath: cssFilename}
     : {};
 
 // This is the production configuration.
@@ -60,11 +60,7 @@ module.exports = {
         library: 'shined',
         libraryTarget: "umd",
         filename: 'index.js',
-        publicPath: publicPath,
-        devtoolModuleFilenameTemplate: info =>
-            path
-                .relative(paths.appSrc, info.absoluteResourcePath)
-                .replace(/\\/g, '/'),
+        publicPath: publicPath
     },
     resolve: {
         // This allows you to set a fallback for where Webpack should look for modules.
@@ -81,13 +77,14 @@ module.exports = {
         // https://github.com/facebookincubator/create-react-app/issues/290
         // `web` extension prefixes have been added for better support
         // for React Native Web.
-        extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx','.scss'],
+        extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx', '.scss'],
         alias: {
 
             // Support React Native Web
             // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
             'react-native': 'react-native-web',
-            'shine':paths.shine
+            'shine': paths.shine,
+            'sass': paths.sass
         },
         plugins: [
             // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -180,7 +177,7 @@ module.exports = {
                                             },
                                         },
                                         {
-                                          loader:require.resolve( 'sass-loader')
+                                            loader: require.resolve('sass-loader')
                                         },
                                         {
                                             loader: require.resolve('postcss-loader'),
