@@ -11,9 +11,10 @@ class App extends Component {
                     wrap: 'nowrap',
                     align: 'center',
                     alignContent: 'flex-start',
-                    root: true
+                    root: true,
+                    className:['test','test2']
                 }}>
-                    <Col order={3} part={['md-1','sm-2']} offset={2}>col-1</Col>
+                    <Col order={3} part={['md-1','sm-2']} className='test' offset={2}>col-1</Col>
                     <Col order={3} part='md-6'>col-2</Col>
                 </Row>
             </Fragment>

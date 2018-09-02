@@ -7,7 +7,7 @@
 
 // 核心依赖
 import React, {Component, Fragment} from 'react';
-import {PropTypes} from 'prop-types';
+import PropTypes from 'prop-types';
 
 // 第三方依赖库
 import classNames from 'classnames'
@@ -41,19 +41,17 @@ export default class extends Component {
         ),
         wrap: PropTypes.oneOf(
             ['nowrap', 'wrap-reverse', 'wrap']
-        ),
-        root: PropTypes.bool
+        )
     };
 
     static defaultProps = {
         mode: 'general',
-        direction: 'ver',
-        root: false
+        direction: 'hor'
     };
 
     render() {
         const me = this;
-        const {mode, direction, justify, wrap, align, alignContent, root, children} = me.props;
+        const {mode, direction, justify, wrap, align, alignContent,  className, children} = me.props;
 
         return (
             <Fragment>
@@ -63,12 +61,14 @@ export default class extends Component {
                             [`m-grid--${direction}${mode !== 'general' ? '-' + mode : ''}`]: true,
                             [`m-grid--${justify}`]: _.isString(justify),
                             [`m-grid--${wrap}`]: _.isString(wrap),
-                            [`m-grid--${align}`]: _.isString(align),
-                            [`m-grid--${alignContent}`]: _.isString(alignContent),
-                            ['m-grid--root']: root
-                        }
+                            [`m-grid--align-item-${align}`]: _.isString(align),
+                            [`m-grid--align-content-${alignContent}`]: _.isString(alignContent)
+                        },
+                        ...(
+                            _.isArray(className) ? className : [className]
+                        )
                     )
-                }>{children}</div>
+                    }>{children}</div>
             </Fragment>
         );
     }

@@ -7,7 +7,7 @@
 
 // 核心依赖
 import React, {Component, Fragment} from 'react';
-import {PropTypes} from 'prop-types';
+import PropTypes from 'prop-types';
 
 // 第三方依赖库
 import classNames from 'classnames'
@@ -20,7 +20,7 @@ import './style';
 
 export default class extends Component {
     constructor(props) {
-        super([props]);
+        super(props);
     }
 
 
@@ -44,19 +44,22 @@ export default class extends Component {
 
     render() {
         const me = this;
-        const {mode, order, align, part, offset, children} = me.props;
+        const {mode, order, align, part, offset, className, children} = me.props;
         return (
             <Fragment>
                 <div className={classNames('m-grid__item', {
-                    [`m-grid__item--order${!!mode ? '-' + mode : ''}-${order}`]: true,
-                    [`m-grid__item--${align}`]: _.isString(align),
-                    [`col-${part}`]: _.isString(part) || _.isNumber(part),
-                    [`offset-${offset}`]: _.isNumber(offset)
-                }, ...(
-                    _.isArray(part) && part.map((item) => {
-                        return `col-${item}`;
-                    }) || []
-                ))}>
+                        [`m-grid__item--order${_.isString(mode) ? '-' + mode : ''}-${order}`]: _.isNumber(order),
+                        [`m-grid__item--${align}`]: _.isString(align),
+                        [`col-${part}`]: _.isString(part) || _.isNumber(part),
+                        [`offset-${offset}`]: _.isNumber(offset)
+                    }, ...(
+                        _.isArray(part) && part.map((item) => {
+                            return `col-${item}`;
+                        }) || []
+                    ),
+                    ...(
+                        _.isArray(className) ? className : [className]
+                    ))}>
                     {children}
                 </div>
             </Fragment>

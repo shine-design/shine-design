@@ -18,8 +18,8 @@
   .m-grid.m-grid--hor#{$mode-dir}#{$mode-class} {
     display: flex;
     display: -ms-flexbox;
-    flex-direction: column;
-    -ms-flex-direction: column;
+    flex-direction: row;
+    -ms-flex-direction: row;
 
     &.m-grid--root {
       flex: 1;
@@ -50,8 +50,8 @@
   .m-grid.m-grid--ver#{$mode-dir}#{$mode-class} {
     display: flex;
     display: -ms-flexbox;
-    flex-direction: row;
-    -ms-flex-direction: row;
+    flex-direction: column;
+    -ms-flex-direction: column;
 
     &.m-grid--root {
       flex: 1;
@@ -149,11 +149,11 @@
     }
 
     &.m-grid--align-content-space-between {
-      align-content: baseline;
+      align-content: space-between;
     }
 
     &.m-grid--align-content-space-around {
-      align-content: stretch;
+      align-content: space-around;
     }
 
     &.m-grid--align-content-stretch {
