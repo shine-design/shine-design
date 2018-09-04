@@ -1,6 +1,6 @@
 /**
  * @Component 图标组件 - Icon
- * @Type 基础组件
+ * @Type Basic
  * @Author 瞿龙俊 - qulongjun@shine.design
  * @Date 2018/9/2 下午2:05
  */

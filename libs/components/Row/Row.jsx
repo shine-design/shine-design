@@ -1,6 +1,6 @@
 /**
  * @Component 栅格系统 - Row
- * @Type 布局组件
+ * @Type Basic
  * @Author 瞿龙俊 - qulongjun@shine.design
  * @Date 2018/8/31 下午1:58
  */
@@ -51,7 +51,7 @@ export default class extends Component {
 
     render() {
         const me = this;
-        const {mode, direction, justify, wrap, align, alignContent,  className, children} = me.props;
+        const {mode, direction, justify, wrap, align, alignContent, className, children} = me.props;
 
         return (
             <Fragment>
@@ -68,7 +68,7 @@ export default class extends Component {
                             _.isArray(className) ? className : [className]
                         )
                     )
-                    }>{children}</div>
+                }>{children}</div>
             </Fragment>
         );
     }

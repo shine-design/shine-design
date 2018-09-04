@@ -1,6 +1,6 @@
 /**
  * @Component 栅格系统 - Col
- * @Type 布局组件
+ * @Type Basic
  * @Author 瞿龙俊 - qulongjun@shine.design
  * @Date 2018/8/31 下午9:31
  */

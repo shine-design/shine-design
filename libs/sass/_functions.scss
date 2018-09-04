@@ -2,6 +2,11 @@
  * @Author 瞿龙俊 - qulongjun@shine.design
  * @Date 2018/9/4 下午12:50
  */
+@import "./config/color";
+@import "./config/font";
+@import "./config/shadow";
+@import "./config/skin";
+@import "./config/arrow";
 
 // 数字过滤
 @function strip-unit($number) {
@@ -272,7 +277,7 @@
     }
   }
 
-  @return array-get($m--typography-colors, $skin, $type, $i);
+  @return array-get($sh--typography-colors, $skin, $type, $i);
 }
 
 @function get-shadow($skin, $i: base) {
@@ -360,11 +365,11 @@
     }
   }
 
-  @return array-get($m--box-shadows, $skin, $i);
+  @return array-get($sh--box-shadows, $skin, $i);
 }
 
 @function get-brand-color($i: null) {
-  $base: array-get($m--state-colors, brand, base);
+  $base: array-get($sh--state-colors, brand, base);
 
   @if $i == '+' {
     $base: darken($base, 5%);
@@ -490,11 +495,11 @@
     $size: down5;
   }
 
-  @return array-get($m--font-sizes, $type, $size);
+  @return array-get($sh--font-sizes, $type, $size);
 }
 
 @function get-font-weight($type) {
-  @return array-get($m--font-weights, $type);
+  @return array-get($sh--font-weights, $type);
 }
 
 @function get-heading-font-family() {
@@ -502,17 +507,17 @@
 }
 
 @function get-regular-font-family() {
-  @return array-get($m--font-families, regular);
+  @return array-get($sh--font-families, regular);
 }
 
 //== 皮肤辅助类
 @function get-default-skin() {
-  @return $m--default-skin;
+  @return $sh--default-skin;
 }
 
 //== Layout辅助类
 @function smooth-arrow() {
-  @if ($m--arrow-style == smooth) {
+  @if ($sh--arrow-style == smooth) {
     @return true;
   } @else {
     @return false;

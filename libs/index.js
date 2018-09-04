@@ -1,4 +1,4 @@
-import './sass/components/index.scss';
+import './sass/base.scss';
 
 const ENV = process.env.NODE_ENV;
 if (ENV !== 'production' &&
@@ -15,3 +15,4 @@ if (ENV !== 'production' &&
 export {default as Row} from './components/Row/Row';
 export {default as Col} from './components/Col/Col';
 export {default as Icon} from './components/Icon/Icon';
+export {default as Alert} from './components/Alert/Alert';
