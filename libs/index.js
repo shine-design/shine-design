@@ -1,3 +1,5 @@
+import './sass/components/index.scss';
+
 const ENV = process.env.NODE_ENV;
 if (ENV !== 'production' &&
     ENV !== 'test' &&

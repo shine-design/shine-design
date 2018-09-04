@@ -1,6 +1,6 @@
 {
   "name": "shinec",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "title": "Shine Design",
   "description": "An enterprise-class UI design language and React-based implementation",
   "homepage": "https://shine.design/",
@@ -53,6 +53,7 @@
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
     "lodash": "^4.17.10",
+    "normalize.css": "^8.0.0",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",
