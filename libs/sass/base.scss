@@ -8,8 +8,9 @@
 @import "~normalize.css/normalize.css";
 
 /**
- * 依赖样式库
+ * 依赖配置项
  */
+@import "./config/font";
 
 /**
  * 第三方库
@@ -21,6 +22,8 @@
 @import "~bootstrap/scss/root";
 @import "~bootstrap/scss/reboot";
 @import "~bootstrap/scss/type";
+
+@import "~line-awesome/css/line-awesome.css";
 /**
   独立样式
  */

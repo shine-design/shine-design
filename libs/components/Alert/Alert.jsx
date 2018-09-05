@@ -38,15 +38,19 @@ export default class extends Component {
                 <div className={classNames('alert', {
                     [`alert-${color}`]: _.isString(color) && color !== 'default',
                     'sh-alert--default': !(_.isString(color)) || (_.isString(color) && color === 'default')
-                })}>
-                    {
-                        _.isString(title) && (
-                            <Fragment>
-                                <strong>{title}</strong>
-                            </Fragment>
-                        )
-                    }
-                    {message}
+                }, 'alert-dismissible', 'fade', 'show')}>
+                    <div className='sh-alert__text'>
+                        <button className="close" type="button" data-dismiss="alert" aria-label="Close"
+                                aria-hidden="true"/>
+                        {
+                            _.isString(title) && (
+                                <Fragment>
+                                    <strong>{title}</strong>
+                                </Fragment>
+                            )
+                        }
+                        {message}
+                    </div>
                 </div>
             </Fragment>
         );

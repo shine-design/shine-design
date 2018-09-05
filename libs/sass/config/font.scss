@@ -3,6 +3,8 @@
  * @Date 2018/9/4 下午6:23
  */
 
+$font-weight-normal: 300;
+
 // 字体尺寸
 $sh--font-sizes: (
         regular: (
@@ -212,7 +214,6 @@ $sh--typography-colors: (
         )
 ) !default;
 
-
 $sh--font-weights: (
         thin: 200, // access to this font weight value calling get-font-weight function as get-font-weight(this) in SASS code
         normal: 300, // access to this font weight value calling get-font-weight function as get-font-weight(normal) in SASS code
@@ -226,3 +227,5 @@ $sh--font-families: (
         regular: 'Poppins',
         heading: 'Roboto'
 ) !default;
+
+$font-family-base: array-get($sh--font-families, regular);

@@ -2,29 +2,29 @@
  * @Author 瞿龙俊 - qulongjun@shine.design
  * @Date 2018/9/4 下午1:42
  */
-@import "../../sass/functions";
+@import "../functions";
 @import "../config/icon-code";
 
 // Icon 尺寸
 @mixin icons-size($config) {
-  [class^="sh-icon-"],
-  [class*="sh-icon-"] {
+  [class^="la-icon-"],
+  [class*="la-icon-"] {
     font-size: array-get($config, shine-icon);
   }
 }
 
 // Icon 属性
 @mixin icons-attr($attr, $config) {
-  [class^="sh-icon-"],
-  [class*="sh-icon-"] {
+  [class^="la-icon-"],
+  [class*="la-icon-"] {
     #{$attr}: array-get($config, shine-icon);
   }
 }
 
 // Icon 样式
 @mixin icons-style {
-  [class^="sh-icon-"],
-  [class*="sh-icon-"] {
+  [class^="la-icon-"],
+  [class*="la-icon-"] {
     @content;
   }
 }
@@ -63,35 +63,38 @@
   content: "#{$default-state}";
 }
 
-@mixin sh-icon($icon) {
-  font-family: "ShineIcon", serif;
+@mixin la-icon($icon) {
+  font-family: "LineAwesome";
   text-decoration: inherit;
   text-rendering: optimizeLegibility;
   text-transform: none;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
 
   &:before {
     content: "#{$icon}";
   }
 }
 
-@mixin sh-icon-self($icon) {
-  font-family: "ShineIcon", serif;
+//== Lineawesome icon
+@mixin la-icon-self($icon) {
+  font-family: "LineAwesome";
   text-decoration: inherit;
   text-rendering: optimizeLegibility;
   text-transform: none;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
   content: "#{$icon}";
 }
 
 //== Close icon
 @mixin sh-generate-close-icon($self:null) {
   @if $self == true {
-    @include sh-icon-self(array-get($sh--icon-codes, close));
+    @include la-icon-self( array-get($sh--icon-codes, close) );
   } @else {
-    @include sh-icon(array-get($sh--icon-codes, close));
+    @include la-icon( array-get($sh--icon-codes, close) );
   }
 }
 
@@ -99,33 +102,33 @@
 @mixin sh-generate-arrow-icon($dir, $self:null) {
   @if $dir == down {
     @if $self == true {
-      @include sh-icon-self(array-get($sh--icon-codes, down));
+      @include la-icon-self(array-get($sh--icon-codes, down));
     } @else {
-      @include sh-icon(array-get($sh--icon-codes, down));
+      @include la-icon(array-get($sh--icon-codes, down));
     }
   }
 
   @if $dir == up {
     @if $self == true {
-      @include sh-icon-self(array-get($sh--icon-codes, up));
+      @include la-icon-self(array-get($sh--icon-codes, up));
     } @else {
-      @include sh-icon(array-get($sh--icon-codes, up));
+      @include la-icon(array-get($sh--icon-codes, up));
     }
   }
 
   @if $dir == left {
     @if $self == true {
-      @include sh-icon-self(array-get($sh--icon-codes, left));
+      @include la-icon-self(array-get($sh--icon-codes, left));
     } @else {
-      @include sh-icon(array-get($sh--icon-codes, left));
+      @include la-icon(array-get($sh--icon-codes, left));
     }
   }
 
   @if $dir == right {
     @if $self == true {
-      @include sh-icon-self(array-get($sh--icon-codes, right));
+      @include la-icon-self(array-get($sh--icon-codes, right));
     } @else {
-      @include sh-icon(array-get($sh--icon-codes, right));
+      @include la-icon(array-get($sh--icon-codes, right));
     }
   }
 }
