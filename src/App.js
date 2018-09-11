@@ -5,17 +5,20 @@ class App extends Component {
     render() {
         return (
             <Fragment>
-                <Button {...{
-                    color: 'danger',
-                    gradient: {
-                        from: 'brand',
-                        to: 'danger'
-                    },
-                    isWide: true,
-                    isBlock: true,
-                    value: 'aa',
-                    disabled:true
-                }}/>
+                <div style={{width: '300px'}}>
+                    <Button {...{
+                        color: 'danger',
+                        // gradient: {
+                        //     from: 'brand',
+                        //     to: 'danger'
+                        // },
+                        value: '删除',
+                        disabled: true,
+                        isAir: true,
+                        iconName: 'sh-icon-warning'
+                    }}/>
+                </div>
+
             </Fragment>
         );
     }
