@@ -27,16 +27,17 @@ export default class extends Component {
         className: PropTypes.oneOfType([
             PropTypes.string,
             PropTypes.array
-        ])
+        ]),
+        callbacks: PropTypes.object
     };
 
     static defaultProps = {};
 
     render() {
-        const {className, children} = this.props;
+        const {className, callbacks, children} = this.props;
         return (
             <Fragment>
-                <i className={classNames(...(_.isArray(className) ? className : [className]))}>{children}</i>
+                <i className={classNames(...(_.isArray(className) ? className : [className]))} {...callbacks}>{children}</i>
             </Fragment>
         );
     }

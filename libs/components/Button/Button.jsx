@@ -38,7 +38,8 @@ export default class extends Component {
         isActive: PropTypes.bool,
         isDisabled: PropTypes.bool,
         isAir: PropTypes.bool,
-        isRetina: PropTypes.bool
+        isRetina: PropTypes.bool,
+        callbacks: PropTypes.object
     };
 
     static defaultProps = {
@@ -55,37 +56,40 @@ export default class extends Component {
     };
 
     render() {
-        const {type, value, btnStyle, color, gradient, size, isWide, isBlock, isActive, isDisabled, isAir, isRetina, iconName, className} = this.props;
+        const {type, value, btnStyle, color, gradient, size, isWide, isBlock, isActive, isDisabled, isAir, isRetina, iconName, callbacks, className} = this.props;
         const {from, to} = gradient || {};
+
         return (
             <Fragment>
-                <button type={type} className={classNames(
-                    'btn', 'sh-btn',
-                    {
-                        [`btn-${color}`]: _.isString(color),
-                        [`sh-btn--gradient-from-${from || ''}`]: _.isString(from) && _.isString(to),
-                        [`sh-btn--gradient-to-${to || ''}`]: _.isString(from) && _.isString(to),
-                        [`sh-btn--${btnStyle}`]: _.isString(btnStyle),
-                        [`btn-${size}`]: _.isString(size) && !_.isEqual(size, 'normal'),
-                        'sh-btn--icon': _.isString(iconName),
-                        'sh-btn--wide': isWide,
-                        'sh-btn--air': isAir,
-                        'sh-btn--outline-2x': isRetina,
-                        'btn-block': isBlock,
-                        'active': isActive,
-                        'disabled': isDisabled
-                    },
-                    ...(
-                        _.isArray(className) ? className : [className]
-                    )
-                )}>
+                <button
+                    type={type}
+                    {...callbacks}
+                    className={classNames(
+                        'btn', 'sh-btn',
+                        {
+                            [`btn-${color}`]: _.isString(color),
+                            [`sh-btn--gradient-from-${from || ''}`]: _.isString(from) && _.isString(to),
+                            [`sh-btn--gradient-to-${to || ''}`]: _.isString(from) && _.isString(to),
+                            [`sh-btn--${btnStyle}`]: _.isString(btnStyle),
+                            [`btn-${size}`]: _.isString(size) && !_.isEqual(size, 'normal'),
+                            'sh-btn--icon': _.isString(iconName),
+                            'sh-btn--wide': isWide,
+                            'sh-btn--air': isAir,
+                            'sh-btn--outline-2x': isRetina,
+                            'btn-block': isBlock,
+                            'active': isActive,
+                            'disabled': isDisabled
+                        },
+                        ...(
+                            _.isArray(className) ? className : [className]
+                        )
+                    )}>
                     {_.isString(iconName) ? (
                         <Fragment>
                             <span>
                                 <Icon className={iconName}/>
                                 <span>{value}</span>
                             </span>
-
                         </Fragment>
                     ) : value}
                 </button>

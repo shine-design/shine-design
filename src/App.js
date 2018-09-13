@@ -1,5 +1,7 @@
 import React, {Component, Fragment} from 'react';
-import {Row, Col, Button} from '../libs';
+import {Row, Col, Button} from '../dist';
+
+import '../dist/index.css';
 
 class App extends Component {
     render() {
@@ -15,7 +17,10 @@ class App extends Component {
                         value: '删除',
                         disabled: true,
                         isAir: true,
-                        iconName: 'sh-icon-warning'
+                        iconName: 'sh-icon-warning',
+                        onClick() {
+                            alert('test');
+                        }
                     }}/>
                 </div>
 
