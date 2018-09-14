@@ -1,0 +1,221 @@
+/**
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2018/8/31 下午1:59
+ */
+
+@mixin m--build-grid($mode) {
+  $mode-class: '';
+  $mode-dir: '';
+
+  @if ($mode == general) {
+    $mode-class: ":not(.m-grid--desktop):not(.m-grid--desktop-and-tablet):not(.m-grid--tablet):not(.m-grid--tablet-and-mobile):not(.m-grid--mobile)";
+  } @else {
+    $mode-class: ".m-grid--" + $mode;
+    $mode-dir: "-" + $mode;
+  }
+
+  //垂直方向
+  .m-grid.m-grid--hor#{$mode-dir}#{$mode-class} {
+    display: flex;
+    display: -ms-flexbox;
+    flex-direction: row;
+    -ms-flex-direction: row;
+
+    &.m-grid--root {
+      flex: 1;
+      -ms-flex: 1 0 0px;
+      height: 100%;
+    }
+
+    > .m-grid__item {
+      flex: none;
+      -ms-flex: none;
+
+      &.m-grid__item--fluid {
+        flex: 1 0 auto;
+        -ms-flex: 1 0 auto;
+      }
+    }
+
+    // flex ordering
+    @for $i from 1 through 12 {
+      > .m-grid__item.m-grid__item--order-#{$mode}-#{$i} {
+        order: $i;
+        -ms-flex-order: $i;
+      }
+    }
+  }
+
+  //水平方向
+  .m-grid.m-grid--ver#{$mode-dir}#{$mode-class} {
+    display: flex;
+    display: -ms-flexbox;
+    flex-direction: column;
+    -ms-flex-direction: column;
+
+    &.m-grid--root {
+      flex: 1;
+      -ms-flex: 1 0 0px;
+    }
+
+    > .m-grid__item {
+      flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+
+      &.m-grid__item--fluid {
+        flex: 1 auto; // 1/7/2018 added auto to fix the overflow issue in demo4
+        -ms-flex: 1 auto;
+      }
+    }
+
+    // flex ordering
+    @for $i from 1 through 12 {
+      > .m-grid__item.m-grid__item--order-#{$mode}-#{$i} {
+        order: $i;
+        -ms-flex-order: $i;
+      }
+    }
+  }
+
+  .m-grid {
+    // horizontal items aligment
+    &.m-grid--center {
+      justify-content: center;
+      -ms-flex-pack: center;
+    }
+
+    &.m-grid--flex-start {
+      justify-content: flex-start;
+      -ms-flex-pack: start;
+    }
+
+    &.m-grid--flex-end {
+      justify-content: flex-end;
+      -ms-flex-pack: end;
+    }
+
+    &.m-grid--space-between {
+      justify-content: space-between;
+      -ms-flex-pack: justify;
+    }
+
+    &.m-grid--space-around {
+      justify-content: space-around;
+      -ms-flex-pack: justify;
+    }
+
+    &.m-grid--wrap {
+      flex-wrap: wrap;
+    }
+
+    &.m-grid--nowrap {
+      flex-wrap: nowrap;
+    }
+
+    &.m-grid--wrap-reverse {
+      flex-wrap: wrap-reverse;
+    }
+
+    &.m-grid--align-item-flex-start {
+      align-items: flex-start;
+    }
+
+    &.m-grid--align-item-flex-end {
+      align-items: flex-end;
+    }
+
+    &.m-grid--align-item-center {
+      align-items: center;
+    }
+
+    &.m-grid--align-item-baseline {
+      align-items: baseline;
+    }
+
+    &.m-grid--align-item-stretch {
+      align-items: stretch;
+    }
+
+    &.m-grid--align-content-flex-start {
+      align-content: flex-start;
+    }
+
+    &.m-grid--align-content-flex-end {
+      align-content: flex-end;
+    }
+
+    &.m-grid--align-content-center {
+      align-content: center;
+    }
+
+    &.m-grid--align-content-space-between {
+      align-content: space-between;
+    }
+
+    &.m-grid--align-content-space-around {
+      align-content: space-around;
+    }
+
+    &.m-grid--align-content-stretch {
+      align-content: stretch;
+    }
+
+    // vertical item alignment
+    > .m-grid__item {
+      &.m-grid__item--flex-start {
+        align-self: flex-start;
+        -ms-flex-align: start;
+      }
+
+      &.m-grid__item--center {
+        align-self: center;
+        -ms-flex-align: center;
+      }
+
+      &.m-grid__item--flex-end {
+        align-self: flex-end;
+        -ms-flex-align: end;
+      }
+
+      &.m-grid__item--baseline {
+        align-self: baseline;
+        -ms-flex-align: baseline;
+      }
+
+      &.m-grid__item--stretch {
+        align-self: stretch;
+        -ms-flex-align: stretch;
+      }
+    }
+
+    // flex ordering
+    @for $i from 1 through 12 {
+      > .m-grid__item.m-grid__item--order-#{$i} {
+        order: $i;
+        -ms-flex-order: $i;
+      }
+    }
+  }
+}
+
+@include m--build-grid(general);
+
+@include desktop {
+  @include m--build-grid(desktop);
+}
+
+@include desktop-and-tablet {
+  @include m--build-grid(desktop-and-tablet);
+}
+
+@include tablet {
+  @include m--build-grid(tablet);
+}
+
+@include tablet-and-mobile {
+  @include m--build-grid(tablet-and-mobile);
+}
+
+@include mobile {
+  @include m--build-grid(mobile);
+}

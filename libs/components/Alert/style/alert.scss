@@ -1,0 +1,210 @@
+/**
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2018/9/4 下午1:38
+ */
+
+@mixin alert-variant($background, $border, $text-color) {
+  background-color: $background;
+  border-color: $border;
+  color: $text-color;
+
+  hr {
+    border-top-color: darken($border, 5%);
+  }
+  .alert-link {
+    color: darken($text-color, 10%);
+  }
+}
+
+@mixin sh-build-component--alert-base() {
+  .alert {
+    padding: 0.85rem 1.5rem;
+    @include border-radius(0);
+
+    @include rounded {
+      @include border-radius(array-get($sh--border-radius, general));
+    }
+
+    .close {
+      @include sh-generate-close-icon();
+      font-size: get-font-size(icon, '-');
+      outline: none !important;
+      text-shadow: none;
+      padding-top: 0.95rem;
+      padding-bottom: 0;
+      cursor: pointer;
+
+      span {
+        display: none;
+      }
+    }
+
+    &.sh-alert--square {
+      @include border-radius(0);
+    }
+
+    &.sh-alert--icon {
+      $sh-alert-icon-padding-y: 1.45rem;
+      $sh-alert-icon-padding-x: 1.75rem;
+
+      display: table;
+      padding: 0;
+
+      .sh-alert__icon {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        padding: $sh-alert-icon-padding-y 0.5rem $sh-alert-icon-padding-y $sh-alert-icon-padding-x;
+        line-height: 0;
+        width: 1%;
+
+        &.sh-alert__icon--top {
+          vertical-align: top;
+          padding-top: 1.85rem;
+        }
+
+        @include icons-size(array-get($sh--bootstrap-extend-config, alert, icon, sizes));
+
+        i {
+          display: inline;
+        }
+      }
+
+      .sh-alert__text {
+        display: table-cell;
+        vertical-align: middle;
+        width: auto;
+        padding: $sh-alert-icon-padding-y 1.25rem;
+      }
+
+      .sh-alert__actions {
+        width: auto;
+        display: table-cell;
+        vertical-align: middle;
+        text-align: right;
+        padding: $sh-alert-icon-padding-y $sh-alert-icon-padding-x $sh-alert-icon-padding-y 1.25rem;
+      }
+
+      .sh-alert__close {
+        display: table-cell;
+        vertical-align: top;
+        width: auto;
+        padding: $sh-alert-icon-padding-y $sh-alert-icon-padding-x $sh-alert-icon-padding-y 1.25rem;
+
+        .close {
+          padding-bottom: 0;
+          padding-top: 0.35rem;
+          top: 0;
+        }
+      }
+
+      &.sh-alert--outline.sh-alert--icon-solid {
+        .sh-alert__icon {
+          position: relative;
+          padding: $sh-alert-icon-padding-y $sh-alert-icon-padding-x;
+
+          span {
+            top: 50%;
+            margin-top: -6px;
+            right: -6px;
+            @include sh--build-classic-arrow(left, 6px);
+          }
+        }
+
+        .sh-alert__text {
+          padding-left: 1.75rem;
+        }
+      }
+    }
+  }
+}
+
+@mixin sh-build-component--alert-skin($skin) {
+  @include component-skin(alert, $skin) {
+    background: get-color($skin, box);
+
+    .close {
+      color: get-color($skin, icon);
+    }
+
+    &.sh-alert--default {
+      background: get-color($skin, panel, '--');
+      color: get-color($skin, regular);
+
+      .sh-alert__icon {
+        i {
+          color: get-color($skin, regular, '-');
+        }
+      }
+
+      .close {
+        color: get-color($skin, regular, '-');
+      }
+    }
+
+    &.sh-alert--air {
+      @include shadow(get-shadow($skin, '--'));
+
+      &:not(.sh-alert--outline) {
+        border: 0;
+      }
+    }
+
+    @each $name, $color in $sh--state-colors {
+      &.sh-alert--outline.alert-#{$name} {
+        @include alert-variant(get-color($skin, box), array-get($color, base), get-color($skin, regular));
+
+        .close {
+          color: array-get($color, base);
+        }
+
+        color: array-get($color, base);
+        font-weight: get-font-weight(bold);
+
+        .sh-alert__icon {
+          i {
+            color: array-get($color, base);
+          }
+        }
+
+        &.sh-alert--icon-solid {
+          .sh-alert__icon {
+            position: relative;
+            background: array-get($color, base);
+
+            i {
+              color: array-get($color, inverse);
+            }
+
+            span {
+              @include sh--set-classic-arrow-bg(left, array-get($color, base));
+            }
+          }
+        }
+      }
+    }
+
+    &.sh-alert--outline-2x {
+      border-width: 2px;
+    }
+  }
+}
+
+@mixin sh-build-component--alert-states() {
+  @each $name, $color in $sh--state-colors {
+    // alert-variant($background, $border, $body-color)
+    .alert-#{$name}:not(.sh-alert--outline) {
+      @include alert-variant(lighten(array-get($color, base), 6%), lighten(array-get($color, base), 3%), lighten(array-get($color, base), 50%));
+
+      .close {
+        color: lighten(array-get($color, base), 50%);
+      }
+    }
+  }
+}
+
+@include sh-build-component--alert-base();
+
+@include sh-build-component--alert-skin(light);
+
+@include sh-build-component--alert-states();

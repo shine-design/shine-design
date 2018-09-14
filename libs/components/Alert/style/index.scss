@@ -1,0 +1,28 @@
+/**
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2018/9/4 下午5:14
+ */
+/**
+ * 核心样式库
+ */
+@import "../../../sass/mixins/icon";
+@import "../../../sass/mixins/rounded-mode";
+@import "../../../sass/mixins/border-radio";
+@import "../../../sass/mixins/skin";
+@import "../../../sass/mixins/shadow";
+@import "../../../sass/mixins/arrow";
+
+@import "../../../sass/config/alert-icon";
+@import "../../../sass/config/border-radius";
+/**
+ * 依赖样式库
+ */
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/alert";
+
+/**
+  独立样式
+ */
+@import "./alert";

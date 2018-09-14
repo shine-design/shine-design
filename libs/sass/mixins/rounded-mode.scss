@@ -1,0 +1,18 @@
+/**
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2018/9/4 下午5:52
+ */
+@import "../config/rounded";
+// 圆角边框模式
+@mixin rounded {
+  @if $sh--rounded == true {
+    @content;
+  }
+}
+
+//非圆角边框模式
+@mixin not-rounded {
+  @if $sh--rounded == false {
+    @content;
+  }
+}

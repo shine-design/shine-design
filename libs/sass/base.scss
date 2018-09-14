@@ -1,0 +1,30 @@
+/**
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2018/9/4 下午12:50
+ */
+/**
+ * 核心样式库
+ */
+@import "~normalize.css/normalize.css";
+
+/**
+ * 依赖配置项
+ */
+@import "./config/font";
+
+/**
+ * 第三方库
+ */
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+
+@import "~line-awesome/css/line-awesome.css";
+/**
+  独立样式
+ */
+@import "./components/index";

@@ -68,10 +68,6 @@ module.exports = {
         // We inferred the "public path" (such as / or /my-project) from homepage.
         publicPath: publicPath,
         // Point sourcemap entries to original disk location (format as URL on Windows)
-        devtoolModuleFilenameTemplate: info =>
-            path
-                .relative(paths.appSrc, info.absoluteResourcePath)
-                .replace(/\\/g, '/'),
     },
     resolve: {
         // This allows you to set a fallback for where Webpack should look for modules.
@@ -88,13 +84,14 @@ module.exports = {
         // https://github.com/facebookincubator/create-react-app/issues/290
         // `web` extension prefixes have been added for better support
         // for React Native Web.
-        extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
+        extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx','.scss'],
         alias: {
 
             // Support React Native Web
             // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
             'react-native': 'react-native-web',
-            'shine':paths.shine
+            'shine':paths.shine,
+            'sass':paths.sass
         },
         plugins: [
             // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -102,7 +99,7 @@ module.exports = {
             // To fix this, we prevent you from importing files out of src/ -- if you'd like to,
             // please link the files into your node_modules/ and let module-resolution kick in.
             // Make sure your source files are compiled, as they will not be processed in any way.
-            new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
+            // new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
         ],
     },
     module: {
@@ -127,7 +124,7 @@ module.exports = {
                         loader: require.resolve('eslint-loader'),
                     },
                 ],
-                include: paths.appSrc,
+                // include: [paths.appSrc,paths.lib],
             },
             {
                 // "oneOf" will traverse all following loaders until one will
@@ -147,10 +144,9 @@ module.exports = {
                     // Process JS with Babel.
                     {
                         test: /\.(js|jsx|mjs)$/,
-                        include: paths.appSrc,
+                        // include: [paths.appSrc,paths.lib],
                         loader: require.resolve('babel-loader'),
                         options: {
-
                             compact: true,
                         },
                     },
@@ -166,8 +162,9 @@ module.exports = {
                     // tags. If you use code splitting, however, any async bundles will still
                     // use the "style" loader inside the async code so CSS from them won't be
                     // in the main CSS file.
+
                     {
-                        test: /\.css$/,
+                        test: /\.(css|scss)$/,
                         loader: ExtractTextPlugin.extract(
                             Object.assign(
                                 {
@@ -185,6 +182,9 @@ module.exports = {
                                                 minimize: true,
                                                 sourceMap: shouldUseSourceMap,
                                             },
+                                        },
+                                        {
+                                            loader: require.resolve('sass-loader')
                                         },
                                         {
                                             loader: require.resolve('postcss-loader'),
