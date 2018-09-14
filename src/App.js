@@ -1,27 +1,61 @@
 import React, {Component, Fragment} from 'react';
-import {Row, Col, Button} from '../dist';
+import {Row, Col, Button, Group} from '../libs';
 
-import '../dist/index.css';
+// import '../dist/index.css';
 
 class App extends Component {
     render() {
         return (
             <Fragment>
                 <div style={{width: '300px'}}>
-                    <Button {...{
-                        color: 'danger',
-                        // gradient: {
-                        //     from: 'brand',
-                        //     to: 'danger'
-                        // },
-                        value: '删除',
-                        disabled: true,
-                        isAir: true,
-                        iconName: 'sh-icon-warning',
-                        onClick() {
-                            alert('test');
-                        }
-                    }}/>
+                    <Group {...{
+                        size:'lg'
+                    }}>
+                        <Button {...{
+                            color: 'primary',
+                            value: 'left'
+                        }}/>
+                        <Button {...{
+                            color: 'primary',
+                            value: 'middle'
+                        }}/>
+                        <Button {...{
+                            color: 'primary',
+                            value: 'right'
+                        }}/>
+                    </Group>
+                    <Group {...{
+                        size:'lg'
+                    }}>
+                        <Button {...{
+                            color: 'primary',
+                            value: 'left'
+                        }}/>
+                        <Button {...{
+                            color: 'primary',
+                            value: 'middle'
+                        }}/>
+                        <Button {...{
+                            color: 'primary',
+                            value: 'right'
+                        }}/>
+                    </Group>
+                    <Group {...{
+                        size:'sm'
+                    }}>
+                        <Button {...{
+                            color: 'primary',
+                            value: 'left'
+                        }}/>
+                        <Button {...{
+                            color: 'primary',
+                            value: 'middle'
+                        }}/>
+                        <Button {...{
+                            color: 'primary',
+                            value: 'right'
+                        }}/>
+                    </Group>
                 </div>
 
             </Fragment>

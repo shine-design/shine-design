@@ -16,4 +16,5 @@ export {default as Row} from './components/Row/Row';
 export {default as Col} from './components/Col/Col';
 export {default as Icon} from './components/Icon/Icon';
 export {default as Button}  from './components/Button/Button';
+export {default as Group} from './components/Group/Group';
 // export {default as Alert} from './components/Alert/Alert';

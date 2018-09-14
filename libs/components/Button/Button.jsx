@@ -1,6 +1,6 @@
 /**
  * @Component 按钮 - Button
- * @Type Base
+ * @Type 基础组件
  * @Author 瞿龙俊 - qulongjun@shine.design
  * @Date 2018/9/5 下午1:48
  */
