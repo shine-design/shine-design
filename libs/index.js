@@ -18,4 +18,5 @@ export {default as Icon} from './components/Icon/Icon';
 export {default as Button}  from './components/Button/Button';
 export {default as Group} from './components/Group/Group';
 export {default as Form} from './components/Form/Form';
+export {default as Input} from './components/Input/Input';
 // export {default as Alert} from './components/Alert/Alert';
