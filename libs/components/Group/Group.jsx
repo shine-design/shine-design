@@ -16,7 +16,7 @@ import _ from 'lodash';
 // 组件依赖
 
 // 样式
-import './style'
+// import './style'
 
 export default class extends Component {
     constructor(props) {

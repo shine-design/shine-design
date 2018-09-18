@@ -86,10 +86,16 @@ export default class extends Component {
                     )}>
                     {_.isString(iconName) ? (
                         <Fragment>
-                            <span>
-                                <Icon className={iconName}/>
-                                <span>{value}</span>
-                            </span>
+                            {
+                                _.isUndefined(value) ? (
+                                    <Icon className={iconName}/>
+                                ) : (
+                                    <span>
+                                        <Icon className={iconName}/>
+                                        <span>{value}</span>
+                                    </span>
+                                )
+                            }
                         </Fragment>
                     ) : value}
                 </button>

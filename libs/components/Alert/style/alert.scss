@@ -127,7 +127,7 @@
       color: get-color($skin, icon);
     }
 
-    &.sh-alert--default {
+    &.alert-default {
       background: get-color($skin, panel, '--');
       color: get-color($skin, regular);
 

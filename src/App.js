@@ -9,55 +9,23 @@ class App extends Component {
             <Fragment>
                 <div style={{width: '300px'}}>
                     <Group {...{
-                        size:'lg'
+                        size: 'lg',
+                        direction: 'ver'
                     }}>
                         <Button {...{
-                            color: 'primary',
-                            value: 'left'
+                            color: 'secondary',
+                            value: 'button'
                         }}/>
                         <Button {...{
-                            color: 'primary',
-                            value: 'middle'
+                            color: 'secondary',
+                            value: 'button'
                         }}/>
                         <Button {...{
-                            color: 'primary',
-                            value: 'right'
-                        }}/>
-                    </Group>
-                    <Group {...{
-                        size:'lg'
-                    }}>
-                        <Button {...{
-                            color: 'primary',
-                            value: 'left'
-                        }}/>
-                        <Button {...{
-                            color: 'primary',
-                            value: 'middle'
-                        }}/>
-                        <Button {...{
-                            color: 'primary',
-                            value: 'right'
-                        }}/>
-                    </Group>
-                    <Group {...{
-                        size:'sm'
-                    }}>
-                        <Button {...{
-                            color: 'primary',
-                            value: 'left'
-                        }}/>
-                        <Button {...{
-                            color: 'primary',
-                            value: 'middle'
-                        }}/>
-                        <Button {...{
-                            color: 'primary',
-                            value: 'right'
+                            color: 'secondary',
+                            value: 'button'
                         }}/>
                     </Group>
                 </div>
-
             </Fragment>
         );
     }

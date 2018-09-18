@@ -24,7 +24,7 @@ export default class extends Component {
     }
 
     static propTypes = {
-        color: _.concat(require('../../config/color').default, 'default')
+        color: PropTypes.oneOf(_.concat(require('../../config/color').default, 'default'))
     };
 
     static defaultProps = {
@@ -35,20 +35,17 @@ export default class extends Component {
         const {title, message, color} = this.props;
         return (
             <Fragment>
-                <div className={classNames('alert', {
-                    [`alert-${color}`]: _.isString(color) && color !== 'default',
-                    'sh-alert--default': !(_.isString(color)) || (_.isString(color) && color === 'default')
-                }, 'alert-dismissible', 'fade', 'show')}>
-                    <div className='sh-alert__text'>
-                        <button className="close" type="button" data-dismiss="alert" aria-label="Close"
-                                aria-hidden="true"/>
+                <div className={
+                    classNames(
+                        'alert',
+                        'sh-alert',
                         {
-                            _.isString(title) && (
-                                <Fragment>
-                                    <strong>{title}</strong>
-                                </Fragment>
-                            )
+                            [`alert-${color}`]: _.isString(color) && color !== 'default',
+                            'sh-alert--default': !(_.isString(color)) || (_.isString(color) && color === 'default')
                         }
+                    )}>
+                    <div className='sh-alert__text'>
+                        {_.isString(title) && (<strong>{title}</strong>)}
                         {message}
                     </div>
                 </div>
