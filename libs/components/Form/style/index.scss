@@ -10,10 +10,15 @@
 @import "../../../sass/config/form";
 @import "../../../sass/mixins/meida";
 @import "../../../sass/mixins/clearfix";
+@import "../../../sass/config/theme";
 
 /**
  * 依赖样式库
  */
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/forms";
 
 /**
   独立样式

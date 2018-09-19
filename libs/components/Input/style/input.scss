@@ -3,12 +3,13 @@
  * @Date 2018/9/17 下午7:37
  */
 
-@mixin m-build-component--input-base() {
+@mixin sh-build-component--input-base() {
   // base input
   .form-control  {
     font-family: #{array-get($sh--forms, input, layout, self, font-family)};
+    @include shadow(none);
 
-    &.m-input--pill {
+    &.sh-input--pill {
       @include border-radius(array-get($sh--forms, input, layout, self, size, default, pill-radius));
 
       &.form-control-lg {
@@ -26,21 +27,21 @@
       @include border-radius(array-get($sh--forms, input, layout, self, border-radius));
     }
 
-    &.m-input--square {
+    &.sh-input--square {
       @include border-radius(0);
     }
 
-    &.m-input--fixed {
+    &.sh-input--fixed {
       display: inline-block;
       width: array-get($sh--forms, input, layout, self, size, default, fixed);
     }
 
-    &.m-input--fixed-large {
+    &.sh-input--fixed-large {
       display: inline-block;
       width: array-get($sh--forms, input, layout, self, size, lg, fixed);
     }
 
-    &.m-input--fixed-small {
+    &.sh-input--fixed-small {
       display: inline-block;
       width: array-get($sh--forms, input, layout, self, size, sm, fixed);
     }
@@ -56,8 +57,8 @@
         @include icons-size( array-get($sh--forms, input, layout, icon, default, font-size) );
       }
 
-      > .m-checkbox,
-      > .m-radio {
+      > .sh-checkbox,
+      > .sh-radio {
         margin: 0;
         padding: 0;
         height: 0.9rem;
@@ -85,20 +86,20 @@
     }
 
     // fixed width input groups
-    &.m-input-group--fixed {
+    &.sh-input-group--fixed {
       width: array-get($sh--forms, input, layout, self, size, default, fixed);
     }
 
-    &.m-input-group--fixed-large {
+    &.sh-input-group--fixed-large {
       width: array-get($sh--forms, input, layout, self, size, lg, fixed);
     }
 
-    &.m-input-group--fixed-small {
+    &.sh-input-group--fixed-small {
       width: array-get($sh--forms, input, layout, self, size, sm, fixed);
     }
 
     // squre style
-    &.m-input-group--square {
+    &.sh-input-group--square {
       @include border-radius(0);
 
       > .form-control:first-child,
@@ -115,7 +116,7 @@
     }
 
     // pill style
-    &.m-input-group--pill {
+    &.sh-input-group--pill {
       @include border-radius(array-get($sh--forms, input, layout, self, size, default, pill-radius));
 
       > .form-control:first-child,
@@ -135,13 +136,13 @@
   }
 
   // input icon
-  .m-input-icon {
+  .sh-input-icon {
     position: relative;
     padding: 0;
     width: 100%;
 
     // icon input sizing
-    > .m-input-icon__icon {
+    > .sh-input-icon__icon {
       position: absolute;
       height: 100%;
       display: inline-block;
@@ -149,11 +150,11 @@
       top: 0;
       width: array-get($sh--forms, input, layout, icon, default, width);
 
-      &.m-input-icon__icon--left {
+      &.sh-input-icon__icon--left {
         left: 0;
       }
 
-      &.m-input-icon__icon--right {
+      &.sh-input-icon__icon--right {
         right: 0;
       }
 
@@ -174,14 +175,14 @@
       @include icons-size( array-get($sh--forms, input, layout, icon, default, font-size) );
     }
 
-    .form-control.form-control-lg + .m-input-icon__icon {
+    .form-control.form-control-lg + .sh-input-icon__icon {
       width: array-get($sh--forms, input, layout, icon, lg, width);
 
       // set icon sizes
       @include icons-size( array-get($sh--forms, input, layout, icon, lg, font-size) );
     }
 
-    .form-control.form-control-sm ~ .m-input-icon__icon {
+    .form-control.form-control-sm ~ .sh-input-icon__icon {
       width: array-get($sh--forms, input, layout, icon, sm, width);
 
       // set icon sizes
@@ -189,7 +190,7 @@
     }
 
     // icon input alignments
-    &.m-input-icon--left {
+    &.sh-input-icon--left {
       .form-control {
         padding-left: (array-get($sh--forms, input, layout, icon, default, width) - 0.4rem);
 
@@ -203,7 +204,7 @@
       }
     }
 
-    &.m-input-icon--right {
+    &.sh-input-icon--right {
       .form-control {
         padding-right: (array-get($sh--forms, input, layout, icon, default, width) - 0.4rem);
 
@@ -218,17 +219,17 @@
     }
 
     // fixed width icon inputs
-    &.m-input-icon--fixed {
+    &.sh-input-icon--fixed {
       display: inline-block;
       width: array-get($sh--forms, input, layout, self, size, default, fixed);
     }
 
-    &.m-input-icon--fixed-large {
+    &.sh-input-icon--fixed-large {
       display: inline-block;
       width: array-get($sh--forms, input, layout, self, size, lg, fixed);
     }
 
-    &.m-input-icon--fixed-small {
+    &.sh-input-icon--fixed-small {
       display: inline-block;
       width: array-get($sh--forms, input, layout, self, size, sm, fixed);
     }
@@ -236,7 +237,7 @@
 }
 
 //== Component Skin
-@mixin m-build-component--input-skin($config) {
+@mixin sh-build-component--input-skin($config) {
   $skin: get-default-skin();
 
   //== Base input
@@ -272,7 +273,7 @@
     }
 
     // solid input style
-    &.m-input--solid {
+    &.sh-input--solid {
       background-color: array-get($config, input, skins, $skin, solid, bg, default);
       border-color: array-get($config, input, skins, $skin, solid, border, default);
       color: array-get($config, input, skins, $skin, solid, color, default);
@@ -291,7 +292,7 @@
       }
     }
 
-    &.m-input--air {
+    &.sh-input--air {
       @include shadow( array-get($config, input, skins, $skin, air, box-shadow, default) );
 
       &:focus {
@@ -321,11 +322,11 @@
       }
     }
 
-    &.m-input-group--air {
+    &.sh-input-group--air {
       @include shadow( array-get($config, input, skins, $skin, air, box-shadow, default) );
     }
 
-    &.m-input-group--solid {
+    &.sh-input-group--solid {
       .form-control {
         border-color: array-get($config, input, skins, $skin, default, border, default);
         background-color: lighten(array-get($config, input, skins, $skin, default, border, default), 3%);
@@ -349,8 +350,8 @@
   }
 
   //== Custom icon
-  .m-input-icon {
-    .m-input-icon__icon i {
+  .sh-input-icon {
+    .sh-input-icon__icon i {
       color: get-color($skin, icon, '+++');
     }
   }
@@ -379,7 +380,7 @@
 //==== Generate Component ====//
 
 //== Component Base
-@include m-build-component--input-base();
+@include sh-build-component--input-base();
 
 //== Component Skin
-@include m-build-component--input-skin($sh--forms);
+@include sh-build-component--input-skin($sh--forms);
