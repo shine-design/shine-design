@@ -50,7 +50,10 @@ export default class extends Component {
         inputStyle: PropTypes.oneOf(['pill', 'square', 'normal']),
         isAir: PropTypes.bool,
         isSolid: PropTypes.bool,
-        size: PropTypes.oneOf(['sm', 'lg', 'normal'])
+        size: PropTypes.oneOf(['sm', 'md', 'lg']),
+        paddingSize: PropTypes.oneOf(['lg', 'md', 'sm']),
+        isFirst: PropTypes.bool,
+        isLast: PropTypes.bool
     };
 
     static defaultProps = {
@@ -59,7 +62,10 @@ export default class extends Component {
         inputStyle: 'normal',
         isAir: false,
         isSolid: false,
-        size: 'normal'
+        size: 'md',
+        paddingSize: 'lg',
+        isFirst: false,
+        isLast: false
     };
 
     render() {
@@ -79,7 +85,10 @@ export default class extends Component {
             inputStyle,
             isAir,
             isSolid,
-            size
+            size,
+            paddingSize,
+            isFirst,
+            isLast
         } = this.props;
 
         let _inputTyp = null;
@@ -105,14 +114,18 @@ export default class extends Component {
                 [`sh-input--${inputStyle}`]: !_.isEqual(inputStyle, 'normal'),
                 'sh-input--air': isAir,
                 'sh-input--solid': isSolid,
-                [`form-control-${size}`]: !_.isEqual(size, 'normal')
+                [`form-control-${size}`]: !_.isEqual(size, 'md')
             }
         );
 
         return (
             <Fragment>
                 <div className={
-                    classNames('form-group', 'sh-form__group')
+                    classNames('form-group', {
+                        [`sh-form__group${_.isEqual(paddingSize, 'lg') ? `` : `--${paddingSize}`}`]: _.isString(paddingSize),
+                        'sh-form__group--first': isFirst,
+                        'sh-form__group--last': isLast
+                    })
                 }>
                     {
                         _.isString(label) && (<label htmlFor={id}>{label}</label>)
