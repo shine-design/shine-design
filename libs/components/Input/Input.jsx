@@ -53,7 +53,10 @@ export default class extends Component {
         size: PropTypes.oneOf(['sm', 'md', 'lg']),
         paddingSize: PropTypes.oneOf(['lg', 'md', 'sm']),
         isFirst: PropTypes.bool,
-        isLast: PropTypes.bool
+        isLast: PropTypes.bool,
+        disabled: PropTypes.bool,
+        readOnly: PropTypes.bool,
+        callbacks: PropTypes.object
     };
 
     static defaultProps = {
@@ -65,7 +68,9 @@ export default class extends Component {
         size: 'md',
         paddingSize: 'lg',
         isFirst: false,
-        isLast: false
+        isLast: false,
+        disabled: false,
+        readOnly: false
     };
 
     render() {
@@ -80,7 +85,7 @@ export default class extends Component {
             options,
             multiple,
             disabled,
-            readonly,
+            readOnly,
             attributes,
             inputStyle,
             isAir,
@@ -88,7 +93,9 @@ export default class extends Component {
             size,
             paddingSize,
             isFirst,
-            isLast
+            isLast,
+            callbacks,
+            className
         } = this.props;
 
         let _inputTyp = null;
@@ -121,11 +128,17 @@ export default class extends Component {
         return (
             <Fragment>
                 <div className={
-                    classNames('form-group', {
-                        [`sh-form__group${_.isEqual(paddingSize, 'lg') ? `` : `--${paddingSize}`}`]: _.isString(paddingSize),
-                        'sh-form__group--first': isFirst,
-                        'sh-form__group--last': isLast
-                    })
+                    classNames(
+                        'form-group',
+                        {
+                            [`sh-form__group${_.isEqual(paddingSize, 'lg') ? `` : `--${paddingSize}`}`]: _.isString(paddingSize),
+                            'sh-form__group--first': isFirst,
+                            'sh-form__group--last': isLast
+                        },
+                        ...(
+                            _.isArray(className) ? className : [className]
+                        )
+                    )
                 }>
                     {
                         _.isString(label) && (<label htmlFor={id}>{label}</label>)
@@ -137,9 +150,10 @@ export default class extends Component {
                                 className={_className}
                                 name={name}
                                 disabled={disabled}
-                                aria-readonly={readonly}
+                                readOnly={readOnly}
                                 multiple={multiple}
                                 {...attributes}
+                                {...callbacks}
                             >
                                 {
                                     _.isArray(options) && options.map((item) => <option value={item.value}
@@ -156,10 +170,11 @@ export default class extends Component {
                                     className={_className}
                                     name={name}
                                     disabled={disabled}
-                                    aria-readonly={readonly}
+                                    readOnly={readOnly}
                                     placeholder={placeholder}
                                     defaultValue={defaultValue}
                                     {...attributes}
+                                    {...callbacks}
                                 />
                             </Fragment>
                         )
@@ -168,7 +183,12 @@ export default class extends Component {
                         _.isEqual(_inputTyp, 'staticType') && (
                             <Fragment>
                                 <p className={
-                                    classNames('form-control-static')
+                                    classNames(
+                                        'form-control-static',
+                                        ...(
+                                            _.isArray(className) ? className : [className]
+                                        )
+                                    )
                                 }>{defaultValue}</p>
                             </Fragment>
                         )
@@ -181,10 +201,11 @@ export default class extends Component {
                                 className={_className}
                                 name={name}
                                 disabled={disabled}
-                                aria-readonly={readonly}
+                                readOnly={readOnly}
                                 placeholder={placeholder}
                                 defaultValue={defaultValue}
                                 {...attributes}
+                                {...callbacks}
                             />
                         )
                     }
