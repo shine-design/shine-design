@@ -52,6 +52,8 @@ export default class extends Component {
         isSolid: PropTypes.bool,
         size: PropTypes.oneOf(['sm', 'md', 'lg']),
         paddingSize: PropTypes.oneOf(['lg', 'md', 'sm']),
+        display: PropTypes.oneOf(['block', 'inline']),
+        labelCount: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
         isFirst: PropTypes.bool,
         isLast: PropTypes.bool,
         disabled: PropTypes.bool,
@@ -67,6 +69,8 @@ export default class extends Component {
         isSolid: false,
         size: 'md',
         paddingSize: 'lg',
+        display: 'block',
+        labelCount: 3,
         isFirst: false,
         isLast: false,
         disabled: false,
@@ -94,6 +98,8 @@ export default class extends Component {
             paddingSize,
             isFirst,
             isLast,
+            display,
+            labelCount,
             callbacks,
             className
         } = this.props;
@@ -121,7 +127,8 @@ export default class extends Component {
                 [`sh-input--${inputStyle}`]: !_.isEqual(inputStyle, 'normal'),
                 'sh-input--air': isAir,
                 'sh-input--solid': isSolid,
-                [`form-control-${size}`]: !_.isEqual(size, 'md')
+                [`form-control-${size}`]: !_.isEqual(size, 'md'),
+                [`col-${12 - labelCount}`]: _.isEqual(display, 'inline') && _.isNumber(labelCount)
             }
         );
 
@@ -133,7 +140,8 @@ export default class extends Component {
                         {
                             [`sh-form__group${_.isEqual(paddingSize, 'lg') ? `` : `--${paddingSize}`}`]: _.isString(paddingSize),
                             'sh-form__group--first': isFirst,
-                            'sh-form__group--last': isLast
+                            'sh-form__group--last': isLast,
+                            'row': _.isEqual(display, 'inline')
                         },
                         ...(
                             _.isArray(className) ? className : [className]
@@ -141,7 +149,14 @@ export default class extends Component {
                     )
                 }>
                     {
-                        _.isString(label) && (<label htmlFor={id}>{label}</label>)
+                        _.isString(label) && (<label htmlFor={id} className={
+                            classNames(
+                                {
+                                    'col-form-label': _.isEqual(display, 'inline'),
+                                    [`col-${labelCount}`]: _.isEqual(display, 'inline') && _.isNumber(labelCount)
+                                }
+                            )
+                        }>{label}</label>)
                     }
                     {_.isEqual(_inputTyp, 'selectType') && (
                         <Fragment>
@@ -187,7 +202,10 @@ export default class extends Component {
                                         'form-control-static',
                                         ...(
                                             _.isArray(className) ? className : [className]
-                                        )
+                                        ),
+                                        {
+                                            [`col-${12 - labelCount}`]: _.isEqual(display, 'inline') && _.isNumber(labelCount)
+                                        }
                                     )
                                 }>{defaultValue}</p>
                             </Fragment>
