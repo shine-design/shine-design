@@ -9,14 +9,7 @@ class App extends Component {
             <Fragment>
                 <Row>
                     <Col part={12}>
-                        <Form>
-                            <Input {...{
-                                label:'Email address',
-                                type:'email',
-                                placeholder:'Email address',
-                                helper:'We\'ll never share your email with anyone else.'
-                            }}/>
-                        </Form>
+                        <h1>Welcome to Shine Design.</h1>
                     </Col>
                 </Row>
 
