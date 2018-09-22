@@ -1,0 +1,20 @@
+/**
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2018/8/31 下午4:21
+ */
+
+// 定义 Media Query 的最大和最小临界值。
+$sh--layout-breakpoints: (
+  // Small screen / phone
+        sm: 576px,
+  // Medim screen / tablet
+        md: 768px,
+  // Large screen / desktop
+        lg: 992px,
+  // Extra large screen / wide desktop
+        xl: 1200px,
+  // Extra large screen / wide desktop
+        xxl: 1400px,
+  // Super Extra large screen / wide desktop
+        xxxl: 1600px
+) !default;

@@ -1,0 +1,15 @@
+/**
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2018/9/5 下午7:18
+ */
+@import "../config/color";
+
+@each $name, $color in $sh--state-colors {
+  .btn-#{$name} {
+    @include button-variant(array-get($color, base), array-get($color, base));
+  }
+
+  .btn-outline-#{$name} {
+    @include button-outline-variant(array-get($color, base), array-get($color, inverse));
+  }
+}

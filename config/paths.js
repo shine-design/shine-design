@@ -49,6 +49,7 @@ module.exports = {
     appSrc: resolveApp('src'),
     lib: resolveApp('libs'),
     shine: resolveApp('libs/components'),
+    sass: resolveApp('sass'),
     libIndexjs: resolveApp('libs/index.js'),
     yarnLockFile: resolveApp('yarn.lock'),
     testsSetup: resolveApp('src/setupTests.js'),

@@ -1,0 +1,17 @@
+/**
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2018/9/4 下午6:32
+ */
+@import "../config/skin";
+
+@mixin component-skin($class, $skin) {
+  @if $sh--default-skin == $skin {
+    .#{$class} {
+      @content;
+    }
+  } @else {
+    .#{$class}.#{$class}--skin-#{$skin} {
+      @content;
+    }
+  }
+}

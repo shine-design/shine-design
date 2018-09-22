@@ -1,0 +1,20 @@
+/**
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2018/9/18 上午10:08
+ */
+
+@mixin input-placeholder($color: $input-color-placeholder) {
+  &::-moz-placeholder {
+    color: $color;
+    opacity: 1;
+  }
+  // See https://github.com/twbs/bootstrap/pull/11526
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+  // Internet Explorer 10+
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+  // Safari and Chrome
+}
