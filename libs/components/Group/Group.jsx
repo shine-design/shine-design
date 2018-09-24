@@ -20,34 +20,54 @@ import _ from 'lodash';
 
 export default class extends Component {
     constructor(props) {
-        super([props]);
+        super(props);
     }
 
     static propTypes = {
+        type: PropTypes.oneOf(['button', 'radio', 'checkbox']),
         size: PropTypes.oneOf(['lg', 'sm', 'normal']),
         direction: PropTypes.oneOf(['ver', 'hor']),
+        display: PropTypes.oneOf(['block', 'inline']),
         isPill: PropTypes.bool,
         isAir: PropTypes.bool
     };
 
     static defaultProps = {
+        type: 'button',
         size: 'normal',
         direction: 'hor',
-        isAir: false
+        display: 'block',
+        isAir: false,
+        isPill: false
     };
 
     render() {
+        const {type} = this.props;
         const {size, direction, isPill, isAir, children} = this.props;
+        const {display} = this.props;
         return (
             <Fragment>
-                <div className={classNames({
-                    [`btn-group${direction === 'ver' ? '-vertical' : ''}`]: true,
-                    [`btn-group-${size}`]: _.isString(size) && !_.isEqual(size, 'normal'),
-                    ['sh-btn-group--pill']: isPill,
-                    ['sh-btn-group--air']: isAir,
-                })}>
-                    {children}
-                </div>
+                {
+                    _.isString(type) && _.isEqual(type, 'button') && (
+                        <div className={classNames({
+                            [`btn-group${direction === 'ver' ? '-vertical' : ''}`]: true,
+                            [`btn-group-${size}`]: _.isString(size) && !_.isEqual(size, 'normal'),
+                            ['sh-btn-group--pill']: isPill,
+                            ['sh-btn-group--air']: isAir,
+                        })}>
+                            {children}
+                        </div>
+                    )
+                }
+                {
+                    _.isString(type) && (_.isEqual(type, 'radio') || _.isEqual(type, 'checkbox')) && (
+                        <div className={classNames({
+                            [`sh-radio-${display === 'block' ? 'list' : 'inline'}`]: _.isString(display),
+                        })}>
+                            {children}
+                        </div>
+                    )
+                }
             </Fragment>
         );
     }

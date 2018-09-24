@@ -16,12 +16,11 @@ import _ from 'lodash';
 // 组件依赖
 
 // 样式
-import './style';
 import uuidv4 from "uuid/v4";
 
 export default class extends Component {
     constructor(props) {
-        super([props]);
+        super(props);
     }
 
     static propTypes = {
@@ -33,11 +32,28 @@ export default class extends Component {
             PropTypes.string,
             PropTypes.number
         ]),
+        text: PropTypes.node,
         disabled: PropTypes.bool,
-        checked: PropTypes.bool
+        checked: PropTypes.bool,
+        defaultValue: PropTypes.oneOfType([
+            PropTypes.number,
+            PropTypes.string
+        ]),
+        color: PropTypes.oneOf(_.concat(require('../../config/color').default, 'default')),
+        checkedColor: PropTypes.oneOf(_.concat(require('../../config/color').default, 'default')),
+        isSolid: PropTypes.bool,
+        isBold: PropTypes.bool,
+        isCheckedBold: PropTypes.isCheckedBold
     };
 
-    static defaultProps = {};
+    static defaultProps = {
+        id: 'sh-' + uuidv4(),
+        disabled: false,
+        checked: false,
+        isSolid: false,
+        isBold: false,
+        isCheckedBold: false
+    };
 
     render() {
         const {
@@ -47,10 +63,14 @@ export default class extends Component {
             defaultValue,
             disabled,
             checked,
-            stateColor,
-            radioColor,
-            inputStyle,
-            isSolid
+            color,
+            checkedColor,
+            isSolid,
+            isBold,
+            isCheckedBold,
+            attributes,
+            callbacks,
+            className
         } = this.props;
 
         return (
@@ -59,8 +79,16 @@ export default class extends Component {
                     classNames(
                         'sh-radio',
                         {
-                            'sh-checkbox--disabled': disabled
-                        }
+                            'sh-checkbox--disabled': disabled,
+                            [`sh-radio--${checkedColor}`]: _.isString(checkedColor),
+                            [`'sh-radio--state-${color}`]: _.isString(color),
+                            'sh-radio--solid': isSolid,
+                            'sh-radio--bold': isBold,
+                            'sh-radio--check-bold': isCheckedBold
+                        },
+                        ...(
+                            _.isArray(className) ? className : [className]
+                        )
                     )
                 }>
                     <input
@@ -70,6 +98,8 @@ export default class extends Component {
                         defaultValue={defaultValue}
                         disabled={disabled}
                         checked={checked}
+                        {...attributes}
+                        {...callbacks}
                     />
                     {text}
                     <span/>

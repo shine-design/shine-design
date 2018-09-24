@@ -1,0 +1,467 @@
+/**
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2018/9/24 上午11:15
+ */
+@import "../../../sass/config/form";
+//== Component Base
+@mixin sh-build-component--checkbox-radio-base($config) {
+  $transition:            array-get($config, layout, self, transition);
+  $size:                  array-get($config, layout, self, size);
+  $radio-tick-size:       6px;
+
+  // Basic control styles
+  .sh-radio,
+  .sh-checkbox {
+    display: inline-block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: get-font-size(regular);
+    @include transition($transition);
+
+    &.sh-radio--disabled,
+    &.sh-checkbox--disabled {
+      @include opacity(0.8);
+      cursor: not-allowed;
+    }
+
+    // Hide default browser input
+    > input {
+      position: absolute;
+      z-index: -1;
+      @include opacity(0);
+    }
+
+    > span {
+      @include rounded {
+        @include border-radius(3px);
+      }
+      background: none;
+      position: absolute;
+      top: 1px;
+      left: 0;
+      height: $size;
+      width: $size;
+
+      &:after {
+        content:'';
+        position: absolute;
+        display: none; // Hide check
+      }
+    }
+
+    &:hover > input:not([disabled]) ~ span,
+    > input:focus ~ span {
+    }
+
+    > input:checked ~ span {
+      @include transition($transition);
+      background: none;
+      &:after {
+        display: block;
+      }
+    }
+
+    &:hover > input:not([disabled]):checked ~ span,
+    > input:checked ~ span {
+      @include transition($transition);
+
+    }
+
+    > input:disabled ~ span {
+      @include opacity(0.6);
+      pointer-events: none;
+    }
+
+    &.sh-radio--solid,
+    &.sh-checkbox--solid {
+      > span {
+        border: 1px solid transparent;
+      }
+
+      &:hover > input:not([disabled]) ~ span,
+      > input:focus ~ span {
+        @include transition($transition);
+      }
+    }
+
+    &.sh-radio--square,
+    &.sh-checkbox--square {
+      > span {
+        @include border-radius(0);
+      }
+    }
+
+    //> input:focus ~ span,
+    &.sh-checkbox--bold > span,
+    &.sh-radio--bold > span {
+      border-width: 2px !important;
+      @include transition($transition);
+    }
+  }
+
+  .sh-radio {
+    > span {
+      @include border-radius(50%, '!important'); // Makes radio buttons circlular
+
+      &:after {
+        top: 50%;
+        left: 50%;
+        margin-left: -($radio-tick-size / 2);
+        margin-top: -($radio-tick-size / 2);
+        height: $radio-tick-size;
+        width: $radio-tick-size;
+        border-radius: 100% !important;
+      }
+    }
+
+    &.sh-radio--single {
+      width: $size;
+      height: $size;
+
+      > span {
+        top: 0px;
+      }
+
+      th > &,
+      td > & {
+        right: -5px;
+      }
+    }
+  }
+
+  .sh-checkbox {
+    > span {
+      &:after {
+        top: 50%;
+        left: 50%;
+        margin-left: -2px;
+        margin-top: -6px;
+        width: 5px;
+        height: 10px;
+        border-width: 0 2px 2px 0#{'/*rtl:ignore*/'} !important;
+        transform: rotate(45deg)#{'/*rtl:ignore*/'};
+      }
+    }
+
+    .form-inline & {
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+
+    &.sh-checkbox--single {
+      width: $size;
+      height: $size;
+
+      > span {
+        top: 0px;
+      }
+
+      th > &,
+      td > & {
+        right: -5px;
+      }
+    }
+  }
+
+  .sh-checkbox-list,
+  .sh-radio-list {
+    padding: 0 0;
+
+    .form-horizontal .form-group & {
+      padding-top: 0;
+    }
+
+    .sh-checkbox,
+    .sh-radio {
+      display: block;
+
+      &:last-child {
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  .sh-checkbox-inline,
+  .sh-radio-inline {
+    padding: 0 0;
+
+    .sh-checkbox,
+    .sh-radio {
+      display: inline-block;
+      margin-right: 15px;
+      margin-bottom: 5px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .sh-form__group.row {
+    .sh-checkbox-inline,
+    .sh-radio-inline {
+      margin-top: 5px;
+    }
+
+    .sh-checkbox-list,
+    .sh-radio-list {
+      margin-top: 2px;
+    }
+  }
+}
+
+//== Component Skin
+@mixin sh-build-component--checkbox-radio-theme(
+  $type,
+  $outline-border-color,
+  $outline-border-checked-color,
+  $outline-tick-color,
+  $solid-bg-color,
+  $solid-bg-checked-color,
+  $solid-tick-color) {
+
+  &.sh-#{$type}--disabled {
+    @include opacity(0.8);
+  }
+
+  //== Outline style
+  > span {
+    border: 1px solid $outline-border-color;
+
+    &:after {
+      border: solid $outline-tick-color;
+
+      @if $type == radio {
+        background: $outline-tick-color;
+      }
+    }
+  }
+
+  > input:disabled ~ span {
+    &:after {
+      border-color: $outline-border-checked-color;
+    }
+  }
+
+  > input:checked ~ span {
+    border: 1px solid $outline-border-checked-color;
+  }
+
+  &.sh-#{$type}--check-bold > input:checked ~ span {
+    border: 2px solid $outline-border-checked-color;
+  }
+
+  > input:disabled ~ span {
+    @include opacity(0.6);
+  }
+
+  //== Solid style
+  &.sh-#{$type}--solid {
+    > span {
+      background: $solid-bg-color;
+      border: 1px solid transparent !important;
+
+      &:after {
+        border: solid $solid-tick-color;
+
+        @if $type == radio {
+          background: $solid-tick-color;
+        }
+      }
+    }
+
+    /*
+    &:hover > input:not([disabled]) ~ span {
+        background: $color-solid-bg-hover;
+    }
+    */
+
+    > input:focus ~ span {
+      //background: $solid-bg-checked-color;
+      border: 1px solid transparent !important;
+    }
+
+    //&:hover > input:not([disabled]):checked ~ span,
+    > input:checked ~ span {
+      background: $solid-bg-checked-color;
+    }
+  }
+}
+
+@mixin sh-build-component--checkbox-radio-skin($config, $skin) {
+  // checkbox skin
+  @include component-skin(sh-checkbox, $skin) {
+    // set label font color
+    color: get-color($skin, regular);
+
+    // base checkbox skin
+    @include sh-build-component--checkbox-radio-theme(
+                    checkbox,
+                    array-get($config, skins, $skin, outline, border, default),
+                    array-get($config, skins, $skin, outline, border, checked),
+                    array-get($config, skins, $skin, outline, tick),
+                    array-get($config, skins, $skin, solid, bg, default),
+                    array-get($config, skins, $skin, solid, bg, checked),
+                    array-get($config, skins, $skin, solid, tick)
+    );
+
+    // state colors
+    @each $name, $color in $sh--state-colors {
+      // default state
+      &.sh-checkbox--#{$name} {
+        @include sh-build-component--checkbox-radio-theme(
+                        checkbox,
+                        array-get($config, skins, $skin, outline, border, default),
+                        array-get($color, base),
+                        array-get($color, base),
+                        array-get($config, skins, $skin, solid, border, default),
+                        array-get($color, base),
+                        array-get($color, inverse)
+        );
+      }
+    }
+
+    // air option
+    &.sh-checkbox--air {
+      > span {
+        @include shadow( array-get($config, skins, $skin, air, box-shadow, default) );
+      }
+
+      &.sh-checkbox--solid {
+        > span {
+          @include shadow( array-get($config, skins, $skin, air, box-shadow, hover) );
+        }
+      }
+    }
+  }
+
+  // radio skin
+  @include component-skin(sh-radio, $skin) {
+    // set label font color
+    color: get-color($skin, regular);
+
+    // base radio skin
+    @include sh-build-component--checkbox-radio-theme(
+                    radio,
+                    array-get($config, skins, $skin, outline, border, default),
+                    array-get($config, skins, $skin, outline, border, checked),
+                    array-get($config, skins, $skin, outline, tick),
+                    array-get($config, skins, $skin, solid, bg, default),
+                    array-get($config, skins, $skin, solid, bg, checked),
+                    array-get($config, skins, $skin, solid, tick)
+    );
+
+    // state colors
+    @each $name, $color in $sh--state-colors {
+      // default state
+      &.sh-radio--#{$name} {
+        @include sh-build-component--checkbox-radio-theme(
+                        radio,
+                        array-get($config, skins, $skin, outline, border, default),
+                        array-get($color, base),
+                        array-get($color, base),
+                        array-get($config, skins, $skin, solid, border, default),
+                        array-get($color, base),
+                        array-get($color, inverse)
+        );
+      }
+    }
+
+    // air option
+    &.sh-radio--air {
+      > span {
+        @include shadow( array-get($config, skins, $skin, air, box-shadow, default) );
+      }
+
+      &.sh-radio--solid {
+        > span {
+          @include shadow( array-get($config, skins, $skin, air, box-shadow, hover) );
+        }
+      }
+    }
+  }
+}
+
+//== Component Skin
+@mixin sh-build-component--checkbox-radio-states($config) {
+  // state colors
+  @each $name, $color in $sh--state-colors {
+    // default state
+    .sh-checkbox.sh-checkbox--state-#{$name} {
+      @include sh-build-component--checkbox-radio-theme(
+                      checkbox,
+                      array-get($color, base),
+                      array-get($color, base),
+                      array-get($color, base),
+                      array-get($color, base),
+                      array-get($color, base),
+                      array-get($color, inverse)
+      );
+    }
+
+    .sh-radio.sh-radio--state-#{$name} {
+      @include sh-build-component--checkbox-radio-theme(
+                      radio,
+                      array-get($color, base),
+                      array-get($color, base),
+                      array-get($color, base),
+                      array-get($color, base),
+                      array-get($color, base),
+                      array-get($color, inverse)
+      );
+    }
+  }
+
+  // air option
+  .sh--skin-light {
+    .sh-checkbox.sh-checkbox--air,
+    .sh-radio.sh-radio--air {
+      // set label font color
+      color: get-color(light, regular);
+
+      > span {
+        @include shadow(array-get($config, skins, light, outline, shadow));
+      }
+
+      .sh-radio--solid {
+        > span {
+          @include shadow(array-get($config, skins, light, solid, shadow));
+        }
+      }
+    }
+  }
+
+  .sh--skin-dark {
+    .sh-checkbox.sh-checkbox--air,
+    .sh-radio.sh-radio--air {
+      // set label font color
+      color: get-color(dark, regular);
+
+      > span {
+        @include shadow(array-get($config, skins, dark, outline, shadow));
+      }
+
+      .sh-radio--solid {
+        > span {
+          @include shadow(array-get($config, skins, dark, solid, shadow));
+        }
+      }
+    }
+  }
+}
+
+//==== Generate Component ====//
+
+//== Component Base
+@include sh-build-component--checkbox-radio-base( array-get($sh--forms, checkbox-radio) );
+
+//== Component Skin - Light
+@include sh-build-component--checkbox-radio-skin( array-get($sh--forms, checkbox-radio), light);
+
+//== Component Skin - Dark
+@include sh-build-component--checkbox-radio-skin( array-get($sh--forms, checkbox-radio), dark);
+
+//== Component States
+@include sh-build-component--checkbox-radio-states( array-get($sh--forms, checkbox-radio));

@@ -14,7 +14,8 @@ import classNames from 'classnames'
 import _ from 'lodash';
 import uuidv4 from 'uuid/v4';
 // 组件依赖
-
+import Radio from '../Radio/Radio';
+import Group from '../Group/Group';
 // 样式
 import './style';
 
@@ -62,6 +63,7 @@ export default class extends Component {
     };
 
     static defaultProps = {
+        id: 'sh-' + uuidv4(),
         multiple: false,
         options: [],
         inputStyle: 'normal',
@@ -80,14 +82,12 @@ export default class extends Component {
     render() {
         const {
             label,
-            id = 'sh-' + uuidv4(),
+            id,
             type,
             placeholder,
             helper,
             defaultValue,
             name,
-            options,
-            multiple,
             disabled,
             readOnly,
             attributes,
@@ -104,6 +104,21 @@ export default class extends Component {
             className
         } = this.props;
 
+        // Select
+        const {
+            options,
+            multiple,
+        } = this.props;
+
+        // Radio
+        const {
+            radioList
+        } = this.props;
+
+        const {
+            checkboxList
+        } = this.props;
+
         let _inputTyp = null;
 
         switch (type) {
@@ -115,6 +130,9 @@ export default class extends Component {
                 break;
             case 'static':
                 _inputTyp = 'staticType';
+                break;
+            case 'radio':
+                _inputTyp = 'radioType';
                 break;
             default:
                 _inputTyp = 'inputType'
@@ -208,6 +226,25 @@ export default class extends Component {
                                         }
                                     )
                                 }>{defaultValue}</p>
+                            </Fragment>
+                        )
+                    }
+                    {
+                        _.isEqual(_inputTyp, 'radioType') && (
+                            <Fragment>
+                                <Group
+                                    type='radio'
+                                >
+                                    {
+                                        _.isArray(radioList) && radioList.map((item, index) =>
+                                            <Radio
+                                                key={index}
+                                                {...item}
+                                                name={name}
+                                            />
+                                        )
+                                    }
+                                </Group>
                             </Fragment>
                         )
                     }
