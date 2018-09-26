@@ -12,11 +12,12 @@ import * as PropTypes from 'prop-types';
 // 第三方依赖库
 import classNames from 'classnames'
 import _ from 'lodash';
+import uuidv4 from "uuid/v4";
 
 // 组件依赖
 
 // 样式
-import uuidv4 from "uuid/v4";
+
 
 export default class extends Component {
     constructor(props) {

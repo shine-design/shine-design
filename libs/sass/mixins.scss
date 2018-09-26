@@ -177,10 +177,7 @@
 }
 
 //== Opacity
-@mixin opacity($value, $important: '') {
-  opacity: $value #{$important};
-  filter: alpha(opacity=#{$value * 100}) #{$important};
-}
+
 
 //== Set Placeholder Text Color
 @mixin input-placeholder($color: $input-color-placeholder) {
@@ -296,13 +293,7 @@
 }
 
 //== Transition
-@mixin transition($transition) {
-  -webkit-transition: #{$transition};
-  -moz-transition: #{$transition};
-  -ms-transition: #{$transition};
-  -o-transition: #{$transition};
-  transition: #{$transition};
-}
+
 
 //== Keyframes
 @mixin keyframes($animationName) {

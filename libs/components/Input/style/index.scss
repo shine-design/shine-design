@@ -13,6 +13,9 @@
 @import "../../../sass/mixins/icon";
 @import "../../../sass/mixins/input";
 @import "../../../sass/mixins/shadow";
+@import "../../../sass/mixins/transition";
+@import "../../../sass/mixins/opacity";
+@import "../../../sass/mixins/skin";
 
 /**
  * 依赖样式库
@@ -22,3 +25,4 @@
   独立样式
  */
 @import "./input";
+@import "./radio";

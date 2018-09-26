@@ -119,23 +119,23 @@ export default class extends Component {
             checkboxList
         } = this.props;
 
-        let _inputTyp = null;
+        let _inputType = null;
 
         switch (type) {
             case 'select':
-                _inputTyp = 'selectType';
+                _inputType = 'selectType';
                 break;
             case 'textarea':
-                _inputTyp = 'textareaType';
+                _inputType = 'textareaType';
                 break;
             case 'static':
-                _inputTyp = 'staticType';
+                _inputType = 'staticType';
                 break;
             case 'radio':
-                _inputTyp = 'radioType';
+                _inputType = 'radioType';
                 break;
             default:
-                _inputTyp = 'inputType'
+                _inputType = 'inputType'
         }
 
         const _className = classNames(
@@ -176,7 +176,7 @@ export default class extends Component {
                             )
                         }>{label}</label>)
                     }
-                    {_.isEqual(_inputTyp, 'selectType') && (
+                    {_.isEqual(_inputType, 'selectType') && (
                         <Fragment>
                             <select
                                 id={id}
@@ -196,7 +196,7 @@ export default class extends Component {
                         </Fragment>
                     )}
                     {
-                        _.isEqual(_inputTyp, 'textareaType') && (
+                        _.isEqual(_inputType, 'textareaType') && (
                             <Fragment>
                                 <textarea
                                     id={id}
@@ -213,7 +213,7 @@ export default class extends Component {
                         )
                     }
                     {
-                        _.isEqual(_inputTyp, 'staticType') && (
+                        _.isEqual(_inputType, 'staticType') && (
                             <Fragment>
                                 <p className={
                                     classNames(
@@ -230,7 +230,7 @@ export default class extends Component {
                         )
                     }
                     {
-                        _.isEqual(_inputTyp, 'radioType') && (
+                        _.isEqual(_inputType, 'radioType') && (
                             <Fragment>
                                 <Group
                                     type='radio'
@@ -249,7 +249,7 @@ export default class extends Component {
                         )
                     }
                     {
-                        _.isEqual(_inputTyp, 'inputType') && (
+                        _.isEqual(_inputType, 'inputType') && (
                             <input
                                 id={id}
                                 type={type}

@@ -1,0 +1,12 @@
+/**
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2018/9/26 下午8:05
+ */
+
+@mixin transition($transition) {
+  -webkit-transition: #{$transition};
+  -moz-transition: #{$transition};
+  -ms-transition: #{$transition};
+  -o-transition: #{$transition};
+  transition: #{$transition};
+}
