@@ -59,12 +59,11 @@ export default class extends Component {
         isFirst: PropTypes.bool,
         isLast: PropTypes.bool,
         isDisabled: PropTypes.bool,
-        readOnly: PropTypes.bool,
+        isReadOnly: PropTypes.bool,
         callbacks: PropTypes.object
     };
 
     static defaultProps = {
-        id: 'sh-' + uuidv4(),
         multiple: false,
         options: [],
         inputStyle: 'normal',
@@ -75,10 +74,11 @@ export default class extends Component {
         display: 'block',
         itemDisplay: 'block',
         labelCount: 3,
+        attributes: {},
         isFirst: false,
         isLast: false,
         isDisabled: false,
-        readOnly: false
+        isReadOnly: false
     };
 
     render() {
@@ -86,16 +86,16 @@ export default class extends Component {
         // 基础输入 & 通用
         const {
             label,
-            id, // Radio 与 Checkbox无效
+            id = 'sh-' + uuidv4(), // Radio 与 Checkbox无效
             type,
             placeholder,
             helper,
             name,
             defaultValue,
-            isDisabled,
-            readOnly,
+            isReadOnly,
             attributes,
             inputStyle,
+            isDisabled,
             isAir,
             isSolid,
             size,
@@ -142,6 +142,9 @@ export default class extends Component {
                 _inputType = 'inputType'
         }
 
+        // Fix Password Input notification
+        _.isEqual(type, 'password') && _.isUndefined(attributes['autoComplete']) && (attributes['autoComplete'] = 'current-password');
+
         const _className = classNames(
             'form-control',
             'sh-input',
@@ -187,14 +190,20 @@ export default class extends Component {
                                 className={_className}
                                 name={name}
                                 disabled={isDisabled}
-                                readOnly={readOnly}
+                                readOnly={isReadOnly}
                                 multiple={multiple}
                                 {...attributes}
                                 {...callbacks}
                             >
                                 {
                                     _.isArray(options) && options.map((item) => <option value={item.value}
-                                                                                        defaultChecked={item.isChecked}>{item.label}</option>)
+                                                                                        defaultChecked={item.isChecked}
+                                                                                        {...item.callbacks}
+                                                                                        className={classNames(
+                                                                                            ...(
+                                                                                                _.isArray(item.className) ? item.className : [item.className]
+                                                                                            )
+                                                                                        )}>{item.label}</option>)
                                 }
                             </select>
                         </Fragment>
@@ -207,7 +216,7 @@ export default class extends Component {
                                     className={_className}
                                     name={name}
                                     disabled={isDisabled}
-                                    readOnly={readOnly}
+                                    readOnly={isReadOnly}
                                     placeholder={placeholder}
                                     defaultValue={defaultValue}
                                     {...attributes}
@@ -283,7 +292,7 @@ export default class extends Component {
                                 className={_className}
                                 name={name}
                                 disabled={isDisabled}
-                                readOnly={readOnly}
+                                readOnly={isReadOnly}
                                 placeholder={placeholder}
                                 defaultValue={defaultValue}
                                 {...attributes}
