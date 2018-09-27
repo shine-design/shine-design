@@ -1,8 +1,8 @@
 /**
- * @Component 单选组件 - Radio
- * @Type 表单
+ * @Component 选框 - _Checks
+ * @Type 内部组件
  * @Author 瞿龙俊 - qulongjun@shine.design
- * @Date 2018/9/20 下午7:34
+ * @Date 2018/9/27 下午2:59
  */
 
 // 核心依赖
@@ -25,6 +25,7 @@ export default class extends Component {
     }
 
     static propTypes = {
+        type: PropTypes.oneOf(['radio', 'checkbox']),
         id: PropTypes.oneOfType([
             PropTypes.string,
             PropTypes.number
@@ -34,23 +35,26 @@ export default class extends Component {
             PropTypes.number
         ]),
         text: PropTypes.node,
-        disabled: PropTypes.bool,
-        checked: PropTypes.bool,
+        isDisabled: PropTypes.bool,
+        isDefaultChecked: PropTypes.bool,
         defaultValue: PropTypes.oneOfType([
             PropTypes.number,
             PropTypes.string
         ]),
-        color: PropTypes.oneOf(_.concat(require('../../config/color').default, 'default')),
-        checkedColor: PropTypes.oneOf(_.concat(require('../../config/color').default, 'default')),
+        color: PropTypes.oneOf(_.concat(require('../../../config/color').default, 'default')),
+        checkedColor: PropTypes.oneOf(_.concat(require('../../../config/color').default, 'default')),
         isSolid: PropTypes.bool,
         isBold: PropTypes.bool,
         isCheckedBold: PropTypes.isCheckedBold
     };
 
     static defaultProps = {
+        type: 'radio',
         id: 'sh-' + uuidv4(),
-        disabled: false,
-        checked: false,
+        color: 'default',
+        checkedColor: 'default',
+        isDisabled: false,
+        isDefaultChecked: false,
         isSolid: false,
         isBold: false,
         isCheckedBold: false
@@ -58,12 +62,13 @@ export default class extends Component {
 
     render() {
         const {
+            type,
             id = 'sh-' + uuidv4(),
             name,
             text,
             defaultValue,
-            disabled,
-            checked,
+            isDisabled,
+            isDefaultChecked,
             color,
             checkedColor,
             isSolid,
@@ -78,14 +83,14 @@ export default class extends Component {
             <Fragment>
                 <label className={
                     classNames(
-                        'sh-radio',
+                        `sh-${type}`,
                         {
-                            'sh-checkbox--disabled': disabled,
-                            [`sh-radio--${checkedColor}`]: _.isString(checkedColor),
-                            [`'sh-radio--state-${color}`]: _.isString(color),
-                            'sh-radio--solid': isSolid,
-                            'sh-radio--bold': isBold,
-                            'sh-radio--check-bold': isCheckedBold
+                            [`sh-${type}--disabled`]: isDisabled,
+                            [`sh-${type}--${checkedColor}`]: _.isString(checkedColor) && !_.isEqual(checkedColor, 'default'),
+                            [`sh-${type}--state-${color}`]: _.isString(color) && !_.isEqual(color, 'default'),
+                            [`sh-${type}--solid`]: isSolid,
+                            [`sh-${type}--bold`]: isBold,
+                            [`sh-${type}--check-bold`]: isCheckedBold
                         },
                         ...(
                             _.isArray(className) ? className : [className]
@@ -94,11 +99,11 @@ export default class extends Component {
                 }>
                     <input
                         id={id}
-                        type='radio'
+                        type={type}
                         name={name}
                         defaultValue={defaultValue}
-                        disabled={disabled}
-                        checked={checked}
+                        disabled={isDisabled}
+                        defaultChecked={isDefaultChecked}
                         {...attributes}
                         {...callbacks}
                     />

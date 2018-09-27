@@ -27,7 +27,7 @@ export default class extends Component {
         type: PropTypes.oneOf(['button', 'radio', 'checkbox']),
         size: PropTypes.oneOf(['lg', 'sm', 'normal']),
         direction: PropTypes.oneOf(['ver', 'hor']),
-        display: PropTypes.oneOf(['block', 'inline']),
+        radioDisplay: PropTypes.oneOf(['block', 'inline']),
         isPill: PropTypes.bool,
         isAir: PropTypes.bool
     };
@@ -36,7 +36,7 @@ export default class extends Component {
         type: 'button',
         size: 'normal',
         direction: 'hor',
-        display: 'block',
+        radioDisplay: 'block',
         isAir: false,
         isPill: false
     };
@@ -44,7 +44,7 @@ export default class extends Component {
     render() {
         const {type} = this.props;
         const {size, direction, isPill, isAir, children} = this.props;
-        const {display} = this.props;
+        const {itemDisplay} = this.props;
         return (
             <Fragment>
                 {
@@ -62,7 +62,7 @@ export default class extends Component {
                 {
                     _.isString(type) && (_.isEqual(type, 'radio') || _.isEqual(type, 'checkbox')) && (
                         <div className={classNames({
-                            [`sh-radio-${display === 'block' ? 'list' : 'inline'}`]: _.isString(display),
+                            [`sh-${type}-${itemDisplay === 'block' ? 'list' : 'inline'}`]: _.isString(itemDisplay),
                         })}>
                             {children}
                         </div>

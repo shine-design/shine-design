@@ -14,7 +14,7 @@ import classNames from 'classnames'
 import _ from 'lodash';
 import uuidv4 from 'uuid/v4';
 // 组件依赖
-import Radio from '../Radio/Radio';
+import _Checks from '../_Internal/_Checks/_Checks';
 import Group from '../Group/Group';
 // 样式
 import './style';
@@ -54,10 +54,11 @@ export default class extends Component {
         size: PropTypes.oneOf(['sm', 'md', 'lg']),
         paddingSize: PropTypes.oneOf(['lg', 'md', 'sm']),
         display: PropTypes.oneOf(['block', 'inline']),
+        itemDisplay: PropTypes.oneOf(['block', 'inline']),
         labelCount: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
         isFirst: PropTypes.bool,
         isLast: PropTypes.bool,
-        disabled: PropTypes.bool,
+        isDisabled: PropTypes.bool,
         readOnly: PropTypes.bool,
         callbacks: PropTypes.object
     };
@@ -72,23 +73,26 @@ export default class extends Component {
         size: 'md',
         paddingSize: 'lg',
         display: 'block',
+        itemDisplay: 'block',
         labelCount: 3,
         isFirst: false,
         isLast: false,
-        disabled: false,
+        isDisabled: false,
         readOnly: false
     };
 
     render() {
+
+        // 基础输入 & 通用
         const {
             label,
-            id,
+            id, // Radio 与 Checkbox无效
             type,
             placeholder,
             helper,
-            defaultValue,
             name,
-            disabled,
+            defaultValue,
+            isDisabled,
             readOnly,
             attributes,
             inputStyle,
@@ -104,19 +108,16 @@ export default class extends Component {
             className
         } = this.props;
 
-        // Select
+        // 基础选择
         const {
             options,
             multiple,
         } = this.props;
 
-        // Radio
+        // 单复选框
         const {
-            radioList
-        } = this.props;
-
-        const {
-            checkboxList
+            itemList,
+            itemDisplay
         } = this.props;
 
         let _inputType = null;
@@ -133,6 +134,9 @@ export default class extends Component {
                 break;
             case 'radio':
                 _inputType = 'radioType';
+                break;
+            case 'checkbox':
+                _inputType = 'checkboxType';
                 break;
             default:
                 _inputType = 'inputType'
@@ -182,7 +186,7 @@ export default class extends Component {
                                 id={id}
                                 className={_className}
                                 name={name}
-                                disabled={disabled}
+                                disabled={isDisabled}
                                 readOnly={readOnly}
                                 multiple={multiple}
                                 {...attributes}
@@ -202,7 +206,7 @@ export default class extends Component {
                                     id={id}
                                     className={_className}
                                     name={name}
-                                    disabled={disabled}
+                                    disabled={isDisabled}
                                     readOnly={readOnly}
                                     placeholder={placeholder}
                                     defaultValue={defaultValue}
@@ -233,14 +237,37 @@ export default class extends Component {
                         _.isEqual(_inputType, 'radioType') && (
                             <Fragment>
                                 <Group
-                                    type='radio'
+                                    type={type}
+                                    itemDisplay={itemDisplay}
                                 >
                                     {
-                                        _.isArray(radioList) && radioList.map((item, index) =>
-                                            <Radio
+                                        _.isArray(itemList) && itemList.map((item, index) =>
+                                            <_Checks
                                                 key={index}
                                                 {...item}
                                                 name={name}
+                                                type={type}
+                                            />
+                                        )
+                                    }
+                                </Group>
+                            </Fragment>
+                        )
+                    }
+                    {
+                        _.isEqual(_inputType, 'checkboxType') && (
+                            <Fragment>
+                                <Group
+                                    type={type}
+                                    itemDisplay={itemDisplay}
+                                >
+                                    {
+                                        _.isArray(itemList) && itemList.map((item, index) =>
+                                            <_Checks
+                                                key={index}
+                                                {...item}
+                                                name={name}
+                                                type={type}
                                             />
                                         )
                                     }
@@ -255,7 +282,7 @@ export default class extends Component {
                                 type={type}
                                 className={_className}
                                 name={name}
-                                disabled={disabled}
+                                disabled={isDisabled}
                                 readOnly={readOnly}
                                 placeholder={placeholder}
                                 defaultValue={defaultValue}

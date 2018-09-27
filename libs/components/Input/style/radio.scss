@@ -186,6 +186,7 @@
   .sh-checkbox-inline,
   .sh-radio-inline {
     padding: 0 0;
+    margin-right: 15px;
 
     .sh-checkbox,
     .sh-radio {
@@ -207,7 +208,8 @@
 
     .sh-checkbox-list,
     .sh-radio-list {
-      margin-top: 2px;
+      margin-top: .65rem;
+      margin-right: 15px;
     }
   }
 }
