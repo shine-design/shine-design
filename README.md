@@ -23,7 +23,7 @@
 
 ## 快速构建
 
-推荐使用快速构建工具  `Shined-CLI`  搭建项目，只需依次执行：
+推荐使用快速构建工具  `Shined CLI`  搭建项目，只需依次执行：
  ![](./_assets/build-tools.png)
 > 构建工具具体用法清参考[构建工具说明](https://shine.design/cli)。
 
@@ -32,7 +32,7 @@
 Shine Design 入门比你想象的更简单, **你只需做如下事情**:
 ![](./_assets/demo_code.png)
 
->  我们提供了丰富的组件供开发者使用，可以访问[官方示例](https://shine.design/tutorial)查看组件文档。
+>  我们提供了丰富的组件供开发者使用，可以查看[组件文档](https://shine.design/tutorial)。
 
 ## 调试与部署
 
@@ -65,7 +65,7 @@ Shine Design 入门比你想象的更简单, **你只需做如下事情**:
 ## 参与项目
 我们很期待您能参与进来一起开发 :)，但我们希望您能遵守相关约定：
 * 我们有一份[行为准则](./CODE_OF_CONDUCT.md)，希望所有的贡献者都能遵守，请花时间阅读一遍全文以确保您能明白哪些是可以做的，哪些是不可以做的。
-* 基于我们的发布周期，我们每周都会从 `master` 分支切一个 `release` 分支出来，命名规则一般为 `release-版本号` ，例如 `feature-1.0.0` 即将要发布的 `1.0.0` 版本。如果您进行了一个Bug修复，请直接 Pull Request 到当前的 `feature` 分支，如果进行的是新功能开发，请 Pull Request 到 `master` 分支。
+* 基于我们的发布周期，我们每周都会从 `master` 分支切一个 `release` 分支出来，命名规则一般为 `release-版本号` ，例如 `release-1.0.0` 即将要发布的 `1.0.0` 版本。如果您进行了一个Bug修复，请直接 Pull Request 到当前的 `release` 分支，如果进行的是新功能开发，请 Pull Request 到 `master` 分支。
 * 如果您有较好的创意，我们也欢迎您通过[Issue](https://github.com/qulongjun/Shine-Design/issues) 直接告诉我们。
 
 ## 联系我们
