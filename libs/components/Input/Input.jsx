@@ -16,6 +16,7 @@ import uuidv4 from 'uuid/v4';
 // 组件依赖
 import _Checks from '../_Internal/_Checks/_Checks';
 import Group from '../Group/Group';
+import Button from '../Button/Button';
 // 样式
 import './style';
 
@@ -56,15 +57,16 @@ export default class extends Component {
         display: PropTypes.oneOf(['block', 'inline']),
         itemDisplay: PropTypes.oneOf(['block', 'inline']),
         labelCount: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
+        itemList: PropTypes.array,
         isFirst: PropTypes.bool,
         isLast: PropTypes.bool,
         isDisabled: PropTypes.bool,
-        readOnly: PropTypes.bool,
-        callbacks: PropTypes.object
+        isReadOnly: PropTypes.bool,
+        callbacks: PropTypes.object,
+        _isGroup: PropTypes.bool
     };
 
     static defaultProps = {
-        id: 'sh-' + uuidv4(),
         multiple: false,
         options: [],
         inputStyle: 'normal',
@@ -75,10 +77,13 @@ export default class extends Component {
         display: 'block',
         itemDisplay: 'block',
         labelCount: 3,
+        itemList: [],
+        attributes: {},
         isFirst: false,
         isLast: false,
         isDisabled: false,
-        readOnly: false
+        isReadOnly: false,
+        _isGroup: false
     };
 
     render() {
@@ -86,16 +91,16 @@ export default class extends Component {
         // 基础输入 & 通用
         const {
             label,
-            id, // Radio 与 Checkbox无效
+            id = 'sh-' + uuidv4(), // Radio 与 Checkbox无效
             type,
             placeholder,
             helper,
             name,
             defaultValue,
-            isDisabled,
-            readOnly,
+            isReadOnly,
             attributes,
             inputStyle,
+            isDisabled,
             isAir,
             isSolid,
             size,
@@ -120,27 +125,14 @@ export default class extends Component {
             itemDisplay
         } = this.props;
 
-        let _inputType = null;
+        const {
+            _isGroup,
+            _prepend,
+            _append
+        } = this.props;
 
-        switch (type) {
-            case 'select':
-                _inputType = 'selectType';
-                break;
-            case 'textarea':
-                _inputType = 'textareaType';
-                break;
-            case 'static':
-                _inputType = 'staticType';
-                break;
-            case 'radio':
-                _inputType = 'radioType';
-                break;
-            case 'checkbox':
-                _inputType = 'checkboxType';
-                break;
-            default:
-                _inputType = 'inputType'
-        }
+        // Fix Password Input notification
+        _.isEqual(type, 'password') && _.isUndefined(attributes['autoComplete']) && (attributes['autoComplete'] = 'current-password');
 
         const _className = classNames(
             'form-control',
@@ -153,6 +145,138 @@ export default class extends Component {
                 [`col-${12 - labelCount}`]: _.isEqual(display, 'inline') && _.isNumber(labelCount)
             }
         );
+
+        const _groupClass = classNames(
+            'input-group', 'sh-input-group', {
+                'sh-input-group--solid': isSolid,
+                [`sh-input-group--${inputStyle}`]: !_.isEqual(inputStyle, 'normal'),
+                'sh-input-group--air': isAir,
+                [`input-group-${size}`]: !_.isEqual(size, 'md'),
+            }
+        );
+
+
+        let _inputRender = null;
+
+        switch (type) {
+            case 'select':
+                _inputRender = (
+                    <Fragment>
+                        <select
+                            id={id}
+                            className={_className}
+                            name={name}
+                            disabled={isDisabled}
+                            readOnly={isReadOnly}
+                            multiple={multiple}
+                            {...attributes}
+                            {...callbacks}
+                        >
+                            {
+                                _.isArray(options) && options.map((item, index) => <option key={index}
+                                                                                           value={item.value}
+                                                                                           defaultChecked={item.isChecked}
+                                                                                           {...item.callbacks}
+                                                                                           className={classNames(
+                                                                                               ...(
+                                                                                                   _.isArray(item.className) ? item.className : [item.className]
+                                                                                               )
+                                                                                           )}>{item.label}</option>)
+                            }
+                        </select>
+                    </Fragment>
+                );
+                break;
+            case 'textarea':
+                _inputRender = (
+                    <Fragment>
+                                <textarea
+                                    id={id}
+                                    className={_className}
+                                    name={name}
+                                    disabled={isDisabled}
+                                    readOnly={isReadOnly}
+                                    placeholder={placeholder}
+                                    defaultValue={defaultValue}
+                                    {...attributes}
+                                    {...callbacks}
+                                />
+                    </Fragment>
+                );
+                break;
+            case 'static':
+                _inputRender = (
+                    <Fragment>
+                        <p className={
+                            classNames(
+                                'form-control-static',
+                                ...(
+                                    _.isArray(className) ? className : [className]
+                                ),
+                                {
+                                    [`col-${12 - labelCount}`]: _.isEqual(display, 'inline') && _.isNumber(labelCount)
+                                }
+                            )
+                        }>{defaultValue}</p>
+                    </Fragment>
+                );
+                break;
+            case 'radio':
+                _inputRender = (
+                    <Fragment>
+                        <Group
+                            type={type}
+                            itemDisplay={itemDisplay}
+                        >
+                            {
+                                _.isArray(itemList) && itemList.map((item, index) =>
+                                    <_Checks
+                                        key={index}
+                                        {...item}
+                                        name={name}
+                                        type={type}
+                                    />
+                                )
+                            }
+                        </Group>
+                    </Fragment>
+                );
+                break;
+            case 'checkbox':
+                _inputRender = (
+                    <Fragment>
+                        <Group
+                            type={type}
+                            itemDisplay={itemDisplay}
+                        >
+                            {
+                                _.isArray(itemList) && itemList.map((item, index) =>
+                                    <_Checks
+                                        key={index}
+                                        {...item}
+                                        name={name}
+                                        type={type}
+                                    />
+                                )
+                            }
+                        </Group>
+                    </Fragment>
+                );
+                break;
+            default:
+                _inputRender = <input
+                    id={id}
+                    type={type}
+                    className={_className}
+                    name={name}
+                    disabled={isDisabled}
+                    readOnly={isReadOnly}
+                    placeholder={placeholder}
+                    defaultValue={defaultValue}
+                    {...attributes}
+                    {...callbacks}
+                />
+        }
 
         return (
             <Fragment>
@@ -180,116 +304,56 @@ export default class extends Component {
                             )
                         }>{label}</label>)
                     }
-                    {_.isEqual(_inputType, 'selectType') && (
-                        <Fragment>
-                            <select
-                                id={id}
-                                className={_className}
-                                name={name}
-                                disabled={isDisabled}
-                                readOnly={readOnly}
-                                multiple={multiple}
-                                {...attributes}
-                                {...callbacks}
-                            >
-                                {
-                                    _.isArray(options) && options.map((item) => <option value={item.value}
-                                                                                        defaultChecked={item.isChecked}>{item.label}</option>)
-                                }
-                            </select>
-                        </Fragment>
-                    )}
                     {
-                        _.isEqual(_inputType, 'textareaType') && (
-                            <Fragment>
-                                <textarea
-                                    id={id}
-                                    className={_className}
-                                    name={name}
-                                    disabled={isDisabled}
-                                    readOnly={readOnly}
-                                    placeholder={placeholder}
-                                    defaultValue={defaultValue}
-                                    {...attributes}
-                                    {...callbacks}
-                                />
-                            </Fragment>
-                        )
-                    }
-                    {
-                        _.isEqual(_inputType, 'staticType') && (
-                            <Fragment>
-                                <p className={
-                                    classNames(
-                                        'form-control-static',
-                                        ...(
-                                            _.isArray(className) ? className : [className]
-                                        ),
+                        _isGroup
+                            ? (
+                                <Fragment>
+                                    <div className={_groupClass}>
                                         {
-                                            [`col-${12 - labelCount}`]: _.isEqual(display, 'inline') && _.isNumber(labelCount)
+                                            _.isArray(_prepend) && !_.isEmpty(_prepend) && (
+                                                <Fragment>
+                                                    <div className="input-group-prepend">
+                                                        {
+                                                            _prepend.map((pre, index) => {
+                                                                if (pre.type === Button) {
+                                                                    return (<Fragment key={index}>{pre}</Fragment>);
+                                                                } else {
+                                                                    return (<span key={index}
+                                                                                  className="input-group-text">{pre}</span>)
+                                                                }
+                                                            })
+                                                        }
+                                                    </div>
+                                                </Fragment>
+                                            )
                                         }
-                                    )
-                                }>{defaultValue}</p>
-                            </Fragment>
-                        )
-                    }
-                    {
-                        _.isEqual(_inputType, 'radioType') && (
-                            <Fragment>
-                                <Group
-                                    type={type}
-                                    itemDisplay={itemDisplay}
-                                >
-                                    {
-                                        _.isArray(itemList) && itemList.map((item, index) =>
-                                            <_Checks
-                                                key={index}
-                                                {...item}
-                                                name={name}
-                                                type={type}
-                                            />
-                                        )
-                                    }
-                                </Group>
-                            </Fragment>
-                        )
-                    }
-                    {
-                        _.isEqual(_inputType, 'checkboxType') && (
-                            <Fragment>
-                                <Group
-                                    type={type}
-                                    itemDisplay={itemDisplay}
-                                >
-                                    {
-                                        _.isArray(itemList) && itemList.map((item, index) =>
-                                            <_Checks
-                                                key={index}
-                                                {...item}
-                                                name={name}
-                                                type={type}
-                                            />
-                                        )
-                                    }
-                                </Group>
-                            </Fragment>
-                        )
-                    }
-                    {
-                        _.isEqual(_inputType, 'inputType') && (
-                            <input
-                                id={id}
-                                type={type}
-                                className={_className}
-                                name={name}
-                                disabled={isDisabled}
-                                readOnly={readOnly}
-                                placeholder={placeholder}
-                                defaultValue={defaultValue}
-                                {...attributes}
-                                {...callbacks}
-                            />
-                        )
+                                        {_inputRender}
+                                        {
+                                            _.isArray(_append) && !_.isEmpty(_append) && (
+                                                <Fragment>
+                                                    <div className="input-group-append">
+                                                        {
+                                                            _append.map((app, index) => {
+                                                                if (app.type === Button) {
+                                                                    return (<Fragment key={index}>{app}</Fragment>);
+                                                                } else {
+                                                                    return (<span key={index}
+                                                                                  className="input-group-text">{app}</span>)
+                                                                }
+                                                            })
+                                                        }
+                                                    </div>
+                                                </Fragment>
+                                            )
+                                        }
+                                    </div>
+                                </Fragment>
+                            )
+                            : (<Fragment>
+                                {
+                                    _inputRender
+                                }
+                            </Fragment>)
                     }
                     {
                         _.isString(helper) && (<span className="sh-form__help">{helper}</span>)

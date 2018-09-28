@@ -45,7 +45,8 @@ export default class extends Component {
         checkedColor: PropTypes.oneOf(_.concat(require('../../../config/color').default, 'default')),
         isSolid: PropTypes.bool,
         isBold: PropTypes.bool,
-        isCheckedBold: PropTypes.isCheckedBold
+        isCheckedBold: PropTypes.bool,
+        _isSingle: PropTypes.bool
     };
 
     static defaultProps = {
@@ -57,7 +58,8 @@ export default class extends Component {
         isDefaultChecked: false,
         isSolid: false,
         isBold: false,
-        isCheckedBold: false
+        isCheckedBold: false,
+        _isSingle: false
     };
 
     render() {
@@ -76,7 +78,8 @@ export default class extends Component {
             isCheckedBold,
             attributes,
             callbacks,
-            className
+            className,
+            _isSingle
         } = this.props;
 
         return (
@@ -94,7 +97,10 @@ export default class extends Component {
                         },
                         ...(
                             _.isArray(className) ? className : [className]
-                        )
+                        ),
+                        {
+                            [`sh-${type}--single`]: _isSingle
+                        }
                     )
                 }>
                     <input

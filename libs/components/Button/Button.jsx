@@ -39,7 +39,8 @@ export default class extends Component {
         isDisabled: PropTypes.bool,
         isAir: PropTypes.bool,
         isRetina: PropTypes.bool,
-        callbacks: PropTypes.object
+        callbacks: PropTypes.object,
+        attributes: PropTypes.object,
     };
 
     static defaultProps = {
@@ -56,7 +57,7 @@ export default class extends Component {
     };
 
     render() {
-        const {type, value, btnStyle, color, gradient, size, isWide, isBlock, isActive, isDisabled, isAir, isRetina, iconName, callbacks, className} = this.props;
+        const {type, value, btnStyle, color, gradient, size, isWide, isBlock, isActive, isDisabled, isAir, isRetina, iconName, callbacks, className, attributes} = this.props;
         const {from, to} = gradient || {};
 
         return (
@@ -64,6 +65,7 @@ export default class extends Component {
                 <button
                     type={type}
                     {...callbacks}
+                    {...attributes}
                     className={classNames(
                         'btn', 'sh-btn',
                         {

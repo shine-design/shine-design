@@ -118,7 +118,7 @@
 
     &.sh-radio--single {
       width: $size;
-      height: $size;
+      height: $size!important;
 
       > span {
         top: 0px;
