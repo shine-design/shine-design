@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import {Button} from '../libs';
+import {Row, Col, Input, SymbolInput, Icon} from '../libs';
 
 // import '../dist/index.css';
 
@@ -9,7 +9,9 @@ class App extends Component {
             <Fragment>
                 <Row>
                     <Col part={12}>
-                        <h1>Welcome to Shine Design.</h1>
+                        <Input {...{
+                            type:'text'
+                        }}/>
                     </Col>
                 </Row>
             </Fragment>
