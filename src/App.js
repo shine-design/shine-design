@@ -9,9 +9,7 @@ class App extends Component {
             <Fragment>
                 <Row>
                     <Col part={12}>
-                        <Input {...{
-                            type:'text'
-                        }}/>
+                        <h1>Hello World</h1>
                     </Col>
                 </Row>
             </Fragment>

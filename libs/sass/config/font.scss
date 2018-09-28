@@ -224,8 +224,25 @@ $sh--font-weights: (
 ) !default;
 
 $sh--font-families: (
-        regular: 'Poppins',
-        heading: 'Roboto'
+        regular: '"Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif',
+        heading: '"Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif'
 ) !default;
 
-$font-family-base: array-get($sh--font-families, regular);
+//$font-family-base: array-get($sh--font-families, regular);
+$font-family-base: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+
+$sh--link-font: (
+        default: (
+                color: (
+                        light: get-brand-color(),
+                        dark: get-brand-color()
+                )
+        ),
+
+        hover: (
+                color: (
+                        light: get-brand-color('+'),
+                        dark: get-brand-color('+')
+                )
+        )
+)!default;
