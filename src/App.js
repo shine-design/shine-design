@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import {Row, Col, Input, SymbolInput, Icon} from '../libs';
+import {Row, Col} from '../libs';
 
 // import '../dist/index.css';
 
@@ -9,7 +9,7 @@ class App extends Component {
             <Fragment>
                 <Row>
                     <Col part={12}>
-                        <h1>Hello World</h1>
+
                     </Col>
                 </Row>
             </Fragment>
