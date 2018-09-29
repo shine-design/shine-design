@@ -23,14 +23,39 @@ export default class extends Component {
         super(props);
     }
 
-    static propTypes = {};
+    static propTypes = {
+        color: PropTypes.oneOf(_.concat(require('../../config/color').default, 'default')),
+        borderColor: PropTypes.oneOf(_.concat(require('../../config/color').default, 'default')),
+        isWide: PropTypes.bool,
+        isDot: PropTypes.bool,
+        isRound: PropTypes.bool,
+        text: PropTypes.node
+    };
 
-    static defaultProps = {};
+    static defaultProps = {
+        color: 'default',
+        borderColor: 'default',
+        isWide: false,
+        isDot: false,
+        isRound: false
+    };
 
     render() {
+        const {color, borderColor, isWide, isDot, isRound, text} = this.props;
+        const _badgeClass = classNames(
+            'sh-badge',
+            {
+                [`sh-badge--${color}`]: _.isString(color) && !_.isEqual(color, 'default'),
+                'sh-badge--bordered': _.isString(borderColor),
+                [`sh-badge-bordered--${borderColor}`]: _.isString(borderColor) && !_.isEqual(borderColor, 'default'),
+                'sh-badge--wide': isWide,
+                'sh-badge--rounded': isRound,
+                'sh-badge--dot': isDot
+            }
+        );
         return (
             <Fragment>
-
+                <span className={_badgeClass}>{text}</span>
             </Fragment>
         );
     }

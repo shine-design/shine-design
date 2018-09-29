@@ -2,7 +2,9 @@
  * @Author 瞿龙俊 - qulongjun@shine.design
  * @Date 2018/9/29 下午7:44
  */
-
+@import "../../../sass/config/color";
+@import "../../../sass/mixins/border-radio";
+@import "../../../sass/mixins/rounded-mode";
 /**
  * 核心样式库
  */
@@ -10,7 +12,11 @@
 /**
  * 依赖样式库
  */
-
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/badge";
 /**
   独立样式
  */
+@import "./badge";

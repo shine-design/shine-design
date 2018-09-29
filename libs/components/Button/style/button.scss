@@ -9,7 +9,7 @@
 
 $sh-pill-radius: 60px;
 @mixin sh-build-component--buttons-base() {
-  // base button
+  // base Button
   .btn {
     font-family: array-get($sh--font-families, regular);
     box-shadow: none !important;
@@ -20,14 +20,14 @@ $sh-pill-radius: 60px;
       vertical-align: middle;
     }
 
-    // remove button default focus shadow
+    // remove Button default focus shadow
     &:hover,
     &.active,
     &:focus {
       box-shadow: none;
     }
 
-    // force cursor: pointer for button tags
+    // force cursor: pointer for Button tags
     @if ($sh--btn-force-hover-pointer == true) {
       cursor: pointer;
     }
@@ -47,7 +47,7 @@ $sh-pill-radius: 60px;
       border-radius: 0 !important;
     }
 
-    // secondary button air style
+    // secondary Button air style
     &.sh-btn--air.btn-secondary {
       border-color: #ffffff !important;
 
@@ -102,7 +102,7 @@ $sh-pill-radius: 60px;
       text-transform: uppercase;
     }
 
-    // button font helpers
+    // Button font helpers
     &.sh-btn--regular {
       font-weight: get-font-weight(regular);
     }
@@ -133,7 +133,7 @@ $sh-pill-radius: 60px;
     }
   }
 
-  // icon button
+  // icon Button
   &.sh-btn--icon {
     // label + icon
     > span {
@@ -163,7 +163,7 @@ $sh-pill-radius: 60px;
       }
     }
 
-    // button sizing
+    // Button sizing
 
     &.btn-lg {
       > span {
@@ -269,7 +269,7 @@ $sh-pill-radius: 60px;
     @include icons-size(array-get($sh--buttons, layout, default, lg, icon, font-size));
   }
 
-  // link button
+  // link Button
   .sh-btn.sh-btn--link {
     &:focus,
     &:active {
@@ -283,7 +283,7 @@ $sh-pill-radius: 60px;
     border-width: 2px;
   }
 
-  // button group
+  // Button group
   .btn-group {
     &.sh-btn-group--pill:not(.btn-group-vertical) {
       .btn {
@@ -315,7 +315,7 @@ $sh-pill-radius: 60px;
     }
   }
 
-  // vertical button group
+  // vertical Button group
   .btn-group-vertical {
     .sh-btn--pill-last {
       border-radius: 0 0 $sh-pill-radius $sh-pill-radius;
@@ -508,7 +508,7 @@ $sh-pill-radius: 60px;
     }
   }
 
-  // air button group
+  // air Button group
   .btn-group {
     &.sh-btn-group--air {
       box-shadow: array-get($sh--buttons, skins, $skin, air, box-shadow, default) !important;
