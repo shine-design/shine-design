@@ -1,0 +1,77 @@
+/**
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2018/9/28 下午7:23
+ */
+@import "../functions";
+@import "../config/color";
+@import "../config/font";
+@import "../mixins/transition";
+@import "../mixins/skin";
+@import "../mixins/opacity";
+
+@mixin sh-build-component--typography-link-base() {
+  .sh-link {
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+
+    &:after {
+      display: block;
+      content: '';
+      position: absolute;
+      bottom: 0;
+      top: 1rem;
+      left: 0;
+      width: 0%;
+      @include transition(width 0.3s ease);
+    }
+
+    &:hover {
+      text-decoration: none !important;
+
+      &:after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@mixin sh-build-component--typography-link-state() {
+  @each $name, $color in $sh--state-colors {
+    .sh-link.sh-link--#{$name} {
+      @include sh-set-component--typography-link-color(array-get($color, base), darken(array-get($color, base), 10%));
+    }
+  }
+}
+
+@mixin sh-set-component--typography-link-color($default, $hover) {
+  color: $default;
+
+  &:hover {
+    color: $hover;
+
+    &:after {
+      border-bottom: 1px solid $hover;
+      @include opacity(0.3);
+    }
+  }
+}
+
+//== Component Skin
+@mixin sh-build-component--typography-link-skin($skin) {
+  @include component-skin(sh-link, $skin) {
+    @include sh-set-component--typography-link-color(array-get($sh--link-font, default, color, $skin), array-get($sh--link-font, hover, color, $skin));
+  }
+}
+
+//== Build Component Base
+@include sh-build-component--typography-link-base();
+
+//== Build Component - Light Skin
+@include sh-build-component--typography-link-skin(light);
+
+//== Build Component - Dark Skin
+@include sh-build-component--typography-link-skin(dark);
+
+//== Build Component - State Colors
+@include sh-build-component--typography-link-state();
