@@ -29,7 +29,10 @@ export default class extends Component {
         isWide: PropTypes.bool,
         isDot: PropTypes.bool,
         isRound: PropTypes.bool,
-        text: PropTypes.node
+        text: PropTypes.node,
+        callbacks: PropTypes.object,
+        attributes: PropTypes.object,
+        className: PropTypes.array
     };
 
     static defaultProps = {
@@ -41,21 +44,28 @@ export default class extends Component {
     };
 
     render() {
-        const {color, borderColor, isWide, isDot, isRound, text} = this.props;
+        const {color, borderColor, isWide, isDot, isRound, text, className, callbacks, attributes} = this.props;
         const _badgeClass = classNames(
             'sh-badge',
             {
                 [`sh-badge--${color}`]: _.isString(color) && !_.isEqual(color, 'default'),
-                'sh-badge--bordered': _.isString(borderColor),
+                'sh-badge--bordered': _.isString(borderColor) && !_.isEqual(borderColor, 'default'),
                 [`sh-badge-bordered--${borderColor}`]: _.isString(borderColor) && !_.isEqual(borderColor, 'default'),
                 'sh-badge--wide': isWide,
                 'sh-badge--rounded': isRound,
                 'sh-badge--dot': isDot
-            }
+            },
+            ...(
+                _.isArray(className) ? className : [className]
+            )
         );
         return (
             <Fragment>
-                <span className={_badgeClass}>{text}</span>
+                <span
+                    className={_badgeClass}
+                    {...callbacks}
+                    {...attributes}
+                >{text}</span>
             </Fragment>
         );
     }
