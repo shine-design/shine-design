@@ -27,6 +27,8 @@ export {default as SymbolInput} from './components/SymbolInput/SymbolInput';
 // Data
 export {default as Progress} from './components/Progress/Progress';
 export {default as Badge} from './components/Badge/Badge';
+export {default as Table} from './components/Table/Table';
 
 // Other
 export {default as Divider} from './components/Divider/Divider';
+export {default as Modal} from './components/Modal/Modal';

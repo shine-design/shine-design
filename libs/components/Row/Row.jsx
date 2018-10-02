@@ -14,6 +14,7 @@ import classNames from 'classnames'
 import _ from 'lodash';
 
 // 组件依赖
+import {COMMON_PROPS_TYPE, COMMON_PROPS_DEFAULT} from '../../config/commonProps';
 
 // 样式
 import './style';
@@ -24,6 +25,7 @@ export default class extends Component {
     }
 
     static propTypes = {
+        ...COMMON_PROPS_TYPE,
         mode: PropTypes.oneOf(
             ['general', 'desktop', 'desktop-and-tablet', 'tablet', 'tablet-and-mobile', 'mobile']
         ).isRequired,
@@ -45,13 +47,14 @@ export default class extends Component {
     };
 
     static defaultProps = {
+        ...COMMON_PROPS_DEFAULT,
         mode: 'general',
         direction: 'hor'
     };
 
     render() {
         const me = this;
-        const {mode, direction, justify, wrap, align, alignContent, className, children} = me.props;
+        const {mode, direction, justify, wrap, align, alignContent, className, attributes, children} = me.props;
 
         return (
             <Fragment>
@@ -68,7 +71,7 @@ export default class extends Component {
                             _.isArray(className) ? className : [className]
                         )
                     )
-                }>{children}</div>
+                } {...attributes}>{children}</div>
             </Fragment>
         );
     }

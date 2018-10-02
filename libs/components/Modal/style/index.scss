@@ -1,0 +1,27 @@
+/**
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2018/10/2 上午9:56
+ */
+
+/**
+ * 核心样式库
+ */
+@import "../../../sass/functions";
+@import "../../../sass/mixins/border-radio";
+@import "../../../sass/mixins/rounded-mode";
+@import "../../../sass/mixins/icon";
+@import "../../../sass/mixins/shadow";
+@import "../../../sass/config/border-radius";
+
+/**
+ * 依赖样式库
+ */
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/modal";
+
+/**
+  独立样式
+ */
+@import "./modal";

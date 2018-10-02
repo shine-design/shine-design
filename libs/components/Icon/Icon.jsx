@@ -14,6 +14,7 @@ import classNames from 'classnames'
 import _ from 'lodash';
 
 // 组件依赖
+import {COMMON_PROPS_TYPE, COMMON_PROPS_DEFAULT} from '../../config/commonProps';
 
 // 样式
 import './style';
@@ -24,20 +25,18 @@ export default class extends Component {
     }
 
     static propTypes = {
-        className: PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.array
-        ]),
-        callbacks: PropTypes.object
+        ...COMMON_PROPS_TYPE
     };
 
-    static defaultProps = {};
+    static defaultProps = {
+        ...COMMON_PROPS_DEFAULT
+    };
 
     render() {
-        const {className, callbacks, children} = this.props;
+        const {className, callbacks, attributes, children} = this.props;
         return (
             <Fragment>
-                <i className={classNames(...(_.isArray(className) ? className : [className]))} {...callbacks}>{children}</i>
+                <i className={classNames(...(_.isArray(className) ? className : [className]))} {...callbacks} {...attributes}>{children}</i>
             </Fragment>
         );
     }

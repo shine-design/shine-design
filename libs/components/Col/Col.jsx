@@ -14,6 +14,7 @@ import classNames from 'classnames'
 import _ from 'lodash';
 
 // 组件依赖
+import {COMMON_PROPS_TYPE, COMMON_PROPS_DEFAULT} from '../../config/commonProps';
 
 // 样式
 import './style';
@@ -25,6 +26,7 @@ export default class extends Component {
 
 
     static propTypes = {
+        ...COMMON_PROPS_TYPE,
         mode: PropTypes.oneOf(
             ['general', 'desktop', 'desktop-and-tablet', 'tablet', 'tablet-and-mobile', 'mobile']
         ),
@@ -40,11 +42,14 @@ export default class extends Component {
         )
     };
 
-    static defaultProps = {};
+    static defaultProps = {
+        ...COMMON_PROPS_DEFAULT,
+        mode: 'general'
+    };
 
     render() {
         const me = this;
-        const {mode, order, align, part, offset, className, children} = me.props;
+        const {mode, order, align, part, offset, className, attributes, children} = me.props;
         return (
             <Fragment>
                 <div className={classNames('m-grid__item', {
@@ -59,7 +64,9 @@ export default class extends Component {
                     ),
                     ...(
                         _.isArray(className) ? className : [className]
-                    ))}>
+                    ))}
+                     {...attributes}
+                >
                     {children}
                 </div>
             </Fragment>

@@ -14,6 +14,7 @@ import classNames from 'classnames'
 import _ from 'lodash';
 
 // 组件依赖
+import {COMMON_PROPS_TYPE, COMMON_PROPS_DEFAULT} from '../../config/commonProps';
 
 // 样式
 import './style';
@@ -24,18 +25,17 @@ export default class extends Component {
     }
 
     static propTypes = {
+        ...COMMON_PROPS_TYPE,
         color: PropTypes.oneOf(_.concat(require('../../config/color').default, 'default')),
         borderColor: PropTypes.oneOf(_.concat(require('../../config/color').default, 'default')),
         isWide: PropTypes.bool,
         isDot: PropTypes.bool,
         isRound: PropTypes.bool,
-        text: PropTypes.node,
-        callbacks: PropTypes.object,
-        attributes: PropTypes.object,
-        className: PropTypes.array
+        text: PropTypes.node
     };
 
     static defaultProps = {
+        ...COMMON_PROPS_DEFAULT,
         color: 'default',
         borderColor: 'default',
         isWide: false,

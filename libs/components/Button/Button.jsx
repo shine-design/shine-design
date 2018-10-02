@@ -16,6 +16,7 @@ import colorType from '../../config/color';
 import './style';
 
 // 组件依赖
+import {COMMON_PROPS_TYPE, COMMON_PROPS_DEFAULT} from '../../config/commonProps';
 import Icon from '../Icon/Icon';
 
 export default class extends Component {
@@ -24,9 +25,10 @@ export default class extends Component {
     }
 
     static propTypes = {
+        ...COMMON_PROPS_TYPE,
         type: PropTypes.oneOf(['submit', 'button', 'reset']),
         btnStyle: PropTypes.oneOf(['square', 'pill', 'normal']),
-        color: PropTypes.oneOf(_.concat(colorType, 'normal', colorType.map(color => `outline-${color}`))),
+        color: PropTypes.oneOf(_.concat(colorType, 'default', colorType.map(color => `outline-${color}`))),
         gradient: PropTypes.shape({
             from: PropTypes.oneOf(colorType),
             to: PropTypes.oneOf(colorType)
@@ -39,11 +41,11 @@ export default class extends Component {
         isDisabled: PropTypes.bool,
         isAir: PropTypes.bool,
         isRetina: PropTypes.bool,
-        callbacks: PropTypes.object,
-        attributes: PropTypes.object,
+        _isNoClass: PropTypes.bool
     };
 
     static defaultProps = {
+        ...COMMON_PROPS_DEFAULT,
         type: 'button',
         color: 'default',
         btnStyle: 'normal',
@@ -53,39 +55,45 @@ export default class extends Component {
         isActive: false,
         isDisabled: false,
         isAir: false,
-        isRetina: false
+        isRetina: false,
+        _isNoClass: false
     };
 
     render() {
-        const {type, value, btnStyle, color, gradient, size, isWide, isBlock, isActive, isDisabled, isAir, isRetina, iconName, callbacks, className, attributes} = this.props;
+        const {type, value, btnStyle, color, gradient, size, isWide, isBlock, isActive, isDisabled, isAir, isRetina, iconName, callbacks, className, attributes, _isNoClass} = this.props;
         const {from, to} = gradient || {};
 
+        const _className = _isNoClass ? classNames(
+            ...(
+                _.isArray(className) ? className : [className]
+            )
+        ) : classNames(
+            'btn', 'sh-btn',
+            {
+                [`btn-${color}`]: _.isString(color),
+                [`sh-btn--gradient-from-${from || ''}`]: _.isString(from) && _.isString(to),
+                [`sh-btn--gradient-to-${to || ''}`]: _.isString(from) && _.isString(to),
+                [`sh-btn--${btnStyle}`]: _.isString(btnStyle),
+                [`btn-${size}`]: _.isString(size) && !_.isEqual(size, 'normal'),
+                'sh-btn--icon': _.isString(iconName),
+                'sh-btn--wide': isWide,
+                'sh-btn--air': isAir,
+                'sh-btn--outline-2x': isRetina,
+                'btn-block': isBlock,
+                'active': isActive,
+                'disabled': isDisabled
+            },
+            ...(
+                _.isArray(className) ? className : [className]
+            )
+        );
         return (
             <Fragment>
                 <button
                     type={type}
                     {...callbacks}
                     {...attributes}
-                    className={classNames(
-                        'btn', 'sh-btn',
-                        {
-                            [`btn-${color}`]: _.isString(color),
-                            [`sh-btn--gradient-from-${from || ''}`]: _.isString(from) && _.isString(to),
-                            [`sh-btn--gradient-to-${to || ''}`]: _.isString(from) && _.isString(to),
-                            [`sh-btn--${btnStyle}`]: _.isString(btnStyle),
-                            [`btn-${size}`]: _.isString(size) && !_.isEqual(size, 'normal'),
-                            'sh-btn--icon': _.isString(iconName),
-                            'sh-btn--wide': isWide,
-                            'sh-btn--air': isAir,
-                            'sh-btn--outline-2x': isRetina,
-                            'btn-block': isBlock,
-                            'active': isActive,
-                            'disabled': isDisabled
-                        },
-                        ...(
-                            _.isArray(className) ? className : [className]
-                        )
-                    )}>
+                    className={_className}>
                     {_.isString(iconName) ? (
                         <Fragment>
                             {

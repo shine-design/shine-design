@@ -14,6 +14,7 @@ import classNames from 'classnames'
 import _ from 'lodash';
 
 // 组件依赖
+import {COMMON_PROPS_TYPE, COMMON_PROPS_DEFAULT} from '../../config/commonProps';
 
 // 样式
 import './style';
@@ -24,14 +25,14 @@ export default class extends Component {
     }
 
     static propTypes = {
+        ...COMMON_PROPS_TYPE,
         size: PropTypes.oneOf(['md', 'sm', 'lg']),
         itemList: PropTypes.arrayOf(PropTypes.shape({
             value: PropTypes.number,
             isStriped: PropTypes.bool,
             isAnimated: PropTypes.bool,
-            className: PropTypes.arrayOf(PropTypes.string)
-        })),
-        className: PropTypes.arrayOf(PropTypes.string),
+            ...COMMON_PROPS_TYPE
+        }))
     };
 
     static defaultProps = {
@@ -40,7 +41,7 @@ export default class extends Component {
     };
 
     render() {
-        const {size, itemList, className} = this.props;
+        const {size, itemList, className, attributes} = this.props;
         const _progressClass = classNames(
             'progress',
             {
@@ -52,7 +53,7 @@ export default class extends Component {
         );
         return (
             <Fragment>
-                <div className={_progressClass}>
+                <div className={_progressClass} {...attributes}>
                     {
                         _.isArray(itemList) && itemList.map(item => {
                             const {value, isStriped, isAnimated, className} = item;

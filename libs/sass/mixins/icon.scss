@@ -7,24 +7,24 @@
 
 // Icon 尺寸
 @mixin icons-size($config) {
-  [class^="la-icon-"],
-  [class*="la-icon-"] {
+  [class^="sh-icon-"],
+  [class*="sh-icon-"] {
     font-size: array-get($config, shine-icon);
   }
 }
 
 // Icon 属性
 @mixin icons-attr($attr, $config) {
-  [class^="la-icon-"],
-  [class*="la-icon-"] {
+  [class^="sh-icon-"],
+  [class*="sh-icon-"] {
     #{$attr}: array-get($config, shine-icon);
   }
 }
 
 // Icon 样式
 @mixin icons-style {
-  [class^="la-icon-"],
-  [class*="la-icon-"] {
+  [class^="sh-icon-"],
+  [class*="sh-icon-"] {
     @content;
   }
 }
@@ -63,7 +63,7 @@
   content: "#{$default-state}";
 }
 
-@mixin la-icon($icon) {
+@mixin sh-icon($icon) {
   font-family: "LineAwesome";
   text-decoration: inherit;
   text-rendering: optimizeLegibility;
@@ -78,7 +78,7 @@
 }
 
 //== Lineawesome icon
-@mixin la-icon-self($icon) {
+@mixin sh-icon-self($icon) {
   font-family: "LineAwesome";
   text-decoration: inherit;
   text-rendering: optimizeLegibility;
@@ -92,9 +92,9 @@
 //== Close icon
 @mixin sh-generate-close-icon($self:null) {
   @if $self == true {
-    @include la-icon-self( array-get($sh--icon-codes, close) );
+    @include sh-icon-self( array-get($sh--icon-codes, close) );
   } @else {
-    @include la-icon( array-get($sh--icon-codes, close) );
+    @include sh-icon( array-get($sh--icon-codes, close) );
   }
 }
 
@@ -102,33 +102,33 @@
 @mixin sh-generate-arrow-icon($dir, $self:null) {
   @if $dir == down {
     @if $self == true {
-      @include la-icon-self(array-get($sh--icon-codes, down));
+      @include sh-icon-self(array-get($sh--icon-codes, down));
     } @else {
-      @include la-icon(array-get($sh--icon-codes, down));
+      @include sh-icon(array-get($sh--icon-codes, down));
     }
   }
 
   @if $dir == up {
     @if $self == true {
-      @include la-icon-self(array-get($sh--icon-codes, up));
+      @include sh-icon-self(array-get($sh--icon-codes, up));
     } @else {
-      @include la-icon(array-get($sh--icon-codes, up));
+      @include sh-icon(array-get($sh--icon-codes, up));
     }
   }
 
   @if $dir == left {
     @if $self == true {
-      @include la-icon-self(array-get($sh--icon-codes, left));
+      @include sh-icon-self(array-get($sh--icon-codes, left));
     } @else {
-      @include la-icon(array-get($sh--icon-codes, left));
+      @include sh-icon(array-get($sh--icon-codes, left));
     }
   }
 
   @if $dir == right {
     @if $self == true {
-      @include la-icon-self(array-get($sh--icon-codes, right));
+      @include sh-icon-self(array-get($sh--icon-codes, right));
     } @else {
-      @include la-icon(array-get($sh--icon-codes, right));
+      @include sh-icon(array-get($sh--icon-codes, right));
     }
   }
 }

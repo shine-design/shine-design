@@ -14,6 +14,7 @@ import classNames from 'classnames'
 import _ from 'lodash';
 
 // 组件依赖
+import {COMMON_PROPS_TYPE, COMMON_PROPS_DEFAULT} from '../../config/commonProps';
 
 // 样式
 import './style';
@@ -23,17 +24,27 @@ export default class extends Component {
         super(props);
     }
 
-    static propTypes = {};
+    static propTypes = {
+        ...COMMON_PROPS_TYPE
+    };
 
-    static defaultProps = {};
+    static defaultProps = {
+        ...COMMON_PROPS_DEFAULT
+    };
 
     render() {
-        const {children} = this.props;
+        const {className, attributes, children} = this.props;
         return (
             <Fragment>
                 <div className={
-                    classNames('sh-divider')
-                }>
+                    classNames(
+                        'sh-divider',
+                        ...(
+                            _.isArray(className) ? className : [className]
+                        )
+                    )}
+                     {...attributes}
+                >
                     {
                         !_.isUndefined(children) && (
                             <Fragment>

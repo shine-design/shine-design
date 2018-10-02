@@ -14,6 +14,7 @@ import classNames from 'classnames'
 import _ from 'lodash';
 
 // 组件依赖
+import {COMMON_PROPS_TYPE, COMMON_PROPS_DEFAULT} from '../../config/commonProps';
 import Input from '../Input/Input';
 import _Checks from '../_Internal/_Checks/_Checks';
 // 样式
@@ -26,6 +27,7 @@ export default class extends Component {
     }
 
     static propTypes = {
+        ...COMMON_PROPS_TYPE,
         input: PropTypes.object,
         prepend: PropTypes.oneOfType([
             PropTypes.node,
@@ -38,12 +40,13 @@ export default class extends Component {
     };
 
     static defaultProps = {
+        ...COMMON_PROPS_DEFAULT,
         prepend: [],
         append: []
     };
 
     render() {
-        const {input} = this.props;
+        const {input, className, attributes, callbacks} = this.props;
         let {prepend, append} = this.props;
         if (_.isArray(prepend)) {
             prepend.forEach((item, index) => {
@@ -93,7 +96,10 @@ export default class extends Component {
                     ...input,
                     _isGroup: true,
                     _prepend: _.isArray(prepend) ? prepend : [prepend],
-                    _append: _.isArray(append) ? append : [append]
+                    _append: _.isArray(append) ? append : [append],
+                    className,
+                    attributes,
+                    callbacks
                 }}/>
             </Fragment>
         );

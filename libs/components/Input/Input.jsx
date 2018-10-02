@@ -14,6 +14,7 @@ import classNames from 'classnames'
 import _ from 'lodash';
 import uuidv4 from 'uuid/v4';
 // 组件依赖
+import {COMMON_PROPS_TYPE, COMMON_PROPS_DEFAULT} from '../../config/commonProps';
 import _Checks from '../_Internal/_Checks/_Checks';
 import Group from '../Group/Group';
 import Button from '../Button/Button';
@@ -26,6 +27,7 @@ export default class extends Component {
     }
 
     static propTypes = {
+        ...COMMON_PROPS_TYPE,
         label: PropTypes.node,
         id: PropTypes.oneOfType([
             PropTypes.string,
@@ -46,9 +48,8 @@ export default class extends Component {
             ]),
             label: PropTypes.node,
             isChecked: PropTypes.bool,
-            attributes: PropTypes.object
+            ...COMMON_PROPS_TYPE,
         })),
-        attributes: PropTypes.object,
         inputStyle: PropTypes.oneOf(['pill', 'square', 'normal']),
         isAir: PropTypes.bool,
         isSolid: PropTypes.bool,
@@ -62,11 +63,11 @@ export default class extends Component {
         isLast: PropTypes.bool,
         isDisabled: PropTypes.bool,
         isReadOnly: PropTypes.bool,
-        callbacks: PropTypes.object,
         _isGroup: PropTypes.bool
     };
 
     static defaultProps = {
+        ...COMMON_PROPS_DEFAULT,
         multiple: false,
         options: [],
         inputStyle: 'normal',
@@ -78,7 +79,6 @@ export default class extends Component {
         itemDisplay: 'block',
         labelCount: 3,
         itemList: [],
-        attributes: {},
         isFirst: false,
         isLast: false,
         isDisabled: false,

@@ -1,0 +1,21 @@
+/**
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2018/10/1 下午6:06
+ */
+
+/**
+ * 核心样式库
+ */
+@import "../../../sass/functions";
+@import "../../../sass/config/color";
+/**
+ * 依赖样式库
+ */
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/tables";
+/**
+  独立样式
+ */
+@import "./table";
