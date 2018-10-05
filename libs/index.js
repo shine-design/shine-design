@@ -23,7 +23,9 @@ export {default as Alert} from './components/Alert/Alert';
 export {default as Form} from './components/Form/Form';
 export {default as Input} from './components/Input/Input';
 export {default as SymbolInput} from './components/SymbolInput/SymbolInput';
+export {default as Dropdown} from './components/Dropdown/Dropdown';
 
+// console.log(require('./components/Dropdown/Dropdown'));
 // Data
 export {default as Progress} from './components/Progress/Progress';
 export {default as Badge} from './components/Badge/Badge';

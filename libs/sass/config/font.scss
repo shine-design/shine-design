@@ -246,3 +246,16 @@ $sh--link-font: (
                 )
         )
 )!default;
+
+$sh--root-font: (
+        size: (
+                desktop: 13px,
+                tablet: 12px,
+                mobile: 12px
+        ),
+        weight: 300,
+        color: (
+                light: #333333,
+                dark: #efefef
+        )
+)!default;

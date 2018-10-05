@@ -14,6 +14,7 @@ import classNames from 'classnames'
 import _ from 'lodash';
 
 // 组件依赖
+import {COMMON_PROPS_TYPE, COMMON_PROPS_DEFAULT} from '../../config/commonProps';
 
 // 样式
 // import './style'
@@ -24,18 +25,22 @@ export default class extends Component {
     }
 
     static propTypes = {
-        type: PropTypes.oneOf(['button', 'radio', 'checkbox']),
+        ...COMMON_PROPS_TYPE,
+        type: PropTypes.oneOf(['button', 'radio', 'checkbox', 'dropDown']),
         size: PropTypes.oneOf(['lg', 'sm', 'normal']),
         direction: PropTypes.oneOf(['ver', 'hor']),
+        dropDirection: PropTypes.oneOf(['up', 'down', 'left', 'right']),
         radioDisplay: PropTypes.oneOf(['block', 'inline']),
         isPill: PropTypes.bool,
         isAir: PropTypes.bool
     };
 
     static defaultProps = {
+        ...COMMON_PROPS_DEFAULT,
         type: 'button',
         size: 'normal',
         direction: 'hor',
+        dropDirection: 'down',
         radioDisplay: 'block',
         isAir: false,
         isPill: false
@@ -45,6 +50,8 @@ export default class extends Component {
         const {type} = this.props;
         const {size, direction, isPill, isAir, children} = this.props;
         const {itemDisplay} = this.props;
+        const {dropDirection} = this.props;
+        const {className, attributes} = this.props;
         return (
             <Fragment>
                 {
@@ -64,6 +71,21 @@ export default class extends Component {
                         <div className={classNames({
                             [`sh-${type}-${itemDisplay === 'block' ? 'list' : 'inline'}`]: _.isString(itemDisplay),
                         })}>
+                            {children}
+                        </div>
+                    )
+                }
+                {
+                    _.isString(type) && _.isEqual(type, 'dropDown') && (
+                        <div {...attributes} className={classNames(
+                            'btn-group',
+                            {
+                                [`drop${dropDirection}`]: _.isString(dropDirection) && !_.isEqual(dropDirection, 'down')
+                            },
+                            ...(
+                                _.isArray(className) ? className : [className]
+                            )
+                        )}>
                             {children}
                         </div>
                     )

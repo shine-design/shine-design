@@ -5,13 +5,13 @@
 /**
  * 核心样式库
  */
-@import "~normalize.css/normalize.css";
-
+@import "./config/font";
+@import "./mixins/meida";
+@import "./functions";
 /**
  * 依赖配置项
  */
-@import "./config/font";
-
+@import "./plugins/normalize";
 /**
  * 第三方库
  */
