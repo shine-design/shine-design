@@ -14,6 +14,7 @@ import classNames from 'classnames'
 import _ from 'lodash';
 import jQuery from 'jquery';
 import 'bootstrap/js/src/modal';
+
 // 组件依赖
 import {COMMON_PROPS_TYPE, COMMON_PROPS_DEFAULT} from '../../config/commonProps';
 import Button from '../Button/Button';

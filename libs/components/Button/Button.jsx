@@ -1,6 +1,6 @@
 /**
  * @Component 按钮 - Button
- * @Type 基础组件
+ * @Type 按钮组件
  * @Author 瞿龙俊 - qulongjun@shine.design
  * @Date 2018/9/5 下午1:48
  */
@@ -33,7 +33,7 @@ export default class extends Component {
             from: PropTypes.oneOf(colorType),
             to: PropTypes.oneOf(colorType)
         }),
-        size: PropTypes.oneOf(['lg', 'sm', 'normal']),
+        size: PropTypes.oneOf(['lg', 'sm', 'md']),
         iconName: PropTypes.string,
         isWide: PropTypes.bool,
         isBlock: PropTypes.bool,
@@ -49,7 +49,7 @@ export default class extends Component {
         type: 'button',
         color: 'default',
         btnStyle: 'normal',
-        size: 'normal',
+        size: 'md',
         isWide: false,
         isBlock: false,
         isActive: false,
@@ -73,8 +73,8 @@ export default class extends Component {
                 [`btn-${color}`]: _.isString(color),
                 [`sh-btn--gradient-from-${from || ''}`]: _.isString(from) && _.isString(to),
                 [`sh-btn--gradient-to-${to || ''}`]: _.isString(from) && _.isString(to),
-                [`sh-btn--${btnStyle}`]: _.isString(btnStyle),
-                [`btn-${size}`]: _.isString(size) && !_.isEqual(size, 'normal'),
+                [`sh-btn--${btnStyle}`]: _.isString(btnStyle) && !_.isEqual(btnStyle, 'normal'),
+                [`btn-${size}`]: _.isString(size) && !_.isEqual(size, 'md'),
                 'sh-btn--icon': _.isString(iconName),
                 'sh-btn--wide': isWide,
                 'sh-btn--air': isAir,
@@ -87,6 +87,9 @@ export default class extends Component {
                 _.isArray(className) ? className : [className]
             )
         );
+
+        if (isDisabled) _.merge(attributes, {disabled: true});
+
         return (
             <Fragment>
                 <button

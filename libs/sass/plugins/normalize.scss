@@ -1,0 +1,75 @@
+/**
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2018/10/4 上午10:05
+ */
+
+html {
+  font-family: sans-serif; // 1
+  text-size-adjust: 100%; // 2
+  -ms-text-size-adjust: 100%; // 2
+  -webkit-text-size-adjust: 100%; // 2
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  direction: ltr;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  font-size: array-get($sh--root-font, size, desktop);
+  font-weight: array-get($sh--root-font, weight);
+  font-family: #{array-get($sh--font-families, regular)};
+
+  -ms-text-size-adjust: 100%; // 2
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  a:active,
+  a:focus {
+    text-decoration: none !important;
+  }
+
+  a,
+  button {
+    outline: none !important;
+  }
+}
+
+
+body {
+  display: flex;
+  flex-direction: column;
+
+  &.sh--skin-light {
+    color: array-get($sh--root-font, color, light);
+  }
+
+  &.sh--skin-dark {
+    color: array-get($sh--root-font, color, dark);
+  }
+}
+
+body,
+.sh-smooth-scroll {
+  scroll-behavior: smooth;
+}
+
+//== Angular integration
+router-outlet {
+  display: none;
+}
+
+@include tablet {
+  html,
+  body {
+    font-size: array-get($sh--root-font, size, tablet);
+  }
+}
+
+@include mobile {
+  html,
+  body {
+    font-size: array-get($sh--root-font, size, mobile);
+  }
+}

@@ -356,7 +356,7 @@ $sh-pill-radius: 60px;
       &:before {
         display: block;
         content: ' ';
-        border-left: 1px solid array-get($color, inverse);
+        border-left: 1px solid #fff;
         position: absolute;
         top: 3px;
         left: -1px;
