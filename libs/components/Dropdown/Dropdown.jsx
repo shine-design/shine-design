@@ -19,6 +19,7 @@ import Group from '../Group/Group';
 import Button from '../Button/Button';
 import _Toggle from '../_Internal/_Toggle/_Toggle';
 import 'bootstrap/js/src/dropdown';
+
 // 样式
 import './style';
 
@@ -42,6 +43,7 @@ export default class extends Component {
             value: 'Dropdown'
         },
         align: 'left',
+        direction: 'down',
         items: [],
         isSplit: false
     };
@@ -61,18 +63,25 @@ export default class extends Component {
 
         return (
             <Fragment>
-                <Group type="dropDown" dropDirection={direction} attributes={attributes} className={className}>
-                    {isSplit
-                        ? (<Fragment>
-                            <Button {...button}/>
-                            <_Toggle {...{
-                                color,
-                                isSplit
-                            }} />
-                        </Fragment>)
-                        : (<Fragment>
-                            <_Toggle {...{...button, isSplit}} />
-                        </Fragment>)}
+                <Group
+                    type="dropDown"
+                    dropDirection={direction}
+                    attributes={attributes}
+                    className={className}
+                >
+                    {
+                        isSplit
+                            ? (<Fragment>
+                                <Button {...button}/>
+                                <_Toggle {...{
+                                    color,
+                                    isSplit
+                                }} />
+                            </Fragment>)
+                            : (<Fragment>
+                                <_Toggle {...{...button, isSplit}} />
+                            </Fragment>)
+                    }
                     {
                         _.isArray(items) && items.length !== 0 && (
                             <div className={
@@ -85,15 +94,29 @@ export default class extends Component {
                             }>
                                 {
                                     items.map((item, index) => {
-                                        const {type, value, isDisabled, isActive, callbacks = {}, attributes = {}} = item;
+                                        const {
+                                            type = 'button',
+                                            value,
+                                            isDisabled = false,
+                                            isActive = false,
+                                            className = [],
+                                            callbacks = {},
+                                            attributes = {}
+                                        } = item;
                                         return (
                                             <Fragment key={index}>
                                                 {
                                                     _.isEqual(type, 'button') && (<Button {...{
-                                                        className: classNames('dropdown-item', {
-                                                            'disabled': isDisabled,
-                                                            'active': isActive
-                                                        }),
+                                                        className: classNames(
+                                                            'dropdown-item',
+                                                            {
+                                                                'disabled': isDisabled,
+                                                                'active': isActive
+                                                            },
+                                                            ...(
+                                                                _.isArray(className) ? className : [className]
+                                                            )
+                                                        ),
                                                         _isNoClass: true,
                                                         value,
                                                         isDisabled,
@@ -103,8 +126,17 @@ export default class extends Component {
                                                     }}/>)
                                                 }
                                                 {_.isEqual(type, 'header') && (
-                                                    <h6 className="dropdown-header">{value}</h6>)}
-                                                {_.isEqual(type, 'divider') && (<div className="dropdown-divider"/>)}
+                                                    <h6 className={classNames(
+                                                        'dropdown-header',
+                                                        ...(
+                                                            _.isArray(className) ? className : [className]
+                                                        ))}>{value}</h6>)}
+                                                {_.isEqual(type, 'divider') && (<div className={classNames(
+                                                    'dropdown-divider',
+                                                    ...(
+                                                        _.isArray(className) ? className : [className]
+                                                    )
+                                                )}/>)}
                                             </Fragment>
                                         )
                                     })

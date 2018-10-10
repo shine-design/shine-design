@@ -34,17 +34,26 @@ export default class extends Component {
 
     render() {
         const {isSplit, className, attributes} = this.props;
-        _.isArray(className) && className.push(isSplit ? ['dropdown-toggle', 'dropdown-toggle-split'] : 'dropdown-toggle');
-        _.isObject(attributes) && _.assignIn(attributes, {
+        const _className = classNames(
+            ...className,
+            'dropdown-toggle',
+            {
+                'dropdown-toggle-split': isSplit
+            }
+        );
+        const _attributes = {
+            ...attributes,
             'data-toggle': 'dropdown',
             'aria-haspopup': 'true',
             'aria-expanded': 'false'
-        });
+        };
+
         return (
             <Fragment>
                 <Button {...{
                     ...this.props,
-                    className,
+                    className: _className,
+                    attributes: _attributes
                 }}/>
             </Fragment>
         );

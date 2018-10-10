@@ -17,7 +17,7 @@ export {default as Col} from './components/Col/Col';
 export {default as Icon} from './components/Icon/Icon';
 export {default as Button}  from './components/Button/Button';
 export {default as Group} from './components/Group/Group';
-export {default as Alert} from './components/Alert/Alert';
+// export {default as Alert} from './components/Alert/Alert';
 
 // Form
 export {default as Form} from './components/Form/Form';
@@ -25,12 +25,12 @@ export {default as Input} from './components/Input/Input';
 export {default as SymbolInput} from './components/SymbolInput/SymbolInput';
 export {default as Dropdown} from './components/Dropdown/Dropdown';
 
-// console.log(require('./components/Dropdown/Dropdown'));
 // Data
 export {default as Progress} from './components/Progress/Progress';
 export {default as Badge} from './components/Badge/Badge';
 export {default as Table} from './components/Table/Table';
 
+// export {default as Tooltip} from './components/Tooltip/Tooltip';
 // Other
 export {default as Divider} from './components/Divider/Divider';
 export {default as Modal} from './components/Modal/Modal';

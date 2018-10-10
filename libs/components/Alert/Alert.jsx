@@ -1,6 +1,6 @@
 /**
  * @Component 警告组件 - Alert
- * @Type Notice
+ * @Type 提醒
  * @Author 瞿龙俊 - qulongjun@shine.design
  * @Date 2018/9/4 下午1:34
  */

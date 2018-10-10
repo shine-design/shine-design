@@ -87,6 +87,9 @@ export default class extends Component {
                 _.isArray(className) ? className : [className]
             )
         );
+
+        if (isDisabled) _.merge(attributes, {disabled: true});
+
         return (
             <Fragment>
                 <button
