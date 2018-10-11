@@ -12,23 +12,25 @@ import * as PropTypes from 'prop-types';
 // 第三方依赖库
 import classNames from 'classnames'
 import _ from 'lodash';
+import jQuery from "jquery";
+import 'bootstrap/js/src/alert';
+import {
+    COMMON_PROPS_TYPE,
+    COMMON_PROPS_DEFAULT
+} from '../../config/commonProps';
+import colorType from "../../config/color";
 
 // 组件依赖
-import {COMMON_PROPS_TYPE, COMMON_PROPS_DEFAULT} from '../../config/commonProps';
 import Button from '../Button/Button';
 import Icon from '../Icon/Icon';
-import 'bootstrap/js/src/alert';
+
 // 样式
 import './style';
-import colorType from "../../config/color";
 
 export default class extends Component {
     constructor(props) {
         super(props);
-    }
-
-    componentDidMount() {
-
+        this.alert = React.createRef();
     }
 
     static propTypes = {
@@ -41,6 +43,7 @@ export default class extends Component {
         actions: PropTypes.array,
         alertStyle: PropTypes.oneOf(['square', 'pill']),
         isAir: PropTypes.bool,
+        isDoubleOutline: PropTypes.bool,
         isCloseable: PropTypes.bool
     };
 
@@ -49,8 +52,33 @@ export default class extends Component {
         isOpen: true,
         color: 'default',
         isCloseable: false,
+        isDoubleOutline: false,
         isAir: false
     };
+
+    componentDidMount() {
+        const {isOpen, onBeforeClose, onClosed} = this.props;
+        const _alert = this.alert.current;
+
+        jQuery(_alert).on('close.bs.alert', (e) => {
+            _.isFunction(onBeforeClose) && onBeforeClose(e, _alert);
+        });
+
+        jQuery(_alert).on('closed.bs.alert', (e) => {
+            _.isFunction(onClosed) && onClosed(e);
+        });
+
+        this.triggerAlert(isOpen);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.triggerAlert(nextProps.isOpen);
+    }
+
+    triggerAlert(isOpen) {
+        const _alert = this.alert.current;
+        jQuery(_alert).alert(isOpen ? 'show' : 'hide');
+    }
 
     render() {
         const {
@@ -61,6 +89,8 @@ export default class extends Component {
             actions,
             alertStyle,
             isCloseable,
+            isOpen,
+            isDoubleOutline,
             isAir,
             attributes,
             className,
@@ -82,21 +112,23 @@ export default class extends Component {
         return (
             <Fragment>
                 <div
-                    ref='alert'
+                    ref={this.alert}
                     className={
                         classNames(
                             'alert',
                             'sh-alert',
+                            'fade',
                             {
                                 [`alert-${color.replace('outline-', '')}`]: _.isString(color) && !_.isEqual(color, 'default'),
                                 'sh-alert--outline': _.isString(color) && color.indexOf('outline-') !== -1,
                                 'sh-alert--default': !_.isString(color) || _.isEqual(color, 'default'),
-                                'sh-alert--icon': _.isString(iconName),
+                                'sh-alert--icon': _.isString(iconName) || (_.isArray(actions) && actions.length !== 0),
                                 'alert-dismissible': isCloseable,
                                 [`sh-alert--${alertStyle}`]: _.isString(alertStyle),
                                 'sh-alert--air': isAir,
-                                'fade': isCloseable,
-                                'show': isCloseable
+                                'sh-alert--outline-2x': isDoubleOutline,
+                                'show': isOpen,
+                                'hide': !isOpen
                             },
                             ...(
                                 _.isArray(className) ? className : [className]
@@ -106,7 +138,7 @@ export default class extends Component {
                 >
                     {_.isString(iconName) && <div className='sh-alert__icon'><Icon className={iconName}/></div>}
                     {!_.isString(iconName) && _closeBtnRender}
-                    {_.isString(iconName)
+                    {_.isString(iconName) || (_.isArray(actions) && actions.length !== 0)
                         ? <Fragment>
                             <div className="sh-alert__text">{_noteRender}</div>
                         </Fragment>
