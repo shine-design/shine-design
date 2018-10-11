@@ -33,6 +33,7 @@
       cursor: pointer;
       background-color: transparent;
       border: 0;
+      height: 100%;
       -webkit-appearance: none;
 
       span {
@@ -50,6 +51,7 @@
 
       display: table;
       padding: 0;
+      width: 100%;
 
       .sh-alert__icon {
         display: table-cell;
