@@ -8,13 +8,15 @@
 // 核心依赖
 import React, {Component, Fragment} from 'react';
 import * as PropTypes from 'prop-types';
+import {
+    COMMON_PROPS_TYPE,
+    COMMON_PROPS_DEFAULT
+} from '../../../config/commonProps';
 
 // 第三方依赖库
 import classNames from 'classnames'
-import _ from 'lodash';
 
 // 组件依赖
-import {COMMON_PROPS_TYPE, COMMON_PROPS_DEFAULT} from '../../../config/commonProps';
 import Button from "../../Button/Button";
 
 // 样式

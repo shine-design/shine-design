@@ -8,16 +8,21 @@
 // 核心依赖
 import React, {Component, Fragment} from 'react';
 import * as PropTypes from 'prop-types';
+import {
+    COMMON_PROPS_TYPE,
+    COMMON_PROPS_DEFAULT
+} from '../../config/commonProps';
+import colorType from '../../config/color';
+
 // 第三方依赖库
 import classNames from 'classnames'
 import _ from 'lodash';
-import colorType from '../../config/color';
-// 样式
-import './style';
 
 // 组件依赖
-import {COMMON_PROPS_TYPE, COMMON_PROPS_DEFAULT} from '../../config/commonProps';
 import Icon from '../Icon/Icon';
+
+// 样式
+import './style';
 
 export default class extends Component {
     constructor(props) {
