@@ -24,6 +24,7 @@ export {default as Dropdown} from './components/Dropdown/Dropdown';
 
 // Notice
 export {default as Alert} from './components/Alert/Alert';
+export {default as Tooltip} from './components/Tooltip/Tooltip';
 
 // Form
 export {default as Form} from './components/Form/Form';

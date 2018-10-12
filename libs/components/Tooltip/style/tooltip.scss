@@ -3,8 +3,8 @@
  * @Date 2018/10/8 上午11:08
  */
 
-@mixin m-build-component--bootstrap-tooltip-base() {
-  .m-tooltip.tooltip {
+@mixin sh-build-component--bootstrap-tooltip-base() {
+  .sh-tooltip.tooltip {
     .tooltip-inner {
       padding: 7px 20px 7px 20px;
       font-size: get-font-size(regular);
@@ -14,7 +14,7 @@
       }
     }
 
-    &.m-tooltop--auto-width {
+    &.sh-tooltop--auto-width {
       .tooltip-inner {
         white-space:nowrap;
         max-width:none;
@@ -25,7 +25,7 @@
       @include opacity(1);
     }
 
-    &.m-tooltip--portlet {
+    &.sh-tooltip--portlet {
       @include opacity(1);
     }
 
@@ -67,8 +67,8 @@
   }
 }
 
-@mixin m-build-component--bootstrap-tooltip-skin($skin) {
-  @include component-skin(m-tooltip, $skin) {
+@mixin sh-build-component--bootstrap-tooltip-skin($skin) {
+  @include component-skin(sh-tooltip, $skin) {
     .tooltip-inner {
       color: get-color($skin, regular, '-');
       background: get-color($skin, box, '-');
@@ -101,8 +101,8 @@
   }
 }
 
-@include m-build-component--bootstrap-tooltip-base();
+@include sh-build-component--bootstrap-tooltip-base();
 
-@include m-build-component--bootstrap-tooltip-skin(light);
+@include sh-build-component--bootstrap-tooltip-skin(light);
 
-@include m-build-component--bootstrap-tooltip-skin(dark);
+@include sh-build-component--bootstrap-tooltip-skin(dark);
