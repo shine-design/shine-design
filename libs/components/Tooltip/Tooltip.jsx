@@ -25,13 +25,17 @@ import './style';
 export default class extends Component {
     constructor(props) {
         super(props);
+
         this.child = React.createRef();
+
         this.initTooltip = this.initTooltip.bind(this);
+        this.triggerTooltip = this.triggerTooltip.bind(this);
         this.findChildDom = this.findChildDom.bind(this);
     }
 
     componentDidMount() {
-        const {isOpen, onBeforeOpen, onOpened, onBeforeClose, onClosed} = this.props;
+        const {isOpen, trigger, onBeforeOpen, onOpened, onBeforeClose, onClosed} = this.props;
+
         if (this.findChildDom()) {
             const _child = this.findChildDom();
 
@@ -49,11 +53,13 @@ export default class extends Component {
             });
 
             this.initTooltip(_child);
+            _.isEqual(trigger, 'manual') && this.triggerTooltip(_child, isOpen);
         }
     }
 
-    componentWillUnmount() {
-        this.findChildDom() && jQuery(this.findChildDom()).tooltip('destroy');
+    componentWillReceiveProps(nextProps) {
+        const {isOpen, trigger} = nextProps;
+        _.isEqual(trigger, 'manual') && this.triggerTooltip(this.findChildDom(), isOpen);
     }
 
     static propTypes = {
@@ -66,12 +72,11 @@ export default class extends Component {
                 hide: PropTypes.number
             })
         ]),
-        isShow: PropTypes.bool,
         isHtml: PropTypes.bool,
         isAutoWidth: PropTypes.bool,
         isAnimate: PropTypes.bool,
         skin: PropTypes.oneOf(['light', 'dark']),
-        placement: PropTypes.oneOf(['top', 'left', 'right', 'bottom']),
+        placement: PropTypes.oneOf(['top', 'left', 'right', 'bottom', 'auto']),
         children: (props, propName, componentName) => {
             if (props[propName].type !== Button) {
                 return new Error(
@@ -83,12 +88,12 @@ export default class extends Component {
     };
 
     static defaultProps = {
-        isOpen: true,
+        isOpen: false,
         title: '',
         trigger: ['hover', 'focus'],
+        placement: 'auto',
         skin: 'light',
         delay: 0,
-        isShow: false,
         isHtml: false,
         isAutoWidth: true,
         isAnimate: true
@@ -127,6 +132,10 @@ export default class extends Component {
         });
     }
 
+    triggerTooltip(el, isOpen) {
+        jQuery(el).tooltip(isOpen ? 'show' : 'hide');
+    }
+
     render() {
         const {trigger, skin, offset, title, placement, isAnimate, isHtml, children} = this.props;
 
@@ -144,7 +153,10 @@ export default class extends Component {
 
         return (
             <Fragment>
-                {!_.isUndefined(children) && children.type === Button && React.cloneElement(children, {ref: this.child})}
+                {
+                    !_.isUndefined(children)
+                    && children.type === Button
+                    && React.cloneElement(children, {ref: this.child})}
             </Fragment>
         );
     }
