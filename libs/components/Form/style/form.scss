@@ -16,6 +16,8 @@
       &.col-form-label {
         padding-top: array-get($sh--forms, input, layout, self, size, default, padding, y);
         //padding-bottom: array-get($sh--forms, input, layout, self, size, default, padding, y);
+        display: flex;
+        align-items: center;
       }
     }
 

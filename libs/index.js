@@ -30,6 +30,7 @@ export {default as Tooltip} from './components/Tooltip/Tooltip';
 export {default as Form} from './components/Form/Form';
 export {default as Input} from './components/Input/Input';
 export {default as SymbolInput} from './components/SymbolInput/SymbolInput';
+export {default as Switch} from './components/Switch/Switch';
 
 // Data
 export {default as Progress} from './components/Progress/Progress';
