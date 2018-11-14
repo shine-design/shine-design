@@ -20,6 +20,7 @@ import uuidv4 from 'uuid/v4';
 
 // 组件依赖
 import _Checks from '../_Internal/_Checks/_Checks';
+import _Switch from '../_Internal/_Switch/_Switch';
 import Group from '../Group/Group';
 import Button from '../Button/Button';
 
@@ -56,6 +57,7 @@ export default class extends Component {
             ...COMMON_PROPS_TYPE,
         })),
         inputStyle: PropTypes.oneOf(['pill', 'square', 'normal']),
+        bgColor: PropTypes.oneOf(_.concat(require('../../config/color').default, 'default')),
         isAir: PropTypes.bool,
         isSolid: PropTypes.bool,
         size: PropTypes.oneOf(['sm', 'md', 'lg']),
@@ -68,6 +70,9 @@ export default class extends Component {
         isLast: PropTypes.bool,
         isDisabled: PropTypes.bool,
         isReadOnly: PropTypes.bool,
+        isShowIcon: PropTypes.bool,
+        isChecked: PropTypes.bool,
+        isOutline: PropTypes.bool,
         _isGroup: PropTypes.bool
     };
 
@@ -84,10 +89,14 @@ export default class extends Component {
         itemDisplay: 'block',
         labelCount: 3,
         itemList: [],
+        bgColor: 'default',
         isFirst: false,
         isLast: false,
         isDisabled: false,
         isReadOnly: false,
+        isShowIcon: true,
+        isChecked: false,
+        isOutline: false,
         _isGroup: false
     };
 
@@ -135,6 +144,29 @@ export default class extends Component {
             _prepend,
             _append
         } = this.props;
+
+        // 开关
+        const {
+            bgColor,
+            isShowIcon,
+            isChecked,
+            isOutline
+        } = this.props;
+
+        const _switchProps = {
+            id,
+            name,
+            isReadOnly,
+            defaultValue,
+            size,
+            bgColor,
+            isShowIcon,
+            isChecked,
+            isDisabled,
+            isOutline,
+            attributes,
+            callbacks,
+        };
 
         // Fix Password Input notification
         _.isEqual(type, 'password') && _.isUndefined(attributes['autoComplete']) && (attributes['autoComplete'] = 'current-password');
@@ -268,6 +300,13 @@ export default class extends Component {
                     </Fragment>
                 );
                 break;
+            case 'switch':
+                _inputRender = (
+                    <Fragment>
+                        <_Switch {..._switchProps} />
+                    </Fragment>
+                );
+                break;
             default:
                 _inputRender = <input
                     id={id}
@@ -361,7 +400,14 @@ export default class extends Component {
                             </Fragment>)
                     }
                     {
-                        _.isString(helper) && (<span className="sh-form__help">{helper}</span>)
+                        _.isString(helper) && (<span className={
+                            classNames(
+                                "sh-form__help",
+                                {
+                                    'col-form-label': _.isEqual(display, 'inline')
+                                }
+                            )
+                        }>{helper}</span>)
                     }
                 </div>
             </Fragment>
