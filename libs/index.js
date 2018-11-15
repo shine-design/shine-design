@@ -32,6 +32,9 @@ export {default as Input} from './components/Input/Input';
 export {default as SymbolInput} from './components/SymbolInput/SymbolInput';
 export {default as Switch} from './components/Switch/Switch';
 
+// Form Widget
+export {default as DatePicker} from './components/DatePicker/DatePicker';
+
 // Data
 export {default as Progress} from './components/Progress/Progress';
 export {default as Badge} from './components/Badge/Badge';
