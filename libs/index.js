@@ -35,6 +35,8 @@ export {default as Switch} from './components/Switch/Switch';
 // Form Widget
 export {default as DatePicker} from './components/DatePicker/DatePicker';
 export {default as DateTimePicker} from './components/DateTimePicker/DateTimePicker';
+export {default as TimePicker} from './components/TimePicker/TimePicker';
+
 
 // Data
 export {default as Progress} from './components/Progress/Progress';
