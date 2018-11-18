@@ -36,6 +36,7 @@ export {default as Switch} from './components/Switch/Switch';
 export {default as DatePicker} from './components/DatePicker/DatePicker';
 export {default as DateTimePicker} from './components/DateTimePicker/DateTimePicker';
 export {default as TimePicker} from './components/TimePicker/TimePicker';
+export {default as DateRangePicker} from './components/DateRangePicker/DateRangePicker';
 
 
 // Data
