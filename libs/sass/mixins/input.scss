@@ -18,3 +18,10 @@
   }
   // Safari and Chrome
 }
+
+@mixin reset-input() {
+  border: 0;
+  background: none;
+  outline: none !important;
+  @include shadow(none);
+}
