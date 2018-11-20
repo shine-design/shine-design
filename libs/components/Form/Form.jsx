@@ -73,7 +73,8 @@ export default class extends Component {
             onSuccess, // 表单校验通过函数（单个字段）
             onShowErrors, // 需要手动渲染错误提示。
             onInvalidHandler, // 表单校验不通过函数，无需手动渲染错误提示
-            onSubmit // 表单校验通过后提交函数
+            onSubmit, // 表单校验通过后提交函数
+            attributes // 其他自定义属性
         } = validate;
 
         if (isValidate && formRef) {
@@ -124,7 +125,8 @@ export default class extends Component {
                 },
                 invalidHandler: onInvalidHandler || (() => {
                     jQuery(_alert).removeClass('sh--hide').show();
-                })
+                }),
+                ...attributes
             });
         }
     }
