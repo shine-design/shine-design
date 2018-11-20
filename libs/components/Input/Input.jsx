@@ -124,7 +124,8 @@ export default class extends Component {
             display,
             labelCount,
             callbacks,
-            className
+            className,
+            validate
         } = this.props;
 
         // 基础选择
@@ -179,7 +180,6 @@ export default class extends Component {
                 'sh-input--air': isAir,
                 'sh-input--solid': isSolid,
                 [`form-control-${size}`]: !_.isEqual(size, 'md'),
-                [`col-${12 - labelCount}`]: _.isEqual(display, 'inline') && _.isNumber(labelCount)
             }
         );
 
@@ -210,15 +210,17 @@ export default class extends Component {
                             {...callbacks}
                         >
                             {
-                                _.isArray(options) && options.map((item, index) => <option key={index}
-                                                                                           value={item.value}
-                                                                                           defaultChecked={item.isChecked}
-                                                                                           {...item.callbacks}
-                                                                                           className={classNames(
-                                                                                               ...(
-                                                                                                   _.isArray(item.className) ? item.className : [item.className]
-                                                                                               )
-                                                                                           )}>{item.label}</option>)
+                                _.isArray(options) && options.map((item, index) =>
+                                    <option key={index}
+                                            value={item.value}
+                                            defaultChecked={item.isChecked}
+                                            {...item.callbacks}
+                                            className={classNames(
+                                                ...(
+                                                    _.isArray(item.className) ? item.className : [item.className]
+                                                )
+                                            )}>{item.label}
+                                    </option>)
                             }
                         </select>
                     </Fragment>
@@ -322,6 +324,76 @@ export default class extends Component {
                 />
         }
 
+
+        const inputContent = (
+            <Fragment>
+                {
+                    _isGroup
+                        ? (
+                            <Fragment>
+                                <div className={_groupClass}>
+                                    {
+                                        _.isArray(_prepend) && !_.isEmpty(_prepend) && (
+                                            <Fragment>
+                                                <div className="input-group-prepend">
+                                                    {
+                                                        _prepend.map((pre, index) => {
+                                                            if (pre.type === Button) {
+                                                                return (
+                                                                    <Fragment key={index}>{pre}</Fragment>);
+                                                            } else {
+                                                                return (<span key={index}
+                                                                              className="input-group-text">{pre}</span>)
+                                                            }
+                                                        })
+                                                    }
+                                                </div>
+                                            </Fragment>
+                                        )
+                                    }
+                                    {_inputRender}
+                                    {
+                                        _.isArray(_append) && !_.isEmpty(_append) && (
+                                            <Fragment>
+                                                <div className="input-group-append">
+                                                    {
+                                                        _append.map((app, index) => {
+                                                            if (app.type === Button) {
+                                                                return (
+                                                                    <Fragment key={index}>{app}</Fragment>);
+                                                            } else {
+                                                                return (<span key={index}
+                                                                              className="input-group-text">{app}</span>)
+                                                            }
+                                                        })
+                                                    }
+                                                </div>
+                                            </Fragment>
+                                        )
+                                    }
+                                </div>
+                            </Fragment>
+                        )
+                        : (<Fragment>
+                            {
+                                _inputRender
+                            }
+                        </Fragment>)
+                }
+                {
+                    _.isString(helper) && (<span className={
+                        classNames(
+                            "sh-form__help",
+                            {
+                                'col-form-label': _.isEqual(display, 'inline')
+                            }
+                        )
+                    }>{helper}</span>)
+                }
+            </Fragment>
+        );
+
+
         return (
             <Fragment>
                 <div className={
@@ -341,73 +413,26 @@ export default class extends Component {
                     {
                         _.isString(label) && (<label htmlFor={id} className={
                             classNames(
+                                'form-control-label',
                                 {
                                     'col-form-label': _.isEqual(display, 'inline'),
                                     [`col-${labelCount}`]: _.isEqual(display, 'inline') && _.isNumber(labelCount)
                                 }
                             )
-                        }>{label}</label>)
+                        }>{label + (!_.isUndefined(name) && !_.isUndefined(validate) && !_.isEmpty(validate) ? ' *' : '')}</label>)
                     }
                     {
-                        _isGroup
-                            ? (
-                                <Fragment>
-                                    <div className={_groupClass}>
-                                        {
-                                            _.isArray(_prepend) && !_.isEmpty(_prepend) && (
-                                                <Fragment>
-                                                    <div className="input-group-prepend">
-                                                        {
-                                                            _prepend.map((pre, index) => {
-                                                                if (pre.type === Button) {
-                                                                    return (<Fragment key={index}>{pre}</Fragment>);
-                                                                } else {
-                                                                    return (<span key={index}
-                                                                                  className="input-group-text">{pre}</span>)
-                                                                }
-                                                            })
-                                                        }
-                                                    </div>
-                                                </Fragment>
-                                            )
-                                        }
-                                        {_inputRender}
-                                        {
-                                            _.isArray(_append) && !_.isEmpty(_append) && (
-                                                <Fragment>
-                                                    <div className="input-group-append">
-                                                        {
-                                                            _append.map((app, index) => {
-                                                                if (app.type === Button) {
-                                                                    return (<Fragment key={index}>{app}</Fragment>);
-                                                                } else {
-                                                                    return (<span key={index}
-                                                                                  className="input-group-text">{app}</span>)
-                                                                }
-                                                            })
-                                                        }
-                                                    </div>
-                                                </Fragment>
-                                            )
-                                        }
-                                    </div>
-                                </Fragment>
-                            )
-                            : (<Fragment>
-                                {
-                                    _inputRender
-                                }
-                            </Fragment>)
-                    }
-                    {
-                        _.isString(helper) && (<span className={
-                            classNames(
-                                "sh-form__help",
-                                {
-                                    'col-form-label': _.isEqual(display, 'inline')
-                                }
-                            )
-                        }>{helper}</span>)
+                        _.isEqual(display, 'inline') && _.isNumber(labelCount) ? (
+                            <Fragment>
+                                <div className={
+                                    classNames(
+                                        {[`col-${12 - labelCount}`]: _.isEqual(display, 'inline') && _.isNumber(labelCount)}
+                                    )
+                                }>
+                                    {inputContent}
+                                </div>
+                            </Fragment>
+                        ) : inputContent
                     }
                 </div>
             </Fragment>

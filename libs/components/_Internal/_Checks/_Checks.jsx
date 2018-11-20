@@ -57,7 +57,6 @@ export default class extends Component {
     static defaultProps = {
         ...COMMON_PROPS_DEFAULT,
         type: 'radio',
-        id: 'sh-' + uuidv4(),
         color: 'default',
         checkedColor: 'default',
         isDisabled: false,
