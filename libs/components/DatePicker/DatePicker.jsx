@@ -48,7 +48,7 @@ export default class extends Component {
 
     componentDidMount() {
         const childDom = this.findChildDom();
-        console.log(childDom);
+
         if (!_.isNull(childDom)) {
             const input = jQuery(childDom).find('input');
 
