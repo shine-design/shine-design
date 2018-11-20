@@ -7,6 +7,8 @@
  */
 @import "./config/font";
 @import "./mixins/meida";
+@import "./mixins/clearfix";
+@import "./mixins/helpers";
 @import "./functions";
 /**
  * 依赖配置项
@@ -25,6 +27,7 @@
 @import "~bootstrap/scss/transitions";
 @import "~bootstrap/scss/close";
 @import "~line-awesome/css/line-awesome.css";
+
 /**
   独立样式
  */

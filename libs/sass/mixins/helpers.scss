@@ -1,0 +1,360 @@
+@import "../config/color";
+
+@mixin sh-margin-and-padding($mode) {
+  @if $mode == general {
+    $mode: '';
+  } @else {
+    $mode: "-" + $mode;
+  }
+
+  @for $i from 1 through 20 {
+    $num: $i * 5;
+
+    .sh--margin-#{$num}#{$mode} {
+      margin: #{$num}px !important;
+    }
+
+    .sh--margin-top-#{$num}#{$mode} {
+      margin-top: #{$num}px !important;
+    }
+
+    .sh--margin-bottom-#{$num}#{$mode} {
+      margin-bottom: #{$num}px !important;
+    }
+
+    .sh--margin-left-#{$num}#{$mode} {
+      margin-left: #{$num}px !important;
+    }
+
+    .sh--margin-right-#{$num}#{$mode} {
+      margin-right: #{$num}px !important;
+    }
+
+    .sh--padding-#{$num}#{$mode} {
+      padding: #{$num}px !important;
+    }
+
+    .sh--padding-top-#{$num}#{$mode} {
+      padding-top: #{$num}px !important;
+    }
+
+    .sh--padding-bottom-#{$num}#{$mode} {
+      padding-bottom: #{$num}px !important;
+    }
+
+    .sh--padding-left-#{$num}#{$mode} {
+      padding-left: #{$num}px !important;
+    }
+
+    .sh--padding-right-#{$num}#{$mode} {
+      padding-right: #{$num}px !important;
+    }
+  }
+}
+
+@include sh-margin-and-padding(general);
+
+@include desktop {
+  @include sh-margin-and-padding(desktop);
+}
+
+@include tablet {
+  @include sh-margin-and-padding(tablet);
+}
+
+@include tablet-and-mobile {
+  @include sh-margin-and-padding(tablet-and-mobile);
+}
+
+@include mobile {
+  @include sh-margin-and-padding(mobile);
+}
+
+//== General helpers
+
+.sh--full-height {
+  height: 100%;
+}
+
+.sh--valign-top {
+  vertical-align: top;
+}
+
+.sh--space-5 {
+  display: block;
+  height: 0;
+  margin-bottom: 5px;
+}
+
+.sh--space-10 {
+  display: block;
+  height: 0;
+  margin-bottom: 10px;
+}
+
+.sh--space-15 {
+  display: block;
+  height: 0;
+  margin-bottom: 15px;
+}
+
+.sh--space-20 {
+  display: block;
+  height: 0;
+  margin-bottom: 20px;
+}
+
+.sh--space-30 {
+  display: block;
+  height: 0;
+  margin-bottom: 30px;
+}
+
+.sh--space-40 {
+  display: block;
+  height: 0;
+  margin-bottom: 40px;
+}
+
+.sh--valign-middle {
+  vertical-align: middle;
+}
+
+.sh--valign-bottom {
+  vertical-align: bottom;
+}
+
+.sh--block-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sh--align-right {
+  text-align: right;
+}
+
+.sh--align-left {
+  text-align: left;
+}
+
+.sh--align-center {
+  text-align: center;
+}
+
+.sh--pull-right {
+  float: right;
+}
+
+.sh--pull-left {
+  float: left;
+}
+
+.sh--img-rounded {
+  border-radius: 50%;
+}
+
+.sh--block-inline {
+  display: inline-block;
+}
+
+.sh--icon-middle {
+  &:before {
+    vertical-align: middle;
+  }
+}
+
+.sh--hide {
+  display: none !important;
+}
+
+.sh--clearfix {
+  @include clearfix();
+}
+
+.sh--marginless {
+  margin: 0 !important;
+}
+
+.sh--img-centered {
+  text-align: center;
+}
+
+//== Text Transform
+.sh--font-transform-u {
+  text-transform: uppercase;
+}
+
+.sh--font-transform-l {
+  text-transform: lowercase;
+}
+
+.sh--font-transform-c {
+  text-transform: capitalize;
+}
+
+.sh--font-transform-i {
+  text-transform: initial;
+}
+
+//== Font Weights
+@each $name, $weight in $sh--font-weights {
+  .sh--font-#{$name} {
+    font-weight: $weight;
+  }
+}
+
+//== Font Weights
+b, strong {
+  font-weight: bold;
+}
+
+//== State font color
+@each $name, $color in $sh--state-colors {
+  .sh--font-#{$name} {
+    color: array-get($color, base) !important;
+  }
+
+  .sh--font-inverse-#{$name} {
+    color: array-get($color, inverse) !important;
+  }
+
+  .sh--bg-#{$name} {
+    background-color: array-get($color, base) !important;
+  }
+
+  .sh--bg-fill-#{$name} {
+    background-color: array-get($color, base) !important;
+    color: array-get($color, inverse) !important;
+  }
+}
+
+//== Responsive Helpers
+.sh--visible-desktop,
+.sh--visible-desktop-inline-block,
+.sh--visible-desktop-inline,
+.sh--visible-desktop-table,
+.sh--visible-desktop-table-cell,
+
+.sh--visible-tablet,
+.sh--visible-tablet-inline-block,
+.sh--visible-tablet-inline,
+.sh--visible-tablet-table,
+.sh--visible-tablet-table-cell,
+
+.sh--visible-tablet-and-mobile,
+.sh--visible-tablet-and-mobile-inline-block,
+.sh--visible-tablet-and-mobile-inline,
+.sh--visible-tablet-and-mobile-table,
+.sh--visible-tablet-and-mobile-table-cell,
+
+.sh--visible-mobile,
+.sh--visible-mobile-inline-block,
+.sh--visible-mobile-inline,
+.sh--visible-mobile-table,
+.sh--visible-mobile-table-cell {
+  display: none !important;
+}
+
+@include desktop {
+  .sh--visible-desktop {
+    display: block !important;
+  }
+
+  .sh--visible-desktop-inline-block {
+    display: inline-block !important;
+  }
+
+  .sh--visible-desktop-inline {
+    display: inline !important;
+  }
+
+  .sh--visible-desktop-table {
+    display: table !important;
+  }
+
+  .sh--visible-desktop-table-cell {
+    display: table-cell !important;
+  }
+
+  .sh--hidden-desktop {
+    display: none !important;
+  }
+}
+
+@include tablet {
+  .sh--visible-tablet {
+    display: block !important;
+  }
+
+  .sh--visible-tablet-inline-block {
+    display: inline-block !important;
+  }
+
+  .sh--visible-tablet-inline {
+    display: inline !important;
+  }
+
+  .sh--visible-tablet-table {
+    display: table !important;
+  }
+
+  .sh--visible-tablet-table-cell {
+    display: table-cell !important;
+  }
+
+  .sh--hidden-tablet {
+    display: none !important;
+  }
+}
+
+@include tablet-and-mobile {
+  .sh--visible-tablet-and-mobile {
+    display: block !important;
+  }
+
+  .sh--visible-tablet-and-mobile-inline-block {
+    display: inline-block !important;
+  }
+
+  .sh--visible-tablet-and-mobile-inline {
+    display: inline !important;
+  }
+
+  .sh--visible-tablet-and-mobile-table {
+    display: table !important;
+  }
+
+  .sh--visible-tablet-and-mobile-table-cell {
+    display: table-cell !important;
+  }
+
+  .sh--hidden-tablet-and-mobile {
+    display: none !important;
+  }
+}
+
+@include mobile {
+  .sh--visible-mobile {
+    display: block !important;
+  }
+
+  .sh--visible-mobile-inline-block {
+    display: inline-block !important;
+  }
+
+  .sh--visible-mobile-inline {
+    display: inline !important;
+  }
+
+  .sh--visible-mobile-table {
+    display: table !important;
+  }
+
+  .sh--visible-mobile-table-cell {
+    display: table-cell !important;
+  }
+
+  .sh--hidden-mobile {
+    display: none !important;
+  }
+}
