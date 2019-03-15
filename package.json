@@ -75,8 +75,6 @@
     "fs-extra": "^7.0.1",
     "jest-environment-enzyme": "^7.0.1",
     "jest-enzyme": "^7.0.1",
-    "less": "^3.9.0",
-    "less-loader": "^4.1.0",
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
     "polished": "^3.0.3",
