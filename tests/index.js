@@ -1,5 +1,5 @@
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+const Enzyme = require('enzyme');
+const Adapter = require('enzyme-adapter-react-16');
 
 // 配置 Enzyme 解析器
 Enzyme.configure({

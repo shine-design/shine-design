@@ -42,7 +42,10 @@ module.exports = {
       process.env.NODE_PATH.split(path.delimiter).filter(Boolean),
     ),
     extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx', '.scss'],
-    alias: {},
+    alias: {
+      'scss': paths.appStyle,
+      'config': paths.appConfig
+    },
     plugins: [
       new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
     ],
@@ -77,7 +80,7 @@ module.exports = {
           },
           {
             test: /\.(js|jsx|mjs)$/,
-            include: [paths.appSrc],
+            include: [paths.appSrc, paths.appTest],
             loader: require.resolve('babel-loader'),
             options: {
               cacheDirectory: true,
@@ -93,7 +96,15 @@ module.exports = {
                   importLoaders: 1,
                 },
               },
-              require.resolve('sass-loader')
+              require.resolve('sass-loader'),
+              {
+                loader: "@epegzz/sass-vars-loader", options: {
+                  syntax: 'scss',
+                  files: [
+                    path.resolve(paths.appSrc, '_variables.js')
+                  ]
+                }
+              },
             ],
           },
           {

@@ -1,26 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1552657400064" clover="3.2.0">
-  <project timestamp="1552657400064" name="All files">
-    <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2" elements="4" coveredelements="4" complexity="0" loc="2" ncloc="2" packages="3" files="3" classes="3"/>
-    <package name="src">
-      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="index.js" path="/Users/qulongjun/personal/shine-design-rebase/src/index.js">
-        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      </file>
-    </package>
-    <package name="src.components.Button">
-      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="index.js" path="/Users/qulongjun/personal/shine-design-rebase/src/components/Button/index.js">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="19" count="1" type="stmt"/>
-      </file>
-    </package>
-    <package name="src.components.Input">
-      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="index.js" path="/Users/qulongjun/personal/shine-design-rebase/src/components/Input/index.js">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="19" count="1" type="stmt"/>
-      </file>
-    </package>
+<coverage generated="1552791513597" clover="3.2.0">
+  <project timestamp="1552791513598" name="All files">
+    <metrics statements="10" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1" elements="12" coveredelements="8" complexity="0" loc="10" ncloc="10" packages="3" files="4" classes="4">
+      <package name="src">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <file name="_variables.js" path="/Users/qulongjun/Personal/shine-design/src/_variables.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="1" count="1" type="stmt"/>
+        </file>
+        <file name="index.js" path="/Users/qulongjun/Personal/shine-design/src/index.js">
+          <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        </file>
+      </package>
+      <package name="src.components.Row">
+        <metrics statements="7" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <file name="index.js" path="/Users/qulongjun/Personal/shine-design/src/components/Row/index.js">
+          <metrics statements="7" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+          <line num="15" count="1" type="stmt"/>
+          <line num="16" count="1" type="stmt"/>
+          <line num="17" count="1" type="stmt"/>
+          <line num="33" count="1" type="stmt"/>
+          <line num="57" count="0" type="stmt"/>
+          <line num="59" count="0" type="stmt"/>
+          <line num="69" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.configs">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <file name="media.js" path="/Users/qulongjun/Personal/shine-design/src/configs/media.js">
+          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="9" count="1" type="stmt"/>
+          <line num="12" count="1" type="stmt"/>
+        </file>
+      </package>
+    </metrics>
   </project>
 </coverage>

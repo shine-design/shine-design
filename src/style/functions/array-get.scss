@@ -3,6 +3,15 @@
  * @Date 2019/3/16 00:40
  */
 
+@function array-get-warning($warn, $get, $key) {
+  @if $get == null {
+    @warn "Map 没有搜索到当前值 `#{$warn}`";
+  } @else if type-of($get) != 'map' {
+    @warn "当前数据非 Map 类型`#{$warn}`， 无法搜索关键词 `#{$key}`";
+  }
+  @return null;
+}
+
 @function array-get($map, $keys...) {
   @if length($keys) == 1 {
     $keys: nth($keys, 1);

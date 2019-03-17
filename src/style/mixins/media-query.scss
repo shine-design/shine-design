@@ -1,0 +1,69 @@
+/**
+ * 媒体查询
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2019/3/16 00:41
+ */
+@import "../variables";
+
+// 指定小于 width 时的样式规则
+@mixin responsive-below($width) {
+  @media (max-width: #{$width}) {
+    @content;
+  }
+}
+
+// 指定大于 width 时的样式规则
+@mixin responsive-above($width) {
+  @media (min-width: #{$width}) {
+    @content;
+  }
+}
+
+// 预定义尺寸：桌面尺寸展示规则（介于 lg 和 xl 之间）
+@mixin minimal-desktop {
+  @media (min-width: #{map-get($shine-breakpoints, lg) + 1px}) and (max-width: #{map-get($shine-breakpoints, xl)}) {
+    @content;
+  }
+}
+
+// 预定义尺寸：小于宽屏桌面尺寸展示规则（小于 xl ）
+@mixin minimal-desktop-and-below {
+  @media (max-width: #{map-get($shine-breakpoints, xl)}) {
+    @content;
+  }
+}
+
+// 预定义尺寸：宽屏桌面尺寸展示规则（大于 lg ）
+@mixin desktop {
+  @media (min-width: #{map-get($shine-breakpoints, lg) + 1px}) {
+    @content;
+  }
+}
+
+// 预定义尺寸：桌面和平板设备尺寸展示规则（大于 md ）
+@mixin desktop-and-tablet {
+  @media (min-width: #{map-get($shine-breakpoints, md) + 1px}) {
+    @content;
+  }
+}
+
+// 预定义尺寸：平板设备尺寸展示规则（介于 md 和 lg 之间）
+@mixin tablet {
+  @media (min-width: #{map-get($shine-breakpoints, md) + 1px}) and (max-width: #{map-get($shine-breakpoints, lg)}) {
+    @content;
+  }
+}
+
+// 预定义尺寸：平板设备和移动设备尺寸展示规则（小于 lg ）
+@mixin tablet-and-mobile {
+  @media (max-width: #{map-get($shine-breakpoints, lg)}) {
+    @content;
+  }
+}
+
+// 预定义尺寸：移动设备尺寸展示规则（小于 md ）
+@mixin mobile {
+  @media (max-width: #{map-get($shine-breakpoints, md)}) {
+    @content;
+  }
+}
