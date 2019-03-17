@@ -1,0 +1,46 @@
+.one-page-nav-wrapper {
+  border-bottom: 1px solid lighten(@color_grey-light, 5%);
+  position: absolute;
+  top: 100px;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+  width: 100%;
+
+  .jspVerticalBar {
+    background: transparent;
+    width: 6px;
+  }
+
+  .jspPane {
+    width: 100% !important;
+  }
+
+  .jspTrack {
+    background: transparent;
+  }
+
+  &:hover .jspDrag {
+    background-color: @color_grey;
+
+  }
+
+  .jspDrag {
+    .transition(background-color);
+    background-color: @color_grey-light;
+  }
+}
+
+
+
+.one-page-nav-icon {
+  display: inline-block;
+  vertical-align: middle;
+  zoom: 1;
+  *display: inline;
+  width: 12px;
+  margin-right: 10px;
+  text-align: center;
+  font-size: 12px;
+}
+

@@ -1,1 +1,2 @@
-components/*/__tests__
+src/components/*/__tests__
+tests/coverage

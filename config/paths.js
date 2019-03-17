@@ -3,25 +3,33 @@ const path = require('path');
 const fs = require('fs');
 const url = require('url');
 
+// Make sure any symlinks in the project folder are resolved:
+// https://github.com/facebook/create-react-app/issues/637
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
 const envPublicUrl = process.env.PUBLIC_URL;
 
-function ensureSlash(path, needsSlash) {
-  const hasSlash = path.endsWith('/');
+function ensureSlash(inputPath, needsSlash) {
+  const hasSlash = inputPath.endsWith('/');
   if (hasSlash && !needsSlash) {
-    return path.substr(path, path.length - 1);
+    return inputPath.substr(0, inputPath.length - 1);
   } else if (!hasSlash && needsSlash) {
-    return `${path}/`;
+    return `${inputPath}/`;
   } else {
-    return path;
+    return inputPath;
   }
 }
 
 const getPublicUrl = appPackageJson =>
   envPublicUrl || require(appPackageJson).homepage;
 
+// We use `PUBLIC_URL` environment variable or "homepage" field to infer
+// "public path" at which the app is served.
+// Webpack needs to know it to put the right <script> hrefs into HTML even in
+// single-page apps that may serve index.html for nested URLs like /todos/42.
+// We can't use a relative path in HTML because we don't want to load something
+// like /todos/42/static/js/bundle.7289d.js. We have to know the root.
 function getServedPath(appPackageJson) {
   const publicUrl = getPublicUrl(appPackageJson);
   const servedUrl =
@@ -29,21 +37,63 @@ function getServedPath(appPackageJson) {
   return ensureSlash(servedUrl, true);
 }
 
+const moduleFileExtensions = [
+  'web.mjs',
+  'mjs',
+  'web.js',
+  'js',
+  'web.ts',
+  'ts',
+  'web.tsx',
+  'tsx',
+  'json',
+  'web.jsx',
+  'jsx',
+];
+
+// Resolve file paths in the same order as webpack
+const resolveModule = (resolveFn, filePath) => {
+  const extension = moduleFileExtensions.find(extension =>
+    fs.existsSync(resolveFn(`${filePath}.${extension}`))
+  );
+
+  if (extension) {
+    return resolveFn(`${filePath}.${extension}`);
+  }
+
+  return resolveFn(`${filePath}.js`);
+};
+
+// config after eject: we're in ./config/
 module.exports = {
   dotenv: resolveApp('.env'),
+  appPath: resolveApp('.'),
+  appPublic: resolveApp('public'),
+  appHtml: resolveApp('public/index.html'),
+  appPackageJson: resolveApp('package.json'),
+  appSrc: resolveApp('src'),
+  appTsConfig: resolveApp('tsconfig.json'),
+  yarnLockFile: resolveApp('yarn.lock'),
+  testsSetup: resolveModule(resolveApp, 'src/setupTests'),
+  proxySetup: resolveApp('src/setupProxy.js'),
+  appNodeModules: resolveApp('node_modules'),
+  publicUrl: getPublicUrl(resolveApp('package.json')),
+  servedPath: getServedPath(resolveApp('package.json')),
   appBuild: resolveApp('dist'),
   appIndexJs: resolveApp('src/index.js'),
   appStyle: resolveApp('src/style'),
   appTest: resolveApp('tests'),
   appConfig: resolveApp('src/configs'),
-  appPackageJson: resolveApp('package.json'),
-  appSrc: resolveApp('src'),
   shine: resolveApp('libs/components'),
   sass: resolveApp('sass'),
   libIndexjs: resolveApp('libs/index.js'),
-  yarnLockFile: resolveApp('yarn.lock'),
-  testsSetup: resolveApp('src/setupTests.js'),
-  appNodeModules: resolveApp('node_modules'),
-  publicUrl: getPublicUrl(resolveApp('package.json')),
-  servedPath: getServedPath(resolveApp('package.json')),
+
+  testPath: resolveApp('tests'),
+
+  websitePath: resolveApp('website'),
+  websiteIndexJs: resolveApp('website/index.js'),
+  websiteHtml: resolveApp('website/index.html')
 };
+
+
+module.exports.moduleFileExtensions = moduleFileExtensions;
