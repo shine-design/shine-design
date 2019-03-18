@@ -1,9 +1,10 @@
 import React from 'react';
 import {theme} from 'docz'
 import RouterConfig from "./config/router";
+import './plugins';
+import './styles/index.less';
 
-// const Theme = () => RouterConfig;
-const Theme = () => (<div>Hello</div>);
+const Theme = () => RouterConfig;
 
 const themeConfig = {};
 

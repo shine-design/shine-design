@@ -43,10 +43,10 @@
     "test": "jest --no-cache",
     "test:watch": "jest --watch",
     "test-all": "node ./scripts/test-all.js",
-    "clean": "sudo rimraf node_modules && npm install && jest --clearCache",
+    "clean": "sudo rimraf node_modules && yarn && jest --clearCache",
     "start": "node scripts/start.js",
-    "docz:dev": "docz dev",
-    "docz:build": "docz build"
+    "start:doc": "docz dev --debug",
+    "build:doc": "docz build"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "jest-enzyme",
@@ -137,6 +137,7 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "docz-plugin-css": "^0.11.0",
+    "jquery": "^3.3.1",
     "latest-version": "^5.0.0",
     "line-awesome": "^1.0.2",
     "lodash": "^4.17.11",
@@ -144,6 +145,8 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-router-dom": "^4.4.0",
+    "slicknav": "^1.0.8",
+    "superfish": "^1.7.10",
     "webpack-merge": "^4.2.1",
     "workbox-webpack-plugin": "^4.1.1"
   },

@@ -5,7 +5,7 @@
  */
 import React, {PureComponent} from 'react';
 import {Route, Switch} from "react-router-dom";
-import Home from "../../../../website/components/Home";
+import Home from "../Home";
 
 export default class extends PureComponent {
   render() {

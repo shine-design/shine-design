@@ -9257,6 +9257,11 @@ joi@^14.3.1:
     isemail "3.x.x"
     topo "3.x.x"
 
+jquery@>=1.7, jquery@>=1.8, jquery@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
+  integrity sha512-Ubldcmxp5np52/ENotGxlLe6aGMvmF4R8S6tZjsP6Knsaxd/xp3Zrh50cG93lR6nPXyUFwzN3ZSOQI0wRJNdGg==
+
 js-base64@^2.1.8, js-base64@^2.1.9:
   version "2.5.1"
   resolved "http://registry.npm.baidu-int.com/js-base64/-/js-base64-2.5.1.tgz#1efa39ef2c5f7980bb1784ade4a8af2de3291121"
@@ -14521,6 +14526,13 @@ slice-ansi@^2.1.0:
     astral-regex "^1.0.0"
     is-fullwidth-code-point "^2.0.0"
 
+slicknav@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/slicknav/-/slicknav-1.0.8.tgz#1a363a77e9c882748246ae6f51d188d1cfc731d0"
+  integrity sha1-GjY6d+nIgnSCRq5vUdGI0c/HMdA=
+  dependencies:
+    jquery ">=1.7"
+
 snake-case@^2.1.0:
   version "2.1.0"
   resolved "http://registry.npm.baidu-int.com/snake-case/-/snake-case-2.1.0.tgz#41bdb1b73f30ec66a04d4e2cad1b76387d4d6d9f"
@@ -15145,6 +15157,13 @@ stylus@^0.54.5:
     mkdirp "0.5.x"
     sax "0.5.x"
     source-map "0.1.x"
+
+superfish@^1.7.10:
+  version "1.7.10"
+  resolved "https://registry.yarnpkg.com/superfish/-/superfish-1.7.10.tgz#94400c5683b0cc87215c6247f26c27890990bc9e"
+  integrity sha512-4O2ySFEtu9AEmYy4gkRl2ifHPwzR1RSQBTpFedpR2nv8qxhx3lEdotHvxKGApHdjmffJuB/Oj5wflHJh1bnMIw==
+  dependencies:
+    jquery ">=1.8"
 
 supports-color@^2.0.0:
   version "2.0.0"
