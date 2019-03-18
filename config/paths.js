@@ -54,7 +54,7 @@ const moduleFileExtensions = [
 // Resolve file paths in the same order as webpack
 const resolveModule = (resolveFn, filePath) => {
   const extension = moduleFileExtensions.find(extension =>
-    fs.existsSync(resolveFn(`${filePath}.${extension}`))
+    fs.existsSync(resolveFn(`${filePath}.${extension}`)),
   );
 
   if (extension) {
@@ -92,7 +92,11 @@ module.exports = {
 
   websitePath: resolveApp('website'),
   websiteIndexJs: resolveApp('website/index.js'),
-  websiteHtml: resolveApp('website/index.html')
+  websiteHtml: resolveApp('website/index.html'),
+
+  siteHtml: resolveApp('site/index.html'),
+  themeIndex: resolveApp('site/theme/index.js'),
+  sitePath: resolveApp('site'),
 };
 
 

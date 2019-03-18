@@ -1,0 +1,37 @@
+{
+  "config": {
+    "title": "Shine Design - 为开发者、设计师和产品经理准备的UI设计语言",
+    "description": "一种广泛使用的基于React实现的UI设计语言，提供上百种企业级高质量的响应式组件，为开发者、设计师和产品经理提供一站式设计方案。",
+    "menu": [],
+    "ordering": "descending",
+    "version": "0.2.7",
+    "repository": "https://github.com/shine-design/shine-design",
+    "native": false,
+    "codeSandbox": true,
+    "themeConfig": {},
+    "theme": "/Users/qulongjun/personal/shine-design-rebase/site/theme/index.js",
+    "indexHtml": "/Users/qulongjun/personal/shine-design-rebase/site/index.html",
+    "plugins": [
+      {}
+    ]
+  },
+  "entries": {
+    "src/components/Row/index.mdx": {
+      "name": "My Document",
+      "route": "/custom-route",
+      "menu": "Documents",
+      "id": "f424ff2c3bd4ad03640b7402f36061cc",
+      "filepath": "src/components/Row/index.mdx",
+      "link": "https://github.com/shine-design/shine-design/edit/master/src/components/Row/index.mdx",
+      "slug": "src-components-row-index",
+      "order": 0,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "hello-world",
+          "value": "Hello world"
+        }
+      ]
+    }
+  }
+}
