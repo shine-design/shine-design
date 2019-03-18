@@ -43,7 +43,7 @@
     "test": "jest --no-cache",
     "test:watch": "jest --watch",
     "test-all": "node ./scripts/test-all.js",
-    "clean": "rm -rf node_modules && npm install && jest --clearCache",
+    "clean": "sudo rimraf node_modules && npm install && jest --clearCache",
     "start": "node scripts/start.js"
   },
   "jest": {
