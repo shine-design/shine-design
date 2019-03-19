@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React, {Component, Fragment} from 'react';
-// import Title from './components/title/title';
+import Title from './components/Title';
 
 import './style/index.less';
 
@@ -106,7 +106,7 @@ export default class extends Component {
             <div className="container">
               <div className="row">
                 <div className="col-md-12">
-                  {/*<Title/>*/}
+                  <Title />
                 </div>
               </div>
             </div>

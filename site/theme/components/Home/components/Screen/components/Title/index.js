@@ -6,7 +6,7 @@
 import React, {Component, Fragment} from 'react';
 import {NavLink} from "react-router-dom";
 
-import './style.less';
+import './style/index.less';
 
 export default class extends Component {
 
@@ -19,8 +19,14 @@ export default class extends Component {
         </div>
         <div className="header-back-buttons helper center">
           <NavLink to='/guide' className="button no-border rounded large blue-light">开始使用</NavLink>
-          <a href="//github.com/shine-design/shine-design" rel='noopener noreferrer' target='_blank'
-             className="button stroke rounded large blue-light">Github</a>
+          <a
+            href="//github.com/shine-design/shine-design"
+            rel='noopener noreferrer'
+            target='_blank'
+            className="button stroke rounded large blue-light"
+          >
+            Github
+          </a>
         </div>
       </Fragment>
     )

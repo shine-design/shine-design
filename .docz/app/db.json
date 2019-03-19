@@ -9,8 +9,8 @@
     "native": false,
     "codeSandbox": true,
     "themeConfig": {},
-    "theme": "/Users/qulongjun/Personal/shine-design/site/theme/index.js",
-    "indexHtml": "/Users/qulongjun/Personal/shine-design/site/index.html"
+    "theme": "/Users/qulongjun/personal/shine-design-rebase/site/theme/index.js",
+    "indexHtml": "/Users/qulongjun/personal/shine-design-rebase/site/index.html"
   },
   "entries": {
     "src/components/Row/index.mdx": {

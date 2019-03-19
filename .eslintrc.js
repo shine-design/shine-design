@@ -38,7 +38,8 @@ const eslintrc = {
     'jsx-a11y/click-events-have-key-events': 0,
     'jsx-a11y/anchor-is-valid': 0,
     'comma-dangle': ['error', 'always-multiline'],
-    'import/no-unresolved': 0
+    'import/no-unresolved': 0,
+    'class-methods-use-this': 0,
   },
 };
 

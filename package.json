@@ -135,12 +135,18 @@
     "whatwg-fetch": "^3.0.0"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.9",
+    "animate.css": "^3.7.0",
     "classnames": "^2.2.6",
     "docz-plugin-css": "^0.11.0",
+    "emotion-theming": "^10.0.9",
+    "jQuery": "^1.7.4",
     "jquery": "^3.3.1",
     "latest-version": "^5.0.0",
     "line-awesome": "^1.0.2",
+    "location": "^0.0.1",
     "lodash": "^4.17.11",
+    "navigator": "^1.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
@@ -148,7 +154,8 @@
     "slicknav": "^1.0.8",
     "superfish": "^1.7.10",
     "webpack-merge": "^4.2.1",
-    "workbox-webpack-plugin": "^4.1.1"
+    "workbox-webpack-plugin": "^4.1.1",
+    "xmlhttprequest": "^1.8.0"
   },
   "browserslist": [
     ">0.2%",

@@ -1,3 +1,6 @@
-import $ from 'jquery';
+const $ = require('jQuery');
+
 window.$ = $;
 window.jQuery = $;
+
+module.exports = $;
