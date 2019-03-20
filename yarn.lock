@@ -1967,10 +1967,24 @@ ansi-align@^3.0.0:
   dependencies:
     string-width "^3.0.0"
 
+ansi-colors@^1.0.1:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-1.1.0.tgz#6374b4dd5d4718ff3ce27a671a3b1cad077132a9"
+  integrity sha512-SFKX67auSNoVR38N3L+nvsPjOE0bybKTYbkf5tRvushrAPQ9V75huw0ZxBkKVeRU9kqH3d6HA4xTckbwZ4ixmA==
+  dependencies:
+    ansi-wrap "^0.1.0"
+
 ansi-colors@^3.0.0:
   version "3.2.4"
   resolved "http://registry.npm.baidu-int.com/ansi-colors/-/ansi-colors-3.2.4.tgz#e3a3da4bfbae6c86a9c285625de124a234026fbf"
   integrity sha1-46PaS/uubIapwoViXeEkojQCb78=
+
+ansi-cyan@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/ansi-cyan/-/ansi-cyan-0.1.1.tgz#538ae528af8982f28ae30d86f2f17456d2609873"
+  integrity sha1-U4rlKK+JgvKK4w2G8vF0VtJgmHM=
+  dependencies:
+    ansi-wrap "0.1.0"
 
 ansi-escapes@^3.0.0, ansi-escapes@^3.1.0, ansi-escapes@^3.2.0:
   version "3.2.0"
@@ -1981,6 +1995,13 @@ ansi-html@0.0.7:
   version "0.0.7"
   resolved "http://registry.npm.baidu-int.com/ansi-html/-/ansi-html-0.0.7.tgz#813584021962a9e9e6fd039f940d12f56ca7859e"
   integrity sha1-gTWEAhliqenm/QOflA0S9WynhZ4=
+
+ansi-red@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/ansi-red/-/ansi-red-0.1.1.tgz#8c638f9d1080800a353c9c28c8a81ca4705d946c"
+  integrity sha1-jGOPnRCAgAo1PJwoyKgcpHBdlGw=
+  dependencies:
+    ansi-wrap "0.1.0"
 
 ansi-regex@^2.0.0:
   version "2.1.1"
@@ -2008,6 +2029,11 @@ ansi-styles@^3.2.0, ansi-styles@^3.2.1:
   integrity sha1-QfuyAkPlCxK+DwS43tvwdSDOhB0=
   dependencies:
     color-convert "^1.9.0"
+
+ansi-wrap@0.1.0, ansi-wrap@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/ansi-wrap/-/ansi-wrap-0.1.0.tgz#a82250ddb0015e9a27ca82e82ea603bbfa45efaf"
+  integrity sha1-qCJQ3bABXponyoLoLqYDu/pF768=
 
 any-promise@^1.0.0, any-promise@^1.1.0:
   version "1.3.0"
@@ -2075,6 +2101,14 @@ aria-query@^3.0.0:
     ast-types-flow "0.0.7"
     commander "^2.11.0"
 
+arr-diff@^1.0.1:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/arr-diff/-/arr-diff-1.1.0.tgz#687c32758163588fef7de7b36fabe495eb1a399a"
+  integrity sha1-aHwydYFjWI/vfeezb6vklesaOZo=
+  dependencies:
+    arr-flatten "^1.0.1"
+    array-slice "^0.2.3"
+
 arr-diff@^2.0.0:
   version "2.0.0"
   resolved "http://registry.npm.baidu-int.com/arr-diff/-/arr-diff-2.0.0.tgz#8f3b827f955a8bd669697e4a4256ac3ceae356cf"
@@ -2091,6 +2125,11 @@ arr-flatten@^1.0.1, arr-flatten@^1.1.0:
   version "1.1.0"
   resolved "http://registry.npm.baidu-int.com/arr-flatten/-/arr-flatten-1.1.0.tgz#36048bbff4e7b47e136644316c99669ea5ae91f1"
   integrity sha1-NgSLv/TntH4TZkQxbJlmnqWukfE=
+
+arr-union@^2.0.1:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/arr-union/-/arr-union-2.1.0.tgz#20f9eab5ec70f5c7d215b1077b1c39161d292c7d"
+  integrity sha1-IPnqtexw9cfSFbEHexw5Fh0pLH0=
 
 arr-union@^3.1.0:
   version "3.1.0"
@@ -2149,6 +2188,11 @@ array-reduce@~0.0.0:
   version "0.0.0"
   resolved "http://registry.npm.baidu-int.com/array-reduce/-/array-reduce-0.0.0.tgz#173899d3ffd1c7d9383e4479525dbe278cab5f2b"
   integrity sha1-FziZ0//Rx9k4PkR5Ul2+J4yrXys=
+
+array-slice@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/array-slice/-/array-slice-0.2.3.tgz#dd3cfb80ed7973a75117cdac69b0b99ec86186f5"
+  integrity sha1-3Tz7gO15c6dRF82sabC5nshhhvU=
 
 array-sort@^1.0.0:
   version "1.0.0"
@@ -3419,6 +3463,16 @@ boolbase@^1.0.0, boolbase@~1.0.0:
   resolved "http://registry.npm.baidu-int.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
 
+bootstrap-select@^1.13.2:
+  version "1.13.8"
+  resolved "https://registry.yarnpkg.com/bootstrap-select/-/bootstrap-select-1.13.8.tgz#c47047410511f6d8a8917a7738d1b03c95717d5d"
+  integrity sha512-WF6GJPgb98cv75X6/zoCWUNwM/HPoYKP6JDBryTNDCHMPV9YyMqU7xXncC7Se2M5VAt7kZQ/i2GSYwaf5Q/Z3w==
+
+bootstrap@^4.1.3:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.3.1.tgz#280ca8f610504d99d7b6b4bfc4b68cec601704ac"
+  integrity sha512-rXqOmH1VilAt2DyPzluTi2blhk17bO7ef+zLLPlWvG494pDxcM234pJ8wTc/6R40UWizAIIMgxjvxZg5kmsbag==
+
 boxen@^1.2.1, boxen@^1.3.0:
   version "1.3.0"
   resolved "http://registry.npm.baidu-int.com/boxen/-/boxen-1.3.0.tgz#55c6c39a8ba58d9c61ad22cd877532deb665a20b"
@@ -4146,6 +4200,15 @@ cli-width@^2.0.0:
   resolved "http://registry.npm.baidu-int.com/cli-width/-/cli-width-2.2.0.tgz#ff19ede8a9a5e579324147b0c11f0fbcbabed639"
   integrity sha1-/xnt6Kml5XkyQUewwR8PvLq+1jk=
 
+clipboard@^2.0.0, clipboard@^2.0.1:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/clipboard/-/clipboard-2.0.4.tgz#836dafd66cf0fea5d71ce5d5b0bf6e958009112d"
+  integrity sha512-Vw26VSLRpJfBofiVaFb/I8PVfdI1OxKcYShe6fm0sP/DtmiWQNCjhM/okTvdCo0G+lMMm1rMYbk4IK4x1X+kgQ==
+  dependencies:
+    good-listener "^1.2.2"
+    select "^1.1.2"
+    tiny-emitter "^2.0.0"
+
 clipboardy@^1.2.2:
   version "1.2.3"
   resolved "http://registry.npm.baidu-int.com/clipboardy/-/clipboardy-1.2.3.tgz#0526361bf78724c1f20be248d428e365433c07ef"
@@ -4171,6 +4234,11 @@ cliui@^4.0.0:
     string-width "^2.1.1"
     strip-ansi "^4.0.0"
     wrap-ansi "^2.0.0"
+
+clone-buffer@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/clone-buffer/-/clone-buffer-1.0.0.tgz#e3e25b207ac4e701af721e2cb5a16792cac3dc58"
+  integrity sha1-4+JbIHrE5wGvch4staFnksrD3Fg=
 
 clone-deep@^0.2.4:
   version "0.2.4"
@@ -4200,6 +4268,11 @@ clone-response@^1.0.2:
   dependencies:
     mimic-response "^1.0.0"
 
+clone-stats@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/clone-stats/-/clone-stats-1.0.0.tgz#b3782dff8bb5474e18b9b6bf0fdfe782f8777680"
+  integrity sha1-s3gt/4u1R04Yuba/D9/ngvh3doA=
+
 clone@^1.0.2:
   version "1.0.4"
   resolved "http://registry.npm.baidu-int.com/clone/-/clone-1.0.4.tgz#da309cc263df15994c688ca902179ca3c7cd7c7e"
@@ -4209,6 +4282,15 @@ clone@^2.1.1, clone@^2.1.2:
   version "2.1.2"
   resolved "http://registry.npm.baidu-int.com/clone/-/clone-2.1.2.tgz#1b7f4b9f591f1e8f83670401600345a02887435f"
   integrity sha1-G39Ln1kfHo+DZwQBYANFoCiHQ18=
+
+cloneable-readable@^1.0.0:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/cloneable-readable/-/cloneable-readable-1.1.2.tgz#d591dee4a8f8bc15da43ce97dceeba13d43e2a65"
+  integrity sha512-Bq6+4t+lbM8vhTs/Bef5c5AdEMtapp/iFb6+s4/Hh9MVTt8OLKH7ZOOZSCT+Ys7hsHvqv0GuMPJ1lnQJVHvxpg==
+  dependencies:
+    inherits "^2.0.1"
+    process-nextick-args "^2.0.0"
+    readable-stream "^2.3.5"
 
 co@^4.6.0:
   version "4.6.0"
@@ -5447,6 +5529,11 @@ delayed-stream@~1.0.0:
   resolved "http://registry.npm.baidu-int.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
   integrity sha1-3zrhmayt+31ECqrgsp4icrJOxhk=
 
+delegate@^3.1.2:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/delegate/-/delegate-3.2.0.tgz#b66b71c3158522e8ab5744f720d8ca0c2af59166"
+  integrity sha512-IofjkYBZaZivn0V8nnsMJGBr4jVLxHDheKSW88PyxS5QC4Vo9ZbZVvhzlSxY87fVq3STR6r+4cGepyHkcWOQSw==
+
 delegates@^1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.baidu-int.com/delegates/-/delegates-1.0.0.tgz#84c6e159b81904fdca59a0ef44cd870d31250f9a"
@@ -5464,6 +5551,11 @@ des.js@^1.0.0:
   dependencies:
     inherits "^2.0.1"
     minimalistic-assert "^1.0.0"
+
+desandro-matches-selector@^2.0.0:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/desandro-matches-selector/-/desandro-matches-selector-2.0.2.tgz#717beed4dc13e7d8f3762f707a6d58a6774218e1"
+  integrity sha1-cXvu1NwT59jzdi9wem1YpndCGOE=
 
 destroy@^1.0.4, destroy@~1.0.4:
   version "1.0.4"
@@ -5844,6 +5936,13 @@ dom-walk@^0.1.0:
   resolved "http://registry.npm.baidu-int.com/dom-walk/-/dom-walk-0.1.1.tgz#672226dc74c8f799ad35307df936aba11acd6018"
   integrity sha1-ZyIm3HTI95mtNTB9+TaroRrNYBg=
 
+dom7@^2.1.3:
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/dom7/-/dom7-2.1.3.tgz#a736f9c3bfbc4ca039a81cd095f97d1d7f3de19c"
+  integrity sha512-QTxHHDox+M6ZFz1zHPAHZKI3JOHY5iY4i9BK2uctlggxKQwRhO3q3HHFq1BKsT25Bm/ySSj70K6Wk/G4bs9rMQ==
+  dependencies:
+    ssr-window "^1.0.1"
+
 domain-browser@^1.1.1:
   version "1.2.0"
   resolved "http://registry.npm.baidu-int.com/domain-browser/-/domain-browser-1.2.0.tgz#3d31f50191a6749dd1375a7f522e823d42e54eda"
@@ -5950,6 +6049,11 @@ ee-first@1.1.1:
   version "1.1.1"
   resolved "http://registry.npm.baidu-int.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
+
+ejs@0.7.1:
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/ejs/-/ejs-0.7.1.tgz#6dab41cbdee572986db328a2a8d22040f20fba7c"
+  integrity sha1-batBy97lcphtsyiiqNIgQPIPunw=
 
 ejs@^2.6.1:
   version "2.6.1"
@@ -6481,6 +6585,11 @@ etag@~1.8.1:
   resolved "http://registry.npm.baidu-int.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
   integrity sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=
 
+ev-emitter@^1.0.0:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/ev-emitter/-/ev-emitter-1.1.1.tgz#8f18b0ce5c76a5d18017f71c0a795c65b9138f2a"
+  integrity sha512-ipiDYhdQSCZ4hSbX4rMW+XzNKMD1prg/sTvoVmSLkuQ1MVlwjJQQA+sW8tMYR3BLUr9KjodFV4pvzunvRhd33Q==
+
 eventemitter3@^3.0.0:
   version "3.1.0"
   resolved "http://registry.npm.baidu-int.com/eventemitter3/-/eventemitter3-3.1.0.tgz#090b4d6cdbd645ed10bf750d4b5407942d7ba163"
@@ -6655,6 +6764,13 @@ express@^4.16.2, express@^4.16.3, express@^4.16.4:
     type-is "~1.6.16"
     utils-merge "1.0.1"
     vary "~1.1.2"
+
+extend-shallow@^1.1.2:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/extend-shallow/-/extend-shallow-1.1.4.tgz#19d6bf94dfc09d76ba711f39b872d21ff4dd9071"
+  integrity sha1-Gda/lN/AnXa6cR85uHLSH/TdkHE=
+  dependencies:
+    kind-of "^1.1.0"
 
 extend-shallow@^2.0.1:
   version "2.0.1"
@@ -6841,6 +6957,11 @@ file-loader@^3.0.1:
     loader-utils "^1.0.2"
     schema-utils "^1.0.0"
 
+file@^0.2.2:
+  version "0.2.2"
+  resolved "http://registry.npm.baidu-int.com/file/-/file-0.2.2.tgz#c3dfd8f8cf3535ae455c2b423c2e52635d76b4d3"
+  integrity sha1-w9/Y+M81Na5FXCtCPC5SY112tNM=
+
 filename-regex@^2.0.0:
   version "2.0.1"
   resolved "http://registry.npm.baidu-int.com/filename-regex/-/filename-regex-2.0.1.tgz#c1c4b9bee3e09725ddb106b75c1e301fe2f18b26"
@@ -6976,6 +7097,13 @@ first-commit-date@^0.2.0:
   integrity sha1-LulwV+1SEDhipYrPSx0kTXcF4mE=
   dependencies:
     get-first-commit "^0.2.0"
+
+fizzy-ui-utils@^2.0.0:
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/fizzy-ui-utils/-/fizzy-ui-utils-2.0.7.tgz#7df45dcc4eb374a08b65d39bb9a4beedf7330505"
+  integrity sha512-CZXDVXQ1If3/r8s0T+v+qVeMshhfcuq0rqIFgJnrtd+Bu8GmDmqMjntjUePypVtjHXKJ6V4sw9zeyox34n9aCg==
+  dependencies:
+    desandro-matches-selector "^2.0.0"
 
 flat-cache@^2.0.1:
   version "2.0.1"
@@ -7232,6 +7360,11 @@ get-caller-file@^1.0.1:
   resolved "http://registry.npm.baidu-int.com/get-caller-file/-/get-caller-file-1.0.3.tgz#f978fa4c90d1dfe7ff2d6beda2a515e713bdcf4a"
   integrity sha512-3t6rVToeoZfYSGd8YoLFR2DJkiQrIiUrGcjvFX2mDw3bn6k2OtwHN0TNCLbBO+w8qTvimhDkv+LSscbJY1vE6w==
 
+get-caller-file@^2.0.1:
+  version "2.0.5"
+  resolved "http://registry.npm.baidu-int.com/get-caller-file/-/get-caller-file-2.0.5.tgz#4f94412a82db32f36e3b0b9741f8a97feb031f7e"
+  integrity sha1-T5RBKoLbMvNuOwuXQfipf+sDH34=
+
 get-first-commit@^0.2.0:
   version "0.2.0"
   resolved "http://registry.npm.baidu-int.com/get-first-commit/-/get-first-commit-0.2.0.tgz#e2948c0bf7859b40ddba6b5525f383db87251396"
@@ -7281,6 +7414,11 @@ get-port@^3.2.0:
   version "3.2.0"
   resolved "http://registry.npm.baidu-int.com/get-port/-/get-port-3.2.0.tgz#dd7ce7de187c06c8bf353796ac71e099f0980ebc"
   integrity sha1-3Xzn3hh8Bsi/NTeWrHHgmfCYDrw=
+
+get-size@^2.0.2:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/get-size/-/get-size-2.0.3.tgz#54a1d0256b20ea7ac646516756202769941ad2ef"
+  integrity sha512-lXNzT/h/dTjTxRbm9BXb+SGxxzkm97h/PCIKtlN/CBCxxmkkIVV21udumMS93MuVTDX583gqc94v3RjuHmI+2Q==
 
 get-stdin@^4.0.1:
   version "4.0.1"
@@ -7534,6 +7672,13 @@ globule@^1.0.0:
     lodash "~4.17.10"
     minimatch "~3.0.2"
 
+good-listener@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/good-listener/-/good-listener-1.2.2.tgz#d53b30cdf9313dffb7dc9a0d477096aa6d145c50"
+  integrity sha1-1TswzfkxPf+33JoNR3CWqm0UXFA=
+  dependencies:
+    delegate "^3.1.2"
+
 got@^6.7.1:
   version "6.7.1"
   resolved "http://registry.npm.baidu-int.com/got/-/got-6.7.1.tgz#240cd05785a9a18e561dc1b44b41c763ef1e8db0"
@@ -7582,6 +7727,18 @@ gud@^1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.baidu-int.com/gud/-/gud-1.0.0.tgz#a489581b17e6a70beca9abe3ae57de7a499852c0"
   integrity sha512-zGEOVKFM5sVPPrYs7J5/hYEw2Pof8KCyOwyhG8sAF26mCAeUFAcYPu1mwB7hhpIP29zOIBaDqwuHdLp0jvZXjw==
+
+gulp-minify@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/gulp-minify/-/gulp-minify-3.1.0.tgz#9ed9e09f6bfca64e99cd0427bc8e90d44e736770"
+  integrity sha512-ixF41aYg+NQikI8hpoHdEclYcQkbGdXQu1CBdHaU7Epg8H6e8d2jWXw1+rBPgYwl/XpKgjHj7NI6gkhoSNSSAg==
+  dependencies:
+    ansi-colors "^1.0.1"
+    minimatch "^3.0.2"
+    plugin-error "^0.1.2"
+    terser "^3.7.6"
+    through2 "^2.0.3"
+    vinyl "^2.1.0"
 
 gzip-size@3.0.0:
   version "3.0.0"
@@ -7784,6 +7941,11 @@ header-case@^1.0.0:
   dependencies:
     no-case "^2.2.0"
     upper-case "^1.1.3"
+
+headroom.js@^0.9.4:
+  version "0.9.4"
+  resolved "https://registry.yarnpkg.com/headroom.js/-/headroom.js-0.9.4.tgz#0c4e6b4563bb69df55aecdefaba3227566f2df5a"
+  integrity sha1-DE5rRWO7ad9Vrs3vq6MidWby31o=
 
 hex-color-regex@^1.1.0:
   version "1.1.0"
@@ -9368,7 +9530,7 @@ joi@^14.3.1:
     isemail "3.x.x"
     topo "3.x.x"
 
-jquery@>=1.7, jquery@>=1.8, jquery@^3.3.1:
+jquery@>=1.7, jquery@>=1.8, jquery@>=1.8.3, jquery@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
   integrity sha512-Ubldcmxp5np52/ENotGxlLe6aGMvmF4R8S6tZjsP6Knsaxd/xp3Zrh50cG93lR6nPXyUFwzN3ZSOQI0wRJNdGg==
@@ -9583,6 +9745,11 @@ killable@^1.0.0:
   resolved "http://registry.npm.baidu-int.com/killable/-/killable-1.0.1.tgz#4c8ce441187a061c7474fb87ca08e2a638194892"
   integrity sha512-LzqtLKlUwirEUyl/nicirVmNiPvYs7l5n8wOPP7fyJVpUPkvCnW/vuiXGpylGUlnPDnB7311rARzAt3Mhswpjg==
 
+kind-of@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-1.1.0.tgz#140a3d2d41a36d2efcfa9377b62c24f8495a5c44"
+  integrity sha1-FAo9LUGjbS78+pN3tiwk+ElaXEQ=
+
 kind-of@^2.0.1:
   version "2.0.1"
   resolved "http://registry.npm.baidu-int.com/kind-of/-/kind-of-2.0.1.tgz#018ec7a4ce7e3a86cb9141be519d24c8faa981b5"
@@ -9747,6 +9914,13 @@ latest-version@^5.0.0:
   dependencies:
     package-json "^6.1.0"
 
+lavalamp@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/lavalamp/-/lavalamp-1.1.0.tgz#b9825ba9eb2f11c1f599b8448cef25d4a8c9cdb9"
+  integrity sha1-uYJbqesvEcH1mbhEjO8l1KjJzbk=
+  dependencies:
+    jquery ">=1.7"
+
 lazy-cache@^0.2.3, lazy-cache@^0.2.4:
   version "0.2.7"
   resolved "http://registry.npm.baidu-int.com/lazy-cache/-/lazy-cache-0.2.7.tgz#7feddf2dcb6edb77d11ef1d117ab5ffdf0ab1b65"
@@ -9818,6 +9992,13 @@ line-awesome@^1.0.2:
   version "1.0.2"
   resolved "http://registry.npm.baidu-int.com/line-awesome/-/line-awesome-1.0.2.tgz#7f4f954ce7c1ffc8ca0e8aa575768d1f46e429cc"
   integrity sha1-f0+VTOfB/8jKDoqldXaNH0bkKcw=
+
+linkify-it@^2.0.0:
+  version "2.1.0"
+  resolved "http://registry.npm.baidu-int.com/linkify-it/-/linkify-it-2.1.0.tgz#c4caf38a6cd7ac2212ef3c7d2bde30a91561f9db"
+  integrity sha1-xMrzimzXrCIS7zx9K94wqRVh+ds=
+  dependencies:
+    uc.micro "^1.0.1"
 
 load-cfg@^0.11.1:
   version "0.11.1"
@@ -10198,6 +10379,11 @@ magic-string@^0.25.1, magic-string@^0.25.2:
   dependencies:
     sourcemap-codec "^1.4.4"
 
+magnific-popup@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/magnific-popup/-/magnific-popup-1.1.0.tgz#3e7362c5bd18f6785fe99e59d013e20af33d3049"
+  integrity sha1-PnNixb0Y9nhf6Z5Z0BPiCvM9MEk=
+
 make-dir@^1.0.0:
   version "1.3.0"
   resolved "http://registry.npm.baidu-int.com/make-dir/-/make-dir-1.3.0.tgz#79c1033b80515bd6d24ec9933e860ca75ee27f0c"
@@ -10259,10 +10445,36 @@ markdown-escapes@^1.0.0:
   resolved "http://registry.npm.baidu-int.com/markdown-escapes/-/markdown-escapes-1.0.2.tgz#e639cbde7b99c841c0bacc8a07982873b46d2122"
   integrity sha512-lbRZ2mE3Q9RtLjxZBZ9+IMl68DKIXaVAhwvwn9pmjnPLS0h/6kyBMgNhqi1xFJ/2yv6cSyv0jbiZavZv93JkkA==
 
+markdown-it@^8.4.2:
+  version "8.4.2"
+  resolved "http://registry.npm.baidu-int.com/markdown-it/-/markdown-it-8.4.2.tgz#386f98998dc15a37722aa7722084f4020bdd9b54"
+  integrity sha512-GcRz3AWTqSUphY3vsUqQSFMbgR38a4Lh3GWlHRh/7MRwz8mcu9n2IO7HOh+bXHrR9kOPDl5RNCaEsrneb+xhHQ==
+  dependencies:
+    argparse "^1.0.7"
+    entities "~1.1.1"
+    linkify-it "^2.0.0"
+    mdurl "^1.0.1"
+    uc.micro "^1.0.5"
+
 markdown-table@^0.4.0:
   version "0.4.0"
   resolved "http://registry.npm.baidu-int.com/markdown-table/-/markdown-table-0.4.0.tgz#890c2c1b3bfe83fb00e4129b8e4cfe645270f9d1"
   integrity sha1-iQwsGzv+g/sA5BKbjkz+ZFJw+dE=
+
+masonry-layout@^4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/masonry-layout/-/masonry-layout-4.2.2.tgz#d57b44af13e601bfcdc423f1dd8348b5524de348"
+  integrity sha512-iGtAlrpHNyxaR19CvKC3npnEcAwszXoyJiI8ARV2ePi7fmYhIud25MHK8Zx4P0LCC4d3TNO9+rFa1KoK1OEOaA==
+  dependencies:
+    get-size "^2.0.2"
+    outlayer "^2.1.0"
+
+masonry@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/masonry/-/masonry-0.0.2.tgz#c06a0b2efc043727eadd16b35fdae93a3908f432"
+  integrity sha1-wGoLLvwENyfq3RazX9rpOjkI9DI=
+  dependencies:
+    ejs "0.7.1"
 
 math-expression-evaluator@^1.2.14:
   version "1.2.17"
@@ -10733,6 +10945,19 @@ mkdirp@0.5.1, mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdi
   integrity sha1-MAV0OOrGz3+MR2fzhkjWaX11yQM=
   dependencies:
     minimist "0.0.8"
+
+modernizr@^3.7.1:
+  version "3.7.1"
+  resolved "http://registry.npm.baidu-int.com/modernizr/-/modernizr-3.7.1.tgz#c35048554879e5d60213b7771a9f593e178f8a3b"
+  integrity sha1-w1BIVUh55dYCE7d3Gp9ZPhePijs=
+  dependencies:
+    doctrine "^3.0.0"
+    file "^0.2.2"
+    lodash "^4.17.11"
+    markdown-it "^8.4.2"
+    mkdirp "^0.5.1"
+    requirejs "^2.3.6"
+    yargs "^13.2.1"
 
 modify-values@^1.0.0:
   version "1.0.1"
@@ -11425,7 +11650,7 @@ os-locale@^2.0.0:
     lcid "^1.0.0"
     mem "^1.1.0"
 
-os-locale@^3.0.0:
+os-locale@^3.0.0, os-locale@^3.1.0:
   version "3.1.0"
   resolved "http://registry.npm.baidu-int.com/os-locale/-/os-locale-3.1.0.tgz#a802a6ee17f24c10483ab9935719cef4ed16bf1a"
   integrity sha1-qAKm7hfyTBBIOrmTVxnO9O0Wvxo=
@@ -11447,6 +11672,15 @@ osenv@0, osenv@^0.1.4:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.0"
 
+outlayer@^2.1.0:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/outlayer/-/outlayer-2.1.1.tgz#29863b6de10ea5dadfffcadfa0d728907387e9a2"
+  integrity sha1-KYY7beEOpdrf/8rfoNcokHOH6aI=
+  dependencies:
+    ev-emitter "^1.0.0"
+    fizzy-ui-utils "^2.0.0"
+    get-size "^2.0.2"
+
 output-file-sync@^1.1.2:
   version "1.1.2"
   resolved "http://registry.npm.baidu-int.com/output-file-sync/-/output-file-sync-1.1.2.tgz#d0a33eefe61a205facb90092e826598d5245ce76"
@@ -11455,6 +11689,13 @@ output-file-sync@^1.1.2:
     graceful-fs "^4.1.4"
     mkdirp "^0.5.1"
     object-assign "^4.1.0"
+
+owl.carousel@^2.3.4:
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/owl.carousel/-/owl.carousel-2.3.4.tgz#6c53dc8d24304b790e4f27a1dc4a655e973ccdc9"
+  integrity sha512-JaDss9+feAvEW8KZppPSpllfposEzQiW+Ytt/Xm5t/3CTJ7YVmkh6RkWixoA2yXk2boIwedYxOvrrppIGzru9A==
+  dependencies:
+    jquery ">=1.8.3"
 
 p-cancelable@^1.0.0:
   version "1.1.0"
@@ -11856,6 +12097,17 @@ pkg-up@2.0.0:
   integrity sha1-yBmscoBZpGHKscOImivjxJoATX8=
   dependencies:
     find-up "^2.1.0"
+
+plugin-error@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/plugin-error/-/plugin-error-0.1.2.tgz#3b9bb3335ccf00f425e07437e19276967da47ace"
+  integrity sha1-O5uzM1zPAPQl4HQ34ZJ2ln2kes4=
+  dependencies:
+    ansi-cyan "^0.1.1"
+    ansi-red "^0.1.1"
+    arr-diff "^1.0.1"
+    arr-union "^2.0.1"
+    extend-shallow "^1.1.2"
 
 pn@^1.1.0:
   version "1.1.0"
@@ -12910,12 +13162,19 @@ printj@~1.1.0:
   resolved "http://registry.npm.baidu-int.com/printj/-/printj-1.1.2.tgz#d90deb2975a8b9f600fb3a1c94e3f4c53c78a222"
   integrity sha512-zA2SmoLaxZyArQTOPj5LXecR+RagfPSU5Kw1qP+jkWeNlrq+eJZyY2oS68SU1Z/7/myXM4lo9716laOFAVStCQ==
 
+prismjs@^1.15.0:
+  version "1.15.0"
+  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.15.0.tgz#8801d332e472091ba8def94976c8877ad60398d9"
+  integrity sha512-Lf2JrFYx8FanHrjoV5oL8YHCclLQgbJcVZR+gikGGMqz6ub5QVWDTM6YIwm3BuPxM/LOV+rKns3LssXNLIf+DA==
+  optionalDependencies:
+    clipboard "^2.0.0"
+
 private@^0.1.6, private@^0.1.8, private@~0.1.5:
   version "0.1.8"
   resolved "http://registry.npm.baidu-int.com/private/-/private-0.1.8.tgz#2381edb3689f7a53d653190060fcf822d2f368ff"
   integrity sha1-I4Hts2ifelPWUxkAYPz4ItLzaP8=
 
-process-nextick-args@~2.0.0:
+process-nextick-args@^2.0.0, process-nextick-args@~2.0.0:
   version "2.0.0"
   resolved "http://registry.npm.baidu-int.com/process-nextick-args/-/process-nextick-args-2.0.0.tgz#a37d732f4271b4ab1ad070d35508e8290788ffaa"
   integrity sha1-o31zL0JxtKsa0HDTVQjoKQeI/6o=
@@ -13483,7 +13742,7 @@ read-pkg@^3.0.0:
     normalize-package-data "^2.3.2"
     path-type "^3.0.0"
 
-"readable-stream@1 || 2", readable-stream@^2.0.0, readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.6, readable-stream@^2.1.5, readable-stream@^2.2.2, readable-stream@^2.3.3, readable-stream@^2.3.6, readable-stream@~2.3.6:
+"readable-stream@1 || 2", readable-stream@^2.0.0, readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.6, readable-stream@^2.1.5, readable-stream@^2.2.2, readable-stream@^2.3.3, readable-stream@^2.3.5, readable-stream@^2.3.6, readable-stream@~2.3.6:
   version "2.3.6"
   resolved "http://registry.npm.baidu-int.com/readable-stream/-/readable-stream-2.3.6.tgz#b11c27d88b8ff1fbe070643cf94b0c79ae1b0aaf"
   integrity sha512-tQtKA9WIAhBF3+VLAseyMqZeBjW0AHJoxOtYqSUZNJxauErmLbVm2FW1y+J/YA9dUrAC39ITejlZWhVIwawkKw==
@@ -13949,7 +14208,7 @@ repeating@^2.0.0:
   dependencies:
     is-finite "^1.0.0"
 
-replace-ext@1.0.0:
+replace-ext@1.0.0, replace-ext@^1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.baidu-int.com/replace-ext/-/replace-ext-1.0.0.tgz#de63128373fcbf7c3ccfa4de5a480c45a67958eb"
   integrity sha1-3mMSg3P8v3w8z6TeWkgMRaZ5WOs=
@@ -14015,6 +14274,16 @@ require-main-filename@^1.0.1:
   version "1.0.1"
   resolved "http://registry.npm.baidu-int.com/require-main-filename/-/require-main-filename-1.0.1.tgz#97f717b69d48784f5f526a6c5aa8ffdda055a4d1"
   integrity sha1-l/cXtp1IeE9fUmpsWqj/3aBVpNE=
+
+require-main-filename@^2.0.0:
+  version "2.0.0"
+  resolved "http://registry.npm.baidu-int.com/require-main-filename/-/require-main-filename-2.0.0.tgz#d0b329ecc7cc0f61649f62215be69af54aa8989b"
+  integrity sha1-0LMp7MfMD2Fkn2IhW+aa9UqomJs=
+
+requirejs@^2.3.6:
+  version "2.3.6"
+  resolved "http://registry.npm.baidu-int.com/requirejs/-/requirejs-2.3.6.tgz#e5093d9601c2829251258c0b9445d4d19fa9e7c9"
+  integrity sha512-ipEzlWQe6RK3jkzikgCupiTbTvm4S0/CAU5GlgptkN5SO6F3u0UD0K18wy6ErDqiCyP4J4YYe1HuAShvsxePLg==
 
 requires-port@^1.0.0:
   version "1.0.0"
@@ -14412,6 +14681,11 @@ select-hose@^2.0.0:
   resolved "http://registry.npm.baidu-int.com/select-hose/-/select-hose-2.0.0.tgz#625d8658f865af43ec962bfc376a37359a4994ca"
   integrity sha1-Yl2GWPhlr0Psliv8N2o3NZpJlMo=
 
+select@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/select/-/select-1.1.2.tgz#0e7350acdec80b1108528786ec1d4418d11b396d"
+  integrity sha1-DnNQrN7ICxEIUoeG7B1EGNEbOW0=
+
 selfsigned@^1.9.1:
   version "1.10.4"
   resolved "http://registry.npm.baidu-int.com/selfsigned/-/selfsigned-1.10.4.tgz#cdd7eccfca4ed7635d47a08bf2d5d3074092e2cd"
@@ -14621,6 +14895,11 @@ sisteransi@^0.1.1:
   resolved "http://registry.npm.baidu-int.com/sisteransi/-/sisteransi-0.1.1.tgz#5431447d5f7d1675aac667ccd0b865a4994cb3ce"
   integrity sha512-PmGOd02bM9YO5ifxpw36nrNMBTptEtfRl4qUYl9SndkolplkrZZOW7PGHjrZL53QvMVj9nQ+TKqUnRsw4tJa4g==
 
+skrollr@^0.6.26:
+  version "0.6.26"
+  resolved "https://registry.yarnpkg.com/skrollr/-/skrollr-0.6.26.tgz#65d1aafcc69fc6d27e6cff0f086c25b31b20ab18"
+  integrity sha1-ZdGq/MafxtJ+bP8PCGwlsxsgqxg=
+
 slash@^1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.baidu-int.com/slash/-/slash-1.0.0.tgz#c41f2f6c39fc16d1cd17ad4b5d896114ae470d55"
@@ -14653,6 +14932,16 @@ slicknav@^1.0.8:
   integrity sha1-GjY6d+nIgnSCRq5vUdGI0c/HMdA=
   dependencies:
     jquery ">=1.7"
+
+smooth-scroll@^15.0.0:
+  version "15.0.0"
+  resolved "https://registry.yarnpkg.com/smooth-scroll/-/smooth-scroll-15.0.0.tgz#be4f9cb2cc4952d80db6736e5656ed5849305272"
+  integrity sha512-hG0AUxgIea+wduxNArBKH0FpHCqK61+QhcnymF9iHafdBFupD/D1tc2QdLjddXBov4fZe6+iZqteoyyvmpZ0TA==
+
+smoothscroll@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/smoothscroll/-/smoothscroll-0.4.0.tgz#40e507b46461408ba1b787d0081e1e883c4124a5"
+  integrity sha512-sggQ3U2Un38b3+q/j1P4Y4fCboCtoUIaBYoge+Lb6Xg1H8RTIif/hugVr+ErMtIDpvBbhQfTjtiTeYAfbw1ZGQ==
 
 snake-case@^2.1.0:
   version "2.1.0"
@@ -14905,6 +15194,11 @@ sshpk@^1.7.0:
     safer-buffer "^2.0.2"
     tweetnacl "~0.14.0"
 
+ssr-window@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/ssr-window/-/ssr-window-1.0.1.tgz#30752a6a4666e7767f0b7e6aa6fc2fdbd0d9b369"
+  integrity sha512-dgFqB+f00LJTEgb6UXhx0h+SrG50LJvti2yMKMqAgzfUmUXZrLSv2fjULF7AWGwK25EXu8+smLR3jYsJQChPsg==
+
 ssri@^5.2.4:
   version "5.3.0"
   resolved "http://registry.npm.baidu-int.com/ssri/-/ssri-5.3.0.tgz#ba3872c9c6d33a0704a7d71ff045e5ec48999d06"
@@ -15000,6 +15294,11 @@ stealthy-require@^1.1.1:
   version "1.1.1"
   resolved "http://registry.npm.baidu-int.com/stealthy-require/-/stealthy-require-1.1.1.tgz#35b09875b4ff49f26a777e509b3090a3226bf24b"
   integrity sha1-NbCYdbT/SfJqd35QmzCQoyJr8ks=
+
+sticky-kit@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/sticky-kit/-/sticky-kit-1.1.3.tgz#dab5ace49b462cf6d4969b1d58e639fc01377570"
+  integrity sha1-2rWs5JtGLPbUlpsdWOY5/AE3dXA=
 
 stream-browserify@^2.0.1:
   version "2.0.2"
@@ -15353,6 +15652,14 @@ swap-case@^1.1.0:
     lower-case "^1.1.1"
     upper-case "^1.1.1"
 
+swiper@^4.3.5:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/swiper/-/swiper-4.5.0.tgz#4d870bec4f5abe2fb259325849dd2641c9243c0d"
+  integrity sha512-jRCd/CGet9kaHwthHdd/sL/YU8CI157PWLyItnIcn/o/jP4haVky3zTF6f9F3JDpmQIw7jdWihISiYx0/oTHsg==
+  dependencies:
+    dom7 "^2.1.3"
+    ssr-window "^1.0.1"
+
 symbol-tree@^3.2.2:
   version "3.2.2"
   resolved "http://registry.npm.baidu-int.com/symbol-tree/-/symbol-tree-3.2.2.tgz#ae27db38f660a7ae2e1c3b7d1bc290819b8519e6"
@@ -15428,7 +15735,7 @@ terser-webpack-plugin@^1.1.0, terser-webpack-plugin@^1.2.0:
     webpack-sources "^1.1.0"
     worker-farm "^1.5.2"
 
-terser@^3.16.1, terser@^3.8.2:
+terser@^3.16.1, terser@^3.7.6, terser@^3.8.2:
   version "3.17.0"
   resolved "http://registry.npm.baidu-int.com/terser/-/terser-3.17.0.tgz#f88ffbeda0deb5637f9d24b0da66f4e15ab10cb2"
   integrity sha1-+I/77aDetWN/nSSw2mb04VqxDLI=
@@ -15487,7 +15794,7 @@ throat@^4.0.0:
   resolved "http://registry.npm.baidu-int.com/throat/-/throat-4.1.0.tgz#89037cbc92c56ab18926e6ba4cbb200e15672a6a"
   integrity sha1-iQN8vJLFarGJJua6TLsgDhVnKmo=
 
-through2@^2.0.0, through2@^2.0.2:
+through2@^2.0.0, through2@^2.0.2, through2@^2.0.3:
   version "2.0.5"
   resolved "http://registry.npm.baidu-int.com/through2/-/through2-2.0.5.tgz#01c1e39eb31d07cb7d03a96a70823260b23132cd"
   integrity sha1-AcHjnrMdB8t9A6lqcIIyYLIxMs0=
@@ -15526,6 +15833,11 @@ timsort@^0.3.0:
   version "0.3.0"
   resolved "http://registry.npm.baidu-int.com/timsort/-/timsort-0.3.0.tgz#405411a8e7e6339fe64db9a234de11dc31e02bd4"
   integrity sha1-QFQRqOfmM5/mTbmiNN4R3DHgK9Q=
+
+tiny-emitter@^2.0.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/tiny-emitter/-/tiny-emitter-2.1.0.tgz#1d1a56edfc51c43e863cbb5382a72330e3555423"
+  integrity sha512-NB6Dk1A9xgQPMoGqC5CVXn123gWyte215ONT5Pp5a0yt4nlEoO1ZWeCwpncaekPHXO60i47ihFnZPiRPjRMq4Q==
 
 tiny-invariant@^1.0.2:
   version "1.0.3"
@@ -15763,6 +16075,11 @@ ua-parser-js@^0.7.18:
   version "0.7.19"
   resolved "http://registry.npm.baidu-int.com/ua-parser-js/-/ua-parser-js-0.7.19.tgz#94151be4c0a7fb1d001af7022fdaca4642659e4b"
   integrity sha512-T3PVJ6uz8i0HzPxOF9SWzWAlfN/DavlpQqepn22xgve/5QecC+XMCAtmUNnY7C9StehaV6exjUCI801lOI7QlQ==
+
+uc.micro@^1.0.1, uc.micro@^1.0.5:
+  version "1.0.6"
+  resolved "http://registry.npm.baidu-int.com/uc.micro/-/uc.micro-1.0.6.tgz#9c411a802a409a91fc6cf74081baba34b24499ac"
+  integrity sha1-nEEagCpAmpH8bPdAgbq6NLJEmaw=
 
 uglify-es@^3.3.4:
   version "3.3.9"
@@ -16264,6 +16581,18 @@ vfile@^3.0.0, vfile@^3.0.1:
     replace-ext "1.0.0"
     unist-util-stringify-position "^1.0.0"
     vfile-message "^1.0.0"
+
+vinyl@^2.1.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/vinyl/-/vinyl-2.2.0.tgz#d85b07da96e458d25b2ffe19fece9f2caa13ed86"
+  integrity sha512-MBH+yP0kC/GQ5GwBqrTPTzEfiiLjta7hTtvQtbxBgTeSXsmKQRQecjibMbxIXzVT3Y9KJK+drOz1/k+vsu8Nkg==
+  dependencies:
+    clone "^2.1.1"
+    clone-buffer "^1.0.0"
+    clone-stats "^1.0.0"
+    cloneable-readable "^1.0.0"
+    remove-trailing-separator "^1.0.1"
+    replace-ext "^1.0.0"
 
 vlq@^0.2.2:
   version "0.2.3"
@@ -16981,6 +17310,14 @@ yargs-parser@^11.1.1:
     camelcase "^5.0.0"
     decamelize "^1.2.0"
 
+yargs-parser@^13.0.0:
+  version "13.0.0"
+  resolved "http://registry.npm.baidu-int.com/yargs-parser/-/yargs-parser-13.0.0.tgz#3fc44f3e76a8bdb1cc3602e860108602e5ccde8b"
+  integrity sha1-P8RPPnaovbHMNgLoYBCGAuXM3os=
+  dependencies:
+    camelcase "^5.0.0"
+    decamelize "^1.2.0"
+
 yargs-parser@^5.0.0:
   version "5.0.0"
   resolved "http://registry.npm.baidu-int.com/yargs-parser/-/yargs-parser-5.0.0.tgz#275ecf0d7ffe05c77e64e7c86e4cd94bf0e1228a"
@@ -17048,6 +17385,23 @@ yargs@^12.0.1, yargs@^12.0.2, yargs@^12.0.5:
     which-module "^2.0.0"
     y18n "^3.2.1 || ^4.0.0"
     yargs-parser "^11.1.1"
+
+yargs@^13.2.1:
+  version "13.2.2"
+  resolved "http://registry.npm.baidu-int.com/yargs/-/yargs-13.2.2.tgz#0c101f580ae95cea7f39d927e7770e3fdc97f993"
+  integrity sha1-DBAfWArpXOp/Odkn53cOP9yX+ZM=
+  dependencies:
+    cliui "^4.0.0"
+    find-up "^3.0.0"
+    get-caller-file "^2.0.1"
+    os-locale "^3.1.0"
+    require-directory "^2.1.1"
+    require-main-filename "^2.0.0"
+    set-blocking "^2.0.0"
+    string-width "^3.0.0"
+    which-module "^2.0.0"
+    y18n "^4.0.0"
+    yargs-parser "^13.0.0"
 
 yargs@^7.0.0:
   version "7.1.0"

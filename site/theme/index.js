@@ -1,10 +1,9 @@
 import React from 'react';
-import {theme, ThemeConfig} from 'docz';
-// import {ThemeProvider} from 'emotion-theming';
+import {theme} from 'docz';
+import './plugins';
 import RouterConfig from "./config/router";
 import themeConfig from '../theme.config';
-import './plugins';
-import './styles/index.less';
+import './styles/index.scss';
 
 const Theme = () => RouterConfig;
 

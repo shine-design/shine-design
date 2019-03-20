@@ -1,0 +1,115 @@
+/**
+ * 字体库
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2019/3/20 14:14
+ */
+@font-face {
+  font-family: 'Muli';
+  font-style: normal;
+  font-weight: 300;
+  src: url('//lib.baomitu.com/fonts/muli/muli-300.eot'); /* IE9 Compat Modes */
+  src: local('Muli'), local('Muli-Normal'),
+  url('//lib.baomitu.com/fonts/muli/muli-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//lib.baomitu.com/fonts/muli/muli-300.woff2') format('woff2'), /* Super Modern Browsers */
+  url('//lib.baomitu.com/fonts/muli/muli-300.woff') format('woff'), /* Modern Browsers */
+  url('//lib.baomitu.com/fonts/muli/muli-300.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('//lib.baomitu.com/fonts/muli/muli-300.svg#Muli') format('svg'); /* Legacy iOS */
+}
+
+/* muli-regular */
+@font-face {
+  font-family: 'Muli';
+  font-style: normal;
+  font-weight: regular;
+  src: url('//lib.baomitu.com/fonts/muli/muli-regular.eot'); /* IE9 Compat Modes */
+  src: local('Muli'), local('Muli-Normal'),
+  url('//lib.baomitu.com/fonts/muli/muli-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//lib.baomitu.com/fonts/muli/muli-regular.woff2') format('woff2'), /* Super Modern Browsers */
+  url('//lib.baomitu.com/fonts/muli/muli-regular.woff') format('woff'), /* Modern Browsers */
+  url('//lib.baomitu.com/fonts/muli/muli-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('//lib.baomitu.com/fonts/muli/muli-regular.svg#Muli') format('svg'); /* Legacy iOS */
+}
+
+/* muli-700 */
+@font-face {
+  font-family: 'Muli';
+  font-style: normal;
+  font-weight: 700;
+  src: url('//lib.baomitu.com/fonts/muli/muli-700.eot'); /* IE9 Compat Modes */
+  src: local('Muli'), local('Muli-Normal'),
+  url('//lib.baomitu.com/fonts/muli/muli-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//lib.baomitu.com/fonts/muli/muli-700.woff2') format('woff2'), /* Super Modern Browsers */
+  url('//lib.baomitu.com/fonts/muli/muli-700.woff') format('woff'), /* Modern Browsers */
+  url('//lib.baomitu.com/fonts/muli/muli-700.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('//lib.baomitu.com/fonts/muli/muli-700.svg#Muli') format('svg'); /* Legacy iOS */
+}
+
+/* open-sans-300 */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: url('//lib.baomitu.com/fonts/open-sans/open-sans-300.eot'); /* IE9 Compat Modes */
+  src: local('Open Sans'), local('OpenSans-Normal'),
+  url('//lib.baomitu.com/fonts/open-sans/open-sans-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//lib.baomitu.com/fonts/open-sans/open-sans-300.woff2') format('woff2'), /* Super Modern Browsers */
+  url('//lib.baomitu.com/fonts/open-sans/open-sans-300.woff') format('woff'), /* Modern Browsers */
+  url('//lib.baomitu.com/fonts/open-sans/open-sans-300.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('//lib.baomitu.com/fonts/open-sans/open-sans-300.svg#OpenSans') format('svg'); /* Legacy iOS */
+}
+
+/* open-sans-regular */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: regular;
+  src: url('//lib.baomitu.com/fonts/open-sans/open-sans-regular.eot'); /* IE9 Compat Modes */
+  src: local('Open Sans'), local('OpenSans-Normal'),
+  url('//lib.baomitu.com/fonts/open-sans/open-sans-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//lib.baomitu.com/fonts/open-sans/open-sans-regular.woff2') format('woff2'), /* Super Modern Browsers */
+  url('//lib.baomitu.com/fonts/open-sans/open-sans-regular.woff') format('woff'), /* Modern Browsers */
+  url('//lib.baomitu.com/fonts/open-sans/open-sans-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('//lib.baomitu.com/fonts/open-sans/open-sans-regular.svg#OpenSans') format('svg'); /* Legacy iOS */
+}
+
+/* open-sans-600 */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: url('//lib.baomitu.com/fonts/open-sans/open-sans-600.eot'); /* IE9 Compat Modes */
+  src: local('Open Sans'), local('OpenSans-Normal'),
+  url('//lib.baomitu.com/fonts/open-sans/open-sans-600.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//lib.baomitu.com/fonts/open-sans/open-sans-600.woff2') format('woff2'), /* Super Modern Browsers */
+  url('//lib.baomitu.com/fonts/open-sans/open-sans-600.woff') format('woff'), /* Modern Browsers */
+  url('//lib.baomitu.com/fonts/open-sans/open-sans-600.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('//lib.baomitu.com/fonts/open-sans/open-sans-600.svg#OpenSans') format('svg'); /* Legacy iOS */
+}
+
+/* open-sans-700 */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('//lib.baomitu.com/fonts/open-sans/open-sans-700.eot'); /* IE9 Compat Modes */
+  src: local('Open Sans'), local('OpenSans-Normal'),
+  url('//lib.baomitu.com/fonts/open-sans/open-sans-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//lib.baomitu.com/fonts/open-sans/open-sans-700.woff2') format('woff2'), /* Super Modern Browsers */
+  url('//lib.baomitu.com/fonts/open-sans/open-sans-700.woff') format('woff'), /* Modern Browsers */
+  url('//lib.baomitu.com/fonts/open-sans/open-sans-700.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('//lib.baomitu.com/fonts/open-sans/open-sans-700.svg#OpenSans') format('svg'); /* Legacy iOS */
+}
+
+/* roboto-mono-regular */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: regular;
+  src: url('//lib.baomitu.com/fonts/roboto-mono/roboto-mono-regular.eot'); /* IE9 Compat Modes */
+  src: local('Roboto Mono'), local('RobotoMono-Normal'),
+  url('//lib.baomitu.com/fonts/roboto-mono/roboto-mono-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//lib.baomitu.com/fonts/roboto-mono/roboto-mono-regular.woff2') format('woff2'), /* Super Modern Browsers */
+  url('//lib.baomitu.com/fonts/roboto-mono/roboto-mono-regular.woff') format('woff'), /* Modern Browsers */
+  url('//lib.baomitu.com/fonts/roboto-mono/roboto-mono-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('//lib.baomitu.com/fonts/roboto-mono/roboto-mono-regular.svg#RobotoMono') format('svg'); /* Legacy iOS */
+}

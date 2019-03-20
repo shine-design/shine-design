@@ -1,10 +1,22 @@
-import './jquery.vendor';
-import 'slicknav/jquery.slicknav';
-import 'superfish/dist/js/superfish';
-// import 'prismjs'
-import './instafilta';
-import './jquery.resmenu'
-import './jquery.tendina.min';
-import './jquery.steps';
+import 'bootstrap/dist/js/bootstrap.bundle';
+import 'owl.carousel/dist/owl.carousel';
+import 'magnific-popup/dist/jquery.magnific-popup';
+import 'swiper/dist/js/swiper';
+import 'masonry-layout/dist/masonry.pkgd';
+import 'sticky-kit/dist/sticky-kit';
+import 'headroom.js/dist/jQuery.headroom';
+// import 'smooth-scroll/dist/smooth-scroll';
+import 'lavalamp/js/jquery.lavalamp.min';
+import 'bootstrap-select/dist/js/bootstrap-select.min';
+import 'clipboard/dist/clipboard.min';
+import 'prismjs/prism';
+import 'prismjs/plugins/toolbar/prism-toolbar';
+import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min';
 
-import './base';
+
+import 'swiper/dist/css/swiper.css';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'magnific-popup/dist/magnific-popup.css';
+import 'bootstrap-select/dist/css/bootstrap-select.css';
+import 'prismjs/themes/prism.css';
+import 'prismjs/plugins/toolbar/prism-toolbar.css';

@@ -1,28 +1,6 @@
-const merge = require('webpack-merge');
-const {css} = require('docz-plugin-css');
-const paths = require('./config/paths');
-
-// 为 Docz 配置特殊 Webpack Config
-const webpackOverlay = {
-  // module: {
-  //   rules: [
-  //     {
-  //       test: /\.js$/,
-  //       use: ['babel-loader'],
-  //     },
-  //     {
-  //       test: /\.(css|less)$/,
-  //       include: [paths.sitePath],
-  //       exclude: [paths.appNodeModules],
-  //       use: [
-  //         'style-loader',
-  //         'css-loader',
-  //         'less-loader',
-  //       ],
-  //     },
-  //   ],
-  // },
-};
+import paths from './config/paths';
+import path from 'path';
+import webpack from 'webpack';
 
 export default {
   title: 'Shine Design - 为开发者、设计师和产品经理准备的UI设计语言',
@@ -31,13 +9,35 @@ export default {
   indexHtml: paths.siteHtml,
   codeSandbox: true,
   modifyBundlerConfig: config => {
-    // console.log(config.module)
+    const {alias} = config.resolve;
+
+    config.resolve.alias = {
+      ...alias,
+      assets: path.resolve(paths.sitePath, 'theme/assets'),
+    };
+
+    config.plugins.push(
+      new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery",
+        jquery: "jquery",
+        "window.jQuery": "jquery",
+        Headroom: 'headroom.js',
+        SmoothScroll: 'smooth-scroll',
+      }),
+    );
+
     config.module.rules.push({
-      test: /\.less$/,
-      use: ["style-loader", "css-loader", "less-loader"],
+      test: /\.scss$/,
+      use: ["style-loader", "css-loader", "sass-loader"],
     });
+
+    config.module.rules.push({
+      test: /\.css/,
+      use: ["style-loader", "css-loader"],
+    });
+
     return config;
-    // return merge(config, webpackOverlay);
   },
   modifyBabelRc: babelrc => babelrc,
   // plugins: [
