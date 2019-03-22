@@ -1,5 +1,23 @@
 /**
- *
+ * 无序列表
  * @Author 瞿龙俊 - qulongjun@shine.design
  * @Date 2019-03-20 23:03
  */
+import _ from 'lodash';
+import React, {Component} from 'react';
+
+export default class extends Component {
+  render() {
+    const {children} = this.props;
+    const listValues = _.map(children, child => child.props);
+    return (
+      <ul className="step-list">
+        {
+          _.map(listValues, (value, index) => (
+            <li key={index}><p>{value.children}</p></li>
+          ))
+        }
+      </ul>
+    );
+  }
+}

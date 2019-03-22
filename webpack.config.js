@@ -194,7 +194,9 @@ module.exports = function (webpackEnv) {
       ),
       extensions: paths.moduleFileExtensions
         .map(ext => `.${ext}`),
-      alias: {},
+      alias: {
+        Base: path.resolve(paths.themePath, 'components/Base')
+      },
       plugins: [
         // 添加对即插即用安装的支持，从而加快安装和添加速度
         // 防止忘记依赖等。

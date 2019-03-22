@@ -33,7 +33,7 @@ export default class extends Component {
 
                         return articles.length === 1
                           ? (
-                            <li className="nav-item">
+                            <li className="nav-item" key={index}>
                               <NavLink
                                 to={articles[0].route}
                                 activeClassName="active"

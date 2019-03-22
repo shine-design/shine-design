@@ -7,11 +7,11 @@ import React, {Component} from 'react';
 
 export default class extends Component {
   render() {
-    console.log(this.props);
+    const {children} = this.props;
 
     return (
       <div className="card card-component">
-
+        {children}
       </div>
     );
   }

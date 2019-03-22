@@ -9079,11 +9079,6 @@ istanbul-reports@^1.5.1:
   dependencies:
     handlebars "^4.0.3"
 
-jQuery@^1.7.4:
-  version "1.7.4"
-  resolved "http://registry.npm.baidu-int.com/jQuery/-/jQuery-1.7.4.tgz#f32dc5c85a7044ee864b4443b9ee45f9478ba137"
-  integrity sha1-8y3FyFpwRO6GS0RDue5F+UeLoTc=
-
 javascript-stringify@^1.6.0:
   version "1.6.0"
   resolved "http://registry.npm.baidu-int.com/javascript-stringify/-/javascript-stringify-1.6.0.tgz#142d111f3a6e3dae8f4a9afd77d45855b5a9cce3"
@@ -13161,6 +13156,11 @@ printj@~1.1.0:
   version "1.1.2"
   resolved "http://registry.npm.baidu-int.com/printj/-/printj-1.1.2.tgz#d90deb2975a8b9f600fb3a1c94e3f4c53c78a222"
   integrity sha512-zA2SmoLaxZyArQTOPj5LXecR+RagfPSU5Kw1qP+jkWeNlrq+eJZyY2oS68SU1Z/7/myXM4lo9716laOFAVStCQ==
+
+prism-react-renderer@^0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/prism-react-renderer/-/prism-react-renderer-0.1.6.tgz#c9216baa234fab1c234209fcdaf0cd23a01c50a9"
+  integrity sha512-uZJn5wrygCH0ZMue+2JRd0qJharrmpxa6/uK7deKgvCtJFFE+VsyvJ49LS8/ATt0mlAJS6vFQTDvhXBEXsda+A==
 
 prismjs@^1.15.0:
   version "1.15.0"

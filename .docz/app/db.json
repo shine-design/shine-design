@@ -2,18 +2,15 @@
   "config": {
     "title": "Shine Design - 为开发者、设计师和产品经理准备的UI设计语言",
     "description": "一种广泛使用的基于React实现的UI设计语言，提供上百种企业级高质量的响应式组件，为开发者、设计师和产品经理提供一站式设计方案。",
-    "menu": [
-      "Documents",
-      "Other"
-    ],
+    "menu": [],
     "ordering": "descending",
     "version": "0.2.7",
     "repository": "https://github.com/shine-design/shine-design",
     "native": false,
     "codeSandbox": true,
     "themeConfig": {},
-    "theme": "/Users/qulongjun/personal/shine-design-rebase/site/theme/index.js",
-    "indexHtml": "/Users/qulongjun/personal/shine-design-rebase/site/index.html"
+    "theme": "/Users/qulongjun/Personal/shine-design/site/theme/index.js",
+    "indexHtml": "/Users/qulongjun/Personal/shine-design/site/index.html"
   },
   "entries": {
     "docs/getting-started.mdx": {
@@ -28,8 +25,28 @@
       "headings": [
         {
           "depth": 1,
-          "slug": "hello-world",
-          "value": "Hello world"
+          "slug": "快速入门",
+          "value": "快速入门"
+        },
+        {
+          "depth": 2,
+          "slug": "usage",
+          "value": "Usage"
+        },
+        {
+          "depth": 2,
+          "slug": "demo",
+          "value": "Demo"
+        },
+        {
+          "depth": 2,
+          "slug": "api",
+          "value": "API"
+        },
+        {
+          "depth": 2,
+          "slug": "faq",
+          "value": "FAQ"
         }
       ]
     },
@@ -45,42 +62,8 @@
       "headings": [
         {
           "depth": 1,
-          "slug": "hello-world-alert",
-          "value": "Hello world Alert"
-        }
-      ]
-    },
-    "src/components/Col/index.mdx": {
-      "name": "Col",
-      "route": "/col",
-      "menu": "components",
-      "id": "d30e756f4f6186fa04f577e54115023f",
-      "filepath": "src/components/Col/index.mdx",
-      "link": "https://github.com/shine-design/shine-design/edit/master/src/components/Col/index.mdx",
-      "slug": "src-components-col-index",
-      "order": 0,
-      "headings": [
-        {
-          "depth": 1,
-          "slug": "hello-world-col",
-          "value": "Hello world Col"
-        }
-      ]
-    },
-    "src/components/Row/index.mdx": {
-      "name": "Row",
-      "route": "/row",
-      "menu": "components",
-      "id": "f424ff2c3bd4ad03640b7402f36061cc",
-      "filepath": "src/components/Row/index.mdx",
-      "link": "https://github.com/shine-design/shine-design/edit/master/src/components/Row/index.mdx",
-      "slug": "src-components-row-index",
-      "order": 0,
-      "headings": [
-        {
-          "depth": 1,
-          "slug": "hello-world-row",
-          "value": "Hello world Row"
+          "slug": "alert-警告框",
+          "value": "Alert 警告框"
         }
       ]
     },
@@ -96,8 +79,42 @@
       "headings": [
         {
           "depth": 1,
-          "slug": "hello-world-button",
-          "value": "Hello world Button"
+          "slug": "button-按钮",
+          "value": "Button 按钮"
+        }
+      ]
+    },
+    "src/components/Col/index.mdx": {
+      "name": "Col",
+      "route": "/col",
+      "menu": "components",
+      "id": "d30e756f4f6186fa04f577e54115023f",
+      "filepath": "src/components/Col/index.mdx",
+      "link": "https://github.com/shine-design/shine-design/edit/master/src/components/Col/index.mdx",
+      "slug": "src-components-col-index",
+      "order": 0,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "col-列",
+          "value": "Col 列"
+        }
+      ]
+    },
+    "src/components/Row/index.mdx": {
+      "name": "Row",
+      "route": "/row",
+      "menu": "components",
+      "id": "f424ff2c3bd4ad03640b7402f36061cc",
+      "filepath": "src/components/Row/index.mdx",
+      "link": "https://github.com/shine-design/shine-design/edit/master/src/components/Row/index.mdx",
+      "slug": "src-components-row-index",
+      "order": 0,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "row-行",
+          "value": "Row 行"
         }
       ]
     }

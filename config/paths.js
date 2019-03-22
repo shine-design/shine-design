@@ -80,22 +80,23 @@ module.exports = {
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
   appBuild: resolveApp('dist'),
-  appIndexJs: resolveApp('src/index.js'),
+  appIndexJs: resolveApp('src/Container.js'),
   appStyle: resolveApp('src/style'),
   appTest: resolveApp('tests'),
   appConfig: resolveApp('src/configs'),
   shine: resolveApp('libs/components'),
   sass: resolveApp('sass'),
-  libIndexjs: resolveApp('libs/index.js'),
+  libIndexjs: resolveApp('libs/Container.js'),
 
   testPath: resolveApp('tests'),
 
   websitePath: resolveApp('website'),
-  websiteIndexJs: resolveApp('website/index.js'),
+  websiteIndexJs: resolveApp('website/Container.js'),
   websiteHtml: resolveApp('website/index.html'),
 
   siteHtml: resolveApp('site/index.html'),
   themeIndex: resolveApp('site/theme/index.js'),
+  themePath: resolveApp('site/theme'),
   sitePath: resolveApp('site'),
 };
 

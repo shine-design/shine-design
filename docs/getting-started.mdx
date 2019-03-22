@@ -3,7 +3,40 @@ name: Getting Started
 route: /getting-started
 menu: getting-started
 ---
+import Section from 'site/theme/components/Base/Section';
+import Preview from 'site/theme/components/Base/Preview';
+import Code from 'site/theme/components/Base/Code';
+import { Playground,PropsTable } from 'docz';
+import Row from 'src/components/Row';
+import demo from './demo';
 
-# Hello world
 
-Hello, I'm a mdx file1221!
+# 快速入门
+
+显示当前页面在系统层级结构中的位置，并能向上返回。
+
+## Usage
+
+* 当系统拥有超过两级以上的层级结构时；
+* 当需要告知用户『你在哪里』时；
+* 当需要向上导航的功能时。
+
+## Demo
+
+
+<Section>
+  <Preview>
+     <Playground>
+       <Row>
+       This is a test Row
+       </Row>
+     </Playground>
+  </Preview>
+  <Code>
+    {demo}
+  </Code>
+</Section>
+
+## API
+
+## FAQ

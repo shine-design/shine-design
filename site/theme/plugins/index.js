@@ -10,7 +10,9 @@ import 'lavalamp/js/jquery.lavalamp.min';
 import 'bootstrap-select/dist/js/bootstrap-select.min';
 import 'clipboard/dist/clipboard.min';
 import 'prismjs/prism';
+import 'prismjs/components/prism-jsx';
 import 'prismjs/plugins/toolbar/prism-toolbar';
+import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace';
 import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min';
 
 

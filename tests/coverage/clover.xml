@@ -8,13 +8,13 @@
           <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
           <line num="1" count="1" type="stmt"/>
         </file>
-        <file name="index.js" path="/Users/qulongjun/Personal/shine-design/src/index.js">
+        <file name="Container.js" path="/Users/qulongjun/Personal/shine-design/src/Container.js">
           <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         </file>
       </package>
       <package name="src.components.Row">
         <metrics statements="7" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
-        <file name="index.js" path="/Users/qulongjun/Personal/shine-design/src/components/Row/index.js">
+        <file name="Container.js" path="/Users/qulongjun/Personal/shine-design/src/components/Row/Container.js">
           <metrics statements="7" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
           <line num="15" count="1" type="stmt"/>
           <line num="16" count="1" type="stmt"/>
