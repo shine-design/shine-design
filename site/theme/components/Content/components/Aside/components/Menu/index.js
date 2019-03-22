@@ -1,5 +1,6 @@
 /**
- * 菜单导航项¬
+ * 菜单导航项组件
+ * 侧边栏导航子组件，基于 MDX 解析的菜单渲染展示
  * @Author 瞿龙俊 - qulongjun@shine.design
  * @Date 2019-03-20 16:21
  */
@@ -9,38 +10,10 @@ import {NavLink} from "react-router-dom";
 import classNames from 'classnames';
 import {Docs, ThemeConfig} from 'docz';
 
-
 export default class extends Component {
 
   componentDidMount() {
-    function make_sticky() {
-      $(".sticky").stick_in_parent();
-    }
-
-    let realWidth = $(window).width();
-
-    if (realWidth < 768) {
-      $(".sticky").trigger("sticky_kit:detach");
-    } else {
-      make_sticky();
-    }
-
-
-    $(window).resize(function () {
-
-      realWidth = $(window).width();
-
-      if (realWidth < 768) {
-        $(".sticky").trigger("sticky_kit:detach");
-      } else {
-        make_sticky();
-      }
-
-    });
-
-    $('.nav-item .collapse').on('shown.bs.collapse hidden.bs.collapse', function () {
-      $(".sticky").trigger("sticky_kit:recalc");
-    });
+    $('.sticky').sticky({topSpacing: 150});
   }
 
   render() {
@@ -60,64 +33,64 @@ export default class extends Component {
                 return (
                   <ul id="page-nav" className="nav flex-column nav-vertical-2">
                     {
-                      _.map(material, ({articles, label, isExpand}, index) => {
-
-                        return articles.length === 1
-                          ? (
-                            <li className="nav-item" key={index}>
-                              <NavLink
-                                to={articles[0].route}
-                                activeClassName="active"
-                                className={
-                                  classNames(
-                                    'nav-link',
-                                    {'active': _.isEqual(location.pathname, articles[0].route)},
-                                  )
-                                }
-                                role="button"
-                              >
-                                {label}
-                              </NavLink>
-                            </li>
-                          )
-                          : (
-                            <li className="nav-item" key={index}>
-                              <a
-                                className="nav-link"
-                                data-toggle="collapse"
-                                href={`#menu-${index}`}
-                                role="button"
-                                aria-expanded={!!isExpand}
-                                aria-controls={`menu-${index}`}
-                              >
-                                {label}
-                              </a>
-                              <div
-                                className={classNames('collapse', {'show': isExpand})}
-                                id={`menu-${index}`}
-                                data-parent="#page-nav"
-                              >
-                                <div>
-                                  <ul className="nav flex-column">
-                                    {
-                                      _.map(articles, (article, articleIndex) => (
-                                        <li className="nav-item" key={articleIndex}>
-                                          <NavLink
-                                            to={article.route}
-                                            activeClassName="active"
-                                            className={classNames('nav-link', {'active': _.isEqual(location.pathname, article.route)})}
-                                          >
-                                            {article.name}
-                                          </NavLink>
-                                        </li>
-                                      ))
-                                    }
-                                  </ul>
+                      _.map(material, ({articles, label, isExpand}, index) => (
+                          articles.length === 1
+                            ? (
+                              <li className="nav-item" key={index}>
+                                <NavLink
+                                  to={articles[0].route}
+                                  activeClassName="active"
+                                  className={
+                                    classNames(
+                                      'nav-link',
+                                      {'active': _.isEqual(location.pathname, articles[0].route)},
+                                    )
+                                  }
+                                  role="button"
+                                >
+                                  {label}
+                                </NavLink>
+                              </li>
+                            )
+                            : (
+                              <li className="nav-item" key={index}>
+                                <a
+                                  className="nav-link"
+                                  data-toggle="collapse"
+                                  href={`#menu-${index}`}
+                                  role="button"
+                                  aria-expanded={!!isExpand}
+                                  aria-controls={`menu-${index}`}
+                                >
+                                  {label}
+                                </a>
+                                <div
+                                  className={classNames('collapse', {'show': isExpand})}
+                                  id={`menu-${index}`}
+                                  data-parent="#page-nav"
+                                >
+                                  <div>
+                                    <ul className="nav flex-column">
+                                      {
+                                        _.map(articles, (article, articleIndex) => (
+                                          <li className="nav-item" key={articleIndex}>
+                                            <NavLink
+                                              to={article.route}
+                                              activeClassName="active"
+                                              className={classNames('nav-link', {'active': _.isEqual(location.pathname, article.route)})}
+                                            >
+                                              {article.name}
+                                            </NavLink>
+                                          </li>
+                                        ))
+                                      }
+                                    </ul>
+                                  </div>
                                 </div>
-                              </div>
-                            </li>
-                          );
-                      })
+                              </li>
+                            )
+                        )
+                      )
                     }
                   </ul>
                 )

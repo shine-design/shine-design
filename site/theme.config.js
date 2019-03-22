@@ -3,9 +3,14 @@
  * @Author 瞿龙俊 - qulongjun@shine.design
  * @Date 2019-03-19 20:13
  */
-import _ from 'lodash';
 
 export default {
+  /** 网站 LOGO */
+  /* eslint-disable global-require */
+  logo: require('./assets/logo/logo.png'),
+  /** 网站 LOGO 跳转链接 */
+  logoLink: '/',
+  /** 支持语言，待上线 */
   language: [
     {
       label: '简体中文',
@@ -15,6 +20,33 @@ export default {
       label: 'English',
     },
   ],
+  /** 页面顶部导航 */
+  topBar: {
+    center: [{
+      label: '首页',
+      link: '/',
+    }, {
+      label: '快速上手',
+      link: '/',
+    }, {
+      label: '组件文档',
+      link: '/',
+    }, {
+      label: '构建工具',
+      link: '/',
+    }, {
+      label: '生态系统',
+      link: '/',
+    }],
+    right: [{
+      label: '贡献',
+      link: '/',
+    }, {
+      label: '更新日志',
+      link: '/',
+    }],
+  },
+  /** 页面侧边栏导航 */
   menu: [
     {
       name: 'getting-started',
@@ -38,26 +70,11 @@ export default {
       isExpand: true,
     },
   ],
-  // 渲染目录树 Handler
-  initMenuMap(menus, docs) {
-
-    const material = [];
-
-    _.each(menus, (menu) => {
-      const {name} = menu;
-
-      const articles = _.filter(docs, doc => {
-        return _.isEqual(doc.menu, name);
-      });
-
-      if (_.isEmpty(articles)) return;
-
-      material.push({
-        ...menu,
-        articles,
-      });
-    });
-
-    return material;
-  },
+  /** 页面正文盒模块配置 */
+  boxConfig: [{
+    label: 'Preview',
+    isChecked: true,
+  }, {
+    label: 'Code',
+  }],
 };

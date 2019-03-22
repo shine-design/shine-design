@@ -16,6 +16,7 @@ const eslintrc = {
     'react/forbid-prop-types': 0,
     'react/prefer-stateless-function': 0,
     'react/jsx-indent': 0,
+    'jsx-a11y/interactive-supports-focus': 0,
     'react/jsx-wrap-multilines': ['error', {declaration: false, assignment: false}],
     'import/no-extraneous-dependencies': [
       'error',

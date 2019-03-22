@@ -1,5 +1,6 @@
 /**
- * 无序列表
+ * 无序列表组件
+ * 用于在 MDX 中定义一个无序列表
  * @Author 瞿龙俊 - qulongjun@shine.design
  * @Date 2019-03-20 23:03
  */
@@ -10,6 +11,7 @@ export default class extends Component {
   render() {
     const {children} = this.props;
     const listValues = _.map(children, child => child.props);
+
     return (
       <ul className="step-list">
         {

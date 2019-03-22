@@ -1,6 +1,6 @@
-import paths from './config/paths';
-import path from 'path';
 import webpack from 'webpack';
+import path from 'path';
+import paths from './config/paths';
 
 export default {
   title: 'Shine Design - 为开发者、设计师和产品经理准备的UI设计语言',
@@ -16,6 +16,7 @@ export default {
       assets: path.resolve(paths.sitePath, 'theme/assets'),
     };
 
+    // 配置全局变量
     config.plugins.push(
       new webpack.ProvidePlugin({
         $: "jquery",
@@ -27,11 +28,13 @@ export default {
       }),
     );
 
+    // 配置 scss 解析器规则
     config.module.rules.push({
       test: /\.scss$/,
       use: ["style-loader", "css-loader", "sass-loader"],
     });
 
+    // 配置 css 解析器规则
     config.module.rules.push({
       test: /\.css/,
       use: ["style-loader", "css-loader"],
@@ -40,9 +43,4 @@ export default {
     return config;
   },
   modifyBabelRc: babelrc => babelrc,
-  // plugins: [
-  // css({
-  //   preprocessor: 'less',
-  // }),
-  // ],
 };

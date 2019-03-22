@@ -3,11 +3,13 @@ name: Getting Started
 route: /getting-started
 menu: getting-started
 ---
-import Section from 'site/theme/components/Base/Section';
-import Preview from 'site/theme/components/Base/Preview';
-import Code from 'site/theme/components/Base/Code';
-import Container from 'site/theme/components/Base/Container'
-import { Playground,PropsTable } from 'docz';
+import {
+  Section,
+  Code,
+  Preview,
+  Playground,
+  PropsTable
+} from 'site/theme/components/Base';
 import Row from 'src/components/Row';
 import demo from './demo';
 
@@ -30,6 +32,20 @@ import demo from './demo';
        </Row>
      </Playground>
      
+  </Preview>
+  <Code>
+    {demo}
+  </Code>
+</Section>
+
+<Section>
+  <Preview>
+     <Playground>
+       <Row>
+       This is a test Row
+       </Row>
+     </Playground>
+
   </Preview>
   <Code>
     {demo}

@@ -5,20 +5,20 @@
 
 
 // code highlight
-code[class*="language-"], 
+code[class*="language-"],
 pre[class*="language-"] {
-	font-family: $font-family-monospace;
-	text-shadow: none;
+  font-family: $font-family-monospace;
+  text-shadow: none;
 }
 
 
 div.code-toolbar {
 
-	&:hover {
-		.toolbar {
-			opacity: 1;
-		}
-	}
+  &:hover {
+    .toolbar {
+      opacity: 1;
+    }
+  }
 
   > .toolbar {
     opacity: 0;
@@ -51,10 +51,10 @@ div.code-toolbar {
 }
 
 pre[class*="language-"] {
-	border-radius: $border-radius;
-	margin: 0 0 1rem 0;
-	padding: $card-spacer-x;
-	@extend %boxed;
+  border-radius: $border-radius;
+  margin: 0 0 1rem 0;
+  padding: $card-spacer-x;
+  @extend %boxed;
 }
 
 .text-white {
@@ -76,9 +76,10 @@ pre[class*="language-"] {
 }
 
 
-
 // component
 .component {
+  margin: 30px 0;
+
   > .tab-content {
     margin-top: $card-spacer-y;
 

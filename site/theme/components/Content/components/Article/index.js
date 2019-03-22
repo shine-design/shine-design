@@ -1,11 +1,11 @@
-/* eslint-disable */
 /**
- *
+ * 文章内容组件
+ * 根据 MDX 解析的文档渲染展示
  * @Author 瞿龙俊 - qulongjun@shine.design
  * @Date 2019-03-20 15:07
  */
-import React, {Component} from 'react';
 import _ from "lodash";
+import React, {Component} from 'react';
 
 export default class extends Component {
 
@@ -15,23 +15,17 @@ export default class extends Component {
     this.onQueryTitle = this.onQueryTitle.bind(this);
   }
 
+  /* eslint-disable react/no-unused-state */
   state = {
     titleList: [],
   };
-
 
   componentDidMount() {
     this.setState({
       titleList: this.onQueryTitle(),
     }, () => {
-      new SmoothScroll('[data-scroll]');
-
-      $("#toc_sticky").stick_in_parent();
-
-      $(window).scroll(() => {
-        console.log('chufal ');
-        $("#toc_sticky").trigger("sticky_kit:recalc");
-      })
+      /* eslint-disable no-undef */
+      $('#toc_sticky').sticky({topSpacing: 150})
     });
   }
 
@@ -41,19 +35,21 @@ export default class extends Component {
     const docContent = document.querySelector('.doc-content');
     return _.isNull(docContent)
       ? []
-      : _.map(docContent.querySelectorAll('.doc-title'), title => ({id: title.id, name: title.innerText}));
+      : _.map(
+        docContent.querySelectorAll('.doc-title'),
+        title => ({id: title.id, name: title.innerText})
+      );
   }
 
   render() {
     const {children} = this.props;
-    const headings = children.props.doc.headings;
+    const {headings} = children.props.doc;
+
     return (
-      <article className="col-lg-9 col-xxl-10 doc-content">
+      <article className="col-lg-10 col-xxl-10 doc-content">
         <div className="row justify-content-between doc-content-body">
-          <article className="col-md-9 col-xxl-8">
-            {children}
-          </article>
-          <aside className="col-md-3 col-xxl-3 d-none d-md-block">
+          <article className="col-md-9 col-xxl-8">{children}</article>
+          <aside className="col-md-3 col-xxl-3 d-none d-md-block toc-aside">
             <div id="toc_sticky">
               <ul id="toc" className="nav flex-column toc">
                 {
