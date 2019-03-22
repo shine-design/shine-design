@@ -16,7 +16,7 @@ module.exports = function (proxy, allowedHost) {
     // 静默输出日志
     clientLogLevel: 'none',
     // 路径
-    contentBase: paths.appPublic,
+    // contentBase: paths.appPublic,
     // 监听该路径里的文件变化
     watchContentBase: true,
     // 是否开启热部署

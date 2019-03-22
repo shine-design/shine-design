@@ -12,7 +12,7 @@ export default class extends Component {
     return (
       <div
         id={id}
-        className="section-title-2"
+        className="doc-title section-title-2 font-weight-light"
       >
         {children}
       </div>

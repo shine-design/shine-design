@@ -7,12 +7,11 @@ import _ from 'lodash';
 import React, {Component} from 'react';
 import {NavLink} from "react-router-dom";
 import classNames from 'classnames';
-import {Docs, ThemeConfig} from 'docz'
+import {Docs, ThemeConfig} from 'docz';
 
 
 export default class extends Component {
   render() {
-
     const {location} = this.props;
 
     return (

@@ -6,10 +6,10 @@ menu: getting-started
 import Section from 'site/theme/components/Base/Section';
 import Preview from 'site/theme/components/Base/Preview';
 import Code from 'site/theme/components/Base/Code';
+import Container from 'site/theme/components/Base/Container'
 import { Playground,PropsTable } from 'docz';
 import Row from 'src/components/Row';
 import demo from './demo';
-
 
 # 快速入门
 
@@ -17,12 +17,9 @@ import demo from './demo';
 
 ## Usage
 
-* 当系统拥有超过两级以上的层级结构时；
-* 当需要告知用户『你在哪里』时；
-* 当需要向上导航的功能时。
+使用情况
 
-## Demo
-
+## Live Demo
 
 <Section>
   <Preview>
@@ -37,6 +34,12 @@ import demo from './demo';
   </Code>
 </Section>
 
-## API
+## Props
+
+按钮的属性说明如下：
+
+<PropsTable of={Row} />
 
 ## FAQ
+
+<Container />
