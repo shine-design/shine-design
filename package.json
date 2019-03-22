@@ -45,8 +45,8 @@
     "test-all": "node ./scripts/test-all.js",
     "clean": "sudo rimraf node_modules && yarn && jest --clearCache",
     "start": "node scripts/start.js",
-    "start:doc": "docz dev --debug",
-    "build:doc": "docz build"
+    "start:doc": "docz dev --config site/doczrc.js --debug",
+    "build:doc": "docz build --config site/doczrc.js"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "jest-enzyme",

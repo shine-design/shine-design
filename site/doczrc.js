@@ -1,6 +1,6 @@
 import webpack from 'webpack';
 import path from 'path';
-import paths from './config/paths';
+import paths from '../config/paths';
 
 export default {
   title: 'Shine Design - 为开发者、设计师和产品经理准备的UI设计语言',
