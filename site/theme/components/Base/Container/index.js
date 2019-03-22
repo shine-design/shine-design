@@ -65,9 +65,7 @@ export default class Container extends Component {
 
   render() {
     const {titleList} = this.state;
-
     return (
-
       <aside className="col-md-3 col-xxl-3 d-none d-md-block">
         <div className="sticky">
           <ul id="toc" className="nav flex-column toc">

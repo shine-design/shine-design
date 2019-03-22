@@ -11,6 +11,38 @@ import {Docs, ThemeConfig} from 'docz';
 
 
 export default class extends Component {
+
+  componentDidMount() {
+    function make_sticky() {
+      $(".sticky").stick_in_parent();
+    }
+
+    let realWidth = $(window).width();
+
+    if (realWidth < 768) {
+      $(".sticky").trigger("sticky_kit:detach");
+    } else {
+      make_sticky();
+    }
+
+
+    $(window).resize(function () {
+
+      realWidth = $(window).width();
+
+      if (realWidth < 768) {
+        $(".sticky").trigger("sticky_kit:detach");
+      } else {
+        make_sticky();
+      }
+
+    });
+
+    $('.nav-item .collapse').on('shown.bs.collapse hidden.bs.collapse', function () {
+      $(".sticky").trigger("sticky_kit:recalc");
+    });
+  }
+
   render() {
     const {location} = this.props;
 
