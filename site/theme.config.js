@@ -3,6 +3,7 @@
  * @Author 瞿龙俊 - qulongjun@shine.design
  * @Date 2019-03-19 20:13
  */
+import _ from 'lodash';
 
 export default {
   /** 网站 LOGO */
@@ -77,4 +78,26 @@ export default {
   }, {
     label: 'Code',
   }],
+  /**
+   * // 解析目录渲染树规则
+   * @param menus 菜单项
+   * @param docs 当前文档信息
+   * @returns {Array} 菜单与文档形成的渲染树
+   */
+  initMenuMap(menus, docs) {
+    const material = [];
+    _.each(menus, (menu) => {
+      const {name} = menu;
+      const articles = _.filter(docs, doc => {
+        return _.isEqual(doc.menu, name);
+      });
+      if (_.isEmpty(articles)) return;
+      material.push({
+        ...menu,
+        articles,
+      });
+    });
+
+    return material;
+  },
 };
