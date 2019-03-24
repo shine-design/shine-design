@@ -1,4 +1,3 @@
-import React from 'react';
 import {theme} from 'docz';
 import './plugins';
 import RouterConfig from "./config/router";

@@ -14,12 +14,11 @@ export default class Code extends Component {
   }
 
   render() {
-    const {language = 'jsx', children} = this.props;
-
+    const {language = 'jsx', className, children} = this.props;
     return (
       <div className="mdx-code">
         <pre>
-          <code className={'language-' + language}>
+          <code className={className || 'language-' + language}>
             {children}
           </code>
         </pre>

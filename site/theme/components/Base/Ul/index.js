@@ -10,10 +10,10 @@ import React, {Component} from 'react';
 export default class extends Component {
   render() {
     const {children} = this.props;
-    const listValues = _.map(children, child => child.props);
+    const listValues = _.map(_.isArray(children) ? children : [children], child => child.props);
 
     return (
-      <ul className="step-list">
+      <ul className="markdown-ul">
         {
           _.map(listValues, (value, index) => (
             <li key={index}><p>{value.children}</p></li>

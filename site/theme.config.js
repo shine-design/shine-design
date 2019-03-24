@@ -5,6 +5,62 @@
  */
 import _ from 'lodash';
 
+const bulidMenu = (menu, docs) => {
+  const {name, children} = menu;
+  const menuParams = _.pick(menu, ['label', 'name']);
+
+  const articles = _.filter(docs, doc => {
+    return _.isEqual(doc.menu, name);
+  });
+
+  if (_.isUndefined(children)) {
+
+    return _.isEmpty(articles)
+      ? _.noop()
+      : {
+        ...menu,
+        articles: _.map(articles, article => ({...article, parents: [menuParams]})),
+      };
+  }
+
+  const childMenus = [];
+
+  if (_.isArray(children)) {
+    _.forEach(children, child => {
+      const childResult = bulidMenu(child, docs);
+      if (!_.isUndefined(childResult)) {
+        childMenus.push(childResult);
+      }
+    });
+  }
+
+  return _.isEmpty(childMenus)
+    ? _.noop()
+    : {
+      ...menu,
+      children: _.map(childMenus, child => {
+
+        const articleArr = _.map(child.articles, art => {
+          let {parents} = art;
+          if (_.isUndefined(parents)) {
+            parents = [menuParams];
+          } else {
+            parents.push(menuParams);
+          }
+          return {
+            ...art,
+            parents,
+          };
+        });
+
+        return {
+          ...child,
+          articles: articleArr,
+        };
+      }),
+    };
+};
+
 export default {
   /** 网站 LOGO */
   /* eslint-disable global-require */
@@ -50,12 +106,11 @@ export default {
   /** 页面侧边栏导航 */
   menu: [
     {
-      name: 'getting-started',
-      label: '快速入门',
-    },
-    {
-      name: 'practical',
-      label: '项目实战',
+      name: 'about-shine-design',
+      label: 'Shine Design',
+    }, {
+      name: 'install',
+      label: '安装',
     },
     {
       name: 'customize',
@@ -66,8 +121,21 @@ export default {
       label: '更新日志',
     },
     {
+      name: 'faq',
+      label: '常见问题',
+    },
+    {
       name: 'components',
       label: '组件',
+      children: [{
+        name: 'common',
+        label: '通用',
+        isExpand: true,
+      }, {
+        name: 'layout',
+        label: '布局',
+        isExpand: true,
+      }],
       isExpand: true,
     },
   ],
@@ -86,16 +154,12 @@ export default {
    */
   initMenuMap(menus, docs) {
     const material = [];
+
     _.each(menus, (menu) => {
-      const {name} = menu;
-      const articles = _.filter(docs, doc => {
-        return _.isEqual(doc.menu, name);
-      });
-      if (_.isEmpty(articles)) return;
-      material.push({
-        ...menu,
-        articles,
-      });
+      const menuResult = bulidMenu(menu, docs);
+      if (!_.isUndefined(menuResult)) {
+        material.push(menuResult);
+      }
     });
 
     return material;

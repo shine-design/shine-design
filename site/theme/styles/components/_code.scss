@@ -13,6 +13,7 @@ pre[class*="language-"] {
 
 
 div.code-toolbar {
+  overflow: hidden;
 
   &:hover {
     .toolbar {

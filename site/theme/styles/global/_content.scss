@@ -6,6 +6,7 @@ body {
   position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 // page
@@ -119,12 +120,15 @@ article {
   &[class*="-top"] {
     border-top-width: $border-width;
   }
+
   &[class*="-right"] {
     border-right-width: $border-width;
   }
+
   &[class*="-bottom"] {
     border-bottom-width: $border-width;
   }
+
   &[class*="-left"] {
     border-left-width: $border-width;
   }

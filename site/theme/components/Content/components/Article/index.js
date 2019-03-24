@@ -53,7 +53,7 @@ export default class extends Component {
             <div id="toc_sticky">
               <ul id="toc" className="nav flex-column toc">
                 {
-                  _.map(headings, (heading, index) => (
+                  _.map(headings.filter(heading => heading.depth < 3), (heading, index) => (
                     <li className="nav-item" key={index}>
                       <a data-scroll className="nav-link" href={'#' + heading.slug}>{heading.value}</a>
                     </li>

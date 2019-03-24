@@ -1,0 +1,133 @@
+---
+name: 安装
+route: /install
+menu: install
+---
+import {
+  Section,
+  Code,
+  Preview,
+  MessageBox,
+  Empty,
+  Link,
+  Playground,
+  PropsTable
+} from 'site/theme/components/Base';
+import Row from 'src/components/Row';
+import demo from './demo';
+
+
+
+
+# 安装
+
+<MessageBox>
+  本教程默认开发者已掌握一定的<a href="https://reactjs.org/">React</a> 和 <a href="http://babeljs.io/docs/learn-es2015/">ES2015</a> 的开发经验，
+  并正确安装和配置了 <a href="https://nodejs.org/">Node.js</a> V8 或以上。
+</MessageBox>
+
+## 使用 npm 或 yarn 安装
+我们**推荐使用 npm 或 yarn 的方式**进行开发，包管理工具可以在开发和部署阶段提供诸多好处。
+
+``` bash
+$ npm install shined -save
+```
+``` bash
+$ yarn add shined
+```
+
+### 全局导入
+
+安装完成后，即可在项目中通过`import` 或 `require` 使用组件库。
+
+``` jsx
+import React, {Component} from 'react';
+// 此处引用 Shine Design 组件
+import {Alert} from 'shined';
+// 此处引用 Shine Design 样式
+import 'shined/index.css';
+
+export default class extends Component{
+  render(){
+    return (
+      <div>
+        <Alert message="Welcome" type="danger" />
+      </div>
+    );
+  }
+}
+```
+
+### 按需导入
+
+如果开发者只需要 Shine Design 的部分功能，可以选择按需导入的方式，可以通过如下方式按需导入某个组件：
+
+``` jsx
+import React, {Component} from 'react';
+import Alert from 'shined/src/components/Alert';
+// 可以指定加载 index.css 文件或 index.scss 文件
+import 'shined/src/components/Alert/style';
+
+export default class extends Component{
+  render(){
+    return (
+      <div>
+        <Alert message="Welcome" type="danger" />
+      </div>
+    );
+  }
+}
+```
+如果开发者使用了 `babel`，可以配置[babel-plugin-import](https://www.npmjs.com/package/babel-plugin-import)实现按需加载，只需要在`babel`配置文件中进行如下设置：
+
+``` js
+// .babelrc or babel-loader option
+{
+  "plugins": [
+    ["import", {
+      "libraryName": "shined",
+      "libraryDirectory": "src/components",
+      "style": "css" 
+    }]
+  ]
+}
+```
+然后只需和全局导入方式一样，从 shined 引入模块即可，无需单独引入样式。
+
+## 使用 Shine Design Pro
+Shine Design Prop 是开箱即用的一款后台前端解决方案，相比自定义开发，它具有如下优势：
+
+* 集成了最新版组件库，并配套 [shine-tool](https://tool.shine.design) 作为脚手架工具
+* 提炼出经典页面布局和应用场景，高可定制化配置，千人千面
+* 响应式设计，一次开发，多处使用
+* 完整的集成测试和数据 Mock 服务
+
+
+
+## 使用浏览器引用
+访问位于 [Github](https://github.com/shine-design/shine-design) 上的项目仓库，在 `lib` 目录中提供了未压缩版本（开发环境）的`index.js[css]`和压缩版本（生产环境）的`index.min.js[css]`文件。
+<MessageBox messageType="danger">
+  本教程并不提倡使用已打包的构建文件方式引入 Shine Design 。
+</MessageBox>
+
+``` html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="{{ description }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <!-- 此处导入 Shine Design 样式文件 -->
+    <link rel="stylesheet" href="paths/index.min.css" type="text/css">
+  </head>
+  <body>
+
+    <!-- 此处导入 Shine Design 脚本文件 -->
+    <script type="text/javascript" src="paths/index.min.js"></script>
+  </body>
+</html>
+```
+
+
