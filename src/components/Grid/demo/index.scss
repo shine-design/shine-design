@@ -12,12 +12,18 @@
     height: 38px;
     line-height: 38px;
     text-align: center;
-    margin: 10px 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
     text-transform: uppercase;
     font-weight: normal;
 
     &:nth-child(2n) {
       background-color: #e5e9f2;
     }
+  }
+
+  &.shine-grid-height {
+    height: 100px;
+    border: 1px solid rgb(235, 235, 235);
   }
 }

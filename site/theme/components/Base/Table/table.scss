@@ -4,7 +4,19 @@
  */
 .shine-site {
 
-  th:not([class*="PropsTable"]) {
+  &.props {
+    text-align: center;
+
+    tr {
+
+      td:last-of-type,
+      th:last-of-type {
+        text-align: left;
+      }
+    }
+  }
+
+  th {
     text-align: center;
   }
 

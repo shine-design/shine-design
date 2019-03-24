@@ -128,11 +128,11 @@ export default {
       name: 'components',
       label: '组件',
       children: [{
-        name: 'grid',
-        label: '栅格系统',
-      }, {
         name: 'common',
         label: '通用',
+      }, {
+        name: 'grid',
+        label: '栅格系统',
       }],
       isExpand: true,
     },
@@ -155,6 +155,7 @@ export default {
 
     _.each(menus, (menu) => {
       const menuResult = bulidMenu(menu, docs);
+      console.log(menuResult);
       if (!_.isUndefined(menuResult)) {
         material.push(menuResult);
       }

@@ -8,7 +8,7 @@ import React, {Component} from 'react';
 import {DocPreview} from "docz";
 import Aside from './components/Aside';
 import Article from './components/Article';
-import {H1, H2, H3, Ul, Code, Link, InlineCode, Table, NotFound} from '../Base';
+import {H1, H2, H3, H4, Ul, Code, Link, InlineCode, Table, NotFound} from '../Base';
 
 export default class extends Component {
 
@@ -34,12 +34,13 @@ export default class extends Component {
       <section className="section-container" style={{minHeight: '100vh'}}>
         <div className="container-fluid">
           <div className="row justify-content-between">
-            <Aside location={location}/>
+            <Aside location={location} />
             <DocPreview
               components={{
                 h1: H1,
                 h2: H2,
                 h3: H3,
+                h4: H4,
                 ul: Ul,
                 a: Link,
                 code: Code,

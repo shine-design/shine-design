@@ -8,17 +8,19 @@ import _ from 'lodash';
 import classNames from 'classnames';
 import React, {Component} from 'react';
 import {ThemeConfig} from "docz";
+import uuidv1 from 'uuid/v1';
 
 export default class extends Component {
 
   /* eslint-disable react/no-unused-state */
   state = {
     selected: 0,
+    id: uuidv1(),
   };
 
   componentDidMount() {
     /* eslint-disable no-undef */
-    $('.lavalamp').lavalamp({
+    $(`#${this.state.id}`).lavalamp({
       setOnClick: true,
       enableHover: false,
       margins: false,
@@ -30,14 +32,14 @@ export default class extends Component {
   render() {
     const me = this;
     const {children} = me.props;
-    const {selected} = me.state;
+    const {selected, id} = me.state;
 
     return (
       <ThemeConfig>
         {
           ({themeConfig: {boxConfig}}) => (
             <div className="component">
-              <ul className="nav nav-pills lavalamp" role="tablist">
+              <ul className="nav nav-pills lavalamp" id={id} role="tablist">
                 {
                   _.isArray(boxConfig) && _.map(boxConfig, (box, index) => (
                     <li className="nav-item" key={index}>

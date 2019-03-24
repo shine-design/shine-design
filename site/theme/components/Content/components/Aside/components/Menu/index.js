@@ -129,7 +129,7 @@ class MenuItem extends Component {
             )
           }
           <div
-            className={classNames('collapse', {'show': isExpand})}
+            className={classNames('collapse', {'show': isExpand || isChild})}
             id={`menu-${index}`}
             data-parent={'#' + parentId}
           >

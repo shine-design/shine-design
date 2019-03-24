@@ -21,6 +21,8 @@ export {default as H1} from './H1';
 export {default as H2} from './H2';
 /** 三级标题组件 */
 export {default as H3} from './H3';
+/** 四级标题组件 */
+export {default as H4} from './H4';
 /** 无序列表 */
 export {default as Ul} from './Ul';
 /** 404 组件 */

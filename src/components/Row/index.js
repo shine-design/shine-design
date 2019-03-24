@@ -14,7 +14,7 @@ import './style/index.scss';
 /** 支持布局类型 */
 const TYPES = ['flex'];
 /** 交叉轴对齐方式 */
-const ALIGN = ['top', 'middle', 'bootom'];
+const ALIGN = ['top', 'middle', 'bottom'];
 /** 主轴对齐方式 */
 const JUSTIFY = ['start', 'end', 'center', 'space-around', 'space-between'];
 
@@ -54,9 +54,9 @@ class Row extends PureComponent {
 Row.propTypes = {
   /** 布局类型，目前仅支持 flex */
   type: PropTypes.oneOf(TYPES),
-  /** 水平对齐方式 */
+  /** 水平对齐方式，可选值：'start', 'end', 'center', 'space-around', 'space-between' */
   justify: PropTypes.oneOf(JUSTIFY),
-  /** 垂直对齐方式 */
+  /** 垂直对齐方式，可选值：'top', 'middle', 'bottom' */
   align: PropTypes.oneOf(ALIGN),
   /** 用户自定义修饰符 */
   className: PropTypes.string,

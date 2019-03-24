@@ -5,7 +5,7 @@
 
 /** 水平对齐选项 */
 $justify: (name:start, value:flex-start), (name:end, value:flex-end), (name:center, value:center),
-(name:space-around, value:space-around), (name:space-betwee, value:space-betwee);
+(name:space-around, value:space-around), (name:space-between, value:space-between);
 
 /** 垂直对齐选项 */
 $align: (name:top, value:flex-start), (name:bottom, value:flex-end), (name:middle, value:center);

@@ -21,7 +21,7 @@ export default class extends Component {
 
     return (
       <Fragment>
-        <Header/>
+        <Header />
         <Content location={location} />
       </Fragment>
     );

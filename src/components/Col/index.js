@@ -62,18 +62,18 @@ class Col extends PureComponent {
 }
 
 Col.propTypes = {
-  /** 定义列栅格数，支持数字类型（1-最大栅格数），字符串 auto ，或针对特殊尺寸定义栅格数） */
+  /** 定义列格块数 */
   col: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string,
     PropTypes.object,
   ]),
-  /** 定义列栅格偏移量，支持数字类型（1-最大栅格数-1），或针对特殊尺寸定义偏移量） */
+  /** 定义列格块偏移量 */
   offset: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.object,
   ]),
-  /** 定义列栅格排列顺序，支持数字类型（1-最大栅格数），或针对特殊尺寸定义排列顺序） */
+  /** 定义列格块排列顺序 */
   order: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.object,
@@ -86,8 +86,8 @@ Col.propTypes = {
 
 Col.defaultProps = {
   col: 'auto',
-  offset: _.noop(),
-  order: _.noop(),
+  offset: undefined,
+  order: undefined,
   className: '',
   attributes: {},
 };

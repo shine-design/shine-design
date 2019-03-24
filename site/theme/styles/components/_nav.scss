@@ -9,6 +9,10 @@
   .nav-item {
     display: inline-block;
     padding-left: 10px;
+
+    &.depth-3 {
+      margin-left: 20px;
+    }
   }
 
   .nav-link {

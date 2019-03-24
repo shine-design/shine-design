@@ -18,9 +18,9 @@ import './demo/index.scss';
 * 我们将栅格系统划分为 **24** 格块，你可以在列上设置 1～24 的任意值
 * 若同一行中列的格块值之和超过 **24** ，那么剩余的列会另起一行
 
-## 代码演示
+## 代码示例
 <MessageBox messageType="info">
-  由于栅格系统本身不产生内容，为了让用户直观地查看代码演示，我们加入了 <InlineCode>shine-grid-helper</InlineCode> 修饰符，在开发过程中无需配置该字段。
+  由于栅格系统本身不产生内容，为了让用户直观地查看代码演示，我们加入了 <InlineCode>shine-grid-helper</InlineCode> 和 <InlineCode>shine-grid-height</InlineCode> 修饰符，在开发过程中无需配置该字段。
 </MessageBox>
 
 ### 基础栅格
@@ -40,18 +40,57 @@ import './demo/index.scss';
   </Code>
 </Section>
 
-### 响应式栅格
+### 偏移量
+偏移是一个用于更专业的布局的功能，它可用来给列腾出更多的空间。偏移量的基本单位是 **格块** ，且偏移数量会计入有效格块总数。
+
+使用 `offset` 属性可以设置当前列相对原始位置的偏移量。
+
+<Section>
+  <Preview>
+    <Playground>
+       <JsxParser {...code.offset} />
+    </Playground>
+
+  </Preview>
+  <Code>
+    {code.offset.jsx}
+  </Code>
+</Section>
+
+### 排序
+排序是另一种专业的布局功能，它可以让开发者以一种顺序创建列，并以另一种顺序在页面上展示。
+
+使用 `order` 属性可以设置当前列在该行的排列顺序，数值越小的，优先级越高，排列顺序也越靠前。
+
+<Section>
+  <Preview>
+    <Playground>
+       <JsxParser {...code.order} />
+    </Playground>
+
+  </Preview>
+  <Code>
+    {code.order.jsx}
+  </Code>
+</Section>
+
+<MessageBox messageType="info">
+  比较 Preview 和 Code 界面，会发现实现的顺序和展示的顺序并不一致。
+</MessageBox>
+
+
+### 响应式
 响应式布局可以为同一个网站在不同的终端（PC、平板、手机等）的用户提供更加舒适的界面和更好的用户体验。我们提供了一套基于不同分辨率设备的响应式布局方案，对应关系如下所示：
 
-| 分辨率 | 标识符 | 示例 |
-| :------: | :------: | :------: |
-| < 576px | xs | 稍微长一点的文本 |
-| 576px - 768px | sm | 稍微长一点的文本 |
-| 768px - 992px | md | 稍微长一点的文本 |
-| 992px - 1200px | lg | 稍微长一点的文本 |
-| 1200px -1400px | xl | 稍微长一点的文本 |
-| 1400px -1600px | xxl | 稍微长一点的文本 |
-| > 1600px | xxxl | 稍微长一点的文本 |
+| 分辨率 | 标识符 |
+| :------: | :------: |
+| < 576px | xs |
+| 576px - 768px | sm |
+| 768px - 992px | md |
+| 992px - 1200px | lg |
+| 1200px -1400px | xl |
+| 1400px -1600px | xxl |
+| > 1600px | xxxl |
 
 <Section>
   <Preview>
@@ -65,11 +104,83 @@ import './demo/index.scss';
   </Code>
 </Section>
 
+<MessageBox messageType="info">
+  调整浏览器尺寸即可查看响应式显示效果。
+</MessageBox>
+
+### 水平对齐
+水平对齐用于对同一行的多个列进行横向排序，支持的选择有：
+* start：左对齐
+* end：右对齐
+* center：居中对齐
+* space-around：两端对齐，列之间间隔相等
+* space-between：两端对齐，每个列两侧的间隔相等。所以，列之间的间隔比列与边框的间隔大一倍。
+
+<Section>
+  <Preview>
+    <Playground>
+       <JsxParser {...code.justify} />
+    </Playground>
+
+  </Preview>
+  <Code>
+    {code.justify.jsx}
+  </Code>
+</Section>
+
+### 垂直对齐
+垂直对齐用于对同一行的多个列进行竖向排序，支持的选择有：
+* top：顶部对齐
+* middle：中线对齐
+* bottom：底部对齐
+
+<Section>
+  <Preview>
+    <Playground>
+       <JsxParser {...code.align} />
+    </Playground>
+
+  </Preview>
+  <Code>
+    {code.align.jsx}
+  </Code>
+</Section>
 
 ## 配置参数
 
-### Row
-<PropsTable of={Row} />
+### 行 Row
+<PropsTable of={Row} test="aaa" />
 
-### Col
+### 列 Col
 <PropsTable of={Col} />
+
+#### 属性 col
+
+| 类型 | 可选项 | 描述 |
+| :------: | :------: | :------ |
+| String | auto | 根据列实际撑开尺寸计算 |
+| Number | 1 - 24（默认） | 定义列所占据的格块数计算 |
+| Object | {} | 定义在不同的响应式标识符下的展示格块。如 `{md:3}` |
+
+#### 属性 offset
+
+| 类型 | 可选项 | 描述 |
+| :------: | :------: | :------ |
+| Number | 1 - 23（默认） | 定义列所偏移的格块数计算 |
+| Object | {} | 定义在不同的响应式标识符下的偏移格块。如 `{md:3}` |
+
+#### 属性 order
+
+| 类型 | 可选项 | 描述 |
+| :------: | :------: | :------ |
+| Number | 1 - 24（默认） | 定义列的排列优先级顺序 |
+| Object | {} | 定义在不同的响应式标识符下列的排列优先级顺序。如 `{md:3}` |
+
+## FAQ
+#### 我不想使用你们提供的布局组件，我可以引入第三方布局库吗？
+
+答：当然可以，我们欢迎你使用 Shine Design 的布局组件，但这并不强制，我们推荐一些社区优秀的解决方案，如 [React-FlexBox-Grid](http://roylee0704.github.io/react-flexbox-grid/) 和 [react-blocks](https://github.com/whoisandy/react-blocks/) 等。
+
+#### 你们为什么不引入更多的 Flex 特性，增加布局的配置项？
+
+答：我们在多样性和复杂性上进行了一个平衡，目前已经提供的配置项是高频的需求，其他较为冷门的布局方案，我们也支持开发者通过 `className` 的方式自行配置。额外的增加配置项会对开发者造成困惑。
