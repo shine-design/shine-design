@@ -128,13 +128,11 @@ export default {
       name: 'components',
       label: '组件',
       children: [{
+        name: 'grid',
+        label: '栅格系统',
+      }, {
         name: 'common',
         label: '通用',
-        isExpand: true,
-      }, {
-        name: 'layout',
-        label: '布局',
-        isExpand: true,
       }],
       isExpand: true,
     },

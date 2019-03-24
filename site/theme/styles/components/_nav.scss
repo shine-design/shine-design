@@ -27,7 +27,6 @@
   }
 }
 
-
 // pills
 .nav-pills {
   display: inline-flex;
@@ -78,7 +77,6 @@
   }
 }
 
-
 // card variations
 //
 
@@ -104,7 +102,6 @@
   margin-right: 0;
   margin-left: 0;
 }
-
 
 // toc page
 .nav-toc-page {
@@ -179,7 +176,6 @@
     }
   }
 }
-
 
 // vertical nav
 .nav-vertical {
@@ -289,6 +285,13 @@
         @include rotate(180deg);
       }
     }
+
+    &.nav-span {
+
+      &:hover {
+        background: none;
+      }
+    }
   }
 
   .nav {
@@ -305,7 +308,6 @@
     }
   }
 }
-
 
 // dots
 .nav-dots {
@@ -351,7 +353,6 @@
   }
 }
 
-
 // inverted colors
 .text-white {
   .nav {
@@ -375,13 +376,11 @@
   }
 }
 
-
 // scroll
 .scroll {
   max-height: 100vh;
   overflow-y: scroll;
 }
-
 
 // overlay menu for layout-1 on mobile
 html.active,

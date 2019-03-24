@@ -70,6 +70,8 @@ module.exports = {
   appPath: resolveApp('.'),
   appPackageJson: resolveApp('package.json'),
   appSrc: resolveApp('src'),
+  appComponent: resolveApp('src/index.js'),
+  appStyle: resolveApp('src/style'),
   yarnLockFile: resolveApp('yarn.lock'),
   proxySetup: resolveApp('src/setupProxy.js'),
   appNodeModules: resolveApp('node_modules'),

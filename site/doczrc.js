@@ -14,6 +14,12 @@ export default {
     config.resolve.alias = {
       ...alias,
       assets: path.resolve(paths.sitePath, 'theme/assets'),
+      shined: paths.appBuild,
+      shineDev: paths.appComponent,
+      configs: path.resolve(paths.appSrc, 'configs'),
+      variables: path.resolve(paths.appSrc, '_variables.js'),
+      style: paths.appStyle,
+      theme: path.resolve(paths.themePath, 'components/Base'),
     };
 
     // 配置全局变量

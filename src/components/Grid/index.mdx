@@ -1,0 +1,75 @@
+---
+name: Grid 栅格系统
+route: /grid
+menu: grid
+---
+import JsxParser from 'react-jsx-parser';
+import {MessageBox,InlineCode,Section,Preview,Playground,Code,PropsTable} from 'theme';
+import {Row,Col} from 'shineDev';
+import code from './demo';
+import './demo/index.scss';
+
+# Grid 栅格系统
+
+## 概述
+栅格系统是一种通过行（Row）与列（Col）来定义页面布局的方式，根据主流设备的尺寸进行分段，每段宽度固定并且浮动，通过百分比和媒体查询实现响应式的布局，栅格系统基于如下设计理念：
+* 行是在水平方向上建立的一块针对列组件的容器。
+* 其他内容应当放置于列内部，并且，只有列可以作为行的**直接**子元素
+* 我们将栅格系统划分为 **24** 格块，你可以在列上设置 1～24 的任意值
+* 若同一行中列的格块值之和超过 **24** ，那么剩余的列会另起一行
+
+## 代码演示
+<MessageBox messageType="info">
+  由于栅格系统本身不产生内容，为了让用户直观地查看代码演示，我们加入了 <InlineCode>shine-grid-helper</InlineCode> 修饰符，在开发过程中无需配置该字段。
+</MessageBox>
+
+### 基础栅格
+栅格布局主要由行组件 `Row` 和列组件 `Col` 搭配实现。在页面任何位置，通过将一个或多个 `Col` 嵌套在 `Row` 中，即可实现基础的栅格布局。
+
+我们将 `Row` 组件空间分成无数个相对独立的单元，每个单元我们称为 **格块** 。每个 `Col` 可以拥有一个或多个格块，但同一行中，所有的格块数加起来，不能超过最大值 **24** 。
+
+<Section>
+  <Preview>
+    <Playground>
+       <JsxParser {...code.basic} />
+    </Playground>
+
+  </Preview>
+  <Code>
+    {code.basic.jsx}
+  </Code>
+</Section>
+
+### 响应式栅格
+响应式布局可以为同一个网站在不同的终端（PC、平板、手机等）的用户提供更加舒适的界面和更好的用户体验。我们提供了一套基于不同分辨率设备的响应式布局方案，对应关系如下所示：
+
+| 分辨率 | 标识符 | 示例 |
+| :------: | :------: | :------: |
+| < 576px | xs | 稍微长一点的文本 |
+| 576px - 768px | sm | 稍微长一点的文本 |
+| 768px - 992px | md | 稍微长一点的文本 |
+| 992px - 1200px | lg | 稍微长一点的文本 |
+| 1200px -1400px | xl | 稍微长一点的文本 |
+| 1400px -1600px | xxl | 稍微长一点的文本 |
+| > 1600px | xxxl | 稍微长一点的文本 |
+
+<Section>
+  <Preview>
+    <Playground>
+       <JsxParser {...code.responsive} />
+    </Playground>
+
+  </Preview>
+  <Code>
+    {code.responsive.jsx}
+  </Code>
+</Section>
+
+
+## 配置参数
+
+### Row
+<PropsTable of={Row} />
+
+### Col
+<PropsTable of={Col} />

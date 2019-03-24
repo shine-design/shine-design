@@ -13,7 +13,7 @@ export default class NotFound extends Component {
 
     return (
       <div className="col-lg-10 col-xxl-10 doc-content not-found">
-        <p className="not-found-title font-weight-light">Ops! 404 Not Found!</p>
+        <p className="not-found-title font-weight-light">Ops! 404 Not Found</p>
         <p className="not-found-desp font-weight-light">你似乎来到了没有知识的荒原...</p>
         <p className="not-found-back font-weight-light">
           <a href="/">返回首页</a>

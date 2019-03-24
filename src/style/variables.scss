@@ -53,16 +53,30 @@ $colors: (
 
 /** 媒体查询分界 */
 $breakpoints: (
+  xs: 0,
   /** 小屏幕或移动设备 */
-  sm: '576px',
+  sm: 576px,
   /** 中等屏幕或平板设备 */
-  md: '768px',
+  md: 768px,
   /** 大屏幕或桌面设备 */
-  lg: '992px',
+  lg: 992px,
   /** 大屏幕或桌面设备 */
-  xl: '1200px',
+  xl: 1200px,
   /** 大屏幕或宽屏设备 */
-  xxl: '1400px',
+  xxl: 1400px,
   /** 大屏幕或宽屏设备 */
-  xxxl: '1600px',
+  xxxl: 1600px,
 ) !default;
+
+/** 布局 */
+/** 是否开启 Grid 布局 */
+$enable-grid-classes: true !default;
+/** 布局列间隔 */
+$grid-gutter-width: 30px !default;
+/** 布局分界 */
+$grid-breakpoints: $breakpoints !default;
+/** 容器分界 */
+$container-max-widths: $breakpoints !default;
+/** 最大布局列数 */
+$grid-columns: 24 !default;
+

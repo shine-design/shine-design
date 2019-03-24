@@ -1,6 +1,6 @@
 /**
  * @Author 瞿龙俊 - qulongjun@shine.design
- * @Date 2019/3/16 上午9:17
+ * @Date 2019-03-16 09:17
  */
 @import "../../../style/mixins/index";
 @import "../../../style/functions/index";
@@ -35,22 +35,6 @@
       height: 100%;
     }
 
-    > .#{$classPrefix}-row__item {
-      flex: none;
-      -ms-flex: none;
-
-      &.#{$classPrefix}-row__item--fluid {
-        flex: 1 0 auto;
-        -ms-flex: 1 0 auto;
-      }
-    }
-
-    @for $i from 1 through 12 {
-      > .#{$classPrefix}-row__item.#{$classPrefix}-row__item--order-#{$i} {
-        order: $i;
-        -ms-flex-order: $i;
-      }
-    }
   }
 
   .#{$classPrefix}-row {

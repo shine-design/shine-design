@@ -4,6 +4,10 @@
  */
 .shine-site {
 
+  th:not([class*="PropsTable"]) {
+    text-align: center;
+  }
+
   &.table td {
     padding: 0.9rem 1.875rem;
   }

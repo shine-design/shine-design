@@ -2,18 +2,20 @@
  * @Component Row
  * @Type 布局组件
  * @Author 瞿龙俊 - qulongjun@shine.design
- * @Date 2019/3/16 02:02
+ * @Date 2019-03-16 02:02
  */
 import React, {PureComponent} from 'react';
 import _ from 'lodash';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
-import {MEDIA, SCALE} from '../../configs/media';
 import {classPrefix} from '../../_variables';
 import './style/index.scss';
 
+/** 支持布局类型 */
 const TYPES = ['flex'];
+/** 交叉轴对齐方式 */
 const ALIGN = ['top', 'middle', 'bootom'];
+/** 主轴对齐方式 */
 const JUSTIFY = ['start', 'end', 'center', 'space-around', 'space-between'];
 
 class Row extends PureComponent {
@@ -27,6 +29,7 @@ class Row extends PureComponent {
       children,
     } = this.props;
 
+    /** 计算样式 */
     const classes = classNames(
       `${classPrefix}-row`,
       `${classPrefix}-row--root`,
@@ -55,13 +58,6 @@ Row.propTypes = {
   justify: PropTypes.oneOf(JUSTIFY),
   /** 垂直对齐方式 */
   align: PropTypes.oneOf(ALIGN),
-  /** 自定义栅格间隔 */
-  gutter: PropTypes.oneOfType([
-    /** 只指定数字表示通用 */
-    PropTypes.number,
-    /** 支持通过对象方式对不同媒体进行配置 */
-    PropTypes.shape(_.map(MEDIA, media => ({[media]: PropTypes.oneOf(SCALE)}))),
-  ]),
   /** 用户自定义修饰符 */
   className: PropTypes.string,
   /** 用户自定义属性 */
@@ -72,9 +68,10 @@ Row.defaultProps = {
   type: 'flex',
   justify: 'start',
   align: 'top',
-  gutter: 0,
   className: '',
   attributes: {},
 };
 
 export default Row;
+
+

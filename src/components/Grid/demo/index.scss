@@ -1,0 +1,23 @@
+/**
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2019/3/24 17:15
+ */
+.shine-grid-helper {
+  border-radius: 3px;
+  margin: 10px 0;
+
+  > div {
+    border: 1px solid #ebebeb;
+    background-color: #d3dce6;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    margin: 10px 0;
+    text-transform: uppercase;
+    font-weight: normal;
+
+    &:nth-child(2n) {
+      background-color: #e5e9f2;
+    }
+  }
+}

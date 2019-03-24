@@ -62,7 +62,7 @@ module.exports = function (webpackEnv) {
         loader: MiniCssExtractPlugin.loader,
         options: Object.assign(
           {},
-          shouldUseRelativeAssetPaths ? {publicPath: '../../'} : undefined
+          shouldUseRelativeAssetPaths ? {publicPath: '../../'} : undefined,
         ),
       },
       {
@@ -190,12 +190,16 @@ module.exports = function (webpackEnv) {
     },
     resolve: {
       modules: ['node_modules'].concat(
-        process.env.NODE_PATH.split(path.delimiter).filter(Boolean)
+        process.env.NODE_PATH.split(path.delimiter).filter(Boolean),
       ),
       extensions: paths.moduleFileExtensions
         .map(ext => `.${ext}`),
       alias: {
-        Base: path.resolve(paths.themePath, 'components/Base')
+        Base: path.resolve(paths.themePath, 'components/Base'),
+        configs: path.resolve(paths.appSrc, 'configs'),
+        variables: path.resolve(paths.appSrc, '_variables.js'),
+        style: paths.appStyle,
+        shineDev: paths.appComponent,
       },
       plugins: [
         // 添加对即插即用安装的支持，从而加快安装和添加速度
@@ -310,7 +314,7 @@ module.exports = function (webpackEnv) {
                   importLoaders: 2,
                   sourceMap: isEnvProduction && shouldUseSourceMap,
                 },
-                'sass-loader'
+                'sass-loader',
               ),
               sideEffects: true,
             },
@@ -323,7 +327,7 @@ module.exports = function (webpackEnv) {
                   modules: true,
                   getLocalIdent: getCSSModuleLocalIdent,
                 },
-                'sass-loader'
+                'sass-loader',
               ),
             },
             {
@@ -334,7 +338,7 @@ module.exports = function (webpackEnv) {
                   importLoaders: 3,
                   sourceMap: isEnvProduction && shouldUseSourceMap,
                 },
-                'less-loader'
+                'less-loader',
               ),
               sideEffects: true,
             },
@@ -347,7 +351,7 @@ module.exports = function (webpackEnv) {
                   modules: true,
                   getLocalIdent: getCSSModuleLocalIdent,
                 },
-                'less-loader'
+                'less-loader',
               ),
             },
             {
@@ -385,8 +389,8 @@ module.exports = function (webpackEnv) {
                 minifyURLs: true,
               },
             }
-            : undefined
-        )
+            : undefined,
+        ),
       ),
       // 为未找到的模块错误提供了一些必要的上下文，例如请求的资源。
       new ModuleNotFoundPlugin(paths.appPath),
@@ -403,7 +407,7 @@ module.exports = function (webpackEnv) {
       // 配置 CSS 输出
       isEnvProduction &&
       new MiniCssExtractPlugin({
-        filename: 'index.css'
+        filename: 'index.css',
       }),
       // 忽略某些插件
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),

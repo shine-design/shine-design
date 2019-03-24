@@ -160,6 +160,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-jsx-parser": "^1.15.1",
     "react-router-dom": "^4.4.0",
     "skrollr": "^0.6.26",
     "slicknav": "^1.0.8",

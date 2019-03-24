@@ -2224,6 +2224,13 @@ acorn-globals@^4.1.0:
     acorn "^6.0.1"
     acorn-walk "^6.0.1"
 
+acorn-jsx@^4.1.1:
+  version "4.1.1"
+  resolved "http://registry.npm.baidu-int.com/acorn-jsx/-/acorn-jsx-4.1.1.tgz#e8e41e48ea2fe0c896740610ab6a4ffd8add225e"
+  integrity sha1-6OQeSOov4MiWdAYQq2pP/YrdIl4=
+  dependencies:
+    acorn "^5.0.3"
+
 acorn-jsx@^5.0.0, acorn-jsx@^5.0.1:
   version "5.0.1"
   resolved "http://registry.npm.baidu-int.com/acorn-jsx/-/acorn-jsx-5.0.1.tgz#32a064fd925429216a09b141102bfdd185fae40e"
@@ -14024,6 +14031,13 @@ react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4:
   version "16.8.4"
   resolved "http://registry.npm.baidu-int.com/react-is/-/react-is-16.8.4.tgz#90f336a68c3a29a096a3d648ab80e87ec61482a2"
   integrity sha1-kPM2pow6KaCWo9ZIq4DofsYUgqI=
+
+react-jsx-parser@^1.15.1:
+  version "1.15.1"
+  resolved "http://registry.npm.baidu-int.com/react-jsx-parser/-/react-jsx-parser-1.15.1.tgz#eba0913f1b94ff5d71e63df37c9907bd76625ab3"
+  integrity sha1-66CRPxuU/11x5j3zfJkHvXZiWrM=
+  dependencies:
+    acorn-jsx "^4.1.1"
 
 react-lifecycles-compat@^3.0.4:
   version "3.0.4"

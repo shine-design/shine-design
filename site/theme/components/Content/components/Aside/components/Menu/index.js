@@ -34,7 +34,7 @@ export default class extends Component {
                     {
                       _.map(material, (item, index) => (
                           <MenuItem key={index} index={index} parentId="page-nav" {...item} location={location}/>
-                        )
+                        ),
                       )
                     }
                   </ul>
@@ -51,17 +51,17 @@ export default class extends Component {
 class MenuItem extends Component {
 
   render() {
-    const {articles, label, isExpand, location, index, parentId, children} = this.props;
+    const {articles, label, isExpand, location, index, parentId, isChild, children} = this.props;
     let childList = [];
 
     if (_.isArray(children)) {
-      const parentId = 'page-nav-' + index;
 
       childList = _.map(children, (child, itemIndex) => (
         <MenuItem
           index={index + '-' + itemIndex}
+          isChild={true}
           key={itemIndex}
-          parentId={parentId}
+          parentId={'page-nav-' + index}
           location={location}
           {...child}
         />
@@ -108,22 +108,26 @@ class MenuItem extends Component {
             }
             role="button"
           >
-            {label}
+            {articles[0].name}
           </NavLink>
         </li>
       )
       : (
         <li className="nav-item">
-          <a
-            className="nav-link"
-            data-toggle="collapse"
-            href={`#menu-${index}`}
-            role="button"
-            aria-expanded={!!isExpand}
-            aria-controls={`menu-${index}`}
-          >
-            {label}
-          </a>
+          {
+            isChild ? <span className="nav-link nav-span font-weight-bolder">{label}</span> : (
+              <a
+                className="nav-link"
+                data-toggle="collapse"
+                href={`#menu-${index}`}
+                role="button"
+                aria-expanded={!!isExpand}
+                aria-controls={`menu-${index}`}
+              >
+                {label}
+              </a>
+            )
+          }
           <div
             className={classNames('collapse', {'show': isExpand})}
             id={`menu-${index}`}
