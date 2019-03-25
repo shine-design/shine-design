@@ -200,6 +200,7 @@ module.exports = function (webpackEnv) {
         variables: path.resolve(paths.appSrc, '_variables.js'),
         style: paths.appStyle,
         shineDev: paths.appComponent,
+        test: paths.testPath,
       },
       plugins: [
         // 添加对即插即用安装的支持，从而加快安装和添加速度

@@ -2,8 +2,7 @@
  * @Author 瞿龙俊 - qulongjun@shine.design
  * @Date 2019-03-16 09:17
  */
-@import "../../../style/mixins/index";
-@import "../../../style/functions/index";
+@import "~style/functions/array-get";
 
 @mixin shine--justify($justify,$classPrefix) {
 

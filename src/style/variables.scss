@@ -3,6 +3,16 @@ $classPrefix: 'shine' !default;
 /* 默认字体集 */
 $fontFamily: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif !default;
 
+$font-size-base: 1rem !default;
+
+$border-radius: .25rem !default;
+$transition-base: all .2s ease-in-out !default;
+
+$white: #fff !default;
+$black: #000 !default;
+$gray-100: #f8f8f8;
+$gray-200: #f5f5f5;
+
 /* 主色调与状态颜色 */
 $colors: (
   brand: (
@@ -79,4 +89,21 @@ $grid-breakpoints: $breakpoints !default;
 $container-max-widths: $breakpoints !default;
 /** 最大布局列数 */
 $grid-columns: 24 !default;
+
+/** Progress Bar */
+/** 默认进度条高度 */
+$progress-height: 1rem !default;
+$progress-font-size: 1rem !default;
+$progress-font-size: ($font-size-base * .75) !default;
+$progress-bg: $gray-200 !default;
+$progress-bar-color: $white !default;
+
+$progress-border-radius: $border-radius !default;
+$progress-box-shadow: inset 0 .1rem .1rem rgba($black, .1) !default;
+$progress-bar-bg: #FFF;
+$progress-bar-transition: width .6s ease !default;
+$progress-bar-animation-timing: 1s linear infinite !default;
+
+
+
 

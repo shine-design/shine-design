@@ -155,7 +155,6 @@ export default {
 
     _.each(menus, (menu) => {
       const menuResult = bulidMenu(menu, docs);
-      console.log(menuResult);
       if (!_.isUndefined(menuResult)) {
         material.push(menuResult);
       }

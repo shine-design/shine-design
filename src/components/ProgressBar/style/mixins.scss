@@ -1,0 +1,31 @@
+/**
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2019/3/25 18:58
+ */
+@import "~style/variables";
+@import "~style/mixins/border-radio";
+@import "~style/mixins/transition";
+
+@mixin shine--build-progress() {
+  .#{$classPrefix}-progress {
+    .#{$classPrefix}-progress-bar {
+      @include transition(all 0.5s ease);
+    }
+
+    &.#{$classPrefix}-progress--sm {
+      height: 6px;
+
+      .#{$classPrefix}-progress-bar {
+        @include border-radius(3px);
+      }
+    }
+
+    &.#{$classPrefix}-progress--lg {
+      height: 20px;
+
+      .#{$classPrefix}-progress-bar {
+        @include border-radius(4px);
+      }
+    }
+  }
+}

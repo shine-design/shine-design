@@ -1,0 +1,36 @@
+/**
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2019/3/24 14:35
+ */
+@import "../../variables";
+@import "mixins";
+
+/** Container */
+.#{$classPrefix}-container {
+  @include make-container();
+  @include make-container-max-widths();
+}
+
+/** Fluid container */
+.#{$classPrefix}-container-fluid {
+  @include make-container();
+}
+
+/** Rows */
+.#{$classPrefix}-row {
+  @include make-row();
+}
+
+.#{$classPrefix}-no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+
+  > .#{$classPrefix}-col,
+  > [class*="#{$classPrefix}-col-"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+/** Columns */
+@include make-grid-columns();

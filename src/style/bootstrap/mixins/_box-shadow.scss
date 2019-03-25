@@ -1,0 +1,16 @@
+@mixin box-shadow($shadow...) {
+  $result: ();
+  
+  @if (length($shadow) == 1) {
+    $result: $shadow;
+  } @else {
+    @for $i from 1 through length($shadow) {
+      @if nth($shadow, $i) != "none" {
+        $result: append($result, nth($shadow, $i), "comma");
+      }
+    }
+  }
+  @if (length($result) > 0) {
+    box-shadow: $result;
+  }
+}

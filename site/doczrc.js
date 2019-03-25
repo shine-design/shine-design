@@ -11,6 +11,8 @@ export default {
   modifyBundlerConfig: config => {
     const {alias} = config.resolve;
 
+    config.resolve.extensions.push('scss');
+
     config.resolve.alias = {
       ...alias,
       assets: path.resolve(paths.sitePath, 'theme/assets'),

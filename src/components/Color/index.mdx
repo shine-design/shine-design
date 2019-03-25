@@ -20,37 +20,31 @@ import "./demo/index.scss";
 
 <Row>
   <Col col={4}>
-    <div class="color-helper shine--bg-brand">
+    <div className="color-helper shine--bg-brand">
       Brand
       <div>#716ACA</div>
     </div>
   </Col>
   <Col col={4}>
-    <div class="color-helper shine--bg-grace">
+    <div className="color-helper shine--bg-grace">
       Grace
       <div>#00C5DC</div>
     </div>
   </Col>
   <Col col={4}>
-    <div class="color-helper shine--bg-metal">
+    <div className="color-helper shine--bg-metal">
       Metal
       <div>#C4C5D6</div>
     </div>
   </Col>
   <Col col={4}>
-    <div class="color-helper shine--bg-accent">
-      Accent
-      <div>#00C5DC</div>
-    </div>
-  </Col>
-  <Col col={4}>
-    <div class="color-helper shine--bg-focus">
+    <div className="color-helper shine--bg-focus">
       Focus
       <div>#9816F4</div>
     </div>
   </Col>
   <Col col={4}>
-    <div class="color-helper shine--bg-light">
+    <div className="color-helper shine--bg-light">
       Light
       <div>#FFFFFF</div>
     </div>
@@ -63,31 +57,31 @@ import "./demo/index.scss";
 
 <Row>
   <Col col={4}>
-    <div class="color-helper shine--bg-primary">
+    <div className="color-helper shine--bg-primary">
       Primary
       <div>#5867DD</div>
     </div>
   </Col>
   <Col col={4}>
-    <div class="color-helper shine--bg-success">
+    <div className="color-helper shine--bg-success">
       Success
       <div>#34BFA3</div>
     </div>
   </Col>
   <Col col={4}>
-    <div class="color-helper shine--bg-info">
+    <div className="color-helper shine--bg-info">
       Info
       <div>#36A3F7</div>
     </div>
   </Col>
   <Col col={4}>
-    <div class="color-helper shine--bg-warning">
+    <div className="color-helper shine--bg-warning">
       Warning
       <div>#FFB822</div>
     </div>
   </Col>
   <Col col={4}>
-    <div class="color-helper shine--bg-danger">
+    <div className="color-helper shine--bg-danger">
       Danger
       <div>#F4516C</div>
     </div>
@@ -97,44 +91,42 @@ import "./demo/index.scss";
 ## 代码示例
 
 <MessageBox messageType="info">
-  教程默认使用预设的 `shine` 作为 classPrefix 修饰符前缀，若用户自行修改了 classPrefix ，则需要替换默认修饰符。
+  教程默认使用预设的 `shine` 作为 classNamePrefix 修饰符前缀，若用户自行修改了 classNamePrefix ，则需要替换默认修饰符。
 </MessageBox>
 
 ### 字体颜色
 
-基于当前色彩管理，我们配套了的相关字体颜色，将 `{classPrefix}--font-{color}` 修饰符添加到容器上即可实现变更字体颜色，对照关系如下表所示：
+基于当前色彩管理，我们配套了的相关字体颜色，将 `{classNamePrefix}--font-{color}` 修饰符添加到容器上即可实现变更字体颜色，对照关系如下表所示：
 
 |  色彩   |       修饰符        |                        示例                         |
 | :-----: | :-----------------: | :-------------------------------------------------: |
-|  Brand  |  shine--font-brand  |  <div class="shine--font-brand">这是示例文字</div>  |
-|  Grace  |  shine--font-grace  |  <div class="shine--font-grace">这是示例文字</div>  |
-|  Metal  |  shine--font-metal  |  <div class="shine--font-metal">这是示例文字</div>  |
-| Accent  | shine--font-accent  | <div class="shine--font-accent">这是示例文字</div>  |
-|  Light  |  shine--font-light  |  <div class="shine--font-light">这是示例文字</div>  |
-|  Focus  |  shine--font-focus  |  <div class="shine--font-focus">这是示例文字</div>  |
-| Primary | shine--font-primary | <div class="shine--font-primary">这是示例文字</div> |
-| Success | shine--font-success | <div class="shine--font-success">这是示例文字</div> |
-|  Info   |  shine--font-info   |  <div class="shine--font-info">这是示例文字</div>   |
-| Warning | shine--font-warning | <div class="shine--font-warning">这是示例文字</div> |
-| Danger  | shine--font-danger  | <div class="shine--font-danger">这是示例文字</div>  |
+|  Brand  |  shine--font-brand  |  <div className="shine--font-brand">这是示例文字</div>  |
+|  Grace  |  shine--font-grace  |  <div className="shine--font-grace">这是示例文字</div>  |
+|  Metal  |  shine--font-metal  |  <div className="shine--font-metal">这是示例文字</div>  |
+|  Light  |  shine--font-light  |  <div className="shine--font-light">这是示例文字</div>  |
+|  Focus  |  shine--font-focus  |  <div className="shine--font-focus">这是示例文字</div>  |
+| Primary | shine--font-primary | <div className="shine--font-primary">这是示例文字</div> |
+| Success | shine--font-success | <div className="shine--font-success">这是示例文字</div> |
+|  Info   |  shine--font-info   |  <div className="shine--font-info">这是示例文字</div>   |
+| Warning | shine--font-warning | <div className="shine--font-warning">这是示例文字</div> |
+| Danger  | shine--font-danger  | <div className="shine--font-danger">这是示例文字</div>  |
 
 ### 背景颜色
 
-与字体颜色类似，我们配套了相关背景颜色，将 `{classPrefix}--bg-{color}` 修饰符添加到容器上即可实现变更背景颜色，对照关系如下表所示：
+与字体颜色类似，我们配套了相关背景颜色，将 `{classNamePrefix}--bg-{color}` 修饰符添加到容器上即可实现变更背景颜色，对照关系如下表所示：
 
 |  色彩   |      修饰符       |                         示例                          |
 | :-----: | :---------------: | :---------------------------------------------------: |
-|  Brand  |  shine--bg-brand  |  <div class="shine--bg-brand">这是示例背景颜色</div>  |
-|  Grace  |  shine--bg-grace  |  <div class="shine--bg-grace">这是示例背景颜色</div>  |
-|  Metal  |  shine--bg-metal  |  <div class="shine--bg-metal">这是示例背景颜色</div>  |
-| Accent  | shine--bg-accent  | <div class="shine--bg-accent">这是示例背景颜色</div>  |
-|  Light  |  shine--bg-light  |  <div class="shine--bg-light">这是示例背景颜色</div>  |
-|  Focus  |  shine--bg-focus  |  <div class="shine--bg-focus">这是示例背景颜色</div>  |
-| Primary | shine--bg-primary | <div class="shine--bg-primary">这是示例背景颜色</div> |
-| Success | shine--bg-success | <div class="shine--bg-success">这是示例背景颜色</div> |
-|  Info   |  shine--bg-info   |  <div class="shine--bg-info">这是示例背景颜色</div>   |
-| Warning | shine--bg-warning | <div class="shine--bg-warning">这是示例背景颜色</div> |
-| Danger  | shine--bg-danger  | <div class="shine--bg-danger">这是示例背景颜色</div>  |
+|  Brand  |  shine--bg-brand  |  <div className="shine--bg-brand">这是示例背景颜色</div>  |
+|  Grace  |  shine--bg-grace  |  <div className="shine--bg-grace">这是示例背景颜色</div>  |
+|  Metal  |  shine--bg-metal  |  <div className="shine--bg-metal">这是示例背景颜色</div>  |
+|  Light  |  shine--bg-light  |  <div className="shine--bg-light">这是示例背景颜色</div>  |
+|  Focus  |  shine--bg-focus  |  <div className="shine--bg-focus">这是示例背景颜色</div>  |
+| Primary | shine--bg-primary | <div className="shine--bg-primary">这是示例背景颜色</div> |
+| Success | shine--bg-success | <div className="shine--bg-success">这是示例背景颜色</div> |
+|  Info   |  shine--bg-info   |  <div className="shine--bg-info">这是示例背景颜色</div>   |
+| Warning | shine--bg-warning | <div className="shine--bg-warning">这是示例背景颜色</div> |
+| Danger  | shine--bg-danger  | <div className="shine--bg-danger">这是示例背景颜色</div>  |
 
 ### 反色
 
@@ -142,28 +134,26 @@ import "./demo/index.scss";
 
 |  色彩   |       修饰符        |                                       示例                                        |
 | :-----: | :-----------------: | :-------------------------------------------------------------------------------: |
-|  Brand  |   shine--bg-brand   |   <div class="shine--bg-brand shine--font-inverse-brand">这是示例背景颜色</div>   |
-|  Grace  |   shine--bg-grace   |   <div class="shine--bg-grace shine--font-inverse-grace">这是示例背景颜色</div>   |
-|  Metal  |   shine--bg-metal   |   <div class="shine--bg-metal shine--font-inverse-metal">这是示例背景颜色</div>   |
-| Accent  |  shine--bg-accent   |  <div class="shine--bg-accent shine--font-inverse-accent">这是示例背景颜色</div>  |
-|  Light  |   shine--bg-light   |   <div class="shine--bg-light shine--font-inverse-light">这是示例背景颜色</div>   |
-|  Focus  |   shine--bg-focus   |   <div class="shine--bg-focus shine--font-inverse-focus">这是示例背景颜色</div>   |
-| Primary |  shine--bg-primary  | <div class="shine--bg-primary shine--font-inverse-primary">这是示例背景颜色</div> |
-| Success |  shine--bg-success  | <div class="shine--bg-success shine--font-inverse-success">这是示例背景颜色</div> |
-|  Info   |   shine--bg-info    |    <div class="shine--bg-info shine--font-inverse-info">这是示例背景颜色</div>    |
-| Warning |  shine--bg-warning  | <div class="shine--bg-warning shine--font-inverse-warning">这是示例背景颜色</div> |
-| Danger  |  shine--bg-danger   |  <div class="shine--bg-danger shine--font-inverse-danger">这是示例背景颜色</div>  |
-|  Brand  |  shine--font-brand  |     <div class="shine--bg-inverse-brand shine--font-brand">这是示例文字</div>     |
-|  Grace  |  shine--font-grace  |     <div class="shine--bg-inverse-grace shine--font-grace">这是示例文字</div>     |
-|  Metal  |  shine--font-metal  |     <div class="shine--bg-inverse-metal shine--font-metal">这是示例文字</div>     |
-| Accent  | shine--font-accent  |    <div class="shine--bg-inverse-accent shine--font-accent">这是示例文字</div>    |
-|  Light  |  shine--font-light  |     <div class="shine--bg-inverse-light shine--font-light">这是示例文字</div>     |
-|  Focus  |  shine--font-focus  |     <div class="shine--bg-inverse-focus shine--font-focus">这是示例文字</div>     |
-| Primary | shine--font-primary |   <div class="shine--bg-inverse-primary shine--font-primary">这是示例文字</div>   |
-| Success | shine--font-success |   <div class="shine--bg-inverse-success shine--font-success">这是示例文字</div>   |
-|  Info   |  shine--font-info   |      <div class="shine--bg-inverse-info shine--font-info">这是示例文字</div>      |
-| Warning | shine--font-warning |   <div class="shine--bg-inverse-warning shine--font-warning">这是示例文字</div>   |
-| Danger  | shine--font-danger  |    <div class="shine--bg-inverse-danger shine--font-danger">这是示例文字</div>    |
+|  Brand  |   shine--bg-brand   |   <div className="shine--bg-brand shine--font-inverse-brand">这是示例背景颜色</div>   |
+|  Grace  |   shine--bg-grace   |   <div className="shine--bg-grace shine--font-inverse-grace">这是示例背景颜色</div>   |
+|  Metal  |   shine--bg-metal   |   <div className="shine--bg-metal shine--font-inverse-metal">这是示例背景颜色</div>   |
+|  Light  |   shine--bg-light   |   <div className="shine--bg-light shine--font-inverse-light">这是示例背景颜色</div>   |
+|  Focus  |   shine--bg-focus   |   <div className="shine--bg-focus shine--font-inverse-focus">这是示例背景颜色</div>   |
+| Primary |  shine--bg-primary  | <div className="shine--bg-primary shine--font-inverse-primary">这是示例背景颜色</div> |
+| Success |  shine--bg-success  | <div className="shine--bg-success shine--font-inverse-success">这是示例背景颜色</div> |
+|  Info   |   shine--bg-info    |    <div className="shine--bg-info shine--font-inverse-info">这是示例背景颜色</div>    |
+| Warning |  shine--bg-warning  | <div className="shine--bg-warning shine--font-inverse-warning">这是示例背景颜色</div> |
+| Danger  |  shine--bg-danger   |  <div className="shine--bg-danger shine--font-inverse-danger">这是示例背景颜色</div>  |
+|  Brand  |  shine--font-brand  |     <div className="shine--bg-inverse-brand shine--font-brand">这是示例文字</div>     |
+|  Grace  |  shine--font-grace  |     <div className="shine--bg-inverse-grace shine--font-grace">这是示例文字</div>     |
+|  Metal  |  shine--font-metal  |     <div className="shine--bg-inverse-metal shine--font-metal">这是示例文字</div>     |
+|  Light  |  shine--font-light  |     <div className="shine--bg-inverse-light shine--font-light">这是示例文字</div>     |
+|  Focus  |  shine--font-focus  |     <div className="shine--bg-inverse-focus shine--font-focus">这是示例文字</div>     |
+| Primary | shine--font-primary |   <div className="shine--bg-inverse-primary shine--font-primary">这是示例文字</div>   |
+| Success | shine--font-success |   <div className="shine--bg-inverse-success shine--font-success">这是示例文字</div>   |
+|  Info   |  shine--font-info   |      <div className="shine--bg-inverse-info shine--font-info">这是示例文字</div>      |
+| Warning | shine--font-warning |   <div className="shine--bg-inverse-warning shine--font-warning">这是示例文字</div>   |
+| Danger  | shine--font-danger  |    <div className="shine--bg-inverse-danger shine--font-danger">这是示例文字</div>    |
 
 ## 应用场景
 
@@ -180,7 +170,6 @@ import "./demo/index.scss";
 |  brand   |  inverse-brand  |
 |  grace   |  inverse-grace  |
 |  metal   |  inverse-metal  |
-|  accent  | inverse-accent  |
 |  light   |  inverse-light  |
 |  focus   |  inverse-focus  |
 | primary  | inverse-primary |
