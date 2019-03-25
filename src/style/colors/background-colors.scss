@@ -10,11 +10,11 @@
 
   /** 背景色背景（前景色字体） */
   .#{$classPrefix}--bg-#{$name} {
-    color: array-get($color, inverse) !important;
+    background-color: array-get($color, base) !important;
   }
 
   /** 前景色背景（背景色字体） */
   .#{$classPrefix}--bg-inverse-#{$name} {
-    color: array-get($color, base) !important;
+    background-color: array-get($color, inverse) !important;
   }
 }
