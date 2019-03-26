@@ -12,7 +12,7 @@
       @include transition(all 0.5s ease);
     }
 
-    &.#{$classPrefix}-progress--sm {
+    &.#{$classPrefix}-progress-small {
       height: 6px;
 
       .#{$classPrefix}-progress-bar {
@@ -20,7 +20,7 @@
       }
     }
 
-    &.#{$classPrefix}-progress--lg {
+    &.#{$classPrefix}-progress-large {
       height: 20px;
 
       .#{$classPrefix}-progress-bar {

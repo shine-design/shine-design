@@ -1,3 +1,5 @@
+@import "./functions/array-get";
+
 /** 自定义 className 修饰符前缀 */
 $classPrefix: 'shine' !default;
 /* 默认字体集 */
@@ -93,14 +95,13 @@ $grid-columns: 24 !default;
 /** Progress Bar */
 /** 默认进度条高度 */
 $progress-height: 1rem !default;
-$progress-font-size: 1rem !default;
 $progress-font-size: ($font-size-base * .75) !default;
 $progress-bg: $gray-200 !default;
 $progress-bar-color: $white !default;
 
 $progress-border-radius: $border-radius !default;
 $progress-box-shadow: inset 0 .1rem .1rem rgba($black, .1) !default;
-$progress-bar-bg: #FFF;
+$progress-bar-bg: array-get($colors, primary, base);
 $progress-bar-transition: width .6s ease !default;
 $progress-bar-animation-timing: 1s linear infinite !default;
 

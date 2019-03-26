@@ -131,8 +131,8 @@ export default {
         name: 'common',
         label: '通用',
       }, {
-        name: 'grid',
-        label: '栅格系统',
+        name: 'response',
+        label: '反馈',
       }],
       isExpand: true,
     },
