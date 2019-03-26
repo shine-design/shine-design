@@ -16,6 +16,7 @@ const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent')
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const paths = require('./config/paths');
 const getClientEnvironment = require('./config/env');
+const alias = require('./config/alias');
 
 // 当 env 环境变量中 GENERATE_SOURCEMAP 属性为 true 时，生成 sourceMap
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
@@ -195,11 +196,8 @@ module.exports = function (webpackEnv) {
       extensions: paths.moduleFileExtensions
         .map(ext => `.${ext}`),
       alias: {
+        ...alias,
         Base: path.resolve(paths.themePath, 'components/Base'),
-        configs: path.resolve(paths.appSrc, 'configs'),
-        variables: path.resolve(paths.appSrc, '_variables.js'),
-        style: paths.appStyle,
-        shineDev: paths.appComponent,
         test: paths.testPath,
       },
       plugins: [

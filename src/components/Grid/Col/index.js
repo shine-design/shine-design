@@ -8,7 +8,7 @@ import React, {PureComponent} from 'react';
 import _ from 'lodash';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
-import {classPrefix} from '../../_variables';
+import {classPrefix} from 'variables';
 import './style/index.scss';
 
 class Col extends PureComponent {

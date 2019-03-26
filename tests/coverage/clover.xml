@@ -1,88 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1553493991791" clover="3.2.0">
-  <project timestamp="1553493991791" name="All files">
-    <metrics statements="44" coveredstatements="9" conditionals="8" coveredconditionals="0" methods="4" coveredmethods="1" elements="56" coveredelements="10" complexity="0" loc="44" ncloc="44" packages="6" files="7" classes="7">
+<coverage generated="1553604801853" clover="3.2.0">
+  <project timestamp="1553604801853" name="All files">
+    <metrics statements="49" coveredstatements="49" conditionals="21" coveredconditionals="21" methods="9" coveredmethods="9" elements="79" coveredelements="79" complexity="0" loc="49" ncloc="49" packages="7" files="8" classes="8">
       <package name="src">
-        <metrics statements="4" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <file name="_variables.js" path="/Users/qulongjun/personal/shine-design-rebase/src/_variables.js">
           <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-          <line num="1" count="1" type="stmt"/>
+          <line num="1" count="2" type="stmt"/>
         </file>
         <file name="index.js" path="/Users/qulongjun/personal/shine-design-rebase/src/index.js">
-          <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-          <line num="1" count="0" type="stmt"/>
-          <line num="4" count="0" type="stmt"/>
-          <line num="6" count="0" type="stmt"/>
-        </file>
-      </package>
-      <package name="src.components.Col">
-        <metrics statements="25" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <file name="index.js" path="/Users/qulongjun/personal/shine-design-rebase/src/components/Col/index.js">
-          <metrics statements="25" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="3" coveredmethods="0"/>
-          <line num="7" count="0" type="stmt"/>
-          <line num="8" count="0" type="stmt"/>
-          <line num="9" count="0" type="stmt"/>
-          <line num="10" count="0" type="stmt"/>
-          <line num="11" count="0" type="stmt"/>
-          <line num="12" count="0" type="stmt"/>
-          <line num="15" count="0" type="stmt"/>
-          <line num="16" count="0" type="stmt"/>
-          <line num="18" count="0" type="stmt"/>
-          <line num="28" count="0" type="stmt"/>
-          <line num="30" count="0" type="cond" truecount="0" falsecount="4"/>
-          <line num="31" count="0" type="stmt"/>
-          <line num="34" count="0" type="stmt"/>
-          <line num="35" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="36" count="0" type="stmt"/>
-          <line num="37" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="41" count="0" type="stmt"/>
-          <line num="45" count="0" type="stmt"/>
-          <line num="46" count="0" type="stmt"/>
-          <line num="47" count="0" type="stmt"/>
-          <line num="49" count="0" type="stmt"/>
-          <line num="50" count="0" type="stmt"/>
-          <line num="53" count="0" type="stmt"/>
-          <line num="64" count="0" type="stmt"/>
-          <line num="87" count="0" type="stmt"/>
+          <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="6" count="2" type="stmt"/>
+          <line num="8" count="2" type="stmt"/>
+          <line num="10" count="2" type="stmt"/>
+          <line num="12" count="2" type="stmt"/>
         </file>
       </package>
       <package name="src.components.Grid">
-        <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <file name="index.js" path="/Users/qulongjun/personal/shine-design-rebase/src/components/Grid/index.js">
-          <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-          <line num="7" count="0" type="stmt"/>
-          <line num="9" count="0" type="stmt"/>
+          <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         </file>
       </package>
-      <package name="src.components.Grid.demo">
-        <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <file name="index.js" path="/Users/qulongjun/personal/shine-design-rebase/src/components/Grid/demo/index.js">
-          <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-          <line num="6" count="0" type="stmt"/>
-          <line num="8" count="0" type="stmt"/>
+      <package name="src.components.Grid.Col">
+        <metrics statements="17" coveredstatements="17" conditionals="8" coveredconditionals="8" methods="5" coveredmethods="5"/>
+        <file name="index.js" path="/Users/qulongjun/personal/shine-design-rebase/src/components/Grid/Col/index.js">
+          <metrics statements="17" coveredstatements="17" conditionals="8" coveredconditionals="8" methods="5" coveredmethods="5"/>
+          <line num="16" count="11" type="stmt"/>
+          <line num="18" count="11" type="stmt"/>
+          <line num="28" count="33" type="stmt"/>
+          <line num="30" count="33" type="cond" truecount="4" falsecount="0"/>
+          <line num="31" count="12" type="stmt"/>
+          <line num="34" count="21" type="stmt"/>
+          <line num="35" count="21" type="cond" truecount="2" falsecount="0"/>
+          <line num="36" count="3" type="stmt"/>
+          <line num="37" count="18" type="cond" truecount="2" falsecount="0"/>
+          <line num="41" count="21" type="stmt"/>
+          <line num="46" count="11" type="stmt"/>
+          <line num="47" count="11" type="stmt"/>
+          <line num="49" count="11" type="stmt"/>
+          <line num="50" count="33" type="stmt"/>
+          <line num="53" count="11" type="stmt"/>
+          <line num="64" count="2" type="stmt"/>
+          <line num="87" count="2" type="stmt"/>
         </file>
       </package>
-      <package name="src.components.Row">
+      <package name="src.components.Grid.Row">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <file name="index.js" path="/Users/qulongjun/personal/shine-design-rebase/src/components/Row/index.js">
+        <file name="index.js" path="/Users/qulongjun/personal/shine-design-rebase/src/components/Grid/Row/index.js">
           <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="15" count="1" type="stmt"/>
-          <line num="17" count="1" type="stmt"/>
-          <line num="19" count="1" type="stmt"/>
-          <line num="30" count="1" type="stmt"/>
-          <line num="33" count="1" type="stmt"/>
-          <line num="43" count="1" type="stmt"/>
-          <line num="54" count="1" type="stmt"/>
-          <line num="67" count="1" type="stmt"/>
+          <line num="15" count="2" type="stmt"/>
+          <line num="17" count="2" type="stmt"/>
+          <line num="19" count="2" type="stmt"/>
+          <line num="30" count="15" type="stmt"/>
+          <line num="33" count="15" type="stmt"/>
+          <line num="43" count="15" type="stmt"/>
+          <line num="54" count="2" type="stmt"/>
+          <line num="67" count="2" type="stmt"/>
         </file>
       </package>
-      <package name="src.configs">
-        <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <file name="media.js" path="/Users/qulongjun/personal/shine-design-rebase/src/configs/media.js">
-          <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-          <line num="6" count="0" type="stmt"/>
-          <line num="9" count="0" type="stmt"/>
-          <line num="12" count="0" type="stmt"/>
+      <package name="src.components.ProgressBar">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <file name="index.js" path="/Users/qulongjun/personal/shine-design-rebase/src/components/ProgressBar/index.js">
+          <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        </file>
+      </package>
+      <package name="src.components.ProgressBar.Bar">
+        <metrics statements="12" coveredstatements="12" conditionals="9" coveredconditionals="9" methods="2" coveredmethods="2"/>
+        <file name="index.js" path="/Users/qulongjun/personal/shine-design-rebase/src/components/ProgressBar/Bar/index.js">
+          <metrics statements="12" coveredstatements="12" conditionals="9" coveredconditionals="9" methods="2" coveredmethods="2"/>
+          <line num="15" count="55" type="stmt"/>
+          <line num="16" count="55" type="stmt"/>
+          <line num="18" count="55" type="stmt"/>
+          <line num="27" count="55" type="cond" truecount="2" falsecount="0"/>
+          <line num="28" count="7" type="stmt"/>
+          <line num="29" count="48" type="cond" truecount="2" falsecount="0"/>
+          <line num="30" count="10" type="stmt"/>
+          <line num="33" count="55" type="stmt"/>
+          <line num="35" count="55" type="stmt"/>
+          <line num="51" count="2" type="stmt"/>
+          <line num="68" count="2" type="stmt"/>
+          <line num="70" count="53" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.ProgressBar.Progress">
+        <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <file name="index.js" path="/Users/qulongjun/personal/shine-design-rebase/src/components/ProgressBar/Progress/index.js">
+          <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+          <line num="17" count="10" type="stmt"/>
+          <line num="19" count="10" type="cond" truecount="2" falsecount="0"/>
+          <line num="22" count="10" type="stmt"/>
+          <line num="28" count="10" type="cond" truecount="2" falsecount="0"/>
+          <line num="30" count="10" type="stmt"/>
+          <line num="42" count="2" type="stmt"/>
+          <line num="51" count="2" type="stmt"/>
         </file>
       </package>
     </metrics>

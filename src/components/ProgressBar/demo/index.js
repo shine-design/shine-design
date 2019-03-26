@@ -3,9 +3,9 @@
  * @Author 瞿龙俊 - qulongjun@shine.design
  * @Date 2019-03-24 12:28
  */
-import {Progress, Bar} from 'shineDev';
+import { Progress, Bar } from "shineDev";
 
-const components = {Progress, Bar};
+const components = { Progress, Bar };
 
 export default {
   basic: {
@@ -48,9 +48,9 @@ export default {
       </Progress>
 `,
   },
-    height: {
-      components,
-      jsx: `
+  height: {
+    components,
+    jsx: `
       <Progress height="small" className="shine-progress-helper">
         <Bar percent={80} className="shine--bg-success" />
       </Progress>
@@ -64,10 +64,10 @@ export default {
         <Bar percent={80} className="shine--bg-info" />
         </Progress>
 `,
-    },
-    striped: {
-      components,
-      jsx: `
+  },
+  striped: {
+    components,
+    jsx: `
       <Progress className="shine-progress-helper">
         <Bar percent={10} isStriped={true} className="shine--bg-success" />
       </Progress>
@@ -84,10 +84,10 @@ export default {
         <Bar percent={100} isStriped={true} className="shine--bg-brand" />
       </Progress>
 `,
-    },
-    animated: {
-      components,
-      jsx: `
+  },
+  animated: {
+    components,
+    jsx: `
       <Progress className="shine-progress-helper">
         <Bar percent={10} isAnimated={true} className="shine--bg-success" />
       </Progress>
@@ -104,10 +104,10 @@ export default {
         <Bar percent={100} isAnimated={true} className="shine--bg-brand" />
       </Progress>
 `,
-    },
-    multi: {
-      components,
-      jsx: `
+  },
+  multi: {
+    components,
+    jsx: `
       <Progress className="shine-progress-helper">
         <Bar percent={10} className="shine--bg-success" />
         <Bar percent={20} className="shine--bg-danger" />
@@ -117,5 +117,63 @@ export default {
         <Bar percent={10} className="shine--bg-grace" />
       </Progress>
 `,
-    },
+  },
+  scroll: {
+    jsx: `
+      import React, { Component } from "react";
+import { Progress, Bar } from "shineDev";
+
+class Scroll extends Component {
+  
+  state = {
+    percent: 0,
+    isIncrease: true
+  };
+
+  componentDidMount() {
+    const me = this;
+
+    this.percentTimer = setInterval(() => {
+      me.setState(prevState => {
+        const { isIncrease, percent } = prevState;
+
+        if (isIncrease && percent <= 100) {
+          return { percent: prevState.percent + 1 };
+        }
+
+        if (isIncrease && percent > 100) {
+          return { percent: prevState.percent - 1, isIncrease: false };
+        }
+
+        if (!isIncrease && percent > 0) {
+          return { percent: prevState.percent - 1 };
+        }
+
+        if (!isIncrease && percent <= 0) {
+          return { percent: prevState.percent - 1, isIncrease: true };
+        }
+
+        return { percent: prevState.percent + 1 };
+      });
+    }, 100);
   }
+
+  componentWillUnmount() {
+    clearInterval(this.percentTimer);
+  }
+
+  render() {
+    const { percent } = this.state;
+
+    return (
+      <Progress className="shine-progress-helper">
+        <Bar percent={percent} className="shine--bg-success" />
+      </Progress>
+    );
+  }
+}
+
+export default Scroll;
+      `,
+  },
+};

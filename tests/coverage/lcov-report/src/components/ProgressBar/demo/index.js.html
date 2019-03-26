@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/components/Grid/demo/index.js</title>
+    <title>Code coverage report for src/components/ProgressBar/demo/index.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../../prettify.css" />
     <link rel="stylesheet" href="../../../../base.css" />
@@ -16,7 +16,7 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../../../index.html">All files</a> / <a href="index.html">src/components/Grid/demo</a> index.js
+      <a href="../../../../index.html">All files</a> / <a href="index.html">src/components/ProgressBar/demo</a> index.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
@@ -195,7 +195,34 @@
 150
 151
 152
-153</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -203,6 +230,33 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -352,151 +406,178 @@
  * @Author 瞿龙俊 - qulongjun@shine.design
  * @Date 2019-03-24 12:28
  */
-<span class="cstat-no" title="statement not covered" >import {Col, Row} from 'shineDev';</span>
+<span class="cstat-no" title="statement not covered" >import { Progress, Bar } from "shineDev";</span>
 &nbsp;
-const components = <span class="cstat-no" title="statement not covered" >{Row, Col};</span>
+const components = <span class="cstat-no" title="statement not covered" >{ Progress, Bar };</span>
 &nbsp;
 export default {
   basic: {
     components,
     jsx: `
-      &lt;Row className="shine-grid-helper"&gt;
-        &lt;Col col={24}&gt;col-24&lt;/Col&gt;
-      &lt;/Row&gt;
+      &lt;Progress className="shine-progress-helper"&gt;
+        &lt;Bar percent={0} /&gt;
+      &lt;/Progress&gt;
+      &lt;Progress className="shine-progress-helper"&gt;
+        &lt;Bar percent={25} /&gt;
+        &lt;/Progress&gt;
+      &lt;Progress className="shine-progress-helper"&gt;
+        &lt;Bar percent={50} /&gt;
+        &lt;/Progress&gt;
+      &lt;Progress className="shine-progress-helper"&gt;
+        &lt;Bar percent={75} /&gt;
+        &lt;/Progress&gt;
+      &lt;Progress className="shine-progress-helper"&gt;
+        &lt;Bar percent={100} /&gt;
+      &lt;/Progress&gt;
+`,
+  },
+  bg: {
+    components,
+    jsx: `
+      &lt;Progress className="shine-progress-helper"&gt;
+        &lt;Bar percent={10} className="shine--bg-success" /&gt;
+      &lt;/Progress&gt;
+      &lt;Progress className="shine-progress-helper"&gt;
+        &lt;Bar percent={25} className="shine--bg-danger" /&gt;
+        &lt;/Progress&gt;
+      &lt;Progress className="shine-progress-helper"&gt;
+        &lt;Bar percent={50} className="shine--bg-warning" /&gt;
+        &lt;/Progress&gt;
+      &lt;Progress className="shine-progress-helper"&gt;
+        &lt;Bar percent={75} className="shine--bg-info" /&gt;
+        &lt;/Progress&gt;
+      &lt;Progress className="shine-progress-helper"&gt;
+        &lt;Bar percent={100} className="shine--bg-brand" /&gt;
+      &lt;/Progress&gt;
+`,
+  },
+  height: {
+    components,
+    jsx: `
+      &lt;Progress height="small" className="shine-progress-helper"&gt;
+        &lt;Bar percent={80} className="shine--bg-success" /&gt;
+      &lt;/Progress&gt;
+      &lt;Progress className="shine-progress-helper"&gt;
+        &lt;Bar percent={80} className="shine--bg-danger" /&gt;
+        &lt;/Progress&gt;
+      &lt;Progress height="large" className="shine-progress-helper"&gt;
+        &lt;Bar percent={80} className="shine--bg-warning" /&gt;
+        &lt;/Progress&gt;
+      &lt;Progress height="60px" className="shine-progress-helper"&gt;
+        &lt;Bar percent={80} className="shine--bg-info" /&gt;
+        &lt;/Progress&gt;
+`,
+  },
+  striped: {
+    components,
+    jsx: `
+      &lt;Progress className="shine-progress-helper"&gt;
+        &lt;Bar percent={10} isStriped={true} className="shine--bg-success" /&gt;
+      &lt;/Progress&gt;
+      &lt;Progress className="shine-progress-helper"&gt;
+        &lt;Bar percent={25} isStriped={true} className="shine--bg-danger" /&gt;
+        &lt;/Progress&gt;
+      &lt;Progress className="shine-progress-helper"&gt;
+        &lt;Bar percent={50} isStriped={true} className="shine--bg-warning" /&gt;
+        &lt;/Progress&gt;
+      &lt;Progress className="shine-progress-helper"&gt;
+        &lt;Bar percent={75} isStriped={true} className="shine--bg-info" /&gt;
+        &lt;/Progress&gt;
+      &lt;Progress className="shine-progress-helper"&gt;
+        &lt;Bar percent={100} isStriped={true} className="shine--bg-brand" /&gt;
+      &lt;/Progress&gt;
+`,
+  },
+  animated: {
+    components,
+    jsx: `
+      &lt;Progress className="shine-progress-helper"&gt;
+        &lt;Bar percent={10} isAnimated={true} className="shine--bg-success" /&gt;
+      &lt;/Progress&gt;
+      &lt;Progress className="shine-progress-helper"&gt;
+        &lt;Bar percent={25} isAnimated={true} className="shine--bg-danger" /&gt;
+        &lt;/Progress&gt;
+      &lt;Progress className="shine-progress-helper"&gt;
+        &lt;Bar percent={50} isAnimated={true} className="shine--bg-warning" /&gt;
+        &lt;/Progress&gt;
+      &lt;Progress className="shine-progress-helper"&gt;
+        &lt;Bar percent={75} isAnimated={true} className="shine--bg-info" /&gt;
+        &lt;/Progress&gt;
+      &lt;Progress className="shine-progress-helper"&gt;
+        &lt;Bar percent={100} isAnimated={true} className="shine--bg-brand" /&gt;
+      &lt;/Progress&gt;
+`,
+  },
+  multi: {
+    components,
+    jsx: `
+      &lt;Progress className="shine-progress-helper"&gt;
+        &lt;Bar percent={10} className="shine--bg-success" /&gt;
+        &lt;Bar percent={20} className="shine--bg-danger" /&gt;
+        &lt;Bar percent={30} className="shine--bg-warning" /&gt;
+        &lt;Bar percent={20} className="shine--bg-info" /&gt;
+        &lt;Bar percent={10} className="shine--bg-primary" /&gt;
+        &lt;Bar percent={10} className="shine--bg-grace" /&gt;
+      &lt;/Progress&gt;
+`,
+  },
+  scroll: {
+    jsx: `
+      import React, { Component } from "react";
+import { Progress, Bar } from "shineDev";
 &nbsp;
-      &lt;Row className="shine-grid-helper"&gt;
-        &lt;Col col={12}&gt;col-12&lt;/Col&gt;
-        &lt;Col col={12}&gt;col-12&lt;/Col&gt;
-      &lt;/Row&gt;
+class Scroll extends Component {
+  
+  state = {
+    percent: 0,
+    isIncrease: true
+  };
 &nbsp;
-      &lt;Row className="shine-grid-helper"&gt;
-        &lt;Col col={6}&gt;col-6&lt;/Col&gt;
-        &lt;Col col={6}&gt;col-6&lt;/Col&gt;
-        &lt;Col col={6}&gt;col-6&lt;/Col&gt;
-        &lt;Col col={6}&gt;col-6&lt;/Col&gt;
-      &lt;/Row&gt;
+  componentDidMount() {
+    const me = this;
 &nbsp;
-      &lt;Row className="shine-grid-helper"&gt;
-        &lt;Col col={3}&gt;col-3&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-3&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-3&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-3&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-3&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-3&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-3&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-3&lt;/Col&gt;
-      &lt;/Row&gt;
-`,
-  },
-  offset: {
-    components,
-    jsx: `
-      &lt;Row className="shine-grid-helper"&gt;
-        &lt;Col col={12} offset={12}&gt;col-12 | offset-12 &lt;/Col&gt;
-      &lt;/Row&gt;
-      &lt;Row className="shine-grid-helper"&gt;
-        &lt;Col col={6} offset={6}&gt;col-6 | offset-6 &lt;/Col&gt;
-        &lt;Col col={6}&gt;col-6&lt;/Col&gt;
-        &lt;Col col={6}&gt;col-6&lt;/Col&gt;
-      &lt;/Row&gt;
-      &lt;Row className="shine-grid-helper"&gt;
-        &lt;Col col={3}&gt;col-3&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-3&lt;/Col&gt;
-        &lt;Col col={6} offset={6}&gt;col-6 | offset-6 &lt;/Col&gt;
-        &lt;Col col={3}&gt;col-3&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-3&lt;/Col&gt;
-      &lt;/Row&gt;
-`,
-  },
-  order: {
-    components,
-    jsx: `
-      &lt;Row className="shine-grid-helper"&gt;
-        &lt;Col col={3} order={1}&gt;order-1&lt;/Col&gt;
-        &lt;Col col={3} order={4}&gt;order-4&lt;/Col&gt;
-        &lt;Col col={3} order={3}&gt;order-3&lt;/Col&gt;
-        &lt;Col col={3} order={2}&gt;order-2&lt;/Col&gt;
-        &lt;Col col={3} order={8}&gt;order-8&lt;/Col&gt;
-        &lt;Col col={3} order={6}&gt;order-6&lt;/Col&gt;
-        &lt;Col col={3} order={7}&gt;order-7&lt;/Col&gt;
-        &lt;Col col={3} order={5}&gt;order-5&lt;/Col&gt;
-      &lt;/Row&gt;
-`,
-  },
-  responsive: {
-    components,
-    jsx: `
-      &lt;Row className="shine-grid-helper"&gt;
-        &lt;Col col={{xxxl:6,xxl:8,xl:10,lg:12,md:14}}&gt;Col&lt;/Col&gt;
-      &lt;/Row&gt;
-      &lt;Row className="shine-grid-helper"&gt;
-        &lt;Col col="6" order={{xxxl:1,xl:2,lg:3,md:4,sm:1}}&gt;A&lt;/Col&gt;
-        &lt;Col col="6" order={{xxxl:2,xl:3,lg:4,md:1,sm:2}}&gt;B&lt;/Col&gt;
-        &lt;Col col="6" order={{xxxl:3,xl:4,lg:1,md:2,sm:3}}&gt;C&lt;/Col&gt;
-        &lt;Col col="6" order={{xxxl:4,xl:1,lg:2,md:3,sm:4}}&gt;D&lt;/Col&gt;
-      &lt;/Row&gt;
-      &lt;Row className="shine-grid-helper"&gt;
-        &lt;Col col={6} offset={{xxxl:2,xxl:4,xl:6,lg:7,md:10,sm:12}}&gt;Offset&lt;/Col&gt;
-      &lt;/Row&gt;
-`,
-  },
-  justify: {
-    components,
-    jsx: `
-      &lt;Row className="shine-grid-helper" justify="start"&gt;
-        &lt;Col col={3}&gt;col-1&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-2&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-3&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-4&lt;/Col&gt;
-      &lt;/Row&gt;
-      &lt;Row className="shine-grid-helper" justify="center"&gt;
-        &lt;Col col={3}&gt;col-1&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-2&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-3&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-4&lt;/Col&gt;
-      &lt;/Row&gt;
-      &lt;Row className="shine-grid-helper" justify="end"&gt;
-        &lt;Col col={3}&gt;col-1&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-2&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-3&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-4&lt;/Col&gt;
-      &lt;/Row&gt;
-      &lt;Row className="shine-grid-helper" justify="space-around"&gt;
-        &lt;Col col={3}&gt;col-1&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-2&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-3&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-4&lt;/Col&gt;
-      &lt;/Row&gt;
-      &lt;Row className="shine-grid-helper" justify="space-between"&gt;
-        &lt;Col col={3}&gt;col-1&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-2&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-3&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-4&lt;/Col&gt;
-      &lt;/Row&gt;
-`,
-  },
-  align: {
-    components,
-    jsx: `
-      &lt;Row className="shine-grid-helper shine-grid-height" align="top"&gt;
-        &lt;Col col={3}&gt;col-1&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-2&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-3&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-4&lt;/Col&gt;
-      &lt;/Row&gt;
-      &lt;Row className="shine-grid-helper shine-grid-height" align="middle"&gt;
-        &lt;Col col={3}&gt;col-1&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-2&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-3&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-4&lt;/Col&gt;
-      &lt;/Row&gt;
-      &lt;Row className="shine-grid-helper shine-grid-height" align="bottom"&gt;
-        &lt;Col col={3}&gt;col-1&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-2&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-3&lt;/Col&gt;
-        &lt;Col col={3}&gt;col-4&lt;/Col&gt;
-      &lt;/Row&gt;
-`,
+    this.percentTimer = setInterval(() =&gt; {
+      me.setState(prevState =&gt; {
+        const { isIncrease, percent } = prevState;
+&nbsp;
+        if (isIncrease &amp;&amp; percent &lt;= 100) {
+          return { percent: prevState.percent + 1 };
+        }
+&nbsp;
+        if (isIncrease &amp;&amp; percent &gt; 100) {
+          return { percent: prevState.percent - 1, isIncrease: false };
+        }
+&nbsp;
+        if (!isIncrease &amp;&amp; percent &gt; 0) {
+          return { percent: prevState.percent - 1 };
+        }
+&nbsp;
+        if (!isIncrease &amp;&amp; percent &lt;= 0) {
+          return { percent: prevState.percent - 1, isIncrease: true };
+        }
+&nbsp;
+        return { percent: prevState.percent + 1 };
+      });
+    }, 100);
+  }
+&nbsp;
+  componentWillUnmount() {
+    clearInterval(this.percentTimer);
+  }
+&nbsp;
+  render() {
+    const { percent } = this.state;
+&nbsp;
+    return (
+      &lt;Progress className="shine-progress-helper"&gt;
+        &lt;Bar percent={percent} className="shine--bg-success" /&gt;
+      &lt;/Progress&gt;
+    );
+  }
+}
+&nbsp;
+export default Scroll;
+      `,
   },
 };
 &nbsp;</pre></td></tr>

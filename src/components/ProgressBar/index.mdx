@@ -3,6 +3,7 @@ name: Progress 进度条
 route: /progressBar
 menu: response
 ---
+
 import JsxParser from "react-jsx-parser";
 import {
   MessageBox,
@@ -13,24 +14,30 @@ import {
   Code,
   PropsTable
 } from "theme";
-import {Progress,Bar} from 'shineDev';
-import Scroll from './demo/Scroll'
+import { Progress, Bar } from "shineDev";
+import Scroll from "./demo/Scroll";
 import code from "./demo";
-import './demo/index.scss';
+import "./demo/index.scss";
 
 # Progress 进度条
+
 ## 概述
+
 进度条组件常用于向用户展示某个耗时操作完成的进度，而不让用户感觉是程序失去了响应，从而更好地提升用户界面的友好性，通常用于如下场景：
-* 在操作需要较长时间才能完成时，为用户显示该操作的当前进度和状态。
-* 在需要显示进度的流程中。
+
+- 在操作需要较长时间才能完成时，为用户显示该操作的当前进度和状态。
+- 在需要显示进度的流程中。
 
 ## 代码示例
 
 <MessageBox messageType="info">
-  为了让用户直观地查看代码演示，我们加入了 <InlineCode>shine-progress-helper</InlineCode> 修饰符，在开发过程中无需配置该字段。
+  为了让用户直观地查看代码演示，我们加入了{" "}
+  <InlineCode>shine-progress-helper</InlineCode>{" "}
+  修饰符，在开发过程中无需配置该字段。
 </MessageBox>
 
 ### 基础进度条
+
 进度条组件由 `Progress` 和 `Bar` 两部分组成。通常情况下， `Progress` 作为容器组件，用于渲染进度条，`Bar` 作为状态组件，被容器组件包裹，用于显示当前进度信息。
 
 <Section>
@@ -46,6 +53,7 @@ import './demo/index.scss';
 </Section>
 
 ### 带背景色的进度条
+
 与背景色修饰符搭配可以展示不同色彩状态的进度条，背景色信息可参考[Color 色彩](./color)。
 
 <Section>
@@ -61,6 +69,7 @@ import './demo/index.scss';
 </Section>
 
 ### 带条纹的进度条
+
 使用带条纹的进度条可以让色彩识别有困难的用户更直观的显示当前进度。
 
 <Section>
@@ -76,6 +85,7 @@ import './demo/index.scss';
 </Section>
 
 ### 带动画的进度条
+
 通过设置 `isAnimated` 属性可以产生视觉差动画，这将会使条纹具有从右向左的运动感。
 
 <Section>
@@ -91,6 +101,7 @@ import './demo/index.scss';
 </Section>
 
 ### 自定义高度
+
 通过 `height` 属性可以配置进度条容器高度，支持预设的两种属性： small 、 large ，同时也支持设置自定义的尺寸，如 100px ，10% 等。
 
 <Section>
@@ -106,6 +117,7 @@ import './demo/index.scss';
 </Section>
 
 ### 多进度
+
 在一个 `Progress` 容器组件内部，可以同时排列多个 `Bar` 状态组件。各个状态组件之间彼此独立并排展示。
 
 多个 percent 属性之和不能超过 **100** 。
@@ -125,13 +137,29 @@ import './demo/index.scss';
 ## 配置参数
 
 ### Progress
+
 <PropsTable of={Progress} />
 
 ### Bar
+
 <PropsTable of={Bar} />
 
-##FAQ
-#### 我如何让进度条滚动起来？
-Shine Design 提供了无状态的进度条组件，开发者需要在组件外部维护一个变量，通过动态的传递 `percent` 属性完成滚动效果。
+## FAQ
 
-<Scroll />
+#### 我如何让进度条滚动起来？
+答：Shine Design 提供了无状态的进度条组件，开发者需要在组件外部维护一个变量，通过动态的传递 `percent` 属性完成滚动效果。
+
+<Section>
+  <Preview>
+    <Playground>
+       <Scroll />
+    </Playground>
+
+  </Preview>
+  <Code>
+    {code.scroll.jsx}
+  </Code>
+</Section>
+
+
+
