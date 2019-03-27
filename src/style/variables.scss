@@ -105,6 +105,6 @@ $progress-bar-bg: array-get($colors, primary, base);
 $progress-bar-transition: width .6s ease !default;
 $progress-bar-animation-timing: 1s linear infinite !default;
 
+$rounded: true;
 
-
-
+$badge-bg: array-get($colors, primary, base);

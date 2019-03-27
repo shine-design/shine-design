@@ -130,6 +130,9 @@ export default {
       children: [{
         name: 'common',
         label: '通用',
+      },{
+        name: 'data',
+        label: '数据展示',
       }, {
         name: 'response',
         label: '反馈',
