@@ -10,3 +10,7 @@ export const Col = ColComponent;
 export const Progress = ProgressComponent;
 /** 进度条项 */
 export const Bar = BarComponent;
+/** 徽章 */
+export {default as Badge} from './components/Badge';
+
+export {default as Input} from './components/Input';

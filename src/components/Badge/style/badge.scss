@@ -21,15 +21,6 @@
   padding: 0px 3px;
   @include border-radius(0.75rem);
 
-
-  &.#{$classPrefix}-badge--square {
-    @include border-radius(0);
-  }
-
-  &.#{$classPrefix}-badge--rounded {
-    @include border-radius(0.25rem);
-  }
-
   &.#{$classPrefix}-badge--wide {
     letter-spacing: 0.6px;
     padding: 1px 10px;
@@ -61,15 +52,38 @@
     @include border-radius(100%);
   }
 
+  &.#{$classPrefix}-badge--dot-large {
+    padding: 0;
+    line-height: 8px;
+    min-height: 8px;
+    min-width: 8px;
+    height: 8px;
+    width: 8px;
+    @include border-radius(100%);
+  }
+
   &.#{$classPrefix}-badge--bordered {
     border: 1px solid #efefef;
     min-height: 22px;
     min-width: 22px;
     @include border-radius(100%);
+
+    &.#{$classPrefix}-badge--square {
+      @include border-radius(0);
+    }
+
+    &.#{$classPrefix}-badge--rounded {
+      @include border-radius(0.25rem);
+    }
   }
 }
 
 @each $name, $color in $colors {
+
+  .#{$classPrefix}-badge.#{$classPrefix}-badge-inverse--#{$name} {
+    background-color: array-get($colors, light, base);
+    color: array-get($color, base);
+  }
 
   .#{$classPrefix}-badge.#{$classPrefix}-badge--#{$name} {
     background-color: array-get($color, base);

@@ -1,0 +1,381 @@
+/**
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2019-04-27 14:27
+ */
+@import "./variables";
+
+@mixin sh-build-component--input-base() {
+
+  .form-control {
+    font-family: #{array-get($shine-input, layout, self, font-family)};
+    @include shadow(none);
+
+    &.sh-input--pill {
+      @include border-radius(array-get($shine-input, layout, self, size, default, pill-radius));
+
+      &.form-control-lg {
+        @include border-radius(array-get($shine-input, layout, self, size, lg, pill-radius));
+      }
+
+      &.form-control-sm {
+        @include border-radius(array-get($shine-input, layout, self, size, sm, pill-radius));
+      }
+    }
+
+    @include border-radius(0);
+
+    @include rounded {
+      @include border-radius(array-get($shine-input, layout, self, border-radius));
+    }
+
+    &.sh-input--square {
+      @include border-radius(0);
+    }
+
+    &.sh-input--fixed {
+      display: inline-block;
+      width: array-get($shine-input, layout, self, size, default, fixed);
+    }
+
+    &.sh-input--fixed-large {
+      display: inline-block;
+      width: array-get($shine-input, layout, self, size, lg, fixed);
+    }
+
+    &.sh-input--fixed-small {
+      display: inline-block;
+      width: array-get($shine-input, layout, self, size, sm, fixed);
+    }
+  }
+
+  // input group
+  //.input-group {
+  //  //== Group text
+  //  .input-group-text {
+  //    > i {
+  //      line-height: 0;
+  //      vertical-align: middle;
+  //      @include icons-size( array-get($shine-input, layout, icon, default, font-size) );
+  //    }
+  //
+  //    > .sh-checkbox,
+  //    > .sh-radio {
+  //      margin: 0;
+  //      padding: 0;
+  //      height: 0.9rem;
+  //    }
+  //  }
+  //
+  //  .btn {
+  //    > i {
+  //      line-height: 0;
+  //    }
+  //  }
+  //
+  //  // large icon sizing
+  //  &.input-group-lg {
+  //    .input-group-text {
+  //      @include icons-size( array-get($shine-input, layout, icon, lg, font-size) );
+  //    }
+  //  }
+  //
+  //  // small icon sizing
+  //  &.input-group-sm {
+  //    .input-group-text {
+  //      @include icons-size( array-get($shine-input, layout, icon, sm, font-size) );
+  //    }
+  //  }
+  //
+  //  // fixed width input groups
+  //  &.sh-input-group--fixed {
+  //    width: array-get($shine-input, layout, self, size, default, fixed);
+  //  }
+  //
+  //  &.sh-input-group--fixed-large {
+  //    width: array-get($shine-input, layout, self, size, lg, fixed);
+  //  }
+  //
+  //  &.sh-input-group--fixed-small {
+  //    width: array-get($shine-input, layout, self, size, sm, fixed);
+  //  }
+  //
+  //  // squre style
+  //  &.sh-input-group--square {
+  //    @include border-radius(0);
+  //
+  //    > .form-control:first-child,
+  //    > div:first-child > span,
+  //    > div:first-child > .btn {
+  //      @include border-radius(0);
+  //    }
+  //
+  //    > .form-control:last-child,
+  //    > div:last-child > span,
+  //    > div:last-child > .btn {
+  //      @include border-radius(0);
+  //    }
+  //  }
+  //
+  //  // pill style
+  //  &.sh-input-group--pill {
+  //    @include border-radius(array-get($shine-input, layout, self, size, default, pill-radius));
+  //
+  //    > .form-control:first-child,
+  //    > div:first-child > span,
+  //    > div:first-child > .btn {
+  //      @include border-top-left-radius(array-get($shine-input, layout, self, size, default, pill-radius));
+  //      @include border-bottom-left-radius(array-get($shine-input, layout, self, size, default, pill-radius));
+  //    }
+  //
+  //    > .form-control:last-child,
+  //    > div:last-child > span,
+  //    > div:last-child > .btn {
+  //      @include border-top-right-radius(array-get($shine-input, layout, self, size, default, pill-radius));
+  //      @include border-bottom-right-radius(array-get($shine-input, layout, self, size, default, pill-radius));
+  //    }
+  //  }
+  //}
+
+  // input icon
+  //.sh-input-icon {
+  //  position: relative;
+  //  padding: 0;
+  //  width: 100%;
+  //
+  //  // icon input sizing
+  //  > .sh-input-icon__icon {
+  //    position: absolute;
+  //    height: 100%;
+  //    display: inline-block;
+  //    text-align: center;
+  //    top: 0;
+  //    width: array-get($shine-input, layout, icon, default, width);
+  //
+  //    &.sh-input-icon__icon--left {
+  //      left: 0;
+  //    }
+  //
+  //    &.sh-input-icon__icon--right {
+  //      right: 0;
+  //    }
+  //
+  //    > span {
+  //      display: table;
+  //      height: 100%;
+  //      width: 100%;
+  //
+  //      > i {
+  //        display: table-cell;
+  //        vertical-align: middle;
+  //        text-align: center;
+  //        line-height: 0;
+  //      }
+  //    }
+  //
+  //    // set icon sizes
+  //    @include icons-size( array-get($shine-input, layout, icon, default, font-size) );
+  //  }
+  //
+  //  .form-control.form-control-lg + .sh-input-icon__icon {
+  //    width: array-get($shine-input, layout, icon, lg, width);
+  //
+  //    // set icon sizes
+  //    @include icons-size( array-get($shine-input, layout, icon, lg, font-size) );
+  //  }
+  //
+  //  .form-control.form-control-sm ~ .sh-input-icon__icon {
+  //    width: array-get($shine-input, layout, icon, sm, width);
+  //
+  //    // set icon sizes
+  //    @include icons-size( array-get($shine-input, layout, icon, sm, font-size) );
+  //  }
+  //
+  //  // icon input alignments
+  //  &.sh-input-icon--left {
+  //    .form-control {
+  //      padding-left: (array-get($shine-input, layout, icon, default, width) - 0.4rem);
+  //
+  //      &.form-control-lg {
+  //        padding-left: (array-get($shine-input, layout, icon, lg, width) - 0.6rem);
+  //      }
+  //
+  //      &.form-control-sm {
+  //        padding-left: (array-get($shine-input, layout, icon, sm, width) - 0.2rem);
+  //      }
+  //    }
+  //  }
+  //
+  //  &.sh-input-icon--right {
+  //    .form-control {
+  //      padding-right: (array-get($shine-input, layout, icon, default, width) - 0.4rem);
+  //
+  //      &.form-control-lg {
+  //        padding-right: (array-get($shine-input, layout, icon, lg, width) - 0.6rem);
+  //      }
+  //
+  //      &.form-control-sm {
+  //        padding-right: (array-get($shine-input, layout, icon, sm, width) - 0.2rem);
+  //      }
+  //    }
+  //  }
+  //
+  //  // fixed width icon inputs
+  //  &.sh-input-icon--fixed {
+  //    display: inline-block;
+  //    width: array-get($shine-input, layout, self, size, default, fixed);
+  //  }
+  //
+  //  &.sh-input-icon--fixed-large {
+  //    display: inline-block;
+  //    width: array-get($shine-input, layout, self, size, lg, fixed);
+  //  }
+  //
+  //  &.sh-input-icon--fixed-small {
+  //    display: inline-block;
+  //    width: array-get($shine-input, layout, self, size, sm, fixed);
+  //  }
+  //}
+}
+
+//@mixin sh-build-component--input-skin($config) {
+//  $skin: get-default-skin();
+//
+//  //== Base input
+//  .form-control {
+//    // default input style
+//
+//    &[readonly],
+//    & {
+//      border-color: array-get($config, skins, $skin, default, border, default);
+//      color: array-get($config, skins, $skin, default, color, default);
+//      @include input-placeholder(array-get($config, skins, $skin, default, color, placeholder));
+//    }
+//
+//    &[readonly] {
+//      background-color: transparent;
+//    }
+//
+//    &.focus,
+//    &:focus {
+//      border-color: array-get($config, skins, $skin, default, border, focus);
+//      color: array-get($config, skins, $skin, default, color, focus);
+//      @include shadow(none);
+//    }
+//
+//    &.active {
+//      @include shadow(none);
+//    }
+//
+//    &[disabled] {
+//      border-color: array-get($config, skins, $skin, default, border, disabled);
+//      color: array-get($config, skins, $skin, default, color, disabled);
+//      background-color: array-get($config, skins, $skin, default, bg, disabled);
+//    }
+//
+//    // solid input style
+//    &.sh-input--solid {
+//      background-color: array-get($config, skins, $skin, solid, bg, default);
+//      border-color: array-get($config, skins, $skin, solid, border, default);
+//      color: array-get($config, skins, $skin, solid, color, default);
+//      @include input-placeholder(array-get($config, skins, $skin, solid, color, placeholder));
+//
+//      &:focus {
+//        background-color: array-get($config, skins, $skin, solid, bg, focus);
+//        border-color: array-get($config, skins, $skin, solid, border, focus);
+//        color: array-get($config, skins, $skin, solid, color, focus);
+//      }
+//
+//      &[disabled] {
+//        border-color: array-get($config, skins, $skin, solid, border, disabled);
+//        color: array-get($config, skins, $skin, solid, color, disabled);
+//        background-color: array-get($config, skins, $skin, solid, bg, disabled);
+//      }
+//    }
+//
+//    &.sh-input--air {
+//      @include shadow( array-get($config, skins, $skin, air, box-shadow, default) );
+//
+//      &:focus {
+//        @include shadow( array-get($config, skins, $skin, air, box-shadow, focus));
+//      }
+//    }
+//  }
+//
+//  //== Input group
+//  .input-group {
+//    .input-group-append,
+//    .input-group-prepend {
+//      > .input-group-text {
+//        border-color: array-get($config, skins, $skin, default, border, default);
+//        background-color: lighten(array-get($config, skins, $skin, default, border, default), 3%);
+//        color: get-color($skin, regular);
+//
+//        > i {
+//          color: get-color($skin, icon, '+++');
+//        }
+//      }
+//    }
+//
+//    .input-group-append {
+//      & + .form-control:not(:focus):not(.focus) {
+//        border-left: 0;
+//      }
+//    }
+//
+//    &.sh-input-group--air {
+//      @include shadow( array-get($config, skins, $skin, air, box-shadow, default) );
+//    }
+//
+//    &.sh-input-group--solid {
+//      .form-control {
+//        border-color: array-get($config, skins, $skin, default, border, default);
+//        background-color: lighten(array-get($config, skins, $skin, default, border, default), 3%);
+//
+//        color: array-get($config, skins, $skin, solid, color, default);
+//        @include input-placeholder(array-get($config, skins, $skin, solid, color, placeholder));
+//
+//        &:focus {
+//          background-color: array-get($config, skins, $skin, solid, bg, focus);
+//          border-color: array-get($config, skins, $skin, solid, border, focus);
+//          color: array-get($config, skins, $skin, solid, color, focus);
+//        }
+//
+//        &[disabled] {
+//          border-color: array-get($config, skins, $skin, solid, border, disabled);
+//          color: array-get($config, skins, $skin, solid, color, disabled);
+//          background-color: array-get($config, skins, $skin, solid, bg, disabled);
+//        }
+//      }
+//    }
+//  }
+//
+//  //== Custom icon
+//  .sh-input-icon {
+//    .sh-input-icon__icon i {
+//      color: get-color($skin, icon, '+++');
+//    }
+//  }
+//
+//  //== Custom file
+//  .custom-file {
+//    .custom-file-label {
+//      border-color: array-get($config, skins, $skin, default, border, default);
+//      color: array-get($config, skins, $skin, default, color, default);
+//
+//      &:after {
+//        cursor: pointer;
+//        background-color: lighten(array-get($config, skins, $skin, default, border, default), 3%);
+//        border-left: 1px solid array-get($config, skins, $skin, default, border, default);
+//      }
+//    }
+//
+//    .custom-file-input:focus + .custom-file-label {
+//      border-color: array-get($config, skins, $skin, default, border, focus);
+//      color: array-get($config, skins, $skin, default, color, focus);
+//      @include shadow(none);
+//    }
+//  }
+//}
+
+//== Component Skin
+//@include sh-build-component--input-skin($shine-input);

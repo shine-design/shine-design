@@ -1,3 +1,4 @@
+@import "~bootstrap/scss/functions";
 // Variables
 //
 // Variables should follow the `$component-state-property-size` formula for
@@ -171,7 +172,7 @@ $body-color:                $gray-700;
 //
 // Style anchor elements.
 
-$link-color:                theme-color("primary") !default;
+$link-color:                $primary !default;
 $link-decoration:           none !default;
 $link-hover-color:          darken($link-color, 15%) !default;
 $link-hover-decoration:     underline !default;
