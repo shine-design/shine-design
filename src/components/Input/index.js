@@ -1,5 +1,5 @@
 /**
- * @Component Input
+ * @Component TextBox
  * @Type 输入框组件
  * @Author 瞿龙俊 - qulongjun@shine.design
  * @Date 2019-04-27 13:25
@@ -19,6 +19,7 @@ class Input extends PureComponent {
 
     /** 计算样式 */
     const classes = classNames(
+      'form-control',
       className,
     );
 

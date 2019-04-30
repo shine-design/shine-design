@@ -12,5 +12,5 @@ export const Progress = ProgressComponent;
 export const Bar = BarComponent;
 /** 徽章 */
 export {default as Badge} from './components/Badge';
-
+/** 输入框 */
 export {default as Input} from './components/Input';

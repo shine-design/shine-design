@@ -1,0 +1,46 @@
+---
+name: Input 输入框
+route: /input
+menu: form
+---
+
+import JsxParser from "react-jsx-parser";
+import {
+  MessageBox,
+  InlineCode,
+  Section,
+  Preview,
+  Playground,
+  Code,
+  PropsTable
+} from "theme";
+import { Input } from "shineDev";
+import code from "./demo";
+import "./demo/index.scss";
+
+# Input 输入框
+
+## 概述
+在页面上生成一个表单容器，用户可以通过鼠标、键盘等设备输入内容，是最基本的表单组件。
+
+## 代码示例
+
+<MessageBox messageType="info">
+  为了让用户直观地查看代码演示，我们加入了{" "}
+  <InlineCode>shine-input-helper</InlineCode>{" "}
+  修饰符，在开发过程中无需配置该字段。
+</MessageBox>
+
+### 基础输入框
+
+<Section>
+  <Preview>
+    <Playground>
+       <JsxParser {...code.basic} />
+    </Playground>
+
+  </Preview>
+  <Code>
+    {code.basic.jsx}
+  </Code>
+</Section>
