@@ -1,6 +1,8 @@
 //@import "./bootstrap/variables";
 @import "./functions/array-get";
 
+$default-skin: 'light';
+
 $white: #fff !default;
 $black: #000 !default;
 $gray-100: #f8f8f8;
@@ -23,6 +25,8 @@ $classPrefix: 'shine' !default;
 $fontFamily: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif !default;
 
 $font-size-base: 1rem !default;
+$font-size-lg: ($font-size-base * 1.125) !default;
+$font-size-sm: ($font-size-base * .875) !default;
 $border-width: 1px !default;
 $border-color: $gray-300 !default;
 $border-radius: .25rem !default;
@@ -126,16 +130,16 @@ $rounded: true;
 
 $badge-bg: array-get($colors, primary, base);
 
-$input-btn-padding-y: .65rem;
-$input-btn-padding-x: 1rem;
+$input-btn-padding-y: .85rem;
+$input-btn-padding-x: 1.15rem;
 $input-btn-line-height: 1.25;
 
-$input-btn-padding-y-sm: .35rem;
-$input-btn-padding-x-sm: .75rem;
+$input-btn-padding-y-sm: .45rem;
+$input-btn-padding-x-sm: .8rem;
 $input-btn-line-height-sm: 1.5;
 
-$input-btn-padding-y-lg: 1rem;
-$input-btn-padding-x-lg: 1.5rem;
+$input-btn-padding-y-lg: 1.25rem;
+$input-btn-padding-x-lg: 1.65rem;
 $input-btn-line-height-lg: 1.5;
 
 $input-border-width: $border-width;
@@ -144,8 +148,14 @@ $input-height-border: $input-border-width * 2 !default;
 
 $input-height-inner: ($font-size-base * $input-btn-line-height) + ($input-btn-padding-y * 2) !default;
 $input-height: calc(#{$input-height-inner} + #{$input-height-border}) !default;
-
+$input-height-inner-sm: ($font-size-sm * $input-btn-line-height-sm) + ($input-btn-padding-y-sm * 2) !default;
+$input-height-sm: calc(#{$input-height-inner-sm} + #{$input-height-border}) !default;
+$input-height-inner-lg: ($font-size-lg * $input-btn-line-height-lg) + ($input-btn-padding-y-lg * 2) !default;
+$input-height-lg: calc(#{$input-height-inner-lg} + #{$input-height-border}) !default;
 $input-font-size: $font-size-base;
+$input-font-size-sm: $font-size-sm !default;
+$input-font-size-lg: $font-size-lg !default;
+
 $input-color: $gray-600 !default;
 $input-bg: $white !default;
 $input-focus-bg: $input-bg !default;
@@ -326,4 +336,42 @@ $colors-config: (
       darken5: darken(#2c2e3e, 6%),
     )
   )
+) !default;
+
+$font-sizes: (
+  regular: (
+    down5: 0.7rem, // access to this font size value calling get-font-size function as get-font-size(regular, -----) in SASS code
+    down4: 0.75rem, // access to this font size value calling get-font-size function as get-font-size(regular, ----) in SASS code
+    down3: 0.78rem, // access to this font size value calling get-font-size function as get-font-size(regular, ---) in SASS code
+    down2: 0.8rem, // access to this font size value calling get-font-size function as get-font-size(regular, --) in SASS code
+    down1: 0.85rem, // access to this font size value calling get-font-size function as get-font-size(regular, -) in SASS code
+    base: 1rem, // access to this font size value calling get-font-size function as get-font-size(regular) in SASS code
+    up1: 1.1rem, // access to this font size value calling get-font-size function as get-font-size(regular, +) in SASS code
+    up2: 1.2rem, // access to this font size value calling get-font-size function as get-font-size(regular, ++) in SASS code
+    up3: 1.3rem, // access to this font size value calling get-font-size function as get-font-size(regular, +++) in SASS code
+    up4: 1.5rem, // access to this font size value calling get-font-size function as get-font-size(regular, ++++) in SASS code
+    up5: 1.6rem // access to this font size value calling get-font-size function as get-font-size(regular, +++++) in SASS code
+  ),
+  icon: (
+    down5: 0.8rem, // access to this shadow value calling get-font-size function as get-font-size(icon, -----) in SASS code
+    down4: 0.9rem, // access to this shadow value calling get-font-size function as get-font-size(icon, ----) in SASS code
+    down3: 1rem, // access to this shadow value calling get-font-size function as get-font-size(icon, ---) in SASS code
+    down2: 1.1rem, // access to this shadow value calling get-font-size function as get-font-size(icon, --) in SASS code
+    down1: 1.2rem, // access to this shadow value calling get-font-size function as get-font-size(icon, -) in SASS code
+    base: 1.3rem, // access to this shadow value calling get-font-size function as get-font-size(icon) in SASS code
+    up1: 1.4rem, // access to this shadow value calling get-font-size function as get-font-size(icon, +++++) in SASS code
+    up2: 1.6rem, // access to this shadow value calling get-font-size function as get-font-size(icon, ++++) in SASS code
+    up3: 1.8rem, // access to this shadow value calling get-font-size function as get-font-size(icon, +++) in SASS code
+    up4: 2.0rem, // access to this shadow value calling get-font-size function as get-font-size(icon, ++) in SASS code
+    up5: 2.1rem // access to this shadow value calling get-font-size function as get-font-size(icon, +) in SASS code
+  )
+) !default;
+
+$font-weights: (
+  thin: 200, // access to this font weight value calling get-font-weight function as get-font-weight(this) in SASS code
+  normal: 300, // access to this font weight value calling get-font-weight function as get-font-weight(normal) in SASS code
+  bold: 400, // access to this font weight value calling get-font-weight function as get-font-weight(bold) in SASS code
+  bolder: 500, // access to this font weight value calling get-font-weight function as get-font-weight(bolder) in SASS code
+  boldest: 600, // access to this font weight value calling get-font-weight function as get-font-weight(boldest) in SASS code
+  boldest2: 700 // access to this font weight value calling get-font-weight function as get-font-weight(boldest2) in SASS code
 ) !default;

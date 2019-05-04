@@ -6,6 +6,7 @@
 @import "~style/mixins/border-radio";
 @import "~style/mixins/rounded";
 @import "~style/bootstrap/input/index";
+
 @import "./input";
 
 @include sh-build-component--input-base();

@@ -1,0 +1,142 @@
+---
+name: Form 表单控件
+route: /form
+menu: form
+---
+
+import JsxParser from "react-jsx-parser";
+import {
+  MessageBox,
+  InlineCode,
+  Section,
+  Preview,
+  Playground,
+  Code,
+  PropsTable
+} from "theme";
+import {Form , Input} from 'shineDev';
+import code from "./demo";
+import "./demo/index.scss";
+
+const Item = Form.Item;
+
+# Form 表单控件
+
+## 概述
+
+
+## 代码示例
+
+<MessageBox messageType="info">
+  为了让用户直观地查看代码演示，我们加入了{" "}
+  <InlineCode>shine-form-helper</InlineCode>{" "}
+  修饰符，在开发过程中无需配置该字段。
+</MessageBox>
+
+## 表单
+
+表单组件是基础容器组件，通常作为其他表单组件的最外层容器使用，部分配置特性需要在该容器下生效。
+
+<Section>
+  <Preview>
+    <Playground>
+       <div className="shine-form-helper">
+          <Form>
+             <Input placeholder="请输入文本" />
+             <Form.Item label="普通文本" helper="We'll never share your text with anyone else.">
+                <Input placeholder="请输入文本" />
+             </Form.Item>
+         </Form>
+       </div>
+    </Playground>
+
+  </Preview>
+  <Code>
+    {code.form.jsx}
+  </Code>
+</Section>
+
+<MessageBox messageType="danger">
+  表单容器组件子元素支持表单元素组件（例如 Input、Select ）、表单项组件（例如 Form.Item） 、表单校验组件（例如 Form.Verifier）。
+</MessageBox>
+
+### 配置参数
+
+<PropsTable of={Form} />
+
+## 表单项
+
+表单项组件通常用于将基础组件组合成通用的表单模板。
+
+<Section>
+  <Preview>
+    <Playground>
+       <div className="shine-form-helper">
+          <Form.Item label="普通文本">
+             <Input placeholder="请输入文本" />
+         </Form.Item>
+          <Form.Item label="普通文本" helper="We'll never share your text with anyone else.">
+             <Input placeholder="请输入文本" />
+         </Form.Item>
+       </div>
+    </Playground>
+
+  </Preview>
+  <Code>
+    {code.label.jsx}
+  </Code>
+</Section>
+
+<MessageBox messageType="danger">
+  根据 HTML 规范，表单项的标签需要绑定一个可聚焦的唯一标识符（ID），若开发者未在表单项组件子元素绑定唯一标识符，表单项组件将会生成一个随机的唯一标识符（当设置标签时生效）。
+</MessageBox>
+
+### 配置参数
+
+<PropsTable of={Form.Item} />
+
+## 表单校验
+
+表单校验组件是功能性组件，它作为一个校验机，用于在顶部进行通用校验配置，该配置会被子元素中的配置项覆盖。
+
+<Section>
+  <Preview>
+    <Playground>
+        <div className="shine-form-helper">
+            <Form>
+                <Form.Verifier isHighlight={true}>
+                  <Input placeholder="请输入文本" />
+                  <Form.Item label="普通文本" helper="We'll never share your text with anyone else.">
+                      <Input placeholder="请输入文本" />
+                  </Form.Item>
+                  <Form.Item label="普通文本" helper="We'll never share your text with anyone else.">
+                      <Input placeholder="请输入文本" />
+                  </Form.Item>
+                </Form.Verifier>
+            </Form>
+        </div>
+    </Playground>
+
+  </Preview>
+  <Code>
+    {code.verifier.jsx}
+  </Code>
+</Section>
+
+<MessageBox messageType="danger">
+  表单校验组件仅对子元素为 Form.Item 的表单项组件生效。
+</MessageBox>
+
+### 配置参数
+
+<PropsTable of={Form.Verifier} />
+
+### 默认错误提示
+
+```json
+{
+  required:'',
+}
+```
+
+

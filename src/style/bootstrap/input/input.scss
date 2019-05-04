@@ -8,7 +8,7 @@
 @import "../mixins/forms";
 @import "../../variables";
 
-.form-control {
+.#{$classPrefix}-form-control {
   display: block;
   width: 100%;
   height: $input-height;
@@ -22,22 +22,18 @@
   background-clip: padding-box;
   border: $input-border-width solid $input-border-color;
 
-  // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
   @include border-radius($input-border-radius, 0);
 
   @include box-shadow($input-box-shadow);
   @include transition($input-transition);
 
-  // Unstyle the caret on `<select>`s in IE10+.
   &::-ms-expand {
     background-color: transparent;
     border: 0;
   }
 
-  // Customize the `:focus` state to imitate native WebKit styles.
   @include form-control-focus();
 
-  // Placeholder
   &::placeholder {
     color: $input-placeholder-color;
     opacity: 1;
@@ -48,4 +44,20 @@
     background-color: $input-disabled-bg;
     opacity: 1;
   }
+}
+
+.#{$classPrefix}-form-control-small {
+  height: $input-height-sm;
+  padding: $input-btn-padding-y-sm $input-btn-padding-x-sm;
+  font-size: $input-font-size-sm;
+  line-height: $input-btn-line-height-sm;
+  @include border-radius($input-border-radius-sm);
+}
+
+.#{$classPrefix}-form-control-large {
+  height: $input-height-lg;
+  padding: $input-btn-padding-y-lg $input-btn-padding-x-lg;
+  font-size: $input-font-size-lg;
+  line-height: $input-btn-line-height-lg;
+  @include border-radius($input-border-radius-lg);
 }

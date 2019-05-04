@@ -21,49 +21,49 @@
 
 // 预定义尺寸：桌面尺寸展示规则（介于 lg 和 xl 之间）
 @mixin minimal-desktop {
-  @media (min-width: #{map-get($shine-breakpoints, lg) + 1px}) and (max-width: #{map-get($shine-breakpoints, xl)}) {
+  @media (min-width: #{map-get($breakpoints, lg) + 1px}) and (max-width: #{map-get($breakpoints, xl)}) {
     @content;
   }
 }
 
 // 预定义尺寸：小于宽屏桌面尺寸展示规则（小于 xl ）
 @mixin minimal-desktop-and-below {
-  @media (max-width: #{map-get($shine-breakpoints, xl)}) {
+  @media (max-width: #{map-get($breakpoints, xl)}) {
     @content;
   }
 }
 
 // 预定义尺寸：宽屏桌面尺寸展示规则（大于 lg ）
 @mixin desktop {
-  @media (min-width: #{map-get($shine-breakpoints, lg) + 1px}) {
+  @media (min-width: #{map-get($breakpoints, lg) + 1px}) {
     @content;
   }
 }
 
 // 预定义尺寸：桌面和平板设备尺寸展示规则（大于 md ）
 @mixin desktop-and-tablet {
-  @media (min-width: #{map-get($shine-breakpoints, md) + 1px}) {
+  @media (min-width: #{map-get($breakpoints, md) + 1px}) {
     @content;
   }
 }
 
 // 预定义尺寸：平板设备尺寸展示规则（介于 md 和 lg 之间）
 @mixin tablet {
-  @media (min-width: #{map-get($shine-breakpoints, md) + 1px}) and (max-width: #{map-get($shine-breakpoints, lg)}) {
+  @media (min-width: #{map-get($breakpoints, md) + 1px}) and (max-width: #{map-get($breakpoints, lg)}) {
     @content;
   }
 }
 
 // 预定义尺寸：平板设备和移动设备尺寸展示规则（小于 lg ）
 @mixin tablet-and-mobile {
-  @media (max-width: #{map-get($shine-breakpoints, lg)}) {
+  @media (max-width: #{map-get($breakpoints, lg)}) {
     @content;
   }
 }
 
 // 预定义尺寸：移动设备尺寸展示规则（小于 md ）
 @mixin mobile {
-  @media (max-width: #{map-get($shine-breakpoints, md)}) {
+  @media (max-width: #{map-get($breakpoints, md)}) {
     @content;
   }
 }

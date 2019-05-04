@@ -9,7 +9,7 @@ import _ from 'lodash';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import {classPrefix} from 'variables';
-// import './style/badge.scss';
+import './style/badge.scss';
 
 class Badge extends PureComponent {
 

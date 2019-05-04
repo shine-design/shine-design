@@ -1,45 +1,54 @@
 /**
- * @Component Tooltip
- * @Type 文字提示组件
+ * @Component Form
+ * @Type 表单项组件
  * @Author 瞿龙俊 - qulongjun@shine.design
- * @Date 2019-04-27 11:59
+ * @Date 2019-05-03 18:00
  */
+import _ from 'lodash';
 import React, {PureComponent} from 'react';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
-import './style/index.scss';
+import {classPrefix} from 'variables';
+import Item from './Item';
+import Verifier from './Verifier';
 
-class Tooltip extends PureComponent {
+class Form extends PureComponent {
 
   render() {
     const {className, attributes, children} = this.props;
 
+
     /** 计算样式 */
     const classes = classNames(
+      `${classPrefix}-form`,
       className,
     );
-
     return (
-      <div
+      <form
         className={classes}
         {...attributes}
       >
         {children}
-      </div>
+      </form>
     );
   }
 }
 
-Tooltip.propTypes = {
+Form.propTypes = {
   /** 用户自定义修饰符 */
   className: PropTypes.string,
   /** 用户自定义属性 */
   attributes: PropTypes.object,
 };
 
-Tooltip.defaultProps = {
+Form.defaultProps = {
   className: '',
   attributes: {},
 };
 
-export default Tooltip;
+/** 表单项组件 */
+Form.Item = Item;
+/** 表单校验组件 */
+Form.Verifier = Verifier;
+
+export default Form;

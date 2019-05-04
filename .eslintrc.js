@@ -20,6 +20,8 @@ const eslintrc = {
     'react/jsx-boolean-value': 0,
     'react/destructuring-assignment': 0,
     'jsx-a11y/interactive-supports-focus': 0,
+    'jsx-a11y/label-has-associated-control': 0,
+    'jsx-a11y/label-has-for': 0,
     'react/jsx-wrap-multilines': ['error', {declaration: false, assignment: false}],
     'import/no-extraneous-dependencies': [
       'error',
