@@ -36,6 +36,10 @@ class Verifier extends PureComponent {
     return {errorState, successState, errorMsg};
   }
 
+  componentDidMount(){
+    this.onExecFormValid();
+  }
+
   onExecFormValid() {
     this.setState({isValidate: true});
   }
@@ -56,9 +60,9 @@ class Verifier extends PureComponent {
     );
 
     if (_.isArray(children)) {
-      childrens = _.map(children, child => {
+      childrens = _.map(children, (child, index) => {
         if (React.isValidElement(child) && _.isEqual(child.type.name, 'Item')) {
-          return React.cloneElement(child, {_isValidate: this.state.isValidate});
+          return React.cloneElement(child, {_isValidate: this.state.isValidate, key: index});
         }
         return child;
       });

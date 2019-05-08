@@ -17,10 +17,19 @@ import './style/index.scss';
 const LEGAL_CHILDREN_TYPE = ['Input'];
 
 class Item extends PureComponent {
+  constructor() {
+    super();
+
+    this.onValidate = this.onValidate.bind(this);
+  }
+
+  state = {
+    checkResult: undefined,
+  };
 
   componentWillReceiveProps(nextProps) {
     if (!this.props._isValidate && nextProps._isValidate) {
-      // TODO:需要表单校验
+      this.onValidate();
     }
     if (this.props._isValidate && !nextProps._isValidate) {
       // TODO:取消表单校验
@@ -28,22 +37,29 @@ class Item extends PureComponent {
   }
 
   onValidate() {
-    const {validations} = this.props;
+    const {_isValidate} = this.props;
+    const result =  this.refs.formElement.onValidate();
+    console.log(result);
+    this.setState({checkResult: this.context.errorState});
 
   }
 
   render() {
     const {label, helper, className, attributes, children} = this.props;
+    const {checkResult} = this.state;
     const isLegalChild = React.isValidElement(children) && _.includes(LEGAL_CHILDREN_TYPE, children.type.name);
     const {id} = children.props;
     if (!isLegalChild) return null;
 
     // 生成标签ID：若当前设置了ID，则使用自定义，否则，使用 UUID 随机ID
     const htmlId = _.isUndefined(id) ? uuidv1() : id;
-
+    const isValid = !_.isUndefined(checkResult);
     /** 计算样式 */
     const classes = classNames(
       `${classPrefix}-form__group`,
+      {
+        [`has-${checkResult}`]: isValid,
+      },
       className,
     );
 
@@ -52,8 +68,8 @@ class Item extends PureComponent {
     return (
       <div className={classes} {...attributes}>
         {!_.isUndefined(label) && <label htmlFor={htmlId}>{label}</label>}
-        {React.cloneElement(children, {id: htmlId})}
-        {/*<div className={feedBackClass}></div>*/}
+        {React.cloneElement(children, {id: htmlId, ref: 'formElement'})}
+        {isValid && <div className={feedBackClass}>aaaa</div>}
         {!_.isUndefined(helper) && <span className="shine-form__help">{helper}</span>}
       </div>
     );

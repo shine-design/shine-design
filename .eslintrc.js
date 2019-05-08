@@ -47,6 +47,7 @@ const eslintrc = {
     'import/no-unresolved': 0,
     'class-methods-use-this': 0,
     'prefer-template': 0,
+    'no-underscore-dangle': 0,
   },
 };
 

@@ -11,7 +11,39 @@ import * as PropTypes from 'prop-types';
 import {classPrefix} from 'variables';
 import './style/index.scss';
 
+const DEFAULT_RULE = ['required', 'minLen', 'maxLen'];
+
 class Input extends PureComponent {
+  constructor() {
+    super();
+
+    this.onValidate = this.onValidate.bind(this);
+  }
+
+  onValidate() {
+    const {value} = this.textInput;
+    const {rules, errorMsg} = this.props;
+    
+    _.isObject(rules) && _.mapValues(rules, (rule, key) => {
+      // 预设校验规则
+      if (_.includes(DEFAULT_RULE, key)) {
+        // TODO: 预设校验
+      }
+
+      // Function：自定义校验规则,返回值不为 true 则校验不通过。
+      if (_.isFunction(rule)) {
+        // TODO：函数校验
+        console.log(rule(value));
+      }
+
+      // RegExp：自定义校验规则，使用正则进行匹配，不符合则校验不通过
+      if (_.isRegExp(rule)) {
+        // TODO:正则校验
+      }
+
+    });
+    return false;
+  }
 
   render() {
     const {defaultValue, isDisabled, isReadOnly, id, type, value, name, placeholder} = this.props;
@@ -47,7 +79,9 @@ class Input extends PureComponent {
       ...attributes,
     };
 
-    return <input {...props} />;
+    return <input ref={(input) => {
+      this.textInput = input;
+    }} {...props} />;
   }
 }
 
