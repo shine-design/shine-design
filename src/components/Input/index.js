@@ -9,9 +9,10 @@ import React, {PureComponent} from 'react';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import {classPrefix} from 'variables';
+import {VALIDATION_RULES, VALIDATION_MESSAGE, buildDefaultRules, runRegExp} from 'src/validations';
 import './style/index.scss';
 
-const DEFAULT_RULE = ['required', 'minLen', 'maxLen'];
+const DEFAULT_RULE = _.keys(VALIDATION_RULES);
 
 class Input extends PureComponent {
   constructor() {
@@ -23,25 +24,35 @@ class Input extends PureComponent {
   onValidate() {
     const {value} = this.textInput;
     const {rules, errorMsg} = this.props;
-    
+
+    const resultList = [];
+    // 移除 rules 中为false 的规则
+    _.omitBy(rules, item => _.isBoolean(item) && !item);
     _.isObject(rules) && _.mapValues(rules, (rule, key) => {
       // 预设校验规则
       if (_.includes(DEFAULT_RULE, key)) {
-        // TODO: 预设校验
+        const buildRules = buildDefaultRules(key, rule);
+
+        if (_.isRegExp(buildRules)) {
+          resultList.push({[key]: runRegExp(buildRules.value)});
+        }
+        if (_.isFunction(buildRules)) {
+          resultList.push({[key]: buildRules(value, rule)});
+        }
       }
 
       // Function：自定义校验规则,返回值不为 true 则校验不通过。
       if (_.isFunction(rule)) {
-        // TODO：函数校验
-        console.log(rule(value));
+        resultList.push({[key]: rule(value)});
       }
 
       // RegExp：自定义校验规则，使用正则进行匹配，不符合则校验不通过
       if (_.isRegExp(rule)) {
-        // TODO:正则校验
+        resultList.push({[key]: runRegExp(rule, value)});
       }
 
     });
+    // TODO:对 resultList 进行筛查处理
     return false;
   }
 
@@ -79,9 +90,14 @@ class Input extends PureComponent {
       ...attributes,
     };
 
-    return <input ref={(input) => {
-      this.textInput = input;
-    }} {...props} />;
+    return (
+      <input
+        ref={(input) => {
+          this.textInput = input;
+        }}
+        {...props}
+      />
+    );
   }
 }
 

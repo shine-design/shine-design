@@ -107,7 +107,7 @@ const Item = Form.Item;
                 <Form.Verifier isHighlight={true}>
                   <Input placeholder="请输入文本" />
                   <Form.Item label="普通文本" helper="We'll never share your text with anyone else.">
-                      <Input placeholder="请输入文本" rules={{required:true,minLen:10,maxLen:15,custom:(value)=>{return 'xxx'}}} />
+                      <Input placeholder="请输入文本" rules={{required:true,minLen:10,maxLen:15,custom:(value)=>{return false}}} />
                   </Form.Item>
                   <Form.Item label="普通文本" helper="We'll never share your text with anyone else.">
                       <Input placeholder="请输入文本" />
