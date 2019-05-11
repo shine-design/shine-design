@@ -54,7 +54,7 @@ class MessageBox extends Component {
 
 MessageBox.propTypes = {
   /** 消息类型 */
-  messageType: PropTypes.oneOfType(['info', 'warning', 'success', 'danger']),
+  messageType: PropTypes.oneOf(['info', 'warning', 'success', 'danger']),
   /** 是否默认显示 */
   isOpen: PropTypes.bool,
   /** 是否可关闭 */

@@ -1,0 +1,95 @@
+---
+name:  Form.Verifier 表单校验
+route: /verifier
+menu:  form
+---
+
+import JsxParser from "react-jsx-parser";
+import {
+  MessageBox,
+  InlineCode,
+  Section,
+  Preview,
+  Playground,
+  Code,
+  PropsTable
+} from "theme";
+import {Form , Input} from 'shineDev';
+import VerifierDemo from '../demo/Verifier';
+import CustomVerifierDemo from '../demo/CustomVerifier';
+import code from "../demo";
+import "../demo/index.scss";
+
+# Verifier 表单校验
+
+## 概述
+
+表单校验组件用于在向提交数据之间，对表单中填充的数据进行规范检查。表单校验组件是功能性组件，派生自 `Form` 组件。
+
+## 代码示例
+
+### 基础校验
+
+<MessageBox messageType="danger">
+  表单校验组件目前仅对子元素为 Form.Item 的表单项组件生效。
+</MessageBox>
+
+Shine Design 内置了一套基础表单校验规则，可以在表单元素上通过 `rules` 属性完成设置。
+
+<Section>
+  <Preview>
+    <Playground>
+      <VerifierDemo />
+    </Playground>
+  </Preview>
+
+  <Code>
+    {code.verifier.jsx}
+  </Code>
+</Section>
+
+### 预设校验规则
+
+|  类型  |     错误文案     | 设置方式  |
+| :----: | :------------: | :---:
+| required |      当前字段不能为空      | `{required:true}` |
+| email | 当前字段仅支持输入合法邮箱 |  `{email:true}` |
+| url |       当前字段仅支持输入合法网址       | `{url:true}` |
+| number |       当前字段仅支持输入数字类型       | `{number:true}` |
+| minLen |       当前字段不得少于${rule}个字符       | `{minLen:10}` |
+| maxLen |       当前字段不得多于${rule}个字符       | `{maxLen:10}` |
+| min |       当前字段不得少于${rule}       | `{min:10}` |
+| max |       当前字段不得大于${rule}      | `{max:10}` |
+| equalTo |       当前字段与被校验值不一致     | `{equalTo:'hello'}` |
+
+### 自定义校验
+
+除了预设的校验规则外，还支持自定义校验规则的配置，自定义校验规则支持正则校验和函数校验。
+
+<Section>
+  <Preview>
+    <Playground>
+      <CustomVerifierDemo />
+    </Playground>
+  </Preview>
+
+  <Code>
+    {code.customVerifier.jsx}
+  </Code>
+</Section>
+
+
+## 配置参数
+
+<PropsTable of={Form.Verifier} />
+
+## FAQ
+
+#### 错误提示的优先级？
+答：通常情况下，错误提示优先级遵循就近原则，即 表单元素上设置的 `errorMsg` > 表单校验组件上设置的 `errorMsg` > 预设的默认 `errorMsg` 。
+
+#### 预设的校验规则能否更改？
+答：可以更改，在需要进行校验的表单元素上，可以通过设置 `rules` 属性，并重写预设校验规则即可。
+
+#### 开发者可以主动调用表单校验检查么？
+答：可以，可以调用表单校验组件实例的 `onForceValidate` 方法，该方法会返回表单校验结果。

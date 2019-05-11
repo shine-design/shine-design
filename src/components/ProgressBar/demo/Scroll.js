@@ -10,7 +10,7 @@ class Scroll extends Component {
   
   state = {
     percent: 0,
-    isIncrease: true
+    isIncrease: true,
   };
 
   componentDidMount() {

@@ -20,6 +20,7 @@ export default {
       shineDev: paths.appComponent,
       configs: path.resolve(paths.appSrc, 'configs'),
       variables: path.resolve(paths.appSrc, '_variables.js'),
+      validations: path.resolve(paths.appSrc, 'validations.js'),
       style: paths.appStyle,
       theme: path.resolve(paths.themePath, 'components/Base'),
     };

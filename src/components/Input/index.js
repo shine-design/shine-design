@@ -8,8 +8,9 @@ import _ from 'lodash';
 import React, {PureComponent} from 'react';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
+import reactComposition from 'react-composition';
 import {classPrefix} from 'variables';
-import {VALIDATION_RULES, VALIDATION_MESSAGE, buildDefaultRules, runRegExp} from 'src/validations';
+import {buildDefaultRules, runRegExp, VALIDATION_RULES} from 'validations';
 import './style/index.scss';
 
 const DEFAULT_RULE = _.keys(VALIDATION_RULES);
@@ -19,48 +20,61 @@ class Input extends PureComponent {
     super();
 
     this.onValidate = this.onValidate.bind(this);
+    this._onChange = this._onChange.bind(this);
   }
 
-  onValidate() {
+  onValidate(isFullResult) {
     const {value} = this.textInput;
-    const {rules, errorMsg} = this.props;
-
+    const {rules} = this.props;
     const resultList = [];
     // 移除 rules 中为false 的规则
     _.omitBy(rules, item => _.isBoolean(item) && !item);
-    _.isObject(rules) && _.mapValues(rules, (rule, key) => {
+    // 依次校验家表单规则
+    _.mapValues(rules, (rule, key) => {
+      let _result = true;
       // 预设校验规则
       if (_.includes(DEFAULT_RULE, key)) {
         const buildRules = buildDefaultRules(key, rule);
 
         if (_.isRegExp(buildRules)) {
-          resultList.push({[key]: runRegExp(buildRules.value)});
+          _result = runRegExp(buildRules, value);
         }
+
         if (_.isFunction(buildRules)) {
-          resultList.push({[key]: buildRules(value, rule)});
+          _result = buildRules(value, rule);
         }
       }
 
       // Function：自定义校验规则,返回值不为 true 则校验不通过。
       if (_.isFunction(rule)) {
-        resultList.push({[key]: rule(value)});
+        _result = rule(value);
       }
 
       // RegExp：自定义校验规则，使用正则进行匹配，不符合则校验不通过
       if (_.isRegExp(rule)) {
-        resultList.push({[key]: runRegExp(rule, value)});
+        _result = runRegExp(rule, value);
       }
 
+      if (!_result) resultList.push(key);
     });
-    // TODO:对 resultList 进行筛查处理
-    return false;
+
+    return _.isEmpty(resultList) || (isFullResult ? resultList : resultList[0]);
+  }
+
+  _onChange(event) {
+    const {onChange, _onValidateResult} = this.props;
+    if (event.reactComposition.composition === false) {
+      if (_.isFunction(_onValidateResult)) _onValidateResult(this.onValidate());
+      if (_.isFunction(onChange)) onChange(event);
+    }
   }
 
   render() {
     const {defaultValue, isDisabled, isReadOnly, id, type, value, name, placeholder} = this.props;
-    const {size, inputStyle} = this.props;
-    const {onChange, onBlur, onClick} = this.props;
+    const {size, inputStyle, rules} = this.props;
+    const {onChange, onBlur, onClick, onFocus, onInput} = this.props;
     const {className, attributes} = this.props;
+    const {isValidate} = this.props;
 
     /** 计算样式 */
     const classes = classNames(
@@ -73,7 +87,13 @@ class Input extends PureComponent {
     );
 
     // 回调函数
-    const callbacks = {onChange, onBlur, onClick};
+    const callbacks = {
+      onInput,
+      onBlur,
+      onClick,
+      onFocus,
+      onChange: (isValidate && !_.isUndefined(rules)) ? this._onChange : onChange,
+    };
 
     // 输入框属性配置
     const props = {
@@ -86,7 +106,6 @@ class Input extends PureComponent {
       disabled: isDisabled,
       readOnly: isReadOnly,
       className: classes,
-      ...callbacks,
       ...attributes,
     };
 
@@ -96,6 +115,7 @@ class Input extends PureComponent {
           this.textInput = input;
         }}
         {...props}
+        {...reactComposition(callbacks)}
       />
     );
   }
@@ -122,6 +142,10 @@ Input.propTypes = {
   size: PropTypes.oneOf(['default', 'small', 'large']),
   /** 输入框样式，支持 default：圆角矩形 / pill：椭圆形矩形 / square：直角矩形 */
   inputStyle: PropTypes.oneOf(['default', 'pill', 'square']),
+  /** 表单校验规则 */
+  rules: PropTypes.object,
+  /** 表单校验失败提示文字 */
+  errorMsg: PropTypes.object,
   /** 输入框内容发生改变时触发 */
   onChange: PropTypes.func,
   /** 输入框失去焦点时触发 */
@@ -145,6 +169,8 @@ Input.defaultProps = {
   type: 'text',
   size: 'default',
   inputStyle: 'default',
+  rules: undefined,
+  errorMsg: undefined,
   onChange: undefined,
   onBlur: undefined,
   onClick: undefined,

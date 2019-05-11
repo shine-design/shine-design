@@ -55,21 +55,21 @@ export const VALIDATION_RULES = {
 };
 
 /** 表单校验错误提示 */
-export const VALIDATION_MESSAGE = {
+export const VALIDATION_MSG = {
   required: '当前字段不能为空',
   email: '当前字段仅支持输入合法邮箱',
   url: '当前字段仅支持输入合法网址',
   number: '当前字段仅支持输入数字类型',
-  minLen(value, rule) {
+  minLen(rule) {
     return `当前字段不得少于${rule}个字符`;
   },
-  maxLen(value, rule) {
+  maxLen(rule) {
     return `当前字段不得多于${rule}个字符`
   },
-  min(value, rule) {
+  min(rule) {
     return `当前字段不得少于${rule}`;
   },
-  max(value, rule) {
+  max(rule) {
     return `当前字段不得大于${rule}`;
   },
   equalTo: '当前字段与被校验值不一致',

@@ -9,26 +9,15 @@ import React, {PureComponent} from 'react';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import {classPrefix} from 'variables';
-import Item from '../Item';
 
-// import './style/index.scss';
-
-const ERROR_RULE_MESSAGE = {
-  required: '当前字段不存在',
-};
-
+const REFS = [];
 
 class Verifier extends PureComponent {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
-    this.onExecFormValid = this.onExecFormValid.bind(this);
-    this.onCancelFormValid = this.onCancelFormValid.bind(this);
+    this.onForceValidate = this.onForceValidate.bind(this);
   }
-
-  state = {
-    isValidate: false,
-  };
 
   getChildContext() {
     const {errorState, successState, errorMsg} = this.props;
@@ -36,71 +25,79 @@ class Verifier extends PureComponent {
     return {errorState, successState, errorMsg};
   }
 
-  componentDidMount(){
-    this.onExecFormValid();
-  }
+  /** 强制获取表单校验结果 */
+  onForceValidate() {
+    const {refs} = this;
 
-  onExecFormValid() {
-    this.setState({isValidate: true});
-  }
-
-  onCancelFormValid() {
-    this.setState({isValidate: false});
+    if (!_.isEmpty(REFS)) {
+      return _.map(REFS, refName => {
+        const {_onForceValidate} = refs[refName];
+        return _onForceValidate();
+      });
+    }
+    return true;
   }
 
   render() {
-    const {isHighlight, children} = this.props;
+    const {isHighlight, isValidate, children} = this.props;
     let childrens = null;
 
     /** 计算样式 */
     const classes = classNames(
       {
         [`${classPrefix}-form--state`]: isHighlight,
-      }
+      },
     );
 
-    if (_.isArray(children)) {
-      childrens = _.map(children, (child, index) => {
-        if (React.isValidElement(child) && _.isEqual(child.type.name, 'Item')) {
-          return React.cloneElement(child, {_isValidate: this.state.isValidate, key: index});
-        }
-        return child;
-      });
-    } else {
-      childrens = React.cloneElement(children, {_isValidate: this.state.isValidate});
+    if (!_.isUndefined(children)) {
+      if (_.isArray(children)) {
+        childrens = _.map(children, (child, index) => {
+          if (React.isValidElement(child) && _.isEqual(child.type.name, 'Item')) {
+            REFS.push(`formItem-${index}`);
+            return React.cloneElement(child, {isValidate, key: index, ref: `formItem-${index}`});
+          }
+          return child;
+        });
+      } else {
+        REFS.push('formItem');
+        childrens = React.cloneElement(children, {isValidate, ref: 'formItem'});
+      }
     }
 
     return isHighlight ? (
       <div className={classes}>
         {childrens}
       </div>
-    ) : children;
+    ) : childrens;
   }
 }
 
 Verifier.propTypes = {
-  /** 校验失败提示状态颜色 */
+  /** 校验失败提示状态颜色，目前支持 danger 和 warning */
   errorState: PropTypes.string,
-  /** 校验通过提示状态颜色 */
-  successState: PropTypes.string,
-  /** 配置错误提示文字，支持传入 {ruleName : message} 对默认提示文字进行覆盖 */
+  /** 是否展示表单通过状态 */
+  successState: PropTypes.bool,
+  /** 全局配置，配置错误提示文字，支持传入对象对默认提示文字进行覆盖 */
   errorMsg: PropTypes.object,
   /** 表单元素是否高亮显示错误提示 */
   isHighlight: PropTypes.bool,
+  /** 是否开启自动表单校验 */
+  isValidate: PropTypes.bool,
 };
 
 Verifier.defaultProps = {
   errorState: 'danger',
-  successState: 'success',
+  successState: true,
   errorMsg: {},
   isHighlight: false,
+  isValidate: true,
 };
 
 Verifier.childContextTypes = {
   /** 校验失败提示状态颜色 */
   errorState: PropTypes.string,
   /** 校验通过提示状态颜色 */
-  successState: PropTypes.string,
+  successState: PropTypes.bool,
   /** 配置错误提示文字，支持传入 {ruleName : message} 对默认提示文字进行覆盖 */
   errorMsg: PropTypes.object,
 };

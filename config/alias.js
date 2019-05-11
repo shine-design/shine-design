@@ -5,6 +5,7 @@ const paths = require('./paths');
 module.exports = {
   configs: path.resolve(paths.appSrc, 'configs'),
   variables: path.resolve(paths.appSrc, '_variables.js'),
+  validations: path.resolve(paths.appSrc, 'validations.js'),
   shined: paths.appBuild,
   style: paths.appStyle,
   shineDev: paths.appComponent,

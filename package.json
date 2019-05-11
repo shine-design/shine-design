@@ -160,6 +160,7 @@
     "prismjs": "^1.15.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
+    "react-composition": "^0.2.2",
     "react-dom": "^16.8.4",
     "react-jsx-parser": "^1.15.1",
     "react-router-dom": "^4.4.0",

@@ -5,6 +5,7 @@
  * @Date 2019-03-23 17:36
  */
 import React, {Component} from 'react';
+import './index.scss';
 
 class InlineCode extends Component {
 
@@ -12,7 +13,7 @@ class InlineCode extends Component {
     const {children} = this.props;
 
     return (
-      <code className="code">
+      <code className="inline-code">
         {children}
       </code>
     );

@@ -10,6 +10,7 @@ import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import {classPrefix} from 'variables';
 import uuidv1 from 'uuid/v1';
+import {VALIDATION_MSG} from 'src/validations';
 
 import './style/index.scss';
 
@@ -21,32 +22,54 @@ class Item extends PureComponent {
     super();
 
     this.onValidate = this.onValidate.bind(this);
+    this._onValidateResult = this._onValidateResult.bind(this);
+    this._onForceValidate = this._onForceValidate.bind(this);
   }
 
   state = {
     checkResult: undefined,
+    feedBack: undefined,
+    validResult: true,
   };
 
-  componentWillReceiveProps(nextProps) {
-    if (!this.props._isValidate && nextProps._isValidate) {
-      this.onValidate();
-    }
-    if (this.props._isValidate && !nextProps._isValidate) {
-      // TODO:取消表单校验
-    }
+  onValidate(result) {
+    // console.log(result);
+    const {refs, context} = this;
+    const {errorMsg, rules} = refs.formElement.props;
+    const _validationMsg = _.merge({}, VALIDATION_MSG, errorMsg);
+    const validResult = _.isBoolean(result) && result;
+    const renderMsg = () => {
+      const msgHandler = _validationMsg[result];
+      return _.isFunction(msgHandler) ? msgHandler(rules[result]) : msgHandler;
+    };
+
+    this.setState({
+      checkResult: {error: context.errorState, success: context.successState ? 'success' : undefined},
+      feedBack: validResult ? undefined : renderMsg(),
+      validResult,
+    });
+
   }
 
-  onValidate() {
-    const {_isValidate} = this.props;
-    const result =  this.refs.formElement.onValidate();
-    console.log(result);
-    this.setState({checkResult: this.context.errorState});
+  _onForceValidate() {
+    const {refs} = this;
+    const {props: {name}, onValidate} = refs.formElement;
+    if (!_.isUndefined(name)) {
+      const result = onValidate(true);
+      if (!_.isEqual(result, true)) this.onValidate(result[0]);
+      return {[name]: result};
+    }
+    return true;
+  }
 
+  _onValidateResult(result) {
+    this.onValidate(result);
   }
 
   render() {
     const {label, helper, className, attributes, children} = this.props;
-    const {checkResult} = this.state;
+    const {isValidate} = this.props;
+    const {checkResult, feedBack, validResult} = this.state;
     const isLegalChild = React.isValidElement(children) && _.includes(LEGAL_CHILDREN_TYPE, children.type.name);
     const {id} = children.props;
     if (!isLegalChild) return null;
@@ -54,22 +77,28 @@ class Item extends PureComponent {
     // 生成标签ID：若当前设置了ID，则使用自定义，否则，使用 UUID 随机ID
     const htmlId = _.isUndefined(id) ? uuidv1() : id;
     const isValid = !_.isUndefined(checkResult);
+    const state = _.isObject(checkResult) && (validResult ? checkResult.success : checkResult.error);
+
     /** 计算样式 */
     const classes = classNames(
       `${classPrefix}-form__group`,
       {
-        [`has-${checkResult}`]: isValid,
+        [`has-${state}`]: isValid && _.isString(state),
       },
       className,
     );
 
     const feedBackClass = `${classPrefix}-form-control-feedback`;
-
     return (
       <div className={classes} {...attributes}>
         {!_.isUndefined(label) && <label htmlFor={htmlId}>{label}</label>}
-        {React.cloneElement(children, {id: htmlId, ref: 'formElement'})}
-        {isValid && <div className={feedBackClass}>aaaa</div>}
+        {React.cloneElement(children, {
+          id: htmlId,
+          ref: 'formElement',
+          isValidate,
+          _onValidateResult: this._onValidateResult,
+        })}
+        {isValid && feedBack && <div className={feedBackClass}>{feedBack}</div>}
         {!_.isUndefined(helper) && <span className="shine-form__help">{helper}</span>}
       </div>
     );
@@ -100,7 +129,7 @@ Item.contextTypes = {
   /** 校验失败提示状态颜色 */
   errorState: PropTypes.string,
   /** 校验通过提示状态颜色 */
-  successState: PropTypes.string,
+  successState: PropTypes.bool,
   /** 配置错误提示文字，支持传入 {ruleName : message} 对默认提示文字进行覆盖 */
   errorMsg: PropTypes.object,
 };
