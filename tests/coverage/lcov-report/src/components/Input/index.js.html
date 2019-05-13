@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/components/Input/Container.js</title>
+    <title>Code coverage report for src/components/Input/index.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -16,58 +16,338 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../../index.html">All files</a> / <a href="index.html">src/components/Input</a> Container.js
+      <a href="../../../index.html">All files</a> / <a href="index.html">src/components/Input</a> index.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">38.1% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>1/1</span>
+        <span class='fraction'>16/42</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">7.14% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>2/28</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">42.86% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/1</span>
+        <span class='fraction'>3/7</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">42.11% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>1/1</span>
+        <span class='fraction'>16/38</span>
       </div>
     </div>
-    <p class="quiet">
-      Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
-    </p>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
-<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
-<a name='L2'></a><a href='#L2'>2</a>
-<a name='L3'></a><a href='#L3'>3</a>
-<a name='L4'></a><a href='#L4'>4</a>
-<a name='L5'></a><a href='#L5'>5</a>
-<a name='L6'></a><a href='#L6'>6</a>
-<a name='L7'></a><a href='#L7'>7</a>
-<a name='L8'></a><a href='#L8'>8</a>
-<a name='L9'></a><a href='#L9'>9</a>
-<a name='L10'></a><a href='#L10'>10</a>
-<a name='L11'></a><a href='#L11'>11</a>
-<a name='L12'></a><a href='#L12'>12</a>
-<a name='L13'></a><a href='#L13'>13</a>
-<a name='L14'></a><a href='#L14'>14</a>
-<a name='L15'></a><a href='#L15'>15</a>
-<a name='L16'></a><a href='#L16'>16</a>
-<a name='L17'></a><a href='#L17'>17</a>
-<a name='L18'></a><a href='#L18'>18</a>
-<a name='L19'></a><a href='#L19'>19</a>
-<a name='L20'></a><a href='#L20'>20</a>
-<a name='L21'></a><a href='#L21'>21</a>
-<a name='L22'></a><a href='#L22'>22</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">39x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -85,37 +365,234 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
- * @Component 按钮 - index
- * @Type 按钮组件
+ * @Component Input
+ * @Type 输入框组件
  * @Author 瞿龙俊 - qulongjun@shine.design
- * @Date 2019/3/15 17:57
+ * @Date 2019-04-27 13:25
  */
+import _ from 'lodash';
+import React, {PureComponent} from 'react';
+import classNames from 'classnames';
+import * as PropTypes from 'prop-types';
+import reactComposition from 'react-composition';
+import {classPrefix} from 'variables';
+import {buildDefaultRules, runRegExp, VALIDATION_RULES} from 'validations';
+import './style/index.scss';
 &nbsp;
-// 核心依赖
-import React from 'react';
+const DEFAULT_RULE = _.keys(VALIDATION_RULES);
 &nbsp;
-// 第三方依赖库
+class Input extends PureComponent {
+  constructor() {
+    super();
 &nbsp;
+    this.onValidate = this.onValidate.bind(this);
+    this._onChange = this._onChange.bind(this);
+  }
 &nbsp;
-// 组件依赖
+<span class="fstat-no" title="function not covered" >  on</span>Validate(isFullResult) {
+    const {value} = <span class="cstat-no" title="statement not covered" >this.textInput;</span>
+    const {rules} = <span class="cstat-no" title="statement not covered" >this.props;</span>
+    const resultList = <span class="cstat-no" title="statement not covered" >[];</span>
+    // 移除 rules 中为false 的规则
+<span class="cstat-no" title="statement not covered" >    _.omitBy(rules, <span class="fstat-no" title="function not covered" >it</span>em =&gt; <span class="cstat-no" title="statement not covered" >_.isBoolean(item) &amp;&amp; !item)</span>;</span>
+    // 依次校验家表单规则
+<span class="cstat-no" title="statement not covered" >    _.mapValues(rules, <span class="fstat-no" title="function not covered" >(r</span>ule, key) =&gt; {</span>
+      let _result = <span class="cstat-no" title="statement not covered" >true;</span>
+      // 预设校验规则
+<span class="cstat-no" title="statement not covered" >      if (_.includes(DEFAULT_RULE, key)) {</span>
+        const buildRules = <span class="cstat-no" title="statement not covered" >buildDefaultRules(key, rule);</span>
 &nbsp;
-// 样式
+<span class="cstat-no" title="statement not covered" >        if (_.isRegExp(buildRules)) {</span>
+<span class="cstat-no" title="statement not covered" >          _result = runRegExp(buildRules, value);</span>
+        }
 &nbsp;
-export default function () {
-    return (
-        &lt;input type="text" /&gt;
+<span class="cstat-no" title="statement not covered" >        if (_.isFunction(buildRules)) {</span>
+<span class="cstat-no" title="statement not covered" >          _result = buildRules(value, rule);</span>
+        }
+      }
+&nbsp;
+      // Function：自定义校验规则,返回值不为 true 则校验不通过。
+<span class="cstat-no" title="statement not covered" >      if (_.isFunction(rule)) {</span>
+<span class="cstat-no" title="statement not covered" >        _result = rule(value);</span>
+      }
+&nbsp;
+      // RegExp：自定义校验规则，使用正则进行匹配，不符合则校验不通过
+<span class="cstat-no" title="statement not covered" >      if (_.isRegExp(rule)) {</span>
+<span class="cstat-no" title="statement not covered" >        _result = runRegExp(rule, value);</span>
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (!_result) <span class="cstat-no" title="statement not covered" >resultList.push(key);</span></span>
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return _.isEmpty(resultList) || (isFullResult ? resultList : resultList[0]);</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  _o</span>nChange(event) {
+    const {onChange, _onValidateResult} = <span class="cstat-no" title="statement not covered" >this.props;</span>
+<span class="cstat-no" title="statement not covered" >    if (event.reactComposition.composition === false) {</span>
+<span class="cstat-no" title="statement not covered" >      if (_.isFunction(_onValidateResult)) <span class="cstat-no" title="statement not covered" >_onValidateResult(this.onValidate());</span></span>
+<span class="cstat-no" title="statement not covered" >      if (_.isFunction(onChange)) <span class="cstat-no" title="statement not covered" >onChange(event);</span></span>
+    }
+  }
+&nbsp;
+  render() {
+    const {defaultValue, isDisabled, isReadOnly, id, type, value, name, placeholder} = this.props;
+    const {size, inputStyle, rules} = this.props;
+    const {onChange, onBlur, onClick, onFocus, onInput} = this.props;
+    const {className, attributes} = this.props;
+    const {isValidate} = this.props;
+&nbsp;
+    /** 计算样式 */
+    const classes = classNames(
+      `${classPrefix}-form-control`,
+      {
+        [`${classPrefix}-form-control-${size}`]: _.includes(['small', 'large'], size),
+        [`${classPrefix}-form-control--${inputStyle}`]: _.includes(['pill', 'square'], inputStyle),
+      },
+      className,
     );
-}</pre></td></tr>
+&nbsp;
+    // 回调函数
+    const callbacks = {
+      onInput,
+      onBlur,
+      onClick,
+      onFocus,
+      onChange: (isValidate &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >!_.isUndefined(rules))</span> ? <span class="branch-0 cbranch-no" title="branch not covered" >this._onChange </span>: onChange,
+    };
+&nbsp;
+    // 输入框属性配置
+    const props = {
+      defaultValue,
+      value,
+      placeholder,
+      name,
+      type,
+      id,
+      disabled: isDisabled,
+      readOnly: isReadOnly,
+      className: classes,
+      ...attributes,
+    };
+&nbsp;
+    return (
+      &lt;input
+        ref={(input) =&gt; {
+          this.textInput = input;
+        }}
+        {...props}
+        {...reactComposition(callbacks)}
+      /&gt;
+    );
+  }
+}
+&nbsp;
+Input.propTypes = {
+  /** 默认值，仅展示时生效 */
+  defaultValue: PropTypes.node,
+  /** 输入框值 */
+  value: PropTypes.node,
+  /** 输入框名称 */
+  name: PropTypes.node,
+  /** 输入框占位符，当输入框无内容时展示 */
+  placeholder: PropTypes.node,
+  /** 输入框ID */
+  id: PropTypes.node,
+  /** 设置是否禁用输入框 */
+  isDisabled: PropTypes.bool,
+  /** 设置是否只读输入框 */
+  isReadOnly: PropTypes.bool,
+  /** 设置输入框类型 */
+  type: PropTypes.string,
+  /** 设置输入框尺寸，支持 default：默认 / small：小尺寸 / large：大尺寸 */
+  size: PropTypes.oneOf(['default', 'small', 'large']),
+  /** 输入框样式，支持 default：圆角矩形 / pill：椭圆形矩形 / square：直角矩形 */
+  inputStyle: PropTypes.oneOf(['default', 'pill', 'square']),
+  /** 表单校验规则 */
+  rules: PropTypes.object,
+  /** 表单校验失败提示文字 */
+  errorMsg: PropTypes.object,
+  /** 输入框内容发生改变时触发 */
+  onChange: PropTypes.func,
+  /** 输入框失去焦点时触发 */
+  onBlur: PropTypes.func,
+  /** 输入框被点击时触发 */
+  onClick: PropTypes.func,
+  /** 用户自定义修饰符 */
+  className: PropTypes.string,
+  /** 用户自定义属性 */
+  attributes: PropTypes.object,
+};
+&nbsp;
+Input.defaultProps = {
+  defaultValue: undefined,
+  value: undefined,
+  placeholder: undefined,
+  name: undefined,
+  id: undefined,
+  isDisabled: false,
+  isReadOnly: false,
+  type: 'text',
+  size: 'default',
+  inputStyle: 'default',
+  rules: undefined,
+  errorMsg: undefined,
+  onChange: undefined,
+  onBlur: undefined,
+  onClick: undefined,
+  className: '',
+  attributes: {},
+};
+&nbsp;
+export default Input;
+&nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Mar 16 2019 01:24:07 GMT+0800 (GMT+08:00)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun May 12 2019 09:17:25 GMT+0800 (GMT+08:00)
 </div>
 </div>
 <script src="../../../prettify.js"></script>
@@ -127,6 +604,5 @@ window.onload = function () {
 };
 </script>
 <script src="../../../sorter.js"></script>
-<script src="../../../block-navigation.js"></script>
 </body>
 </html>

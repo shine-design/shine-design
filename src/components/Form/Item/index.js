@@ -33,7 +33,6 @@ class Item extends PureComponent {
   };
 
   onValidate(result) {
-    // console.log(result);
     const {refs, context} = this;
     const {errorMsg, rules} = refs.formElement.props;
     const _validationMsg = _.merge({}, VALIDATION_MSG, errorMsg);
