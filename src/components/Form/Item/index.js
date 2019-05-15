@@ -10,7 +10,7 @@ import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import {classPrefix} from 'variables';
 import uuidv1 from 'uuid/v1';
-import {VALIDATION_MSG} from 'src/validations';
+import {VALIDATION_MSG} from 'validations';
 
 import './style/index.scss';
 

@@ -79,22 +79,24 @@ export default {
   ],
   /** 页面顶部导航 */
   topBar: {
-    center: [{
-      label: '首页',
-      link: '/',
-    }, {
-      label: '快速上手',
-      link: '/',
-    }, {
-      label: '组件文档',
-      link: '/',
-    }, {
-      label: '构建工具',
-      link: '/',
-    }, {
-      label: '生态系统',
-      link: '/',
-    }],
+    center: [
+      {
+        label: '首页',
+        link: '/',
+      }, {
+        label: '快速上手',
+        link: '/start',
+      }, {
+        label: '组件文档',
+        link: '/doc',
+      }, {
+        label: '构建工具',
+        link: '/tools',
+      }, {
+        label: '生态系统',
+        link: '/',
+      },
+    ],
     right: [{
       label: '贡献',
       link: '/',

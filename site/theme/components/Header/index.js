@@ -5,11 +5,14 @@
  */
 import _ from 'lodash';
 import React, {Component} from 'react';
+import classNames from 'classnames';
 import {ThemeConfig} from "docz";
+import {NavLink} from "react-router-dom";
 
 export default class extends Component {
 
   render() {
+    const {location} = this.props;
 
     return (
       <ThemeConfig>
@@ -39,7 +42,14 @@ export default class extends Component {
                         {
                           _.isArray(center) && _.map(center, (item, index) => (
                             <li className="nav-item" key={index}>
-                              <a className="nav-link" href={item.link}>{item.label}</a>
+                              <NavLink
+                                to={item.link}
+                                activeClassName="active"
+                                // className={classNames('nav-link', {'active': _.startsWith(location.pathname, item.link)})}
+                                className="nav-link"
+                              >
+                                {item.label}
+                              </NavLink>
                             </li>
                           ))
                         }
@@ -49,7 +59,13 @@ export default class extends Component {
                         {
                           _.isArray(right) && _.map(right, (item, index) => (
                             <li className="nav-item" key={index}>
-                              <a className="nav-link" href={item.link}>{item.label}</a>
+                              <NavLink
+                                to={item.link}
+                                activeClassName="active"
+                                className={classNames('nav-link', {'active': _.startsWith(location.pathname, item.link)})}
+                              >
+                                {item.label}
+                              </NavLink>
                             </li>
                           ))
                         }

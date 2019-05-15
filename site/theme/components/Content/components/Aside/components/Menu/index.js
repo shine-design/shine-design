@@ -33,7 +33,7 @@ export default class extends Component {
                   <ul id="page-nav" className="nav flex-column nav-vertical-2">
                     {
                       _.map(material, (item, index) => (
-                          <MenuItem key={index} index={index} parentId="page-nav" {...item} location={location}/>
+                          <MenuItem key={index} index={index} parentId="page-nav" {...item} location={location} />
                         ),
                       )
                     }
