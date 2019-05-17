@@ -7,6 +7,7 @@ import _ from 'lodash';
 
 const getByteLen = value => {
   let len = 0;
+  // eslint-disable-next-line no-plusplus
   for (let i = 0; i < value.length; i++) {
     if (value.charCodeAt(i) > 127 || value.charCodeAt(i) === 94) {
       len += 2;

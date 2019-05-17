@@ -8,12 +8,11 @@ import React, {PureComponent} from 'react';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import {classPrefix} from 'variables';
-
-// import './style/index.scss';
+import './style/index.scss';
 
 class Button extends PureComponent {
   render() {
-    const {type, bgColor, outlineColor, gradient, className, attributes, children} = this.props;
+    const {type, className, attributes, children} = this.props;
 
     /** 计算样式 */
     const classes = classNames(
