@@ -82,6 +82,55 @@ $colors: (
   )
 ) !default;
 
+$shine-colors: (
+  brand: (
+    base: #716ACA,
+    inverse: #FFFFFF
+  ),
+  grace:(
+    base: #00C5DC,
+    inverse: #FFFFFF
+  ),
+  metal: (
+    base: #C4C5D6,
+    inverse: #FFFFFF
+  ),
+  light: (
+    base: #FFFFFF,
+    inverse: #282A3C
+  ),
+  accent: (
+    base: #716ACA,
+    inverse: #FFFFFF
+  ),
+  focus: (
+    base: #9816F4,
+    inverse: #FFFFFF
+  ),
+  primary: (
+    base: #5867DD,
+    inverse: #FFFFFF
+  ),
+  success: (
+    base: #34BFA3,
+    inverse: #FFFFFF
+  ),
+  info: (
+    base: #36A3F7,
+    inverse: #FFFFFF
+  ),
+  warning: (
+    base: #FFB822,
+    inverse: #111111
+  ),
+  danger: (
+    base: #F4516C,
+    inverse: #ffffff
+  )
+) !default;
+
+$brand-color: array-get($colors, brand, base) !default;
+
 $component-active-bg: array-get($colors, primary, base) !default;
 
 /** 媒体查询分界 */

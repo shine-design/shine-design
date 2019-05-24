@@ -1,0 +1,45 @@
+---
+name: Button 按钮
+route: /doc/button
+menu: button
+---
+
+import JsxParser from "react-jsx-parser";
+import {
+  MessageBox,
+  InlineCode,
+  Section,
+  Preview,
+  Playground,
+  Code,
+  PropsTable
+} from "theme";
+import { Button } from "shineDev";
+import code from "./demo";
+import './demo/index.scss';
+
+# Button 按钮
+
+## 概述
+
+待补充
+
+## 代码示例
+### 基础按钮
+
+<Section>
+  <Preview>
+    <Playground>
+       <JsxParser {...code.basic} />
+    </Playground>
+
+  </Preview>
+  <Code>
+    {code.basic.jsx}
+  </Code>
+</Section>
+
+### 配置参数
+
+<PropsTable of={Button} />
+

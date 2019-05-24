@@ -18,7 +18,6 @@
 //@import "~bootstrap/scss/mixins";
 //@import "~bootstrap/scss/buttons";
 //@import "~bootstrap/scss/button-group";
-@import "~style/bootstrap/button/index";
 
 //@import "../../../sass/mixins/button";
 //@import "../../../sass/mixins/gradient";
@@ -26,4 +25,6 @@
 /**
   独立样式
  */
-//@import "./button";
+@import "./button";
+
+@import "~style/bootstrap/button/index";

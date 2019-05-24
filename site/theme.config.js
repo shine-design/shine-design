@@ -133,6 +133,9 @@ export default {
         name: 'common',
         label: '通用',
       }, {
+        name: 'button',
+        label: '按钮',
+      }, {
         name: 'data',
         label: '数据展示',
       }, {

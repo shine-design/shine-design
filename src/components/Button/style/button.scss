@@ -2,16 +2,19 @@
  * @Author 瞿龙俊 - qulongjun@shine.design
  * @Date 2018/9/5 下午5:50
  */
-@import "../../../sass/config/color";
-@import "../../../sass/config/font";
-@import "../../../sass/config/form";
-@import "../../../sass/config/button";
+@import "./config";
+@import "~style/mixins/rounded";
+@import "~style/mixins/icon";
+@import "~style/mixins/get-color";
+@import "~style/functions/index";
+//@import "../../../style/variables";
+
 
 $sh-pill-radius: 60px;
 @mixin sh-build-component--buttons-base() {
   // base Button
   .btn {
-    font-family: array-get($sh--font-families, regular);
+    font-family: $fontFamily;
     box-shadow: none !important;
 
     // icon
@@ -28,11 +31,11 @@ $sh-pill-radius: 60px;
     }
 
     // force cursor: pointer for Button tags
-    @if ($sh--btn-force-hover-pointer == true) {
+    @if ($shine--btn-force-hover-pointer == true) {
       cursor: pointer;
     }
 
-    border-radius: 0;
+    //border-radius: 0;
     @include rounded {
       border-radius: array-get($sh--buttons, layout, self, border-radius);
     }
@@ -77,7 +80,7 @@ $sh-pill-radius: 60px;
       padding: array-get($sh--buttons, layout, custom, default, self, padding, y) array-get($sh--buttons, layout, custom, default, self, padding, x);
       font-size: array-get($sh--buttons, layout, custom, default, self, font-size);
       font-weight: get-font-weight(bold);
-      font-family: #{array-get($sh--font-families, regular)};
+      font-family: $fontFamily;
 
       &.btn-sm {
         padding: array-get($sh--buttons, layout, custom, sm, self, padding, y) array-get($sh--buttons, layout, custom, sm, self, padding, x);
@@ -91,8 +94,9 @@ $sh-pill-radius: 60px;
     }
 
     // label states
-    @each $name, $color in $sh--state-colors {
+    @each $name, $color in $colors {
       &.sh-btn--label-#{$name} {
+        //background: $color;
         color: array-get($color, base);
       }
     }
@@ -163,7 +167,7 @@ $sh-pill-radius: 60px;
       }
     }
 
-    // Button sizing
+    //  // Button sizing
 
     &.btn-lg {
       > span {
@@ -327,52 +331,53 @@ $sh-pill-radius: 60px;
   }
 
   // air buttons
-  @each $name, $color in $sh--state-colors {
-    &.btn-outline-#{$name}.sh-btn--air,
-    &.btn-#{$name}.sh-btn--air,
-    &.sh-btn--gradient-from-#{$name}.sh-btn--air {
-      box-shadow: 0px 5px 10px 2px rgba(array-get($color, base), 0.19) !important;
-
-      &.focus,
-      &:focus,
-      &:hover {
-        box-shadow: 0px 5px 10px 2px rgba(array-get($color, base), 0.36) !important;
-      }
-    }
-
-    &.btn-outline-#{$name} {
-      &.focus,
-      &:focus,
-      &:hover {
-        border-color: array-get($color, base);
-        background: array-get($color, base);
-        color: array-get($color, inverse);
-      }
-    }
-
-    &.btn + .btn.dropdown-toggle {
-      position: relative;
-
-      &:before {
-        display: block;
-        content: ' ';
-        border-left: 1px solid #fff;
-        position: absolute;
-        top: 3px;
-        left: -1px;
-        bottom: 3px;
-        opacity: 0.3;
-      }
-
-      &:hover,
-      &:focus,
-      &.active {
-        &:before {
-          display: none;
-        }
-      }
-    }
-  }
+  //@each $name, $color in $colors {
+  //
+  //  &.btn-outline-#{$name}.sh-btn--air,
+  //  &.btn-#{$name}.sh-btn--air,
+  //  &.sh-btn--gradient-from-#{$name}.sh-btn--air {
+  //    box-shadow: 0px 5px 10px 2px rgba(array-get($colors, $color, base), 0.19) !important;
+  //
+  //    &.focus,
+  //    &:focus,
+  //    &:hover {
+  //      box-shadow: 0px 5px 10px 2px rgba(array-get($colors, $color, base), 0.36) !important;
+  //    }
+  //  }
+  //
+  //  &.btn-outline-#{$name} {
+  //    &.focus,
+  //    &:focus,
+  //    &:hover {
+  //      border-color: array-get($color, base);
+  //      background: array-get($color, base);
+  //      color: array-get($color, inverse);
+  //    }
+  //  }
+  //
+  //  &.btn + .btn.dropdown-toggle {
+  //    position: relative;
+  //
+  //    &:before {
+  //      display: block;
+  //      content: ' ';
+  //      border-left: 1px solid #fff;
+  //      position: absolute;
+  //      top: 3px;
+  //      left: -1px;
+  //      bottom: 3px;
+  //      opacity: 0.3;
+  //    }
+  //
+  //    &:hover,
+  //    &:focus,
+  //    &.active {
+  //      &:before {
+  //        display: none;
+  //      }
+  //    }
+  //  }
+  //}
 
   // Button outline fix
   button {
@@ -384,152 +389,152 @@ $sh-pill-radius: 60px;
 }
 
 //== Component Skin
-@mixin sh-build-component--buttons-skin() {
-  $skin: get-default-skin();
-
-  .btn {
-    // standart buttons
-    &.btn-default,
-    &.btn-secondary {
-      background: white;
-      border-color: array-get($sh--forms, input, skins, $skin, default, border, default);
-
-      i {
-        color: get-color($skin, regular, '-');
-      }
-
-      &:hover:not(:disabled),
-      &.active,
-      &:active,
-      &:focus,
-      .show > &.dropdown-toggle {
-        border-color: array-get($sh--forms, input, skins, $skin, default, border, default);
-        background-color: get-color($skin, panel, '-');
-      }
-
-      &.disabled,
-      &:disabled {
-        border-color: array-get($sh--forms, input, skins, $skin, default, border, disabled);
-      }
-    }
-
-    // air buttons
-    &.sh-btn--air {
-      &.btn-default,
-      &.btn-secondary {
-        box-shadow: array-get($sh--buttons, skins, $skin, air, box-shadow, default) !important;
-        border-color: #ffffff !important;
-
-        &.focus,
-        &:focus,
-        &:hover:not(:disabled):not(.active) {
-          box-shadow: array-get($sh--buttons, skins, $skin, air, box-shadow, hover) !important;
-          background: get-brand-color() !important;
-          color: get-brand-inverse-color(inverse) !important;
-          border-color: get-brand-color() !important;
-
-          i {
-            color: get-brand-inverse-color(inverse) !important;
-          }
-        }
-      }
-    }
-
-    // hover buttons
-    @each $name, $color in $sh--state-colors {
-      // standart buttons
-      &.sh-btn--hover-#{$name} {
-        &:not(.btn-secondary):not(.btn-outline-light) {
-          background: none;
-          color: get-color($skin, regular);
-
-          i {
-            color: get-color($skin, regular, '---');
-          }
-        }
-
-        &:hover,
-        &.active,
-        &:active,
-        &:focus,
-        .show > &.dropdown-toggle {
-          border-color: array-get($color, base) !important;
-          color: array-get($color, inverse) !important;
-
-          i {
-            color: array-get($color, inverse) !important;
-          }
-
-          background-color: array-get($color, base) !important;
-        }
-      }
-
-      // gradient buttons
-      &.sh-btn--gradient-from-#{$name} {
-        color: array-get($color, inverse);
-        border: 0 !important;
-
-        @each $name2, $color2 in $sh--state-colors {
-          &.sh-btn--gradient-to-#{$name2} {
-            @include gradient-bg(array-get($color, base), 135deg, array-get($color, base) 30%, array-get($color2, base) 100%);
-
-            &:hover,
-            &.active,
-            &:active,
-            &:focus,
-            .show > &.dropdown-toggle {
-              @include gradient-bg(darken(array-get($color, base), 6%), 135deg, darken(array-get($color, base), 6%) 30%, darken(array-get($color2, base), 6%) 100%);
-            }
-          }
-        }
-      }
-
-      &.btn-#{$name} {
-        color: array-get($color, inverse);
-
-        &.active,
-        &.focus,
-        &:focus,
-        &:hover:not(:disabled) {
-          color: array-get($color, inverse) !important;
-        }
-      }
-
-      &.btn-outline-#{$name} {
-        color: array-get($color, base);
-
-        &.active,
-        &.focus,
-        &:focus,
-        &:hover:not(:disabled) {
-          color: array-get($color, inverse) !important;
-        }
-      }
-    }
-  }
-
-  // air Button group
-  .btn-group {
-    &.sh-btn-group--air {
-      box-shadow: array-get($sh--buttons, skins, $skin, air, box-shadow, default) !important;
-
-      .btn-default,
-      .btn-secondary {
-        border-color: #ffffff !important;
-
-        &.focus,
-        &:focus,
-        &:hover:not(:disabled) {
-          background: #ffffff !important;
-          box-shadow: array-get($sh--buttons, skins, $skin, air, box-shadow, default) !important;
-        }
-      }
-    }
-  }
-}
+//@mixin sh-build-component--buttons-skin() {
+//  $skin: $default-skin;
+//
+//  .btn {
+//    // standart buttons
+//    &.btn-default,
+//    &.btn-secondary {
+//      background: white;
+//      border-color: array-get($sh--forms, input, skins, $skin, default, border, default);
+//
+//      i {
+//        color: get-color($skin, regular, '-');
+//      }
+//
+//      &:hover:not(:disabled),
+//      &.active,
+//      &:active,
+//      &:focus,
+//      .show > &.dropdown-toggle {
+//        border-color: array-get($sh--forms, input, skins, $skin, default, border, default);
+//        background-color: get-color($skin, panel, '-');
+//      }
+//
+//      &.disabled,
+//      &:disabled {
+//        border-color: array-get($sh--forms, input, skins, $skin, default, border, disabled);
+//      }
+//    }
+//
+//    // air buttons
+//    &.sh-btn--air {
+//      &.btn-default,
+//      &.btn-secondary {
+//        box-shadow: array-get($sh--buttons, skins, $skin, air, box-shadow, default) !important;
+//        border-color: #ffffff !important;
+//
+//        &.focus,
+//        &:focus,
+//        &:hover:not(:disabled):not(.active) {
+//          box-shadow: array-get($sh--buttons, skins, $skin, air, box-shadow, hover) !important;
+//          background: get-brand-color() !important;
+//          color: get-brand-inverse-color(inverse) !important;
+//          border-color: get-brand-color() !important;
+//
+//          i {
+//            color: get-brand-inverse-color(inverse) !important;
+//          }
+//        }
+//      }
+//    }
+//
+//    // hover buttons
+//    @each $name, $color in $colors {
+//      // standart buttons
+//      &.sh-btn--hover-#{$name} {
+//        &:not(.btn-secondary):not(.btn-outline-light) {
+//          background: none;
+//          color: get-color($skin, regular);
+//
+//          i {
+//            color: get-color($skin, regular, '---');
+//          }
+//        }
+//
+//        &:hover,
+//        &.active,
+//        &:active,
+//        &:focus,
+//        .show > &.dropdown-toggle {
+//          border-color: array-get($color, base) !important;
+//          color: array-get($color, inverse) !important;
+//
+//          i {
+//            color: array-get($color, inverse) !important;
+//          }
+//
+//          background-color: array-get($color, base) !important;
+//        }
+//      }
+//
+//      // gradient buttons
+//      &.sh-btn--gradient-from-#{$name} {
+//        color: array-get($color, inverse);
+//        border: 0 !important;
+//
+//        @each $name2, $color2 in $sh--state-colors {
+//          &.sh-btn--gradient-to-#{$name2} {
+//            @include gradient-bg(array-get($color, base), 135deg, array-get($color, base) 30%, array-get($color2, base) 100%);
+//
+//            &:hover,
+//            &.active,
+//            &:active,
+//            &:focus,
+//            .show > &.dropdown-toggle {
+//              @include gradient-bg(darken(array-get($color, base), 6%), 135deg, darken(array-get($color, base), 6%) 30%, darken(array-get($color2, base), 6%) 100%);
+//            }
+//          }
+//        }
+//      }
+//
+//      &.btn-#{$name} {
+//        color: array-get($color, inverse);
+//
+//        &.active,
+//        &.focus,
+//        &:focus,
+//        &:hover:not(:disabled) {
+//          color: array-get($color, inverse) !important;
+//        }
+//      }
+//
+//      &.btn-outline-#{$name} {
+//        color: array-get($color, base);
+//
+//        &.active,
+//        &.focus,
+//        &:focus,
+//        &:hover:not(:disabled) {
+//          color: array-get($color, inverse) !important;
+//        }
+//      }
+//    }
+//  }
+//
+//  // air Button group
+//  .btn-group {
+//    &.sh-btn-group--air {
+//      box-shadow: array-get($sh--buttons, skins, $skin, air, box-shadow, default) !important;
+//
+//      .btn-default,
+//      .btn-secondary {
+//        border-color: #ffffff !important;
+//
+//        &.focus,
+//        &:focus,
+//        &:hover:not(:disabled) {
+//          background: #ffffff !important;
+//          box-shadow: array-get($sh--buttons, skins, $skin, air, box-shadow, default) !important;
+//        }
+//      }
+//    }
+//  }
+//}
 
 //== Build Component Base
 @include sh-build-component--buttons-base();
 
 //== Build Component Skin
-@include sh-build-component--buttons-skin();
+//@include sh-build-component--buttons-skin();
