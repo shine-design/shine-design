@@ -15,6 +15,9 @@ export default {
     <Button bgColor="primary" />
     <Button bgColor="danger" />
     <Button bgColor="warning" />
+    <Button bgColor="success" />
+    <Button bgColor="info" />
+    <Button bgColor="brand" />
 </div>
     `,
   },
