@@ -60,10 +60,10 @@ describe('Input', () => {
     });
   });
 
-  it('组件属性 inputStyle', () => {
+  it('组件属性 formStyle', () => {
     const styleList = ['default', 'pill', 'square'];
     _.forEach(styleList, style => {
-      const wrapper = mount(<Input inputStyle={style}/>);
+      const wrapper = mount(<Input formStyle={style}/>);
       expect(wrapper.hasClass(`${classPrefix}-form-control--${style}`));
       wrapper.unmount();
     });

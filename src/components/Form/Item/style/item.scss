@@ -398,6 +398,6 @@
 
 @include m-build-component--form-skin();
 
-@include m-build-component--form-validation-state(success, array-get($colors, success, base));
-@include m-build-component--form-validation-state(warning, array-get($colors, warning, base));
-@include m-build-component--form-validation-state(danger, array-get($colors, danger, base));
+@include m-build-component--form-validation-state(success, array-get($shine-colors, success, base));
+@include m-build-component--form-validation-state(warning, array-get($shine-colors, warning, base));
+@include m-build-component--form-validation-state(danger, array-get($shine-colors, danger, base));

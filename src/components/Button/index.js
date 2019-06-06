@@ -9,6 +9,7 @@ import React, {PureComponent} from 'react';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import {classPrefix} from 'variables';
+import './style/index.scss';
 
 class Button extends PureComponent {
   render() {
@@ -16,9 +17,10 @@ class Button extends PureComponent {
 
     /** 计算样式 */
     const classes = classNames(
-      `${classPrefix}-btn`,
+      // `${classPrefix}-btn`,
+      'btn','sh-btn',
       {
-        [`${classPrefix}-btn-${bgColor}`]: _.isString(bgColor),
+        [`btn-${bgColor}`]: _.isString(bgColor),
       },
       className,
     );

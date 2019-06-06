@@ -71,7 +71,7 @@ class Input extends PureComponent {
 
   render() {
     const {defaultValue, isDisabled, isReadOnly, id, type, value, name, placeholder} = this.props;
-    const {size, inputStyle, rules} = this.props;
+    const {size, formStyle, rules} = this.props;
     const {onChange, onBlur, onClick, onFocus, onInput} = this.props;
     const {className, attributes} = this.props;
     const {isValidate} = this.props;
@@ -81,7 +81,7 @@ class Input extends PureComponent {
       `${classPrefix}-form-control`,
       {
         [`${classPrefix}-form-control-${size}`]: _.includes(['small', 'large'], size),
-        [`${classPrefix}-form-control--${inputStyle}`]: _.includes(['pill', 'square'], inputStyle),
+        [`${classPrefix}-form-control--${formStyle}`]: _.includes(['pill', 'square'], formStyle),
       },
       className,
     );
@@ -141,7 +141,7 @@ Input.propTypes = {
   /** 设置输入框尺寸，支持 default：默认 / small：小尺寸 / large：大尺寸 */
   size: PropTypes.oneOf(['default', 'small', 'large']),
   /** 输入框样式，支持 default：圆角矩形 / pill：椭圆形矩形 / square：直角矩形 */
-  inputStyle: PropTypes.oneOf(['default', 'pill', 'square']),
+  formStyle: PropTypes.oneOf(['default', 'pill', 'square']),
   /** 表单校验规则 */
   rules: PropTypes.object,
   /** 表单校验失败提示文字 */
@@ -168,7 +168,7 @@ Input.defaultProps = {
   isReadOnly: false,
   type: 'text',
   size: 'default',
-  inputStyle: 'default',
+  formStyle: 'default',
   rules: undefined,
   errorMsg: undefined,
   onChange: undefined,

@@ -78,10 +78,10 @@
   }
 }
 
-@each $name, $color in $colors {
+@each $name, $color in $shine-colors {
 
   .#{$classPrefix}-badge.#{$classPrefix}-badge-inverse--#{$name} {
-    background-color: array-get($colors, light, base);
+    background-color: array-get($shine-colors, light, base);
     color: array-get($color, base);
   }
 

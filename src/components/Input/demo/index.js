@@ -36,13 +36,13 @@ export default {
 </div>
 `,
   },
-  inputStyle: {
+  formStyle: {
     components,
     jsx: `
 <div class="shine-input-helper">
-    <Input inputStyle="default" placeholder="圆角矩形文本框" />
-    <Input inputStyle="square" placeholder="直角矩形文本框" />
-    <Input inputStyle="pill" placeholder="椭圆矩形文本框" />
+    <Input formStyle="default" placeholder="圆角矩形文本框" />
+    <Input formStyle="square" placeholder="直角矩形文本框" />
+    <Input formStyle="pill" placeholder="椭圆矩形文本框" />
 </div>
 `,
   },

@@ -18,6 +18,9 @@ export {default as Button} from './components/Button';
 export {default as Form} from './components/Form';
 /** 输入框 */
 export {default as Input} from './components/Input';
-
+/** 多行输入框 */
 export {default as TextArea} from './components/TextArea';
-
+/** 下拉选择 */
+export {default as Select} from './components/Select';
+/** 模态框 */
+export {default as Modal} from './components/Modal';

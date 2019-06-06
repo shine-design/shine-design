@@ -8,6 +8,7 @@ import _ from 'lodash';
 import React, {PureComponent} from 'react';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
+import {classPrefix} from 'variables';
 
 class TextArea extends PureComponent {
 
@@ -19,7 +20,7 @@ class TextArea extends PureComponent {
 
     /** 计算样式 */
     const classes = classNames(
-      'form-control',
+      `${classPrefix}-form-control`,
       {
         [`form-control-${size}`]: _.includes(['small', 'large'], size),
         [`form-control--${textAreaStyle}`]: _.includes(['pill', 'square'], textAreaStyle),

@@ -6,7 +6,7 @@
 @import "../functions/index";
 @import "../variables";
 
-@each $name, $color in $colors {
+@each $name, $color in $shine-colors {
 
   /** 背景色背景（前景色字体） */
   .#{$classPrefix}--bg-#{$name} {
