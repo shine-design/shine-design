@@ -98,7 +98,7 @@ export default {
     {label: '首页', link: '/'},
     {label: '快速上手', link: '/tutorial'},
     {label: '组件文档', link: '/guide'},
-    {label: '构建工具', link: '/cli'},
+    {label: '构建工具', link: '/tools'},
     {label: '更新日志', link: '/changelog'},
     {label: '贡献指南', link: '/contribute'},
   ],
@@ -116,6 +116,7 @@ export default {
         {label: 'Color 色彩', link: '/guide/color'},
         {label: 'Typography 排版', link: '/guide/typography'},
         {label: 'Button 按钮', link: '/guide/button'},
+        {label: 'Icon 图标', link: '/guide/icon'},
       ],
     },
     {

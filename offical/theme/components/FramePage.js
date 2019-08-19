@@ -14,6 +14,7 @@ import Guide from './Container/components/Guide';
 import Tutorial from './Container/components/Tutorial';
 import ChangeLog from './Container/components/ChangeLog';
 import Contribute from './Container/components/Contribute';
+import Tools from './Container/components/Tools';
 
 export default class extends Component {
 
@@ -38,6 +39,7 @@ export default class extends Component {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/guide" component={Guide} />
+            <Route path="/tools" exact component={Tools} />
             <Route path="/tutorial" exact component={Tutorial} />
             <Route path="/changelog" exact component={ChangeLog} />
             <Route path="/contribute" exact component={Contribute} />

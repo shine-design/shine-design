@@ -7,11 +7,11 @@
 import React, {Fragment, PureComponent} from 'react';
 import _ from 'lodash';
 import {classPrefix} from 'variables';
-import Button from '../Button';
+import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import jQuery from 'jquery';
+import Button from '../Button';
 import 'bootstrap/js/src/modal';
-import * as PropTypes from 'prop-types';
 import './style/index.scss';
 
 class Modal extends PureComponent {
@@ -36,7 +36,12 @@ class Modal extends PureComponent {
 
   onDefaultClose = () => {
     const {onClose} = this.props;
-    _.isFunction(onClose) ? onClose() : this.triggerModal(false);
+    if (_.isFunction(onClose)) {
+      onClose();
+    }
+    else {
+      this.triggerModal(false);
+    }
   };
 
   render() {

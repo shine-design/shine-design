@@ -24,3 +24,5 @@ export {default as TextArea} from './components/TextArea';
 export {default as Select} from './components/Select';
 /** 模态框 */
 export {default as Modal} from './components/Modal';
+/** 图标 */
+export {default as Icon} from './components/Icon';

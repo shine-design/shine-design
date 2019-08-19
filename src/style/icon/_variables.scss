@@ -1,0 +1,10 @@
+@import "~style/variables";
+@import "./dictionary";
+
+$fa-font-size-base:   14px !default;
+$fa-line-height-base: 1 !default;
+$fa-css-prefix:       $classPrefix !default;
+$fa-version:          "4.7.0" !default;
+$fa-border-color:     #eee !default;
+$fa-inverse:          #fff !default;
+$fa-li-width:         (30em / 14) !default;
