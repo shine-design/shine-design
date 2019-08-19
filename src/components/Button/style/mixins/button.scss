@@ -10,7 +10,7 @@
     @include button-variant(array-get($color, base), array-get($color, base));
   }
 
-  .btn-outline-#{$name} {
+  .#{$classPrefix}-btn.btn-outline-#{$name} {
     @include button-outline-variant(array-get($color, base), array-get($color, inverse));
   }
 }

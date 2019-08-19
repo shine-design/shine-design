@@ -1,6 +1,6 @@
 ---
 name: Form 表单控件
-route: /doc/form
+route: /guide/form
 menu: form
 ---
 
@@ -8,10 +8,8 @@ import JsxParser from "react-jsx-parser";
 import {
   MessageBox,
   InlineCode,
-  Section,
-  Preview,
-  Playground,
   Code,
+  Example,
   PropsTable
 } from "theme";
 import {Form , Input} from 'shineDev';
@@ -61,24 +59,20 @@ Shine Design 推荐如下作为表单的标准结构：
 
 ## 基础表单
 
-<Section>
-  <Preview>
-    <Playground>
-       <div className="shine-form-helper">
-          <Form>
-             <Input placeholder="请输入文本" />
-             <Form.Item label="普通文本" helper="We'll never share your text with anyone else.">
-                <Input placeholder="请输入文本" />
-             </Form.Item>
-         </Form>
-       </div>
-    </Playground>
-
-  </Preview>
-  <Code>
-    {code.form.jsx}
-  </Code>
-</Section>
+<Example 
+  display={
+    <div className="shine-form-helper">
+              <Form>
+                 <Input placeholder="请输入文本" />
+                 <Form.Item label="普通文本" helper="We'll never share your text with anyone else.">
+                    <Input placeholder="请输入文本" />
+                 </Form.Item>
+             </Form>
+           </div>
+  }
+  code={{code:code.form.jsx}}
+  components={code.form.components}
+/>
 
 ### 配置参数
 

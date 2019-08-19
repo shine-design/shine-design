@@ -1,6 +1,6 @@
 ---
 name: Button 按钮
-route: /doc/button
+route: /guide/button
 menu: button
 ---
 
@@ -8,9 +8,7 @@ import JsxParser from "react-jsx-parser";
 import {
   MessageBox,
   InlineCode,
-  Section,
-  Preview,
-  Playground,
+  Example,
   Code,
   PropsTable
 } from "theme";
@@ -22,22 +20,36 @@ import './demo/index.scss';
 
 ## 概述
 
-待补充
+用于触发若干操作命令或用户行为。
 
 ## 代码示例
-### 基础按钮
 
-<Section>
-  <Preview>
-    <Playground>
-       <JsxParser {...code.basic} />
-    </Playground>
+#### 基础按钮
+基于[Color 色彩](./color)配置，我们提供了所有色彩样式的基础按钮以及基础轮廓按钮。
 
-  </Preview>
-  <Code>
-    {code.basic.jsx}
-  </Code>
-</Section>
+<Example 
+  display={<JsxParser {...code.basic} />}
+  code={{code:code.basic.jsx}}
+  components={code.basic.components}
+/>
+
+#### 按钮样式
+针对不同风格的主题，提供了不同的边框样式可供选择，目前支持圆角矩形、直角矩形和椭圆矩形。
+
+<Example 
+  display={<JsxParser {...code.btnStyle} />}
+  code={{code:code.btnStyle.jsx}}
+  components={code.btnStyle.components}
+/>
+
+#### 按钮尺寸
+组件提供除了默认值以外的两种不同尺寸，可以在不同场景下选择合适的按钮尺寸。
+
+<Example 
+  display={<JsxParser {...code.btnSize} />}
+  code={{code:code.btnSize.jsx}}
+  components={code.btnSize.components}
+/>
 
 ### 配置参数
 

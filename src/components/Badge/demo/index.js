@@ -10,8 +10,8 @@ const components = {Badge};
 export default {
   basic: {
     components,
-    jsx: `
-<div class="shine-badge-helper">
+    jsx:
+`<div class="shine-badge-helper">
     <Badge bgColor="brand">1</Badge>
     <Badge bgColor="grace">2</Badge>
     <Badge bgColor="metal">3</Badge>
@@ -37,8 +37,8 @@ export default {
   },
   dot : {
     components,
-    jsx: `
-<div class="shine-badge-helper">
+    jsx:
+ `<div class="shine-badge-helper">
     <Badge bgColor="brand" isDot={true} dotSize="small">1</Badge>
     <Badge bgColor="grace" isDot={true} dotSize="small">2</Badge>
     <Badge bgColor="metal" isDot={true} dotSize="small">3</Badge>
@@ -76,8 +76,8 @@ export default {
   },
   border : {
     components,
-    jsx: `
-<div class="shine-badge-helper">
+    jsx:
+`<div class="shine-badge-helper">
     <Badge bgColor="brand" borderType="square">1</Badge>
     <Badge bgColor="grace" borderType="square">2</Badge>
     <Badge bgColor="metal" borderType="square">3</Badge>

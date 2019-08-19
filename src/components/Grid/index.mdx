@@ -1,6 +1,6 @@
 ---
 name: Grid 栅格系统
-route: /doc/grid
+route: /guide/grid
 menu: common
 ---
 
@@ -12,6 +12,7 @@ import {
   Preview,
   Playground,
   Code,
+  Example,
   PropsTable
 } from "theme";
 import { Row, Col } from "shineDev";
@@ -38,65 +39,45 @@ import "./demo/index.scss";
   修饰符，在开发过程中无需配置该字段。
 </MessageBox>
 
-### 基础栅格
+#### 基础栅格
 
 栅格布局主要由行组件 `Row` 和列组件 `Col` 搭配实现。在页面任何位置，通过将一个或多个 `Col` 嵌套在 `Row` 中，即可实现基础的栅格布局。
 
 我们将 `Row` 组件空间分成无数个相对独立的单元，每个单元我们称为 **格块** 。每个 `Col` 可以拥有一个或多个格块，但同一行中，所有的格块数加起来，不能超过最大值 **24** 。
 
-<Section>
-  <Preview>
-    <Playground>
-       <JsxParser {...code.basic} />
-    </Playground>
+<Example 
+  display={<JsxParser {...code.basic} />}
+  code={{code:code.basic.jsx}}
+  components={code.basic.components}
+/>
 
-  </Preview>
-  <Code>
-    {code.basic.jsx}
-  </Code>
-</Section>
-
-### 偏移量
+#### 偏移量
 
 偏移是一个用于更专业的布局的功能，它可用来给列腾出更多的空间。偏移量的基本单位是 **格块** ，且偏移数量会计入有效格块总数。
 
 使用 `offset` 属性可以设置当前列相对原始位置的偏移量。
 
-<Section>
-  <Preview>
-    <Playground>
-       <JsxParser {...code.offset} />
-    </Playground>
+<Example 
+  display={<JsxParser {...code.offset} />}
+  code={{code:code.offset.jsx}}
+/>
 
-  </Preview>
-  <Code>
-    {code.offset.jsx}
-  </Code>
-</Section>
-
-### 排序
+#### 排序
 
 排序是另一种专业的布局功能，它可以让开发者以一种顺序创建列，并以另一种顺序在页面上展示。
 
 使用 `order` 属性可以设置当前列在该行的排列顺序，数值越小的，优先级越高，排列顺序也越靠前。
 
-<Section>
-  <Preview>
-    <Playground>
-       <JsxParser {...code.order} />
-    </Playground>
-
-  </Preview>
-  <Code>
-    {code.order.jsx}
-  </Code>
-</Section>
+<Example 
+  display={<JsxParser {...code.order} />}
+  code={{code:code.order.jsx}}
+/>
 
 <MessageBox messageType="info">
   比较 Preview 和 Code 界面，会发现实现的顺序和展示的顺序并不一致。
 </MessageBox>
 
-### 响应式
+#### 响应式
 
 响应式布局可以为同一个网站在不同的终端（PC、平板、手机等）的用户提供更加舒适的界面和更好的用户体验。我们提供了一套基于不同分辨率设备的响应式布局方案，对应关系如下所示：
 
@@ -110,23 +91,16 @@ import "./demo/index.scss";
 | 1400px -1600px |  xxl   |
 |    > 1600px    |  xxxl  |
 
-<Section>
-  <Preview>
-    <Playground>
-       <JsxParser {...code.responsive} />
-    </Playground>
-
-  </Preview>
-  <Code>
-    {code.responsive.jsx}
-  </Code>
-</Section>
+<Example 
+  display={<JsxParser {...code.responsive} />}
+  code={{code:code.responsive.jsx}}
+/>
 
 <MessageBox messageType="info">
   调整浏览器尺寸即可查看响应式显示效果。
 </MessageBox>
 
-### 水平对齐
+#### 水平对齐
 
 水平对齐用于对同一行的多个列进行横向排序，支持的选择有：
 
@@ -136,19 +110,13 @@ import "./demo/index.scss";
 - space-around：两端对齐，列之间间隔相等
 - space-between：两端对齐，每个列两侧的间隔相等。所以，列之间的间隔比列与边框的间隔大一倍。
 
-<Section>
-  <Preview>
-    <Playground>
-       <JsxParser {...code.justify} />
-    </Playground>
+<Example 
+  display={<JsxParser {...code.justify} />}
+  code={{code:code.justify.jsx}}
+/>
 
-  </Preview>
-  <Code>
-    {code.justify.jsx}
-  </Code>
-</Section>
 
-### 垂直对齐
+#### 垂直对齐
 
 垂直对齐用于对同一行的多个列进行竖向排序，支持的选择有：
 
@@ -156,29 +124,22 @@ import "./demo/index.scss";
 - middle：中线对齐
 - bottom：底部对齐
 
-<Section>
-  <Preview>
-    <Playground>
-       <JsxParser {...code.align} />
-    </Playground>
-
-  </Preview>
-  <Code>
-    {code.align.jsx}
-  </Code>
-</Section>
+<Example 
+  display={<JsxParser {...code.align} />}
+  code={{code:code.align.jsx}}
+/>
 
 ## 配置参数
 
-### Row
+#### Row
 
 <PropsTable of={Row} test="aaa" />
 
-### Col
+#### Col
 
 <PropsTable of={Col} />
 
-#### 属性 col
+##### 属性 col
 
 |  类型  |     可选项     | 描述                                              |
 | :----: | :------------: | :------------------------------------------------ |
@@ -186,14 +147,14 @@ import "./demo/index.scss";
 | Number | 1 - 24（默认） | 定义列所占据的格块数计算                          |
 | Object |       {}       | 定义在不同的响应式标识符下的展示格块。如 `{md:3}` |
 
-#### 属性 offset
+##### 属性 offset
 
 |  类型  |     可选项     | 描述                                              |
 | :----: | :------------: | :------------------------------------------------ |
 | Number | 1 - 23（默认） | 定义列所偏移的格块数计算                          |
 | Object |       {}       | 定义在不同的响应式标识符下的偏移格块。如 `{md:3}` |
 
-#### 属性 order
+##### 属性 order
 
 |  类型  |     可选项     | 描述                                                      |
 | :----: | :------------: | :-------------------------------------------------------- |
@@ -202,10 +163,10 @@ import "./demo/index.scss";
 
 ## FAQ
 
-#### 我不想使用你们提供的布局组件，我可以引入第三方布局库吗？
+##### 我不想使用你们提供的布局组件，我可以引入第三方布局库吗？
 
 答：当然可以，我们欢迎你使用 Shine Design 的布局组件，但这并不强制，我们推荐一些社区优秀的解决方案，如 [React-FlexBox-Grid](http://roylee0704.github.io/react-flexbox-grid/) 和 [react-blocks](https://github.com/whoisandy/react-blocks/) 等。
 
-#### 你们为什么不引入更多的 Flex 特性，增加布局的配置项？
+##### 你们为什么不引入更多的 Flex 特性，增加布局的配置项？
 
 答：我们在多样性和复杂性上进行了一个平衡，目前已经提供的配置项是高频的需求，其他较为冷门的布局方案，我们也支持开发者通过 `className` 的方式自行配置。额外的增加配置项会对开发者造成困惑。

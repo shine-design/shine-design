@@ -84,10 +84,11 @@ module.exports = {
   websitePath: resolveApp('website'),
   websiteIndexJs: resolveApp('website/index'),
   websiteHtml: resolveApp('website/index.html'),
-  siteHtml: resolveApp('site/index.html'),
-  themeIndex: resolveApp('site/theme/index.js'),
-  themePath: resolveApp('site/theme'),
-  sitePath: resolveApp('site'),
+  siteHtml: resolveApp('offical/index.html'),
+  themeIndex: resolveApp('offical/theme/index.js'),
+  themePath: resolveApp('offical/theme'),
+  sitePath: resolveApp('offical'),
+  siteSrc: resolveApp('offical/theme'),
 };
 
 

@@ -1,6 +1,6 @@
 ---
 name: Select 选择框
-route: /doc/select
+route: /guide/select
 menu: form
 ---
 
@@ -8,9 +8,7 @@ import JsxParser from "react-jsx-parser";
 import {
   MessageBox,
   InlineCode,
-  Section,
-  Preview,
-  Playground,
+  Example,
   Code,
   PropsTable
 } from "theme";
@@ -34,14 +32,8 @@ import code from "./demo";
 
 下拉选框组件是由基础输入标签封装而成，可以快速的创建一些常见的表单控件。
 
-<Section>
-  <Preview>
-    <Playground>
-       <JsxParser {...code.basic} />
-    </Playground>
-
-  </Preview>
-  <Code>
-    {code.basic.jsx}
-  </Code>
-</Section>
+<Example 
+  display={<JsxParser {...code.basic} />}
+  code={{code:code.basic.jsx}}
+  components={code.basic.components}
+/>

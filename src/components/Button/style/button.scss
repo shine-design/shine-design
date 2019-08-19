@@ -2,9 +2,11 @@
  * @Author 瞿龙俊 - qulongjun@shine.design
  * @Date 2018/9/5 下午5:50
  */
+@import "~style/variables";
 @import "./config/color";
 @import "./config/font";
-@import "./config/form";
+@import "../../Input/style/variables";
+//@import "./config/form";
 @import "./config/button";
 
 $sh-pill-radius: 60px;
@@ -27,11 +29,7 @@ $sh-pill-radius: 60px;
       box-shadow: none;
     }
 
-    // force cursor: pointer for Button tags
-    @if ($sh--btn-force-hover-pointer == true) {
-      cursor: pointer;
-    }
-
+    cursor: pointer;
     border-radius: 0;
     @include rounded {
       border-radius: array-get($sh--buttons, layout, self, border-radius);
@@ -91,7 +89,7 @@ $sh-pill-radius: 60px;
     }
 
     // label states
-    @each $name, $color in $sh--state-colors {
+    @each $name, $color in $shine-colors {
       &.sh-btn--label-#{$name} {
         color: array-get($color, base);
       }
@@ -327,7 +325,7 @@ $sh-pill-radius: 60px;
   }
 
   // air buttons
-  @each $name, $color in $sh--state-colors {
+  @each $name, $color in $shine-colors {
     &.btn-outline-#{$name}.sh-btn--air,
     &.btn-#{$name}.sh-btn--air,
     &.sh-btn--gradient-from-#{$name}.sh-btn--air {
@@ -385,14 +383,14 @@ $sh-pill-radius: 60px;
 
 //== Component Skin
 @mixin sh-build-component--buttons-skin() {
-  $skin: get-default-skin();
+  $skin: $default-skin;
 
   .btn {
     // standart buttons
     &.btn-default,
     &.btn-secondary {
       background: white;
-      border-color: array-get($sh--forms, input, skins, $skin, default, border, default);
+      border-color: array-get($shine-input, skins, $skin, default, border, default);
 
       i {
         color: get-color($skin, regular, '-');
@@ -403,13 +401,13 @@ $sh-pill-radius: 60px;
       &:active,
       &:focus,
       .show > &.dropdown-toggle {
-        border-color: array-get($sh--forms, input, skins, $skin, default, border, default);
+        border-color: array-get($shine-input, skins, $skin, default, border, default);
         background-color: get-color($skin, panel, '-');
       }
 
       &.disabled,
       &:disabled {
-        border-color: array-get($sh--forms, input, skins, $skin, default, border, disabled);
+        border-color: array-get($shine-input, skins, $skin, default, border, disabled);
       }
     }
 
@@ -436,7 +434,7 @@ $sh-pill-radius: 60px;
     }
 
     // hover buttons
-    @each $name, $color in $sh--state-colors {
+    @each $name, $color in $shine-colors {
       // standart buttons
       &.sh-btn--hover-#{$name} {
         &:not(.btn-secondary):not(.btn-outline-light) {
@@ -469,7 +467,7 @@ $sh-pill-radius: 60px;
         color: array-get($color, inverse);
         border: 0 !important;
 
-        @each $name2, $color2 in $sh--state-colors {
+        @each $name2, $color2 in $shine-colors {
           &.sh-btn--gradient-to-#{$name2} {
             @include gradient-bg(array-get($color, base), 135deg, array-get($color, base) 30%, array-get($color2, base) 100%);
 

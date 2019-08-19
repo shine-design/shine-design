@@ -1,6 +1,6 @@
 ---
 name: Input 输入框
-route: /doc/input
+route: /guide/input
 menu: form
 ---
 
@@ -8,12 +8,9 @@ import JsxParser from "react-jsx-parser";
 import {
   MessageBox,
   InlineCode,
-  Section,
-  Preview,
-  Playground,
+  Example,
   Code,
-  PropsTable,
-  Link
+  PropsTable
 } from "theme";
 import { Input } from "shineDev";
 import code from "./demo";
@@ -32,97 +29,69 @@ import "./demo/index.scss";
   修饰符，在开发过程中无需配置该字段。
 </MessageBox>
 
-### 基础输入框
+#### 基础输入框
 
 输入框组件是由基础输入标签封装而成，可以快速的创建一些常见的表单控件。
 
-<Section>
-  <Preview>
-    <Playground>
-       <JsxParser {...code.basic} />
-    </Playground>
+<Example 
+  display={<JsxParser {...code.basic} />}
+  code={{code:code.basic.jsx}}
+  components={code.basic.components}
+/>
 
-  </Preview>
-  <Code>
-    {code.basic.jsx}
-  </Code>
-</Section>
-
-### 尺寸
+#### 尺寸
 
 输入框支持三种尺寸以适应不同的页面需求。
 
-<Section>
-  <Preview>
-    <Playground>
-       <JsxParser {...code.size} />
-    </Playground>
+<Example 
+  display={<JsxParser {...code.size} />}
+  code={{code:code.size.jsx}}
+  components={code.size.components}
+/>
 
-  </Preview>
-  <Code>
-    {code.size.jsx}
-  </Code>
-</Section>
-
-### 状态
+#### 状态
 
 在部分应用场景下，输入框需要展示为禁用和只读状态。
 
-<Section>
-  <Preview>
-    <Playground>
-       <JsxParser {...code.state} />
-    </Playground>
+<Example 
+  display={<JsxParser {...code.state} />}
+  code={{code:code.state.jsx}}
+  components={code.state.components}
+/>
 
-  </Preview>
-  <Code>
-    {code.state.jsx}
-  </Code>
-</Section>
-
-### 输入框类型
+#### 输入框类型
 
 使用 `formStyle` 属性可以指定单个输入框的类型，目前支持三种类型，通过不同类型搭配可以实现个性化表单。
 
-<Section>
-  <Preview>
-    <Playground>
-       <JsxParser {...code.formStyle} />
-    </Playground>
+<Example 
+  display={<JsxParser {...code.formStyle} />}
+  code={{code:code.formStyle.jsx}}
+  components={code.formStyle.components}
+/>
 
-  </Preview>
-  <Code>
-    {code.formStyle.jsx}
-  </Code>
-</Section>
-
-### 事件
+#### 事件
 
 <MessageBox messageType="info">
   打开浏览器控制台，并操作下方输入框，即可查看事件效果。
 </MessageBox>
 
-<Section>
-  <Preview>
-    <Playground>
+<Example 
+  display={
       <Input
         placeholder="打开控制台查看效果"
         onChange={e=>{console.log('onChange',e.target.value)}}
         onBlur={e=>{console.log('onBlur',e.target.value)}}
         onClick={e=>{console.log('onClick',e.target.value)}}
       />
-    </Playground>
-
-  </Preview>
-  <Code>
-    {code.event.jsx}
-  </Code>
-</Section>
+  }
+  code={{code:code.event.jsx}}
+  components={code.event.components}
+/>
 
 ## 配置参数
 
 <PropsTable of={Input} />
 
 <MessageBox messageType="info">
-  完整类型列表请参考 <Link href="//developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input#%E5%B1%9E%E6%80%A7">MDN</Link>
+  完整类型列表请参考 <a href="//developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input#%E5%B1%9E%E6%80%A7">MDN</a>。
 </MessageBox>

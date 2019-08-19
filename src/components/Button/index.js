@@ -13,14 +13,18 @@ import './style/index.scss';
 
 class Button extends PureComponent {
   render() {
-    const {label, type, bgColor, className, attributes, children} = this.props;
+    const {label, type, bgColor, outlineColor, btnStyle, size, gradientStart, gradientEnd, onClick, className, attributes, children} = this.props;
 
     /** 计算样式 */
     const classes = classNames(
-      // `${classPrefix}-btn`,
-      'btn','sh-btn',
+      `${classPrefix}-btn`, 'btn', 'sh-btn',
       {
+        [`btn-outline-${outlineColor}`]: _.isString(outlineColor),
         [`btn-${bgColor}`]: _.isString(bgColor),
+        [`sh-btn--${btnStyle}`]: _.isString(btnStyle),
+        [`btn-${size}`]: _.isString(size),
+        [`sh-btn--gradient-from-${gradientStart}`]: _.isString(gradientStart) && _.isString(gradientEnd),
+        [`sh-btn--gradient-to-${gradientEnd}`]: _.isString(gradientStart) && _.isString(gradientEnd),
       },
       className,
     );
@@ -30,6 +34,7 @@ class Button extends PureComponent {
       <button
         type={type}
         className={classes}
+        onClick={onClick}
         {...attributes}
       >
         {label || children}
@@ -47,17 +52,20 @@ Button.propTypes = {
   bgColor: PropTypes.string,
   /** 按钮轮廓颜色 */
   outlineColor: PropTypes.string,
-  /** 按钮渐变色，支持设置两个属性：from：起始颜色，to：终止颜色 */
-  gradient: PropTypes.shape({
-    from: PropTypes.string,
-    to: PropTypes.string,
-  }),
-  /** 按钮类型尺寸，支持 default：默认尺寸 / small：小尺寸 / large：大尺寸 */
-  size: PropTypes.oneOf(['default', 'small', 'large']),
+  /** 按钮类型，圆角矩形:normal，直角矩形:square，椭圆形:pill */
+  btnStyle: PropTypes.oneOf(['normal', 'square', 'pill']),
+  /** 按钮渐变色起始颜色，该属性与 gradientEnd 搭配使用 */
+  gradientStart: PropTypes.string,
+  /** 按钮渐变色结束颜色，该属性与 gradientStart 搭配使用 */
+  gradientEnd: PropTypes.string,
+  /** 按钮类型尺寸，支持 normal：默认尺寸 / sm：小尺寸 / lg：大尺寸 */
+  size: PropTypes.oneOf(['normal', 'sm', 'lg']),
   /** 按钮是否被激活 */
   isActive: PropTypes.bool,
   /** 按钮是否被禁用 */
   isDisabled: PropTypes.bool,
+  /** 按钮被点击触发事件 */
+  onClick: PropTypes.func,
   /** 用户自定义修饰符 */
   className: PropTypes.string,
   /** 用户自定义属性 */
@@ -65,14 +73,17 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  label: 'Button',
+  label: undefined,
   type: 'button',
-  bgColor: 'primary',
+  bgColor: 'light',
   outlineColor: undefined,
-  gradient: undefined,
-  size: 'default',
+  btnStyle: 'normal',
+  gradientStart: undefined,
+  gradientEnd: undefined,
+  size: 'normal',
   isActive: false,
   isDisabled: false,
+  onClick: undefined,
   className: '',
   attributes: {},
 };

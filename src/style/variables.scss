@@ -79,6 +79,10 @@ $shine-colors: (
   danger: (
     base: #F4516C,
     inverse: #ffffff
+  ),
+  secondary: (
+    base:#ffffff,
+    inverse:#212529
   )
 ) !default;
 
@@ -377,3 +381,9 @@ $font-weights: (
   boldest: 600, // access to this font weight value calling get-font-weight function as get-font-weight(boldest) in SASS code
   boldest2: 700 // access to this font weight value calling get-font-weight function as get-font-weight(boldest2) in SASS code
 ) !default;
+
+$modal--border-radius: (
+  general: 4px,
+  dropdown: 4px,
+  scrollbar: 2px
+);
