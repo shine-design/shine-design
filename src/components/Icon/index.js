@@ -16,13 +16,13 @@ class Icon extends PureComponent {
     const {iconName, size, isSpin, isPulse, rotate, flip, className, attributes, children} = this.props;
     /** 计算样式 */
     const classes = classNames(
-      `${classPrefix}-${iconName}`,
+      `${classPrefix}-icon-${iconName}`,
       {
-        [`${classPrefix}-${size}`]: _.isString(size),
-        [`${classPrefix}-spin`]: isSpin,
-        [`${classPrefix}-pulse`]: isPulse,
-        [`${classPrefix}-rotate-${rotate}`]: _.isNumber(rotate),
-        [`${classPrefix}-flip-${flip}`]: _.isString(flip),
+        [`${classPrefix}-icon-${size}`]: _.isString(size),
+        [`${classPrefix}-icon-spin`]: isSpin,
+        [`${classPrefix}-icon-pulse`]: isPulse,
+        [`${classPrefix}-icon-rotate-${rotate}`]: _.isNumber(rotate),
+        [`${classPrefix}-icon-flip-${flip}`]: _.isString(flip),
       },
       className,
     );

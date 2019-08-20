@@ -26,3 +26,7 @@ export {default as Select} from './components/Select';
 export {default as Modal} from './components/Modal';
 /** 图标 */
 export {default as Icon} from './components/Icon';
+/** 警告提示 */
+export {default as Alert} from './components/Alert'
+/** 分隔线 */
+export {default as Divider} from './components/Divider'

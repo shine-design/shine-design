@@ -45,7 +45,7 @@ class Modal extends PureComponent {
   };
 
   render() {
-    const {title, size, confirmLabel, closeLabel, isCentered, isCloseable, actions, className, attributes, children} = this.props;
+    const {title, size, confirmLabel, closeLabel, isCentered, isCloseable, actions, customSize, className, attributes, children} = this.props;
 
     /** 计算样式 */
     const classes = classNames(
@@ -82,7 +82,7 @@ class Modal extends PureComponent {
         aria-hidden="true"
         {...attributes}
       >
-        <div className={dialogClassNames} role="document">
+        <div className={dialogClassNames} role="document" style={{maxWidth: customSize}}>
           <div className="modal-content">
             {
               (!_.isUndefined(title) || isCloseable) && (

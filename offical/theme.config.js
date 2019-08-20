@@ -148,6 +148,7 @@ export default {
       label: '其他',
       children: [
         {label: 'Tooltip 文字提示', link: '/guide/tooltip'},
+        {label: 'Divider 分隔线', link: '/guide/divider'},
       ],
     },
   ],

@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import Code from "siteSrc/components/Common/Code";
 import jQuery from 'jquery';
+import {Modal} from 'shineDev';
 import './style.less';
 
 export default class extends Component {
@@ -62,7 +63,7 @@ export default class extends Component {
             </div>
           </div>
           <h4 className="tab-title">
-            <i className="fa fa-code" />代码
+            <i className="fa fa-code"/>代码
           </h4>
           <div className="tab-content full-width tab-code">
             <Code  {...code} />
@@ -71,6 +72,13 @@ export default class extends Component {
             </div>
           </div>
         </div>
+        <Modal
+          isOpen={true}
+          customSize="80%"
+          title="实时预览"
+        >
+          哈哈
+        </Modal>
       </Fragment>
     );
   }
