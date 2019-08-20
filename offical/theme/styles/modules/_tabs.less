@@ -114,6 +114,24 @@
   }
 }
 
+.code-live-modal {
+  .tab-live-code-row {
+    display: flex;
+    align-items: stretch !important;
+
+    .tab-live-code-col {
+
+      textarea:focus {
+        outline: none
+      }
+
+      &:first-of-type {
+        border-right: 1px solid #EBEBEB;
+      }
+    }
+  }
+}
+
 .media-mixin(@break) when (@break = @break-small-x) {
   .tabs .steps {
     display: block;

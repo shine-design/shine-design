@@ -1,10 +1,16 @@
 import React, {Component, Fragment} from 'react';
 import Code from "siteSrc/components/Common/Code";
+import {LiveEditor, LiveError, LivePreview, LiveProvider} from 'react-live'
 import jQuery from 'jquery';
-import {Modal} from 'shineDev';
+import {Modal,Row,Col} from 'shineDev';
 import './style.less';
 
 export default class extends Component {
+
+  state = {
+    isOpen: false,
+  };
+
   componentDidMount() {
     this._initTabs();
   }
@@ -27,25 +33,12 @@ export default class extends Component {
     tab.steps(config);
   };
 
-  onTriggerLive = () => {
-    console.log('onTriggerLive');
-  };
+  onTriggerLive = () => this.setState({isOpen: true});
 
 
   render() {
     const {code, display, components, className = []} = this.props;
-    console.log(components);
-
-    /*
-    *<div className="tab-content full-width">
-            <LiveProvider scope={components} code={'<div>' + code.code + '</div>'}>
-              <div className="tab-flex">
-                <div className="tab-split"><LiveEditor/><LiveError/></div>
-                <div className="tab-split"><LivePreview/></div>
-              </div>
-            </LiveProvider>
-          </div>
-    * */
+    const {isOpen} = this.state;
 
     return (
       <Fragment>
@@ -73,11 +66,24 @@ export default class extends Component {
           </div>
         </div>
         <Modal
-          isOpen={true}
+          isOpen={isOpen}
+          className="code-live-modal"
           customSize="80%"
-          title="实时预览"
+          title="Shine Design 在线运行"
         >
-          哈哈
+          <div className="tab-content full-width">
+            <LiveProvider scope={components} code={'<div>' + code.code + '</div>'}>
+              <Row className="tab-live-code-row">
+                <Col col={12} className="tab-live-code-col">
+                  <LiveEditor />
+                  <LiveError />
+                </Col>
+                <Col col={12} className="tab-live-code-col">
+                  <LivePreview />
+                </Col>
+              </Row>
+            </LiveProvider>
+          </div>
         </Modal>
       </Fragment>
     );
