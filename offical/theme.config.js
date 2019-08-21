@@ -99,7 +99,7 @@ export default {
     {label: '快速上手', link: '/tutorial'},
     {label: '组件文档', link: '/guide'},
     {label: '构建工具', link: '/tools'},
-    {label: '更新日志', link: '/changelog'},
+    // {label: '更新日志', link: '/changelog'},
     {label: '贡献指南', link: '/contribute'},
   ],
   /** 页面侧边栏导航 */

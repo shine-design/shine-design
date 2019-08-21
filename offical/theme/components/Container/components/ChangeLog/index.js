@@ -7,8 +7,7 @@ import React, {Component, Fragment} from 'react';
 
 import Background from 'siteSrc/components/Common/Background';
 import Content from 'siteSrc/components/Common/Content';
-// import Filter from './components/filter/filter';
-// import Items from './components/items/items';
+import jQuery from 'jquery';
 import Filter from './components/Filter';
 import Items from './components/Items';
 import './style.less';
@@ -25,7 +24,7 @@ export default class Changelog extends Component {
 
     return (
       <Fragment>
-        <Background title="更新日志" description={description} />
+        <Background title="更新日志" description={description}/>
         <Content>
           <div className="container">
             <div className="row">

@@ -1,10 +1,11 @@
 import _ from 'lodash';
 import React, {Component} from 'react';
 import {ThemeConfig} from "docz";
+import jQuery from "jquery";
 
 export default class Filter extends Component {
   componentDidMount() {
-    // this._initChangelog();
+    this._initChangelog();
     this._initScroll();
   }
 
@@ -16,7 +17,7 @@ export default class Filter extends Component {
 
       let changelogFilter = changelog.find('.js-changelog-input').instaFilta({
         scope: '.js-changelog',
-        targets: '.js-changelog-update-description',
+        targets: '.js-changelog-update-description'
       });
 
       let changelogCheckBox = changelog.find('.js-changelog-checkbox');
@@ -27,7 +28,7 @@ export default class Filter extends Component {
         let fileFilters = changelogItem.find('.js-changelog-file-filter');
         let filesScope = changelogItem.find('.js-changelog-files-scope').instaFilta({
           targets: '.js-changelog-file',
-          scope: '.js-changelog-files-scope',
+          scope: '.js-changelog-files-scope'
         });
 
         fileFilters.click(function () {
@@ -76,7 +77,7 @@ export default class Filter extends Component {
         button.click(function (event) {
           event.preventDefault();
           $('html, body').animate({
-            scrollTop: $(target).first().offset().top - HeaderFixed.getOffset(),
+            scrollTop: $(target).first().offset().top - HeaderFixed.getOffset()
           }, speed);
         });
       }
@@ -140,7 +141,6 @@ export default class Filter extends Component {
 
     })();
   }
-
   render() {
 
     return (
