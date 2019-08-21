@@ -11,6 +11,7 @@ import jQuery from 'jquery';
 import 'bootstrap-select';
 import * as PropTypes from 'prop-types';
 import {classPrefix} from 'variables';
+import './style/index.scss';
 
 class Select extends PureComponent {
   constructor(props) {
@@ -25,7 +26,6 @@ class Select extends PureComponent {
   }
 
   render() {
-    console.log('exec',this.props);
     const {size, formStyle, options, className, attributes} = this.props;
 
     /** 计算样式 */

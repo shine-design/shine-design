@@ -11,7 +11,7 @@ export default {
   basic: {
     components,
     jsx:
-      `<div class="shine-button-helper">
+      `<div className="shine-button-helper">
     <div>
       <Button bgColor="primary">Primary</Button>
       <Button bgColor="danger">Danger</Button>
@@ -39,7 +39,7 @@ export default {
   gradient: {
     components,
     jsx:
-      `<div class="shine-button-helper">
+      `<div className="shine-button-helper">
     <div>
       <Button gradientStart="danger" gradientEnd="success">Danger To Success</Button>
       <Button gradientStart="primary" gradientEnd="warning">Primary To Warning</Button>
@@ -50,7 +50,7 @@ export default {
   btnStyle: {
     components,
     jsx:
-      `<div class="shine-button-helper">
+      `<div className="shine-button-helper">
     <div>
       <Button bgColor="primary" btnStyle="normal">圆角矩形</Button>
       <Button bgColor="danger" btnStyle="square">直角矩形</Button>
@@ -69,7 +69,7 @@ export default {
   btnSize: {
     components,
     jsx:
-      `<div class="shine-button-helper">
+      `<div className="shine-button-helper">
     <div>
       <Button bgColor="primary" size="lg">Large</Button>
       <Button bgColor="primary">Normal</Button>

@@ -10,7 +10,7 @@ export default {
   basic: {
     components,
     jsx:
-`<div class="shine-divider-helper">
+`<div className="shine-divider-helper">
     <Divider />
     <Divider message="我是分隔线" />
 </div>`,

@@ -2,5 +2,11 @@
  * @Author 瞿龙俊 - qulongjun@shine.design
  * @Date 2019/6/5 18:57
  */
-@import '~bootstrap-select/sass/variables.scss';
-@import '~bootstrap-select/sass/bootstrap-select.scss';
+//@import '~bootstrap-select/sass/variables.scss';
+//@import '~bootstrap-select/sass/bootstrap-select.scss';
+@import "~bootstrap-select/dist/css/bootstrap-select.css";
+@import "./select";
+//@import "~bootstrap/scss/functions";
+//@import "~bootstrap/scss/variables";
+//@import "~bootstrap/scss/mixins";
+//@import "~bootstrap/scss/dropdown";

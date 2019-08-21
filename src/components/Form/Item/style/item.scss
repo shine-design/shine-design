@@ -9,8 +9,6 @@
 
   .#{$classPrefix}-form__group {
     margin-bottom: 0;
-    padding-top: 15px;
-    padding-bottom: 15px;
 
     &.#{$classPrefix}-form__group--md {
       padding-top: 5px;
@@ -33,7 +31,6 @@
       padding-top: 0;
     }
 
-
     &.#{$classPrefix}-form__group--last {
       padding-bottom: 0;
     }
@@ -45,6 +42,14 @@
 
       &:last-child {
         padding-bottom: 0;
+      }
+    }
+
+    &.#{$classPrefix}-form__group-inline {
+
+      .col-form-label {
+        line-height: 14px;
+        width: 100%;
       }
     }
 
@@ -101,6 +106,9 @@
 
       &.col-form-label {
         padding-top: array-get($shine-input, layout, self, size, default, padding, y);
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
         //padding-bottom: array-get($m--forms, input, layout, self, size, default, padding, y);
       }
     }

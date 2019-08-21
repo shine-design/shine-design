@@ -10,7 +10,7 @@ const components = {Icon};
 export default {
   basic: {
     components,
-    jsx: `<div class="shine-icon-helper">
+    jsx: `<div className="shine-icon-helper">
   <Icon iconName="automobile" />
   <Icon iconName="balance-scale" />
   <Icon iconName="battery" />
@@ -18,7 +18,7 @@ export default {
   },
   size: {
     components,
-    jsx: `<div class="shine-icon-helper">
+    jsx: `<div className="shine-icon-helper">
   <div class="block">
   <Icon iconName="camera-retro" /> Normal
   </div>
@@ -41,7 +41,7 @@ export default {
   },
   spin: {
     components,
-    jsx: `<div class="shine-icon-helper">
+    jsx: `<div className="shine-icon-helper">
   <div class="block">
     <Icon iconName="spinner" isSpin={true} size="3x" />
     <Icon iconName="circle-o-notch" isSpin={true} size="3x" />
@@ -56,7 +56,7 @@ export default {
   },
   rotate: {
     components,
-    jsx: `<div class="shine-icon-helper">
+    jsx: `<div className="shine-icon-helper">
   <div class="block">
     <Icon iconName="shield" size="3x" />
     <Icon iconName="shield" rotate={90} size="3x" />

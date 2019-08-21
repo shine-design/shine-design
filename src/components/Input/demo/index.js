@@ -10,7 +10,7 @@ export default {
   basic: {
     components,
     jsx: `
-<div class="shine-input-helper">
+<div className="shine-input-helper">
     <Input placeholder="请输入文本" />
     <Input type="password" placeholder="请输入密码" />
     <Input type="number" placeholder="请输入数字" />
@@ -20,7 +20,7 @@ export default {
   size: {
     components,
     jsx: `
-<div class="shine-input-helper">
+<div className="shine-input-helper">
     <Input size="small" placeholder="请输入文本" />
     <Input size="default" placeholder="请输入文本" />
     <Input size="large" placeholder="请输入文本" />
@@ -30,7 +30,7 @@ export default {
   state: {
     components,
     jsx: `
-<div class="shine-input-helper">
+<div className="shine-input-helper">
     <Input isDisabled={true} value="禁用文本框" placeholder="请输入文本" />
     <Input isReadOnly={true}  value="只读文本框" placeholder="请输入文本" />
 </div>
@@ -39,7 +39,7 @@ export default {
   formStyle: {
     components,
     jsx: `
-<div class="shine-input-helper">
+<div className="shine-input-helper">
     <Input formStyle="default" placeholder="圆角矩形文本框" />
     <Input formStyle="square" placeholder="直角矩形文本框" />
     <Input formStyle="pill" placeholder="椭圆矩形文本框" />
@@ -49,7 +49,7 @@ export default {
   event: {
     components,
     jsx: `
-<div class="shine-input-helper">
+<div className="shine-input-helper">
     <Input
       placeholder="打开控制台查看效果"
       onChange={e=>{console.log('onChange',e.target.value)}}

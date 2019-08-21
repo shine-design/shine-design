@@ -2,7 +2,7 @@ import React, {Component, Fragment} from 'react';
 import Code from "siteSrc/components/Common/Code";
 import {LiveEditor, LiveError, LivePreview, LiveProvider} from 'react-live'
 import jQuery from 'jquery';
-import {Modal,Row,Col} from 'shineDev';
+import {Col, Modal, Row} from 'shineDev';
 import './style.less';
 
 export default class extends Component {
@@ -37,7 +37,7 @@ export default class extends Component {
 
 
   render() {
-    const {code, display, components, className = []} = this.props;
+    const {code, display, components, isDisabledLive, className = []} = this.props;
     const {isOpen} = this.state;
 
     return (
@@ -52,7 +52,7 @@ export default class extends Component {
           <div className="tab-content full-width">
             {display}
             <div className="tab-live">
-              <a href="javascript:;" onClick={this.onTriggerLive}>在线运行</a>
+              {isDisabledLive ? <span>暂不提供在线运行</span> : <a href="javascript:;" onClick={this.onTriggerLive}>在线运行</a>}
             </div>
           </div>
           <h4 className="tab-title">
@@ -61,7 +61,7 @@ export default class extends Component {
           <div className="tab-content full-width tab-code">
             <Code  {...code} />
             <div className="tab-live">
-              <a href="javascript:;" onClick={this.onTriggerLive}>在线运行</a>
+              {isDisabledLive ? <span>暂不提供在线运行</span> : <a href="javascript:;" onClick={this.onTriggerLive}>在线运行</a>}
             </div>
           </div>
         </div>

@@ -12,7 +12,7 @@ export default {
   form: {
     components,
     jsx: `
-<div class="shine-form-helper">
+<div className="shine-form-helper">
     <Form>
         <Input placeholder="请输入文本" />
         <Form.Item label="普通文本" helper="We'll never share your text with anyone else.">
@@ -25,13 +25,15 @@ export default {
   label: {
     components,
     jsx: `
-<div class="shine-form-helper">
-   <Form.Item label="普通文本">
-      <Input placeholder="请输入文本" />
-  </Form.Item>
-   <Form.Item label="普通文本" helper="We'll never share your text with anyone else.">
-      <Input placeholder="请输入文本" />
-  </Form.Item>
+<div className="shine-form-helper">
+   <Form>
+      <Form.Item label="普通文本">
+          <Input placeholder="请输入文本" />
+      </Form.Item>
+      <Form.Item label="普通文本" helper="We'll never share your text with anyone else.">
+        <Input placeholder="请输入文本" />
+      </Form.Item>
+  </Form>
 </div>
 `,
   },

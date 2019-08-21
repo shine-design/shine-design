@@ -15,13 +15,8 @@ import Verifier from './Verifier';
 const REFS = [];
 
 class Form extends PureComponent {
-  constructor() {
-    super();
 
-    this._onSubmit = this._onSubmit.bind(this);
-  }
-
-  _onSubmit(event) {
+  _onSubmit = event => {
     event.preventDefault(); // 兼容标准浏览器
     const {refs, props} = this;
     const {onSubmit, onSuccess, onError} = props;
@@ -46,7 +41,7 @@ class Form extends PureComponent {
     _.isFunction(onSubmit) && onSubmit(event, _errorList);
     // eslint-disable-next-line no-unused-expressions
     isPassed ? _.isFunction(onSuccess) && onSuccess(event) : _.isFunction(onError) && onError(event, _errorList);
-  }
+  };
 
   render() {
     const {className, attributes, children} = this.props;
@@ -54,13 +49,14 @@ class Form extends PureComponent {
     /** 计算样式 */
     const classes = classNames(
       `${classPrefix}-form`,
+      // `${classPrefix}-form--fit`,
       className,
     );
 
     if (!_.isUndefined(children)) {
       if (_.isArray(children)) {
         _children = _.map(children, (child, index) => {
-          if (child.type.name === 'Verifier') {
+          if (child.type && child.type.name === 'Verifier') {
             REFS.push(`verifierItem-${index}`);
             return React.cloneElement(child, {ref: `verifierItem-${index}`, key: index})
           }

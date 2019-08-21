@@ -18,7 +18,7 @@ export default {
   basic: {
     components,
     jsx:
-`<div class="shine-button-helper">
+`<div className="shine-select-helper">
    <Select options={[
     {label: '选项一', value: 1},
     {label: '选项二', value: 2},

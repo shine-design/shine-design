@@ -1,21 +1,20 @@
 /**
- * @Component Input
- * @Type 输入框组件
+ * @Component Switch
+ * @Type 开关组件
  * @Author 瞿龙俊 - qulongjun@shine.design
- * @Date 2019-04-27 13:25
+ * @Date 2019-08-20 20:50
  */
 import _ from 'lodash';
 import React, {PureComponent} from 'react';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
-import reactComposition from 'react-composition';
 import {classPrefix} from 'variables';
-import {buildDefaultRules, runRegExp, VALIDATION_RULES} from 'validations';
 import './style/index.scss';
+import {buildDefaultRules, runRegExp, VALIDATION_RULES} from "validations";
 
 const DEFAULT_RULE = _.keys(VALIDATION_RULES);
 
-class Input extends PureComponent {
+class Switch extends PureComponent {
 
   onValidate = isFullResult => {
     const {value} = this.textInput;
@@ -64,112 +63,90 @@ class Input extends PureComponent {
   };
 
   render() {
-    const {defaultValue, isDisabled, isReadOnly, id, type, value, name, placeholder} = this.props;
-    const {size, formStyle, rules} = this.props;
-    const {onChange, onBlur, onClick, onFocus, onInput} = this.props;
+    const {isChecked, name, id, isDisabled, isControlled, isShowIcon} = this.props;
+    const {bgColor, outlineColor, size} = this.props;
+    const {onChange} = this.props;
+    const {isValidate, rules} = this.props;
     const {className, attributes} = this.props;
-    const {isValidate} = this.props;
 
     /** 计算样式 */
     const classes = classNames(
-      `${classPrefix}-form-control`,
+      `${classPrefix}-switch`,
       {
-        [`${classPrefix}-form-control-${size}`]: _.includes(['small', 'large'], size),
-        [`${classPrefix}-form-control--${formStyle}`]: _.includes(['pill', 'square'], formStyle),
+        [`${classPrefix}-switch--icon`]: isShowIcon,
+        [`${classPrefix}-switch--${bgColor || outlineColor}`]: _.isString(bgColor) || _.isString(outlineColor),
+        [`${classPrefix}-switch--outline`]: _.isString(outlineColor),
+        [`${classPrefix}-switch--${size}`]: _.isString(size),
       },
       className,
     );
 
-    // 回调函数
-    const callbacks = {
-      onInput,
-      onBlur,
-      onClick,
-      onFocus,
-      onChange: (isValidate && !_.isUndefined(rules)) ? this._onChange : onChange,
-    };
-
-    // 输入框属性配置
+    // 开关属性配置
     const props = {
-      defaultValue,
-      value,
-      placeholder,
+      type: 'checkbox',
+      ...isControlled ? {checked: isChecked} : {defaultChecked: isChecked},
       name,
-      type,
       id,
       disabled: isDisabled,
-      readOnly: isReadOnly,
-      className: classes,
       ...attributes,
     };
 
+    // 回调函数
+    const callbacks = {
+      onChange: (isValidate && !_.isUndefined(rules)) ? this._onChange : onChange,
+    };
+
     return (
-      <input
-        ref={(input) => {
-          this.textInput = input;
-        }}
-        {...props}
-        {...reactComposition(callbacks)}
-      />
+      <span className={classes}>
+        <label>
+          <input {...props} {...callbacks} />
+          <span />
+        </label>
+      </span>
     );
   }
 }
 
-Input.propTypes = {
-  /** 默认值，仅展示时生效 */
-  defaultValue: PropTypes.node,
-  /** 输入框值 */
-  value: PropTypes.node,
-  /** 输入框名称 */
+Switch.propTypes = {
+  /** 开关表单名称 */
   name: PropTypes.node,
-  /** 输入框占位符，当输入框无内容时展示 */
-  placeholder: PropTypes.node,
-  /** 输入框ID */
+  /** 开关表单ID */
   id: PropTypes.node,
-  /** 设置是否禁用输入框 */
+  /** 是否打开开关 */
+  isChecked: PropTypes.bool,
+  /** 设置是否禁用开关 */
   isDisabled: PropTypes.bool,
-  /** 设置是否只读输入框 */
-  isReadOnly: PropTypes.bool,
-  /** 设置输入框类型 */
-  type: PropTypes.string,
-  /** 设置输入框尺寸，支持 default：默认 / small：小尺寸 / large：大尺寸 */
+  /** 是否显示开关图标 */
+  isShowIcon: PropTypes.bool,
+  /** 是否将组件设置为受控组件 */
+  isControlled: PropTypes.bool,
+  /** 设置开关尺寸，支持 default：默认 / small：小尺寸 / large：大尺寸 */
   size: PropTypes.oneOf(['default', 'small', 'large']),
-  /** 输入框样式，支持 default：圆角矩形 / pill：椭圆形矩形 / square：直角矩形 */
-  formStyle: PropTypes.oneOf(['default', 'pill', 'square']),
   /** 表单校验规则 */
   rules: PropTypes.object,
   /** 表单校验失败提示文字 */
   errorMsg: PropTypes.object,
   /** 输入框内容发生改变时触发 */
   onChange: PropTypes.func,
-  /** 输入框失去焦点时触发 */
-  onBlur: PropTypes.func,
-  /** 输入框被点击时触发 */
-  onClick: PropTypes.func,
   /** 用户自定义修饰符 */
   className: PropTypes.string,
   /** 用户自定义属性 */
   attributes: PropTypes.object,
 };
 
-Input.defaultProps = {
-  defaultValue: undefined,
-  value: undefined,
-  placeholder: undefined,
+Switch.defaultProps = {
   name: undefined,
   id: undefined,
+  isChecked: false,
   isDisabled: false,
-  isReadOnly: false,
-  type: 'text',
+  isControlled: false,
+  isShowIcon: false,
   size: 'default',
-  formStyle: 'default',
   rules: undefined,
   errorMsg: undefined,
   onChange: undefined,
-  onBlur: undefined,
-  onClick: undefined,
   className: '',
   attributes: {},
 };
 
-export default Input;
+export default Switch;

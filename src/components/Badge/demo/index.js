@@ -11,7 +11,7 @@ export default {
   basic: {
     components,
     jsx:
-`<div class="shine-badge-helper">
+`<div className="shine-badge-helper">
     <Badge bgColor="brand">1</Badge>
     <Badge bgColor="grace">2</Badge>
     <Badge bgColor="metal">3</Badge>
@@ -22,7 +22,7 @@ export default {
     <Badge bgColor="warning">8</Badge>
     <Badge bgColor="danger">9</Badge>
 </div>
- <div class="shine-badge-helper">
+ <div className="shine-badge-helper">
     <Badge bgColor="brand" isInverse={true}>1</Badge>
     <Badge bgColor="grace" isInverse={true}>2</Badge>
     <Badge bgColor="metal" isInverse={true}>3</Badge>
@@ -38,7 +38,7 @@ export default {
   dot : {
     components,
     jsx:
- `<div class="shine-badge-helper">
+ `<div className="shine-badge-helper">
     <Badge bgColor="brand" isDot={true} dotSize="small">1</Badge>
     <Badge bgColor="grace" isDot={true} dotSize="small">2</Badge>
     <Badge bgColor="metal" isDot={true} dotSize="small">3</Badge>
@@ -49,7 +49,7 @@ export default {
     <Badge bgColor="warning" isDot={true} dotSize="small">8</Badge>
     <Badge bgColor="danger" isDot={true} dotSize="small">9</Badge>
 </div>
-<div class="shine-badge-helper">
+<div className="shine-badge-helper">
     <Badge bgColor="brand" isDot={true}>1</Badge>
     <Badge bgColor="grace" isDot={true}>2</Badge>
     <Badge bgColor="metal" isDot={true}>3</Badge>
@@ -60,7 +60,7 @@ export default {
     <Badge bgColor="warning" isDot={true}>8</Badge>
     <Badge bgColor="danger" isDot={true}>9</Badge>
 </div>
-<div class="shine-badge-helper">
+<div className="shine-badge-helper">
     <Badge bgColor="brand" isDot={true} dotSize="large">1</Badge>
     <Badge bgColor="grace" isDot={true} dotSize="large">2</Badge>
     <Badge bgColor="metal" isDot={true} dotSize="large">3</Badge>
@@ -77,7 +77,7 @@ export default {
   border : {
     components,
     jsx:
-`<div class="shine-badge-helper">
+`<div className="shine-badge-helper">
     <Badge bgColor="brand" borderType="square">1</Badge>
     <Badge bgColor="grace" borderType="square">2</Badge>
     <Badge bgColor="metal" borderType="square">3</Badge>
@@ -88,7 +88,7 @@ export default {
     <Badge bgColor="warning" borderType="square">8</Badge>
     <Badge bgColor="danger" borderType="square">9</Badge>
 </div>
-<div class="shine-badge-helper">
+<div className="shine-badge-helper">
     <Badge bgColor="brand" borderType="rounded">1</Badge>
     <Badge bgColor="grace" borderType="rounded">2</Badge>
     <Badge bgColor="metal" borderType="rounded">3</Badge>
@@ -99,7 +99,7 @@ export default {
     <Badge bgColor="warning" borderType="rounded">8</Badge>
     <Badge bgColor="danger" borderType="rounded">9</Badge>
 </div>
-<div class="shine-badge-helper">
+<div className="shine-badge-helper">
     <Badge bgColor="brand" borderType="square" isWide={true}>1</Badge>
     <Badge bgColor="grace" borderType="square" isWide={true}>2</Badge>
     <Badge bgColor="metal" borderType="square" isWide={true}>3</Badge>
@@ -110,7 +110,7 @@ export default {
     <Badge bgColor="warning" borderType="square" isWide={true}>8</Badge>
     <Badge bgColor="danger" borderType="square" isWide={true}>9</Badge>
 </div>
-<div class="shine-badge-helper">
+<div className="shine-badge-helper">
     <Badge bgColor="brand" borderType="rounded" isWide={true}>1</Badge>
     <Badge bgColor="grace" borderType="rounded" isWide={true}>2</Badge>
     <Badge bgColor="metal" borderType="rounded" isWide={true}>3</Badge>
