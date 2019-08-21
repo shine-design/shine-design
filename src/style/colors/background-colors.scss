@@ -1,0 +1,20 @@
+/**
+ * 公共背景颜色
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2019/3/16 01:02
+ */
+@import "../functions/index";
+@import "../variables";
+
+@each $name, $color in $shine-colors {
+
+  /** 背景色背景（前景色字体） */
+  .#{$classPrefix}--bg-#{$name} {
+    background-color: array-get($color, base) !important;
+  }
+
+  /** 前景色背景（背景色字体） */
+  .#{$classPrefix}--bg-inverse-#{$name} {
+    background-color: array-get($color, inverse) !important;
+  }
+}

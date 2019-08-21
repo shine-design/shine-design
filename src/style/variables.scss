@@ -1,0 +1,390 @@
+//@import "./bootstrap/variables";
+@import "./functions/array-get";
+
+$default-skin: 'light';
+
+$white: #fff !default;
+$black: #000 !default;
+$gray-100: #f8f8f8;
+$gray-200: #f5f5f5;
+$gray-300: #e5e5e5;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #999999;
+$gray-700: #555555;
+$gray-800: #151515;
+$gray-900: #111111 !default;
+
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-bold: 700 !default;
+
+/** 自定义 className 修饰符前缀 */
+$classPrefix: 'shine' !default;
+$classPrefixIcon: 'shine-icon' !default;
+/* 默认字体集 */
+$fontFamily: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif !default;
+
+$font-size-base: 1rem !default;
+$font-size-lg: ($font-size-base * 1.125) !default;
+$font-size-sm: ($font-size-base * .875) !default;
+$border-width: 1px !default;
+$border-color: $gray-300 !default;
+$border-radius: .25rem !default;
+$border-radius-lg: .3rem !default;
+$border-radius-sm: .2rem !default;
+$transition-base: all .2s ease-in-out !default;
+
+/* 主色调与状态颜色 */
+$shine-colors: (
+  brand: (
+    base: #716ACA,
+    inverse: #FFFFFF
+  ),
+  grace:(
+    base: #00C5DC,
+    inverse: #FFFFFF
+  ),
+  metal: (
+    base: #C4C5D6,
+    inverse: #FFFFFF
+  ),
+  light: (
+    base: #FFFFFF,
+    inverse: #282A3C
+  ),
+  accent: (
+    base: #716ACA,
+    inverse: #FFFFFF
+  ),
+  focus: (
+    base: #9816F4,
+    inverse: #FFFFFF
+  ),
+  primary: (
+    base: #5867DD,
+    inverse: #FFFFFF
+  ),
+  success: (
+    base: #34BFA3,
+    inverse: #FFFFFF
+  ),
+  info: (
+    base: #36A3F7,
+    inverse: #FFFFFF
+  ),
+  warning: (
+    base: #FFB822,
+    inverse: #111111
+  ),
+  danger: (
+    base: #F4516C,
+    inverse: #ffffff
+  ),
+  secondary: (
+    base:#ffffff,
+    inverse:#212529
+  )
+) !default;
+
+$brand-color: array-get($shine-colors, brand, base) !default;
+
+$component-active-bg: array-get($shine-colors, primary, base) !default;
+
+/** 媒体查询分界 */
+$breakpoints: (
+  xs: 0,
+  /** 小屏幕或移动设备 */
+  sm: 576px,
+  /** 中等屏幕或平板设备 */
+  md: 768px,
+  /** 大屏幕或桌面设备 */
+  lg: 992px,
+  /** 大屏幕或桌面设备 */
+  xl: 1200px,
+  /** 大屏幕或宽屏设备 */
+  xxl: 1400px,
+  /** 大屏幕或宽屏设备 */
+  xxxl: 1600px,
+) !default;
+
+/** 布局 */
+/** 是否开启 Grid 布局 */
+$enable-grid-classes: true !default;
+/** 布局列间隔 */
+$grid-gutter-width: 30px !default;
+/** 布局分界 */
+$grid-breakpoints: $breakpoints !default;
+/** 容器分界 */
+$container-max-widths: $breakpoints !default;
+/** 最大布局列数 */
+$grid-columns: 24 !default;
+
+/** Progress Bar */
+/** 默认进度条高度 */
+$progress-height: 1rem !default;
+$progress-font-size: ($font-size-base * .75) !default;
+$progress-bg: $gray-200 !default;
+$progress-bar-color: $white !default;
+
+$progress-border-radius: $border-radius !default;
+$progress-box-shadow: inset 0 .1rem .1rem rgba($black, .1) !default;
+$progress-bar-bg: array-get($shine-colors, primary, base);
+$progress-bar-transition: width .6s ease !default;
+$progress-bar-animation-timing: 1s linear infinite !default;
+
+$rounded: true;
+
+$badge-bg: array-get($shine-colors, primary, base);
+
+$input-btn-padding-y: .85rem;
+$input-btn-padding-x: 1.15rem;
+$input-btn-line-height: 1.25;
+
+$input-btn-padding-y-sm: .45rem;
+$input-btn-padding-x-sm: .8rem;
+$input-btn-line-height-sm: 1.5;
+
+$input-btn-padding-y-lg: 1.25rem;
+$input-btn-padding-x-lg: 1.65rem;
+$input-btn-line-height-lg: 1.5;
+
+$input-border-width: $border-width;
+
+$input-height-border: $input-border-width * 2 !default;
+
+$input-height-inner: ($font-size-base * $input-btn-line-height) + ($input-btn-padding-y * 2) !default;
+$input-height: calc(#{$input-height-inner} + #{$input-height-border}) !default;
+$input-height-inner-sm: ($font-size-sm * $input-btn-line-height-sm) + ($input-btn-padding-y-sm * 2) !default;
+$input-height-sm: calc(#{$input-height-inner-sm} + #{$input-height-border}) !default;
+$input-height-inner-lg: ($font-size-lg * $input-btn-line-height-lg) + ($input-btn-padding-y-lg * 2) !default;
+$input-height-lg: calc(#{$input-height-inner-lg} + #{$input-height-border}) !default;
+$input-font-size: $font-size-base;
+$input-font-size-sm: $font-size-sm !default;
+$input-font-size-lg: $font-size-lg !default;
+
+$input-color: $gray-600 !default;
+$input-bg: $white !default;
+$input-focus-bg: $input-bg !default;
+$input-focus-border-color: lighten($component-active-bg, 25%) !default;
+
+$input-border-color: $border-color;
+$input-border-radius: $border-radius !default;
+$input-border-radius-lg: $border-radius-lg !default;
+$input-border-radius-sm: $border-radius-sm !default;
+$input-box-shadow: 0;
+$input-transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
+$input-placeholder-color: $gray-600 !default;
+$input-disabled-bg: $gray-200 !default;
+$input-font-weight: $font-weight-normal !default;
+$input-focus-color: $gray-600 !default;
+$input-focus-box-shadow: $input-box-shadow !default;
+
+$colors-config: (
+  // 浅色 Skin
+  light: (
+    regular: (
+      lighten5: lighten(#575962, 30%), // 调用方法： get-color(light, regular, -----) 
+      lighten4: lighten(#575962, 25%), // 调用方法： get-color(light, regular, ----) 
+      lighten3: lighten(#575962, 20%), // 调用方法： get-color(light, regular, ---) 
+      lighten2: lighten(#575962, 15%), // 调用方法： get-color(light, regular, --) 
+      lighten1: lighten(#575962, 10%), // 调用方法： get-color(light, regular, -) 
+      base: #575962, // 调用方法： get-color(light, regular) 
+      darken1: darken(#575962, 10%), // 调用方法： get-color(light, regular, +) 
+      darken2: darken(#575962, 15%), // 调用方法： get-color(light, regular, ++) 
+      darken3: darken(#575962, 20%), // 调用方法： get-color(light, regular, +++) 
+      darken4: darken(#575962, 25%), // 调用方法： get-color(light, regular, ++++) 
+      darken5: darken(#575962, 30%) // 调用方法： get-color(light, regular, +++++) 
+    ),
+    link: (
+      lighten5: lighten(#5b52ce, 30%), // 调用方法： get-color(light, link, -----) 
+      lighten4: lighten(#5b52ce, 25%), // 调用方法： get-color(light, link, ----) 
+      lighten3: lighten(#5b52ce, 20%), // 调用方法： get-color(light, link, ---) 
+      lighten2: lighten(#5b52ce, 15%), // 调用方法： get-color(light, link, --) 
+      lighten1: lighten(#5b52ce, 10%), // 调用方法： get-color(light, link, -) 
+      base: #5b52ce,
+      darken1: darken(#5b52ce, 10%), // 调用方法： get-color(light, link, +++++) 
+      darken2: darken(#5b52ce, 15%), // 调用方法： get-color(light, link, ++++) 
+      darken3: darken(#5b52ce, 20%), // 调用方法： get-color(light, link, +++) 
+      darken4: darken(#5b52ce, 25%), // 调用方法： get-color(light, link, ++) 
+      darken5: darken(#5b52ce, 30%) // 调用方法： get-color(light, link, +) 
+    ),
+    icon: (
+      lighten5: lighten(#cfcedb, 25%),
+      lighten4: lighten(#cfcedb, 20%),
+      lighten3: lighten(#cfcedb, 15%),
+      lighten2: lighten(#cfcedb, 10%),
+      lighten1: lighten(#cfcedb, 5%),
+      base: #cfcedb,
+      darken1: darken(#cfcedb, 5%),
+      darken2: darken(#cfcedb, 10%),
+      darken3: darken(#cfcedb, 15%),
+      darken4: darken(#cfcedb, 20%),
+      darken5: darken(#cfcedb, 25%)
+    ),
+    muted: (
+      lighten5: lighten(#afb2c1, 30%),
+      lighten4: lighten(#afb2c1, 25%),
+      lighten3: lighten(#afb2c1, 20%),
+      lighten2: lighten(#afb2c1, 15%),
+      lighten1: lighten(#afb2c1, 10%),
+      base: #afb2c1,
+      darken1: darken(#afb2c1, 10%),
+      darken2: darken(#afb2c1, 15%),
+      darken3: darken(#afb2c1, 20%),
+      darken4: darken(#afb2c1, 25%),
+      darken5: darken(#afb2c1, 30%)
+    ),
+    panel: (
+      lighten5: lighten(#fdfdff, 2%),
+      lighten4: #fdfdff,
+      lighten3: lighten(#ebedf2, 5%),
+      lighten2: lighten(#ebedf2, 4%),
+      lighten1: lighten(#ebedf2, 3%),
+      base: #ebedf2,
+      darken1: darken(#ebedf2, 3%),
+      darken2: darken(#ebedf2, 4%),
+      darken3: darken(#ebedf2, 15%),
+      darken4: darken(#ebedf2, 20%),
+      darken5: darken(#ebedf2, 25%),
+    ),
+    box: (
+      lighten5: lighten(#ffffff, 6%),
+      lighten4: lighten(#ffffff, 5%),
+      lighten3: lighten(#ffffff, 4%),
+      lighten2: lighten(#ffffff, 3%),
+      lighten1: lighten(#ffffff, 2%),
+      base: #ffffff,
+      darken1: darken(#ffffff, 2%),
+      darken2: darken(#ffffff, 3%),
+      darken3: darken(#ffffff, 4%),
+      darken4: darken(#ffffff, 5%),
+      darken5: darken(#ffffff, 6%),
+    )
+  ),
+  // 深色 Skin
+  dark: (
+    regular: (
+      lighten5: lighten(#9fa1b7, 25%), // 调用方法： get-color(dark, regular, +++++) 
+      lighten4: lighten(#9fa1b7, 20%), // 调用方法： get-color(dark, regular, ++++) 
+      lighten3: lighten(#9fa1b7, 15%), // 调用方法： get-color(dark, regular, +++) 
+      lighten2: lighten(#9fa1b7, 10%), // 调用方法： get-color(dark, regular, ++) 
+      lighten1: lighten(#9fa1b7, 5%), // 调用方法： get-color(dark, regular, +) 
+      base: #ffffff, // 调用方法： get-color(dark, regular) 
+      darken1: darken(#9fa1b7, 5%), // 调用方法： get-color(dark, regular, -) 
+      darken2: darken(#9fa1b7, 10%), // 调用方法： get-color(dark, regular, --) 
+      darken3: darken(#9fa1b7, 15%), // 调用方法： get-color(dark, regular, ---) 
+      darken4: darken(#9fa1b7, 20%), // 调用方法： get-color(dark, regular, ----) 
+      darken5: darken(#9fa1b7, 25%) // 调用方法： get-color(dark, regular, -----) 
+    ),
+    link: (
+      lighten5: lighten(#5b52ce, 30%), // 调用方法： get-color(dark, link, +++++) 
+      lighten4: lighten(#5b52ce, 25%), // 调用方法： get-color(dark, link, ++++) 
+      lighten3: lighten(#5b52ce, 20%), // 调用方法： get-color(dark, link, +++) 
+      lighten2: lighten(#5b52ce, 15%), // 调用方法： get-color(dark, link, ++) 
+      lighten1: lighten(#5b52ce, 10%), // 调用方法： get-color(dark, link, +) 
+      base: #d3d4ea, // 调用方法： get-color(dark, link) 
+      darken1: darken(#5b52ce, 10%), // 调用方法： get-color(dark, link, -) 
+      darken2: darken(#5b52ce, 15%), // 调用方法： get-color(dark, link, --) 
+      darken3: darken(#5b52ce, 20%), // 调用方法： get-color(dark, link, ---) 
+      darken4: darken(#5b52ce, 25%), // 调用方法： get-color(dark, link, ----) 
+      darken5: darken(#5b52ce, 30%) // 调用方法： get-color(dark, link, -----) 
+    ),
+    icon: (
+      lighten5: lighten(#dfdff1, 25%),
+      lighten4: lighten(#dfdff1, 20%),
+      lighten3: lighten(#dfdff1, 15%),
+      lighten2: lighten(#dfdff1, 10%),
+      lighten1: lighten(#dfdff1, 5%),
+      base: #dfdff1,
+      darken1: darken(#dfdff1, 5%),
+      darken2: darken(#dfdff1, 10%),
+      darken3: darken(#dfdff1, 15%),
+      darken4: darken(#dfdff1, 20%),
+      darken5: darken(#dfdff1, 25%)
+    ),
+    muted: (
+      lighten5: lighten(#c9c9e0, 30%),
+      lighten4: lighten(#c9c9e0, 25%),
+      lighten3: lighten(#c9c9e0, 20%),
+      lighten2: lighten(#c9c9e0, 15%),
+      lighten1: lighten(#c9c9e0, 10%),
+      base: #c9c9e0,
+      darken1: darken(#c9c9e0, 10%),
+      darken2: darken(#c9c9e0, 15%),
+      darken3: darken(#c9c9e0, 20%),
+      darken4: darken(#c9c9e0, 25%),
+      darken5: darken(#c9c9e0, 30%)
+    ),
+    panel: (
+      lighten5: lighten(#a1a4b1, 7%),
+      lighten4: lighten(#a1a4b1, 6%),
+      lighten3: lighten(#a1a4b1, 5%),
+      lighten2: lighten(#a1a4b1, 4%),
+      lighten1: lighten(#a1a4b1, 3%),
+      base: #a1a4b1,
+      darken1: darken(#a1a4b1, 3%),
+      darken2: darken(#a1a4b1, 4%),
+      darken3: darken(#a1a4b1, 15%),
+      darken4: darken(#a1a4b1, 20%),
+      darken5: darken(#a1a4b1, 25%),
+    ),
+    box: (
+      lighten5: lighten(#2c2e3e, 6%),
+      lighten4: lighten(#2c2e3e, 5%),
+      lighten3: lighten(#2c2e3e, 4%),
+      lighten2: lighten(#2c2e3e, 3%),
+      lighten1: lighten(#2c2e3e, 2%),
+      base: #2c2e3e,
+      darken1: darken(#2c2e3e, 2%),
+      darken2: darken(#2c2e3e, 3%),
+      darken3: darken(#2c2e3e, 4%),
+      darken4: darken(#2c2e3e, 5%),
+      darken5: darken(#2c2e3e, 6%),
+    )
+  )
+) !default;
+
+$font-sizes: (
+  regular: (
+    down5: 0.7rem, // access to this font size value calling get-font-size function as get-font-size(regular, -----) in SASS code
+    down4: 0.75rem, // access to this font size value calling get-font-size function as get-font-size(regular, ----) in SASS code
+    down3: 0.78rem, // access to this font size value calling get-font-size function as get-font-size(regular, ---) in SASS code
+    down2: 0.8rem, // access to this font size value calling get-font-size function as get-font-size(regular, --) in SASS code
+    down1: 0.85rem, // access to this font size value calling get-font-size function as get-font-size(regular, -) in SASS code
+    base: 1rem, // access to this font size value calling get-font-size function as get-font-size(regular) in SASS code
+    up1: 1.1rem, // access to this font size value calling get-font-size function as get-font-size(regular, +) in SASS code
+    up2: 1.2rem, // access to this font size value calling get-font-size function as get-font-size(regular, ++) in SASS code
+    up3: 1.3rem, // access to this font size value calling get-font-size function as get-font-size(regular, +++) in SASS code
+    up4: 1.5rem, // access to this font size value calling get-font-size function as get-font-size(regular, ++++) in SASS code
+    up5: 1.6rem // access to this font size value calling get-font-size function as get-font-size(regular, +++++) in SASS code
+  ),
+  icon: (
+    down5: 0.8rem, // access to this shadow value calling get-font-size function as get-font-size(icon, -----) in SASS code
+    down4: 0.9rem, // access to this shadow value calling get-font-size function as get-font-size(icon, ----) in SASS code
+    down3: 1rem, // access to this shadow value calling get-font-size function as get-font-size(icon, ---) in SASS code
+    down2: 1.1rem, // access to this shadow value calling get-font-size function as get-font-size(icon, --) in SASS code
+    down1: 1.2rem, // access to this shadow value calling get-font-size function as get-font-size(icon, -) in SASS code
+    base: 1.3rem, // access to this shadow value calling get-font-size function as get-font-size(icon) in SASS code
+    up1: 1.4rem, // access to this shadow value calling get-font-size function as get-font-size(icon, +++++) in SASS code
+    up2: 1.6rem, // access to this shadow value calling get-font-size function as get-font-size(icon, ++++) in SASS code
+    up3: 1.8rem, // access to this shadow value calling get-font-size function as get-font-size(icon, +++) in SASS code
+    up4: 2.0rem, // access to this shadow value calling get-font-size function as get-font-size(icon, ++) in SASS code
+    up5: 2.1rem // access to this shadow value calling get-font-size function as get-font-size(icon, +) in SASS code
+  )
+) !default;
+
+$font-weights: (
+  thin: 200, // access to this font weight value calling get-font-weight function as get-font-weight(this) in SASS code
+  normal: 300, // access to this font weight value calling get-font-weight function as get-font-weight(normal) in SASS code
+  bold: 400, // access to this font weight value calling get-font-weight function as get-font-weight(bold) in SASS code
+  bolder: 500, // access to this font weight value calling get-font-weight function as get-font-weight(bolder) in SASS code
+  boldest: 600, // access to this font weight value calling get-font-weight function as get-font-weight(boldest) in SASS code
+  boldest2: 700 // access to this font weight value calling get-font-weight function as get-font-weight(boldest2) in SASS code
+) !default;
+
+$modal--border-radius: (
+  general: 4px,
+  dropdown: 4px,
+  scrollbar: 2px
+);

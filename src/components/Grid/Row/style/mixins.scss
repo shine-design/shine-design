@@ -1,0 +1,50 @@
+/**
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2019-03-16 09:17
+ */
+@import "~style/functions/array-get";
+
+@mixin shine--justify($justify,$classPrefix) {
+
+  &.#{$classPrefix}-row--justify-#{array-get($justify,name)} {
+    justify-content: array-get($justify, value);
+  }
+
+}
+
+@mixin shine--align($align,$classPrefix) {
+
+  &.#{$classPrefix}-row--align-#{array-get($align,name)} {
+    align-items: array-get($align, value);
+  }
+
+}
+
+@mixin shine--build-row($justify,$align,$classPrefix) {
+
+  .#{$classPrefix}-row {
+    display: flex;
+    display: -ms-flexbox;
+    flex-direction: row;
+    -ms-flex-direction: row;
+
+    &.#{$classPrefix}-row--root {
+      flex: 1;
+      -ms-flex: 1 0 0px;
+      height: 100%;
+    }
+
+  }
+
+  .#{$classPrefix}-row {
+
+    @each $item in $justify {
+      @include shine--justify($item, $classPrefix);
+    }
+
+    @each $item in $align {
+      @include shine--align($item, $classPrefix);
+    }
+
+  }
+}

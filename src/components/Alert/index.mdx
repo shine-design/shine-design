@@ -1,0 +1,80 @@
+---
+name: Alert 警告提示
+route: /guide/alert
+menu: response
+---
+
+import JsxParser from "react-jsx-parser";
+import {
+  MessageBox,
+  Example,
+  InlineCode,
+  Code,
+  PropsTable
+} from "theme";
+import { Alert } from "shineDev";
+import code from "./demo";
+import "./demo/index.scss";
+
+# Alert 警告提示
+
+## 概述
+
+警告框组件大多是用来向终端用户显示诸如警告或确认消息的信息，通过设置不同属性，可以个性化定制警告框样式。通过提供一些灵活的预定义消息，为常见的用户动作提供反馈消息。
+
+## 代码示例
+
+<MessageBox messageType="info">
+  为了让用户直观地查看代码演示，我们加入了{" "}
+  <InlineCode>shine-alert-helper</InlineCode>{" "}
+  修饰符，在开发过程中无需配置该字段。
+</MessageBox>
+
+#### 基础警告提示
+最基础的警告提示样式，组件通过 `isOpen` 属性控制是否展示，需要显式的指定 `bgColor`。
+
+<Example 
+  display={<JsxParser {...code.basic} />}
+  code={{code:code.basic.jsx}}
+  components={code.basic.components}
+/>
+
+#### 边框样式
+警告提示组件支持圆角矩形和直角矩形两种样式，通过设置 `alertStyle` 属性可以切换边框样式。
+
+<Example 
+  display={<JsxParser {...code.alertStyle} />}
+  code={{code:code.alertStyle.jsx}}
+  components={code.alertStyle.components}
+/>
+
+#### 阴影效果
+通过设置 `isAir` 属性可以使警告框产生阴影效果。
+
+<Example 
+  display={<JsxParser {...code.air} />}
+  code={{code:code.air.jsx}}
+  components={code.air.components}
+/>
+
+#### 双轮廓
+使用双倍宽度的轮廓可以加强警告作用，使警告以更高的对比度展示，通过指定 `isDoubleOutline` 属性可以设置双倍的轮廓边框。
+
+<Example 
+  display={<JsxParser {...code.double} />}
+  code={{code:code.double.jsx}}
+  components={code.double.components}
+/>
+
+#### 带图标的警告提示
+在警告提示组件中使用图标可以更直观的显示警告状态。
+
+<Example 
+  display={<JsxParser {...code.icon} />}
+  code={{code:code.icon.jsx}}
+  components={code.icon.components}
+/>
+
+## 配置参数
+
+<PropsTable of={Alert} />

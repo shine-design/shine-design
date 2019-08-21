@@ -1,0 +1,533 @@
+/**
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2018/9/5 下午5:50
+ */
+@import "~style/variables";
+@import "./config/color";
+@import "./config/font";
+@import "../../Input/style/variables";
+//@import "./config/form";
+@import "./config/button";
+
+$sh-pill-radius: 60px;
+@mixin sh-build-component--buttons-base() {
+  // base Button
+  .btn {
+    font-family: array-get($sh--font-families, regular);
+    box-shadow: none !important;
+
+    // icon
+    > i {
+      line-height: 0;
+      vertical-align: middle;
+    }
+
+    // remove Button default focus shadow
+    &:hover,
+    &.active,
+    &:focus {
+      box-shadow: none;
+    }
+
+    cursor: pointer;
+    border-radius: 0;
+    @include rounded {
+      border-radius: array-get($sh--buttons, layout, self, border-radius);
+    }
+
+    // pill style
+    &.sh-btn--pill {
+      border-radius: $sh-pill-radius;
+    }
+
+    // square style
+    &.sh-btn--square {
+      border-radius: 0 !important;
+    }
+
+    // secondary Button air style
+    &.sh-btn--air.btn-secondary {
+      border-color: #ffffff !important;
+
+      &:hover {
+        border-color: #ffffff !important;
+      }
+    }
+
+    // Wide buttons
+    &.sh-btn--wide {
+      padding-left: array-get($sh--buttons, layout, default, default, self, padding, x);
+      padding-right: array-get($sh--buttons, layout, default, default, self, padding, x);
+
+      &.btn-sm {
+        padding-left: 2 * array-get($sh--buttons, layout, default, sm, self, padding, x);
+        padding-right: 2 * array-get($sh--buttons, layout, default, sm, self, padding, x);
+      }
+
+      &.btn-lg {
+        padding-left: 2 * array-get($sh--buttons, layout, default, lg, self, padding, x);
+        padding-right: 2 * array-get($sh--buttons, layout, default, lg, self, padding, x);
+      }
+    }
+
+    // Custom buttons
+    &.sh-btn--custom {
+      padding: array-get($sh--buttons, layout, custom, default, self, padding, y) array-get($sh--buttons, layout, custom, default, self, padding, x);
+      font-size: array-get($sh--buttons, layout, custom, default, self, font-size);
+      font-weight: get-font-weight(bold);
+      font-family: #{array-get($sh--font-families, regular)};
+
+      &.btn-sm {
+        padding: array-get($sh--buttons, layout, custom, sm, self, padding, y) array-get($sh--buttons, layout, custom, sm, self, padding, x);
+        font-size: array-get($sh--buttons, layout, custom, sm, self, font-size);
+      }
+
+      &.btn-lg {
+        padding: array-get($sh--buttons, layout, custom, lg, self, padding, y) array-get($sh--buttons, layout, custom, lg, self, padding, x);
+        font-size: array-get($sh--buttons, layout, custom, lg, self, font-size);
+      }
+    }
+
+    // label states
+    @each $name, $color in $shine-colors {
+      &.sh-btn--label-#{$name} {
+        color: array-get($color, base);
+      }
+    }
+
+    // custom buttons font styles
+    &.sh-btn--uppercase {
+      text-transform: uppercase;
+    }
+
+    // Button font helpers
+    &.sh-btn--regular {
+      font-weight: get-font-weight(regular);
+    }
+
+    &.sh-btn--bold {
+      font-weight: get-font-weight(bold);
+    }
+
+    &.sh-btn--bolder {
+      font-weight: get-font-weight(bolder);
+    }
+
+    &.sh-btn--boldest {
+      font-weight: get-font-weight(boldest);
+    }
+
+    &.sh-btn--sm {
+      font-size: get-font-size(regular, '-');
+    }
+
+    &.sh-btn--md {
+      padding: 1rem 2rem;
+
+      &.dropdown-toggle {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+      }
+    }
+  }
+
+  // icon Button
+  &.sh-btn--icon {
+    // label + icon
+    > span {
+      display: table;
+
+      > i {
+        display: table-cell;
+        vertical-align: middle;
+        line-height: 0;
+      }
+
+      @include icons-size(array-get($sh--buttons, layout, default, default, icon, font-size));
+
+      > span {
+        padding-left: 0.5em;
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &.sh-btn--icon-right {
+      > span {
+        > span {
+          padding-left: 0;
+          padding-right: 0.6em;
+        }
+      }
+    }
+
+    // Button sizing
+
+    &.btn-lg {
+      > span {
+        @include icons-size(array-get($sh--buttons, layout, default, lg, icon, font-size));
+      }
+    }
+
+    &.btn-sm {
+      > span {
+        @include icons-size(array-get($sh--buttons, layout, default, sm, icon, font-size));
+      }
+    }
+
+    // icon only without label
+    &.sh-btn--icon-only {
+      display: inline-block;
+      position: relative;
+      padding: 0 !important;
+      width: array-get($sh--buttons, layout, default, default, icon, icon-only-size);
+      height: array-get($sh--buttons, layout, default, default, icon, icon-only-size);
+
+      > i {
+        line-height: 0;
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      @include icons-size(array-get($sh--buttons, layout, default, default, icon, font-size));
+
+      &.th-btn-pill {
+        border-radius: 100%;
+      }
+
+      &.btn-lg {
+        width: array-get($sh--buttons, layout, default, lg, icon, icon-only-size);
+        height: array-get($sh--buttons, layout, default, lg, icon, icon-only-size);
+
+        @include icons-size(array-get($sh--buttons, layout, default, lg, icon, font-size));
+      }
+
+      &.btn-sm {
+        width: array-get($sh--buttons, layout, default, sm, icon, icon-only-size);
+        height: array-get($sh--buttons, layout, default, sm, icon, icon-only-size);
+
+        @include icons-size(array-get($sh--buttons, layout, default, sm, icon, font-size));
+      }
+    }
+
+    // metronic style buttons
+    &.sh-btn--custom {
+      > span {
+        @include icons-size(array-get($sh--buttons, layout, custom, default, icon, font-size));
+      }
+
+      &.btn-lg {
+        > span {
+          @include icons-size(array-get($sh--buttons, layout, custom, lg, icon, font-size));
+        }
+      }
+
+      &.btn-sm {
+        > span {
+          @include icons-size(array-get($sh--buttons, layout, custom, sm, icon, font-size));
+        }
+      }
+
+      &.sh-btn--icon-only {
+        width: array-get($sh--buttons, layout, custom, default, icon, icon-only-size);
+        height: array-get($sh--buttons, layout, custom, default, icon, icon-only-size);
+
+        &.btn-lg {
+          width: array-get($sh--buttons, layout, custom, lg, icon, icon-only-size);
+          height: array-get($sh--buttons, layout, custom, lg, icon, icon-only-size);
+        }
+
+        &.btn-sm {
+          width: array-get($sh--buttons, layout, custom, sm, icon, icon-only-size);
+          height: array-get($sh--buttons, layout, custom, sm, icon, icon-only-size);
+        }
+      }
+    }
+
+    // block btn
+    &.btn-block {
+      > span {
+        text-align: center;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  // base icons
+  @include icons-size(array-get($sh--buttons, layout, default, default, icon, font-size));
+
+  &.btn-sm {
+    @include icons-size(array-get($sh--buttons, layout, default, sm, icon, font-size));
+  }
+
+  &.btn-lg {
+    @include icons-size(array-get($sh--buttons, layout, default, lg, icon, font-size));
+  }
+
+  // link Button
+  .sh-btn.sh-btn--link {
+    &:focus,
+    &:active {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  // outline buttons
+  .sh-btn.sh-btn--outline-2x {
+    border-width: 2px;
+  }
+
+  // Button group
+  .btn-group {
+    &.sh-btn-group--pill:not(.btn-group-vertical) {
+      .btn {
+        &:first-child {
+          border-radius: $sh-pill-radius 0 0 $sh-pill-radius;
+        }
+
+        &:last-child {
+          border-radius: 0 $sh-pill-radius $sh-pill-radius 0;
+        }
+
+        // pill mode
+        &.sh-btn--pill-last {
+          border-radius: 0 $sh-pill-radius $sh-pill-radius 0;
+        }
+
+        &.sh-btn--pill-first {
+          border-radius: $sh-pill-radius 0 0 $sh-pill-radius;
+        }
+      }
+    }
+
+    &.sh-btn-group--air {
+      border-radius: 0.25rem;
+    }
+
+    &.sh-btn-group--air.sh-btn-group--pill {
+      border-radius: $sh-pill-radius;
+    }
+  }
+
+  // vertical Button group
+  .btn-group-vertical {
+    .sh-btn--pill-last {
+      border-radius: 0 0 $sh-pill-radius $sh-pill-radius;
+    }
+
+    .sh-btn--pill-first {
+      border-radius: $sh-pill-radius $sh-pill-radius 0 0;
+    }
+  }
+
+  // air buttons
+  @each $name, $color in $shine-colors {
+    &.btn-outline-#{$name}.sh-btn--air,
+    &.btn-#{$name}.sh-btn--air,
+    &.sh-btn--gradient-from-#{$name}.sh-btn--air {
+      box-shadow: 0px 5px 10px 2px rgba(array-get($color, base), 0.19) !important;
+
+      &.focus,
+      &:focus,
+      &:hover {
+        box-shadow: 0px 5px 10px 2px rgba(array-get($color, base), 0.36) !important;
+      }
+    }
+
+    &.btn-outline-#{$name} {
+      &.focus,
+      &:focus,
+      &:hover {
+        border-color: array-get($color, base);
+        background: array-get($color, base);
+        color: array-get($color, inverse);
+      }
+    }
+
+    &.btn + .btn.dropdown-toggle {
+      position: relative;
+
+      &:before {
+        display: block;
+        content: ' ';
+        border-left: 1px solid #fff;
+        position: absolute;
+        top: 3px;
+        left: -1px;
+        bottom: 3px;
+        opacity: 0.3;
+      }
+
+      &:hover,
+      &:focus,
+      &.active {
+        &:before {
+          display: none;
+        }
+      }
+    }
+  }
+
+  // Button outline fix
+  button {
+    &:active,
+    &:focus {
+      outline: none !important;
+    }
+  }
+}
+
+//== Component Skin
+@mixin sh-build-component--buttons-skin() {
+  $skin: $default-skin;
+
+  .btn {
+    // standart buttons
+    &.btn-default,
+    &.btn-secondary {
+      background: white;
+      border-color: array-get($shine-input, skins, $skin, default, border, default);
+
+      i {
+        color: get-color($skin, regular, '-');
+      }
+
+      &:hover:not(:disabled),
+      &.active,
+      &:active,
+      &:focus,
+      .show > &.dropdown-toggle {
+        border-color: array-get($shine-input, skins, $skin, default, border, default);
+        background-color: get-color($skin, panel, '-');
+      }
+
+      &.disabled,
+      &:disabled {
+        border-color: array-get($shine-input, skins, $skin, default, border, disabled);
+      }
+    }
+
+    // air buttons
+    &.sh-btn--air {
+      &.btn-default,
+      &.btn-secondary {
+        box-shadow: array-get($sh--buttons, skins, $skin, air, box-shadow, default) !important;
+        border-color: #ffffff !important;
+
+        &.focus,
+        &:focus,
+        &:hover:not(:disabled):not(.active) {
+          box-shadow: array-get($sh--buttons, skins, $skin, air, box-shadow, hover) !important;
+          background: get-brand-color() !important;
+          color: get-brand-inverse-color(inverse) !important;
+          border-color: get-brand-color() !important;
+
+          i {
+            color: get-brand-inverse-color(inverse) !important;
+          }
+        }
+      }
+    }
+
+    // hover buttons
+    @each $name, $color in $shine-colors {
+      // standart buttons
+      &.sh-btn--hover-#{$name} {
+        &:not(.btn-secondary):not(.btn-outline-light) {
+          background: none;
+          color: get-color($skin, regular);
+
+          i {
+            color: get-color($skin, regular, '---');
+          }
+        }
+
+        &:hover,
+        &.active,
+        &:active,
+        &:focus,
+        .show > &.dropdown-toggle {
+          border-color: array-get($color, base) !important;
+          color: array-get($color, inverse) !important;
+
+          i {
+            color: array-get($color, inverse) !important;
+          }
+
+          background-color: array-get($color, base) !important;
+        }
+      }
+
+      // gradient buttons
+      &.sh-btn--gradient-from-#{$name} {
+        color: array-get($color, inverse);
+        border: 0 !important;
+
+        @each $name2, $color2 in $shine-colors {
+          &.sh-btn--gradient-to-#{$name2} {
+            @include gradient-bg(array-get($color, base), 135deg, array-get($color, base) 30%, array-get($color2, base) 100%);
+
+            &:hover,
+            &.active,
+            &:active,
+            &:focus,
+            .show > &.dropdown-toggle {
+              @include gradient-bg(darken(array-get($color, base), 6%), 135deg, darken(array-get($color, base), 6%) 30%, darken(array-get($color2, base), 6%) 100%);
+            }
+          }
+        }
+      }
+
+      &.btn-#{$name} {
+        color: array-get($color, inverse);
+
+        &.active,
+        &.focus,
+        &:focus,
+        &:hover:not(:disabled) {
+          color: array-get($color, inverse) !important;
+        }
+      }
+
+      &.btn-outline-#{$name} {
+        color: array-get($color, base);
+
+        &.active,
+        &.focus,
+        &:focus,
+        &:hover:not(:disabled) {
+          color: array-get($color, inverse) !important;
+        }
+      }
+    }
+  }
+
+  // air Button group
+  .btn-group {
+    &.sh-btn-group--air {
+      box-shadow: array-get($sh--buttons, skins, $skin, air, box-shadow, default) !important;
+
+      .btn-default,
+      .btn-secondary {
+        border-color: #ffffff !important;
+
+        &.focus,
+        &:focus,
+        &:hover:not(:disabled) {
+          background: #ffffff !important;
+          box-shadow: array-get($sh--buttons, skins, $skin, air, box-shadow, default) !important;
+        }
+      }
+    }
+  }
+}
+
+//== Build Component Base
+@include sh-build-component--buttons-base();
+
+//== Build Component Skin
+@include sh-build-component--buttons-skin();
