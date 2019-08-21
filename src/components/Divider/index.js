@@ -5,7 +5,7 @@
  * @Date 2019-08-20 15:50
  */
 import _ from 'lodash';
-import React, {Fragment, PureComponent} from 'react';
+import React, {PureComponent} from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {classPrefix} from 'variables';
