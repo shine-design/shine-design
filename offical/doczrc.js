@@ -10,6 +10,8 @@ export default {
   indexHtml: paths.siteHtml,
   codeSandbox: true,
   modifyBundlerConfig: config => {
+
+    config.entry.app.shift();
     const {alias} = config.resolve;
 
     config.resolve.extensions.push('scss');

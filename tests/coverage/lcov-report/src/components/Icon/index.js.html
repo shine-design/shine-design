@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/components/Tooltip/index.js</title>
+    <title>Code coverage report for src/components/Icon/index.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../../index.html">All files</a> / <a href="index.html">src/components/Tooltip</a> index.js
+      <a href="../../../index.html">All files</a> / <a href="index.html">src/components/Icon</a> index.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/10</span>
+        <span class='fraction'>0/11</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/10</span>
+        <span class='fraction'>0/11</span>
       </div>
     </div>
   </div>
@@ -88,7 +88,28 @@
 43
 44
 45
-46</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -98,18 +119,15 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -126,58 +144,103 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
- * @Component Tooltip
- * @Type 文字提示组件
+ * @Component Icon
+ * @Type 图标组件
  * @Author 瞿龙俊 - qulongjun@shine.design
- * @Date 2019-04-27 11:59
+ * @Date 2019-08-19 17:42
  */
+<span class="cstat-no" title="statement not covered" >import _ from 'lodash';</span>
 <span class="cstat-no" title="statement not covered" >import React, {PureComponent} from 'react';</span>
 <span class="cstat-no" title="statement not covered" >import classNames from 'classnames';</span>
-<span class="cstat-no" title="statement not covered" >import * as PropTypes from 'prop-types';</span>
-<span class="cstat-no" title="statement not covered" >import './style/index.scss';</span>
+<span class="cstat-no" title="statement not covered" >import {classPrefix} from 'variables';</span>
+<span class="cstat-no" title="statement not covered" >import * as PropTypes from "prop-types";</span>
 &nbsp;
-class Tooltip extends PureComponent {
+class Icon extends PureComponent {
 &nbsp;
   render() <span class="cstat-no" title="statement not covered" >{</span>
-    const {className, attributes, children} = <span class="cstat-no" title="statement not covered" >this.props;</span>
-&nbsp;
+    const {iconName, size, isSpin, isPulse, rotate, flip, className, attributes, children} = <span class="cstat-no" title="statement not covered" >this.props;</span>
     /** 计算样式 */
     const classes = <span class="cstat-no" title="statement not covered" >classNames(</span>
+      `${classPrefix}-icon-${iconName}`,
+      {
+        [`${classPrefix}-icon-${size}`]: _.isString(size),
+        [`${classPrefix}-icon-spin`]: isSpin,
+        [`${classPrefix}-icon-pulse`]: isPulse,
+        [`${classPrefix}-icon-rotate-${rotate}`]: _.isNumber(rotate),
+        [`${classPrefix}-icon-flip-${flip}`]: _.isString(flip),
+      },
       className,
     );
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    return (</span>
-      &lt;div
-        className={classes}
-        {...attributes}
-      &gt;
-        {children}
-      &lt;/div&gt;
+      &lt;i className={classes} {...attributes}&gt;{children}&lt;/i&gt;
     );
   }
 }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >Tooltip.propTypes = {</span>
+<span class="cstat-no" title="statement not covered" >Icon.propTypes = {</span>
+  /** 图标名称 */
+  iconName: PropTypes.string,
+  /** 图标尺寸，支持按倍数扩展 */
+  size: PropTypes.oneOf(['lg', '2x', '3x', '4x', '5x']),
+  /** 是否产生旋转动画 */
+  isSpin: PropTypes.bool,
+  /** 是否产生八个方位的旋转动画 */
+  isPulse: PropTypes.bool,
+  /** 旋转图标角度 */
+  rotate: PropTypes.oneOf([90, 180, 270]),
+  /** 翻转图标 */
+  flip: PropTypes.oneOf(['horizontal', 'vertical']),
   /** 用户自定义修饰符 */
   className: PropTypes.string,
   /** 用户自定义属性 */
   attributes: PropTypes.object,
 };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >Tooltip.defaultProps = {</span>
+<span class="cstat-no" title="statement not covered" >Icon.defaultProps = {</span>
+  iconName: '',
+  size: undefined,
+  isSpin: false,
+  isPulse: false,
+  rotate: undefined,
+  flip: undefined,
   className: '',
   attributes: {},
 };
 &nbsp;
-export default Tooltip;
+export default Icon;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
