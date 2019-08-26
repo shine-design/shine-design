@@ -4,6 +4,7 @@
  * @Date 2019/3/17 00:40
  */
 const alias = require('./config/alias');
+const paths = require('./config/paths');
 
 module.exports = {
   verbose: true,
@@ -18,5 +19,8 @@ module.exports = {
     '^.+\\.js$': 'babel-jest',
     ".+\\.(css|styl|less|sass|scss)$": "<rootDir>/node_modules/jest-css-modules-transform",
   },
-  moduleNameMapper: alias,
+  moduleNameMapper: {
+    ...alias,
+    "~(.*)$": "<rootDir>/src/$1",
+  },
 };
