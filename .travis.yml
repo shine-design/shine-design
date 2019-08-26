@@ -9,7 +9,7 @@ install:
 before_script: 
 
 script:
-- npm run build
+- npm run build:offical
 
 after_script:
 - rf -rf .git
