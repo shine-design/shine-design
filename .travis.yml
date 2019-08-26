@@ -20,7 +20,7 @@ after_script:
 - git add .
 - git commit -m "Update version"
 - git remote add origin "https://${GH_TOKEN}@${GH_REF}"
-- git push --force --quiet
+- git push --set-upstream master --force --quiet
 
 branches:
   only:
