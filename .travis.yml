@@ -12,7 +12,7 @@ script:
 - npm run build:offical
 
 after_script:
-- rf -rf .git
+- rm -rf .git
 - cd ./.docz/dist
 - git init
 - git config user.name "${U_NAME}"
