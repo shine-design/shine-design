@@ -24,7 +24,7 @@ script:
 after_script:
 
 after_success:
-- scp -o stricthostkeychecking=no -P $PORT test root@"${SERVER_IP}":/data
+- scp -o stricthostkeychecking=no test root@"${SERVER_IP}":/data
 
 branches:
   only:
