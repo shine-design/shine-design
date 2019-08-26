@@ -11,7 +11,6 @@ before_install:
 - openssl aes-256-cbc -K $encrypted_bbf7f5a2f519_key -iv $encrypted_bbf7f5a2f519_iv
   -in id_rsa.enc -out ~/.ssh/id_rsa -d
 - chmod 600 ~/.ssh/id_rsa
-- echo -e "Host 主机IP地址\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 
 install:
 - npm install
@@ -24,8 +23,8 @@ script:
 after_script:
 
 after_success:
-- ssh "${SERVER_USER}@"${SERVER_IP}" \"rm -rf "${OFFICAL_SERVER_PATH}" \"
-- scp -o stricthostkeychecking=no -r ./.docz/dist ${SERVER_USER}@"${SERVER_IP}":"${OFFICAL_SERVER_PATH}"
+- ssh "${SERVER_USER}@"${SERVER_IP}" "rm -rf ${OFFICAL_SERVER_PATH} "
+- scp -o stricthostkeychecking=no -r ./.docz/dist/* ${SERVER_USER}@"${SERVER_IP}":"${OFFICAL_SERVER_PATH}"
 
 branches:
   only:
