@@ -33,11 +33,11 @@ export default () => (
                   </p>
                 </blockquote>
                 <h2>环境搭建</h2>
-                <p>开发者可以通过以下两种方式集成 Shine Design。</p>
+                <p>开发者可以通过以下两种方式使用 Shine Design。</p>
                 <h4>构建工具</h4>
                 <p>
                   Shine Tool 是官方提供的 Shine Design 开发构建工具，使用该工具可以快速搭建开箱即用的项目，相关资料请参考
-                  <NavLink to='cli'>构建工具</NavLink> 。
+                  <NavLink to='/tools'>构建工具</NavLink> 。
                 </p>
                 <h4>手动构建</h4>
                 <p>
@@ -48,7 +48,13 @@ export default () => (
                 <blockquote>
                   <p>
                     本例假设你已正确安装 create-react-app 命令行工具并熟悉相关命令行指令。相关资料参考
-                    <a href='//github.com/facebook/create-react-app'>create-react-app</a>。
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href='//github.com/facebook/create-react-app'
+                    >
+                      create-react-app
+                    </a>。
                   </p>
                 </blockquote>
                 <Step {...{
@@ -62,7 +68,7 @@ export default () => (
                             code: `
 create-react-app my-app
                     `,
-                            language: 'apacheconf'
+                            language: 'apacheconf',
                           }}/>
                           <blockquote>
                             <p>不同版本的 create-react-app 可能存在差异，具体命令以 create-react-app
@@ -70,7 +76,7 @@ create-react-app my-app
                             </p>
                           </blockquote>
                         </Fragment>
-                      )
+                      ),
                     }, {
                       title: '安装依赖',
                       content: (
@@ -81,13 +87,13 @@ create-react-app my-app
                             code: `
 npm install shined
                     `,
-                            language: 'apacheconf'
+                            language: 'apacheconf',
                           }}/>
                           <blockquote>
                             <p>在 NPM 平台上，Shine Design 被命名为 <code>shined</code>。</p>
                           </blockquote>
                         </Fragment>
-                      )
+                      ),
                     }, {
                       title: '启动服务器',
                       content: (
@@ -99,10 +105,17 @@ npm install shined
 npm start
 
 `,
-                            language: 'apacheconf'
+                            language: 'apacheconf',
                           }}/>
-                          <p>静待片刻，开发服务器启动成功后，你可以在浏览器中访问 <a
-                            href='http://127.0.0.1:8000'>http://127.0.0.1:3000</a> ，当看到欢迎页面时，项目搭建成功。
+                          <p>静待片刻，开发服务器启动成功后，你可以在浏览器中访问
+                            <a
+                              href='http://127.0.0.1:8000'
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              http://127.0.0.1:3000
+                            </a>
+                            ，当看到欢迎页面时，项目搭建成功。
                           </p>
                           <blockquote>
                             <p>
@@ -110,9 +123,9 @@ npm start
                             </p>
                           </blockquote>
                         </Fragment>
-                      )
-                    }
-                  ]
+                      ),
+                    },
+                  ],
                 }}/>
                 <p>至此，依赖配置成功，开始使用第一个组件吧。</p>
                 <h2>使用组件</h2>
@@ -153,7 +166,7 @@ class App extends Component {
                 <blockquote>
                   <p>部分脚手架工具未配置 Webpack 热更新，可能需要手动重启服务。</p>
                 </blockquote>
-                <p>至此，Shine Design 组件使用成功，更多组件的使用请参考 <NavLink to='/tutorial'>组件文档</NavLink> 。
+                <p>至此，Shine Design 组件使用成功，更多组件的使用请参考 <NavLink to='/guide'>组件文档</NavLink> 。
                 </p>
               </Article>
             </div>
