@@ -24,7 +24,7 @@ after_script:
 
 after_success:
 - ssh "${SERVER_USER}@"${SERVER_IP}" "rm -rf ${OFFICAL_SERVER_PATH} "
-- scp -o stricthostkeychecking=no -r dist/* ${SERVER_USER}@"${SERVER_IP}":"${OFFICAL_SERVER_PATH}"
+- scp -o stricthostkeychecking=no -r .docz/dist/* ${SERVER_USER}@"${SERVER_IP}":"${OFFICAL_SERVER_PATH}"
 
 branches:
   only:
