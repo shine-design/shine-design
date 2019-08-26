@@ -11,7 +11,15 @@ before_script:
 script:
 - npm run build
 
-after_script: 
+after_script:
+- cd ./docz/dist
+- git init
+- git config user.name "${U_NAME}"
+- git config user.email "${U_EMAIL}"
+- git add .
+- git commit -m "Update version"
+- git remote add origin "https://${GH_TOKEN}@${GH_REF}"
+- git push --force --quiet
 
 branches:
   only:
