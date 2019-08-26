@@ -1,26 +1,30 @@
 language: node_js
+
 node_js:
 - 10.16.0
+
 cache:
   directories:
   - node_modules
+
+before_install:
+- openssl aes-256-cbc -K $encrypted_bbf7f5a2f519_key -iv $encrypted_bbf7f5a2f519_iv
+  -in id_rsa.enc -out ~/.ssh/id_rsa -d
+- chmod 600 ~/.ssh/id_rsa
+- echo -e "Host 主机IP地址\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+
 install:
 - npm install
+
 before_script: 
 
 script:
 - npm run build:offical
 
 after_script:
-- rm -rf .git
-- cd ./.docz/dist
-- git init
-- git config user.name "${U_NAME}"
-- git config user.email "${U_EMAIL}"
-- git add .
-- git commit -m "Update version"
-- git remote add origin "https://${GH_TOKEN}@${GH_REF}"
-- git push --set-upstream master --force --quiet
+
+after_success:
+- scp -o stricthostkeychecking=no -P $PORT test root@"${SERVER_IP}":/data
 
 branches:
   only:
