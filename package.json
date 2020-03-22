@@ -46,7 +46,7 @@
     "clean": "sudo rimraf node_modules && yarn && jest --clearCache",
     "start": "node scripts/start.js",
     "start:offical": "docz dev --config offical/doczrc.js --debug",
-    "build:offical": "docz build --config offical/doczrc.js"
+    "build:offical": "rimraf .docz && docz build --config offical/doczrc.js"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "jest-enzyme",

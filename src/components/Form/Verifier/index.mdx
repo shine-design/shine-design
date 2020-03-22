@@ -13,9 +13,7 @@ import {
   PropsTable
 } from "theme";
 import {Form , Input} from 'shineDev';
-import VerifierDemo from '../demo/Verifier';
-import CustomVerifierDemo from '../demo/CustomVerifier';
-import code from "../demo";
+import code from "./demo";
 import "../demo/index.scss";
 
 # Verifier 表单校验
@@ -34,8 +32,8 @@ import "../demo/index.scss";
 
 Shine Design 内置了一套基础表单校验规则，可以在表单元素上通过 `rules` 属性完成设置。
 
-<Example 
-  display={<VerifierDemo />}
+<Example
+  display={<JsxParser {...code.verifier} />}
   code={{code:code.verifier.jsx}}
   components={code.verifier.components}
 />
@@ -59,10 +57,10 @@ Shine Design 内置了一套基础表单校验规则，可以在表单元素上�
 
 除了预设的校验规则外，还支持自定义校验规则的配置，自定义校验规则支持正则校验和函数校验。
 
-<Example 
-  display={<CustomVerifierDemo />}
-  code={{code:code.customVerifier.jsx}}
-  components={code.customVerifier.components}
+<Example
+  display={<JsxParser {...code.custom} />}
+  code={{code:code.custom.jsx}}
+  components={code.custom.components}
 />
 
 ## 配置参数

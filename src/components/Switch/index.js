@@ -132,6 +132,8 @@ Switch.propTypes = {
   className: PropTypes.string,
   /** 用户自定义属性 */
   attributes: PropTypes.object,
+  /** 定位表单元素 */
+  isFormElement: PropTypes.bool
 };
 
 Switch.defaultProps = {
@@ -147,6 +149,7 @@ Switch.defaultProps = {
   onChange: undefined,
   className: '',
   attributes: {},
+  isFormElement: true
 };
 
 export default Switch;

@@ -9,14 +9,11 @@ import React, {Fragment, PureComponent} from 'react';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import {classPrefix} from 'variables';
-import uuidv1 from 'uuid/v1';
+import uuid from 'uuid/v1';
 import {VALIDATION_MSG} from 'validations';
 import {Col} from '../../Grid';
 
 import './style/index.scss';
-
-/** 合法子元素类型名称 */
-const LEGAL_CHILDREN_TYPE = ['Input', 'Switch'];
 
 class Item extends PureComponent {
   constructor() {
@@ -97,11 +94,12 @@ class Item extends PureComponent {
 
     const feedBackClass = `${classPrefix}-form-control-feedback`;
     return _.map(_.isArray(children) ? children : [children], (child, index) => {
-      const isLegalChild = React.isValidElement(child) && _.includes(LEGAL_CHILDREN_TYPE, child.type.name);
-      const {id} = isLegalChild && child.props;
+      const isLegalChild = React.isValidElement(child) && child.props && child.props.isFormElement;
+      const {id} = (isLegalChild && child.props) || {};
+
       if (!isLegalChild) return null;
       // 生成标签ID：若当前设置了ID，则使用自定义，否则，使用 UUID 随机ID
-      const htmlId = _.isUndefined(id) ? uuidv1() : id;
+      const htmlId = _.isUndefined(id) ? uuid() : id;
 
       const childRender = (
         <Fragment>
@@ -142,6 +140,8 @@ Item.propTypes = {
   className: PropTypes.string,
   /** 用户自定义属性 */
   attributes: PropTypes.object,
+  /** 是否为表单项容器 */
+  isFormItem: PropTypes.bool
 };
 
 Item.defaultProps = {
@@ -151,6 +151,7 @@ Item.defaultProps = {
   labelCol: 3,
   className: '',
   attributes: {},
+  isFormItem: true,
 };
 
 Item.contextTypes = {
