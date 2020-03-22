@@ -33,7 +33,7 @@ import "./demo/index.scss";
 
 输入框组件是由基础输入标签封装而成，可以快速的创建一些常见的表单控件。
 
-<Example 
+<Example
   display={<JsxParser {...code.basic} />}
   code={{code:code.basic.jsx}}
   components={code.basic.components}
@@ -43,7 +43,7 @@ import "./demo/index.scss";
 
 输入框支持三种尺寸以适应不同的页面需求。
 
-<Example 
+<Example
   display={<JsxParser {...code.size} />}
   code={{code:code.size.jsx}}
   components={code.size.components}
@@ -53,20 +53,10 @@ import "./demo/index.scss";
 
 在部分应用场景下，输入框需要展示为禁用和只读状态。
 
-<Example 
+<Example
   display={<JsxParser {...code.state} />}
   code={{code:code.state.jsx}}
   components={code.state.components}
-/>
-
-#### 输入框类型
-
-使用 `formStyle` 属性可以指定单个输入框的类型，目前支持三种类型，通过不同类型搭配可以实现个性化表单。
-
-<Example 
-  display={<JsxParser {...code.formStyle} />}
-  code={{code:code.formStyle.jsx}}
-  components={code.formStyle.components}
 />
 
 #### 事件
@@ -75,7 +65,7 @@ import "./demo/index.scss";
   打开浏览器控制台，并操作下方输入框，即可查看事件效果。
 </MessageBox>
 
-<Example 
+<Example
   display={
       <Input
         placeholder="打开控制台查看效果"

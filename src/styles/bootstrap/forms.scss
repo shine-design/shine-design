@@ -1,0 +1,132 @@
+//
+// Forms
+//
+
+
+// Form group
+.form-group {
+	margin-bottom: 2rem;
+
+	&.form-group-marginless,
+	&.form-group-last {
+		margin-bottom: 0px;
+	}
+
+	label {
+		font-size: 1rem;
+		font-weight: 400;
+	}
+
+	.invalid-feedback,
+	.valid-feedback {
+		font-weight: 400;
+	}
+
+	.form-text {
+		font-size: 0.9rem;
+	}
+
+	// Space sizing
+	&.form-group-md {
+		margin-bottom: 1rem;
+	}
+
+	&.form-group-sm {
+		margin-bottom: 0.5rem;
+	}
+
+	&.form-group-xs {
+		margin-bottom: 0.25rem;
+	}
+
+	&.form-group-last {
+		margin-bottom: 0rem;
+	}
+}
+
+// Form control
+.form-control {
+  box-shadow:none !important;
+
+	&:focus,
+	&:active {
+		box-shadow:none !important;
+	}
+
+	&[readonly] {
+		background-color: $input-readonly-bg;
+	}
+
+	// Pill style
+	&.form-control-pill {
+		border-radius: 50px;
+	}
+}
+
+// Custom inputs
+.custom-select {
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.custom-file {
+	width: 100%;
+}
+
+.custom-file-input:focus ~ .custom-file-label {
+	box-shadow: none !important;
+}
+
+.custom-file-label {
+	text-align: left;
+
+	&:after {
+	    float: left;
+	}
+}
+
+
+// Input Group
+.input-group {
+	@include shine-icons-size((lineawesome: 1.4rem, fontawesome: 1.2rem, flaticon: 1.2rem));
+
+	i {
+		color: $input-group-icon-color;
+		line-height: 0;
+	}
+
+	.form-control.is-valid + .input-group-append,
+	.form-control.is-invalid + .input-group-append {
+		margin-left: 0;
+	}
+
+	.input-group-prepend + .form-control.is-valid,
+	.input-group-prepend + .form-control.is-invalid {
+		margin-left: 1px;
+	}
+}
+
+// Validation
+.validated {
+	.valid-feedback,
+	.invalid-feedback {
+		display: block;
+	}
+}
+
+.#{$classPrefix}-form-control-small {
+  height: $input-height-sm;
+  padding: $input-btn-padding-y-sm $input-btn-padding-x-sm;
+  font-size: $input-font-size-sm;
+  line-height: $input-btn-line-height-sm;
+  @include border-radius($input-border-radius-sm);
+}
+
+.#{$classPrefix}-form-control-large {
+  height: $input-height-lg;
+  padding: $input-btn-padding-y-lg $input-btn-padding-x-lg;
+  font-size: $input-font-size-lg;
+  line-height: $input-btn-line-height-lg;
+  @include border-radius($input-border-radius-lg);
+}

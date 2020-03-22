@@ -13,24 +13,18 @@ import uuid from 'uuid/v1';
 import {VALIDATION_MSG} from 'validations';
 import {Col} from '../../Grid';
 
-import './style/index.scss';
+// import './style/index.scss';
 
 class Item extends PureComponent {
-  constructor() {
-    super();
-
-    this.onValidate = this.onValidate.bind(this);
-    this._onValidateResult = this._onValidateResult.bind(this);
-    this._onForceValidate = this._onForceValidate.bind(this);
-  }
 
   state = {
     checkResult: undefined,
     feedBack: undefined,
     validResult: true,
+    isValidated: false,
   };
 
-  onValidate(result) {
+  onValidate = result => {
     const {refs, context} = this;
     const {errorMsg, rules} = refs.formElement.props;
     const _validationMsg = _.merge({}, VALIDATION_MSG, errorMsg);
@@ -44,11 +38,11 @@ class Item extends PureComponent {
       checkResult: {error: context.errorState, success: context.successState ? 'success' : undefined},
       feedBack: validResult ? undefined : renderMsg(),
       validResult,
+      isValidated: true,
     });
+  };
 
-  }
-
-  _onForceValidate() {
+  _onForceValidate = () => {
     const {refs} = this;
     const {props: {name}, onValidate} = refs.formElement;
     if (!_.isUndefined(name)) {
@@ -57,27 +51,22 @@ class Item extends PureComponent {
       return {[name]: result};
     }
     return true;
-  }
-
-  _onValidateResult(result) {
-    this.onValidate(result);
-  }
+  };
 
   render() {
     const {label, helper, isInline, labelCol, className, attributes, children} = this.props;
     const {isValidate} = this.props;
-    const {checkResult, feedBack, validResult} = this.state;
+    const {checkResult, feedBack, validResult, isValidated} = this.state;
 
 
     const isValid = !_.isUndefined(checkResult);
-    const state = _.isObject(checkResult) && (validResult ? checkResult.success : checkResult.error);
 
     /** 计算样式 */
     const classes = classNames(
       `${classPrefix}-form__group`,
       'form-group',
       {
-        [`has-${state}`]: isValid && _.isString(state),
+        validated: isValidated,
         [`${classPrefix}-row`]: isInline,
       },
 
@@ -92,7 +81,7 @@ class Item extends PureComponent {
       },
     );
 
-    const feedBackClass = `${classPrefix}-form-control-feedback`;
+    const feedBackClass = validResult ? 'valid-feedback' : 'invalid-feedback';
     return _.map(_.isArray(children) ? children : [children], (child, index) => {
       const isLegalChild = React.isValidElement(child) && child.props && child.props.isFormElement;
       const {id} = (isLegalChild && child.props) || {};
@@ -109,11 +98,12 @@ class Item extends PureComponent {
               id: htmlId,
               ref: 'formElement',
               isValidate,
-              _onValidateResult: this._onValidateResult,
+              _className: isValidated && (validResult ? 'is-valid' : 'is-invalid'),
+              _onValidateResult: this.onValidate,
             },
           )}
-          {isValid && feedBack && <div className={feedBackClass}>{feedBack}</div>}
-          {!_.isUndefined(helper) && <span className="shine-form__help">{helper}</span>}
+          {isValidated && isValid && feedBack && <div className={feedBackClass}>{feedBack}</div>}
+          {!_.isUndefined(helper) && <span className="form-text text-muted">{helper}</span>}
         </Fragment>
       );
 

@@ -1,0 +1,44 @@
+---
+name: Checkbox 单选框
+route: /guide/checkbox
+menu: form
+---
+
+import JsxParser from "react-jsx-parser";
+import {
+  MessageBox,
+  InlineCode,
+  Example,
+  Code,
+  PropsTable
+} from "theme";
+import { Checkbox } from "shineDev";
+import code from "./demo";
+import "./demo/index.scss";
+
+# Checkbox 单选框
+
+## 概述
+在页面上生成一个表单容器，用户可以通过鼠标、键盘等设备输入内容，是最基本的表单组件。
+
+## 代码示例
+
+<MessageBox messageType="info">
+  为了让用户直观地查看代码演示，我们加入了{" "}
+  <InlineCode>shine-input-helper</InlineCode>{" "}
+  修饰符，在开发过程中无需配置该字段。
+</MessageBox>
+
+#### 基础单选框
+
+输入框组件是由基础输入标签封装而成，可以快速的创建一些常见的表单控件。
+
+<Example
+  display={<JsxParser {...code.basic} />}
+  code={{code:code.basic.jsx}}
+  components={code.basic.components}
+/>
+
+## 配置参数
+
+<PropsTable of={Checkbox} />

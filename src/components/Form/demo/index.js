@@ -14,7 +14,6 @@ export default {
     jsx: `
 <div className="shine-form-helper">
     <Form>
-        <Input placeholder="请输入文本" />
         <Form.Item label="普通文本" helper="We'll never share your text with anyone else.">
             <Input placeholder="请输入文本" />
         </Form.Item>

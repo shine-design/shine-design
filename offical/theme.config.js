@@ -127,6 +127,7 @@ export default {
         {label: 'Verifier 表单校验', link: '/guide/form-verifier'},
         {label: 'Input 输入框', link: '/guide/input'},
         {label: 'Switch 开关', link: '/guide/switch'},
+        {label: 'Checkbox 单选框', link: '/guide/checkbox'},
         // {label: 'Select 选择框', link: '/guide/select'},
         {label: 'TextArea 文本域', link: '/guide/textArea'},
       ],

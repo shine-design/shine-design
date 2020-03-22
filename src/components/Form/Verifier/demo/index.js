@@ -20,8 +20,9 @@ export default {
           placeholder="必填项"
           rules={{
             customA: value => {
+              console.log(value);
               return false;
-            },
+            }
           }}
           errorMsg={{
             customA: '自定义报错提示',
