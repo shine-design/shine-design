@@ -14,7 +14,7 @@ class TextArea extends PureComponent {
 
   render() {
     const {defaultValue, isDisabled, isReadOnly, id, value, name, placeholder} = this.props;
-    const {size, textAreaStyle} = this.props;
+    const {size, textAreaStyle, height} = this.props;
     const {onChange, onBlur, onClick} = this.props;
     const {className, attributes} = this.props;
 
@@ -22,14 +22,20 @@ class TextArea extends PureComponent {
     const classes = classNames(
       `${classPrefix}-form-control`,
       {
-        [`form-control-${size}`]: _.includes(['small', 'large'], size),
-        [`form-control--${textAreaStyle}`]: _.includes(['pill', 'square'], textAreaStyle),
+        [`${classPrefix}-form-control-${size}`]: _.includes(['small', 'large'], size),
+        [`${classPrefix}-form-control--${textAreaStyle}`]: _.includes(['pill', 'square'], textAreaStyle),
       },
       className,
     );
 
     // 回调函数
     const callbacks = {onChange, onBlur, onClick};
+
+    // 计算样式
+    const style = {
+      ...height ? {height} : {},
+      ...attributes.style || {},
+    };
 
     // 文本域属性配置
     const props = {
@@ -38,6 +44,7 @@ class TextArea extends PureComponent {
       placeholder,
       name,
       id,
+      style,
       disabled: isDisabled,
       readOnly: isReadOnly,
       className: classes,
@@ -69,6 +76,8 @@ TextArea.propTypes = {
   size: PropTypes.oneOf(['default', 'small', 'large']),
   /** 文本域样式，default：圆角矩形 / pill：椭圆形矩形 / square：直角矩形 */
   textAreaStyle: PropTypes.oneOf(['default', 'pill', 'square']),
+  /** 文本框高度 */
+  height: PropTypes.string,
   /** 文本域内容发生改变时触发 */
   onChange: PropTypes.func,
   /** 文本域失去焦点时触发 */
@@ -91,6 +100,7 @@ TextArea.defaultProps = {
   isReadOnly: false,
   size: 'default',
   textAreaStyle: 'default',
+  height: '100px',
   onChange: undefined,
   onBlur: undefined,
   onClick: undefined,

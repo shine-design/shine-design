@@ -15,15 +15,6 @@ export default {
     <TextArea placeholder="请输入多行文本" />
 </div>`,
   },
-  size: {
-    components,
-    jsx:
-`<div className="shine-input-helper">
-    <TextArea size="small" placeholder="请输入文本" />
-    <TextArea size="default" placeholder="请输入文本" />
-    <TextArea size="large" placeholder="请输入文本" />
-</div>`,
-  },
   state: {
     components,
     jsx:
