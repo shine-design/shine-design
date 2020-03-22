@@ -42,16 +42,19 @@ export default class extends Component {
                                 code: `
 npm install shine-tool -g
                     `,
-                                language: 'apacheconf'
-                              }}/>
+                                language: 'apacheconf',
+                              }}
+                              />
                             </Fragment>
-                          )
+                          ),
                         }, {
                           title: '创建新应用',
                           content: (
                             <Fragment>
                               <p>安装完 Shine Tool 之后，就可以在命令行里访问到 <code>shine-tool</code> 命令（<a
-                                href='https://stackoverflow.com/questions/15054388/global-node-modules-not-installing-correctly-command-not-found'>不能访问？</a>）。现在，你可以通过
+                                href='https://stackoverflow.com/questions/15054388/global-node-modules-not-installing-correctly-command-not-found'
+                              >不能访问？
+                                                                                          </a>）。现在，你可以通过
                                 <code>shine-tool init</code>
                                 创建新应用，你可以通过在命令行中输入如下指令，其中 <code>projectName</code> 为项目名称。
                               </p>
@@ -59,20 +62,23 @@ npm install shine-tool -g
                                 code: `
 shine-tool init projectName
                     `,
-                                language:'apacheconf'
-                              }}/>
+                                language:'apacheconf',
+                              }}
+                              />
                               <p>这会创建 <code>projectName</code>
                                 目录（若不存在），包含项目初始化目录和文件，并提供开发服务器、构建脚本、数据
                                 mock
-                                服务、代理服务器等功能。</p>
+                                服务、代理服务器等功能。
+                              </p>
                             </Fragment>
-                          )
+                          ),
                         }, {
                           title: '启动服务器',
                           content: (
                             <Fragment>
                               <p>通过 <code>cd</code> 命令进入 <code>projectName</code>
-                                目录，并启动开发服务器，你可以在命令行中输入如下指令启动服务器。</p>
+                                目录，并启动开发服务器，你可以在命令行中输入如下指令启动服务器。
+                              </p>
                               <Code {...{
                                 code: `
 //进入projectName项目
@@ -81,13 +87,16 @@ cd projectName
 //开启测试服务器
 npm run dev
                     `,
-                                language:'apacheconf'
-                              }}/>
+                                language:'apacheconf',
+                              }}
+                              />
                               <p>静待片刻，开发服务器启动成功后，你可以在浏览器中访问 <a
-                                href='http://127.0.0.1:8000'>http://127.0.0.1:8000</a> ，当看到欢迎页面时，项目搭建成功。
+                                href='http://127.0.0.1:8000'
+                              >http://127.0.0.1:8000
+                                                            </a> ，当看到欢迎页面时，项目搭建成功。
                               </p>
                             </Fragment>
-                          )
+                          ),
                         }, {
                           title: '打包上线',
                           content: (
@@ -101,15 +110,17 @@ cd projectName
 //编译项目
 npm run build
                     `,
-                                language:'apacheconf'
-                              }}/>
+                                language:'apacheconf',
+                              }}
+                              />
                               <p>静待片刻，项目即可打包完成，打包后项目文件位于 <code>/dist</code> 目录下，可以将该文件夹下的所有文件部署至服务器上，即可完成上线。
                               </p>
                             </Fragment>
-                          )
-                        }
-                      ]
-                    }}/>
+                          ),
+                        },
+                      ],
+                    }}
+                    />
                     <h4>目录结构</h4>
                   </Article>
                 </div>

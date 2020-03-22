@@ -28,18 +28,14 @@ export default class extends Component {
             _.map(_.flatten(_.take(DICTIONARY_CHUNKS, this.state.step)), (item, index) => (
               <li key={index}>
                 <span>
-                  <Icon iconName={item} size="3x"/>
+                  <Icon iconName={item} size="3x" />
                   <span className="icon-name">{item}</span>
                 </span>
               </li>
             ))
           }
         </ul>
-        <span
-          className="more-icon"
-          onClick={() => {
-            this.setState({step: this.state.step + 1})
-          }}>
+        <span className="more-icon" onClick={() => {this.setState(preState => ({step: preState.step + 1}))}}>
           加载更多...
         </span>
       </div>

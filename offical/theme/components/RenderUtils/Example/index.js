@@ -47,7 +47,7 @@ export default class extends Component {
           className={'tabs js-tabs code-highlight-tabs code-highlight-tabs-center ' + className.join(' ')}
         >
           <h4 className="tab-title">
-            <i className="fa fa-cube"/>示例
+            <i className="fa fa-cube" />示例
           </h4>
           <div className="tab-content full-width">
             {display}
@@ -56,10 +56,10 @@ export default class extends Component {
             </div>
           </div>
           <h4 className="tab-title">
-            <i className="fa fa-code"/>代码
+            <i className="fa fa-code" />代码
           </h4>
           <div className="tab-content full-width tab-code">
-            <Code  {...code} />
+            <Code {...code} />
             <div className="tab-live">
               {isDisabledLive ? <span>暂不提供在线运行</span> : <a href="javascript:;" onClick={this.onTriggerLive}>在线运行</a>}
             </div>

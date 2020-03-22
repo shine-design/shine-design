@@ -11,12 +11,12 @@
 
     $.fn.instaFilta = function(options) {
 
-        var _filterTerm = null,
-            _filterCategory = null;
+        let _filterTerm = null;
+            let _filterCategory = null;
 
 
         /* Default settings. */
-        var settings = $.extend({
+        const settings = $.extend({
 
             scope: null,
             targets: '.instafilta-target',
@@ -51,14 +51,14 @@
                 { src: 'Ù,Ú,Ü,Û', dst: 'U' },
                 { src: 'ç', dst: 'c' },
                 { src: 'Ç', dst: 'C' },
-                { src: 'æ', dst: 'ae' }
-            ]
+                { src: 'æ', dst: 'ae' },
+            ],
         }, options);
 
 
         /* Split synonym src into arrays. */
         if (settings.useSynonyms) {
-            for (var i = 0, l = settings.synonyms.length; i < l; i++) {
+            for (let i = 0, l = settings.synonyms.length; i < l; i++) {
                 settings.synonyms[i].src = settings.synonyms[i].src.split(',');
             }
         }
@@ -67,11 +67,11 @@
         /* Setup each instaFilta instance. */
         this.each(function() {
 
-            var typeTimer,
-                $targets,
-                $sections,
-                $scopeElement,
-                lastTerm = '';
+            let typeTimer;
+                let $targets;
+                let $sections;
+                let $scopeElement;
+                let lastTerm = '';
 
             /* Check if this instance should be bound to a scope. */
             if (settings.scope) {
@@ -92,13 +92,13 @@
 
                 $target.data('values', (function(s) {
 
-                    var values = [original], normalized = original;
+                    const values = [original]; let normalized = original;
 
                     if (!settings.useSynonyms) { return values; }
 
-                    for (var i = 0, l = s.length; i < l; i++) {
+                    for (let i = 0, l = s.length; i < l; i++) {
 
-                        for (var j = 0; j < s[i].src.length; j++) {
+                        for (let j = 0; j < s[i].src.length; j++) {
                             normalized = normalized.replace(s[i].src[j], s[i].dst);
                         }
 
@@ -114,11 +114,11 @@
 
 
             /* Will hide any sections that don't have data-instafilta-hidden="false" */
-            var toggleSections = function() {
+            const toggleSections = function() {
 
                 $sections.each(function() {
 
-                    var $section = $(this);
+                    const $section = $(this);
 
                     if ($section.find('[data-instafilta-hide="false"]').length) {
                         $section[settings.sectionsShowEffect](settings.sectionsShowDuration);
@@ -134,9 +134,9 @@
 
 
             /* Apply the results of the filtering process GUI-wise. */
-            var toggleResults = function(forceShowAll) {
+            const toggleResults = function(forceShowAll) {
 
-                var $matchedItems = (function() {
+                const $matchedItems = (function() {
                     return forceShowAll ? $targets.attr('data-instafilta-hide', 'false') : $targets;
                 }()).filter('[data-instafilta-hide="false"]')[settings.itemsShowEffect](settings.itemsShowDuration);
 
@@ -154,7 +154,7 @@
 
 
             /* Reset the filter completely. */
-            var showAll = function() {
+            const showAll = function() {
                 return toggleResults(true);
             };
 
@@ -165,14 +165,14 @@
                 term = settings.caseSensitive ? term : term.toLowerCase();
 
                 if (lastTerm === term) { return false; }
-                else { lastTerm = term; }
+                 lastTerm = term; 
 
                 term || showAll();
 
                 /* Iterate through associated targets and find matches. */
                 $targets.each(function() {
 
-                    var $item = $(this);
+                    const $item = $(this);
 
                     if (!$item.data('originalText')) {
                         $item.data('originalHtml', $item.html());
@@ -180,10 +180,10 @@
                     }
 
                     /* Returns the index at which a match was found. Returns -1 if not found. */
-                    var matchedIndex = (function(values, t) {
-                        var index = -1;
+                    const matchedIndex = (function(values, t) {
+                        let index = -1;
 
-                        for (var i = 0; i < values.length; i++) {
+                        for (let i = 0; i < values.length; i++) {
                             index = (settings.caseSensitive ? values[i] : values[i].toLowerCase()).indexOf(t);
                             if (index >= 0) { break; } // We have a match, no need to iterate further.
                         }
@@ -191,10 +191,10 @@
                         return index;
                     }($item.data('values'), term));
 
-                    var originalText = $item.data('originalText'),
-                        targetText = settings.caseSensitive ? originalText : originalText.toLowerCase(),
-                        matchedText = null,
-                        newText = null;
+                    const originalText = $item.data('originalText');
+                        const targetText = settings.caseSensitive ? originalText : originalText.toLowerCase();
+                        let matchedText = null;
+                        let newText = null;
 
                     /* If we should mark the match, wrap it in a span tag. */
                     if (matchedIndex >= 0 && settings.markMatches) {
@@ -225,17 +225,17 @@
 
                 $targets.each(function() {
 
-                    var hideStatus = true, 
-                        matched = 0,
-                        $item = $(this), 
-                        targetCats = $item.data(settings.categoryDataAttr);
+                    let hideStatus = true; 
+                        let matched = 0;
+                        const $item = $(this); 
+                        let targetCats = $item.data(settings.categoryDataAttr);
 
                     if (targetCats) {
 
                         targetCats = targetCats.split(',');
 
-                        for (var i = 0; i < targetCats.length; i++) {
-                            for (var j = 0; j < categories.length; j++) {
+                        for (let i = 0; i < targetCats.length; i++) {
+                            for (let j = 0; j < categories.length; j++) {
                                 if (targetCats[i] === categories[j]) {
                                     if (requireAll) { matched++; }
                                     else { hideStatus = false; break; }
@@ -255,7 +255,7 @@
 
             /* Setup event handlers. */
             $(this).on('keyup', function() {
-                var $field = $(this);
+                const $field = $(this);
 
                 clearTimeout(typeTimer);
 
@@ -269,7 +269,7 @@
 
         return { 
             filterTerm: _filterTerm,
-            filterCategory: _filterCategory
+            filterCategory: _filterCategory,
         };
 
     };

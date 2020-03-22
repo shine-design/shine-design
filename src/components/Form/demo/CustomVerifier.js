@@ -18,7 +18,8 @@ class CustomVerifierDemo extends Component {
               name="text"
               placeholder="必填项"
               rules={{
-                customA: value => {
+                customA: () => {
+                  
                   return false;
                 },
               }}

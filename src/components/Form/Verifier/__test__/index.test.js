@@ -1,11 +1,9 @@
-import _ from 'lodash';
 import React from 'react';
 import {mount} from 'enzyme';
 import {classPrefix} from 'variables';
-import {Input,Form} from 'shineDev';
-import Mock from 'mockjs';
+import {Form} from 'shineDev';
 
-const Verifier = Form.Verifier;
+const {Verifier} = Form;
 
 describe('Verifier', () => {
 

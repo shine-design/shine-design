@@ -6,8 +6,9 @@
 import React, { Component } from "react";
 import { Progress, Bar } from "shineDev";
 
+/* eslint-disable react/no-unused-state */
 class Scroll extends Component {
-  
+
   state = {
     percent: 0,
     isIncrease: true,

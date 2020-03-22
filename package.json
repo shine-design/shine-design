@@ -37,7 +37,7 @@
   "scripts": {
     "release": "standard-version",
     "build": "node scripts/build.js",
-    "lint": "eslint src tests website scripts",
+    "lint": "eslint src --fix",
     "lint:watch": "esw -w src",
     "prepublish": "npm run build",
     "test": "jest --no-cache --coverage --verbose",

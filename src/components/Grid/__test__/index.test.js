@@ -8,12 +8,12 @@ import {Col, Row} from 'shineDev';
 describe('Progress', () => {
 
   it('快照测试', () => {
-    const wrapper = mount(<Row><Col/></Row>);
+    const wrapper = mount(<Row><Col /></Row>);
     expect(wrapper).toMatchSnapshot();
   });
 
   it('渲染组件 Row', () => {
-    const wrapper = mount(<Row/>);
+    const wrapper = mount(<Row />);
     const {justify, align} = wrapper.props;
     expect(wrapper.hasClass(`${classPrefix}-row`));
     expect(wrapper.hasClass(`${classPrefix}-row--root`));
@@ -24,7 +24,7 @@ describe('Progress', () => {
   });
 
   it('渲染组件 Col', () => {
-    const wrapper = mount(<Col/>);
+    const wrapper = mount(<Col />);
     expect(wrapper.hasClass(`${classPrefix}-col-auto`));
     expect(wrapper.getDOMNode().classList.length).toEqual(1);
     wrapper.unmount();
@@ -33,7 +33,7 @@ describe('Progress', () => {
   it('默认属性', () => {
     const components = [Row, Col];
     _.forEach(components, Component => {
-      const wrapper = mount(<Component/>);
+      const wrapper = mount(<Component />);
       expect(wrapper.props()).toEqual(Component.defaultProps);
       wrapper.unmount();
     });
@@ -42,7 +42,7 @@ describe('Progress', () => {
   it('组件属性 justify', () => {
     const justify = [_.noop(), 'start', 'end', 'center', 'space-around', 'space-between'];
     _.forEach(justify, item => {
-      const wrapper = mount(<Row justify={item}/>);
+      const wrapper = mount(<Row justify={item} />);
       if (_.isUndefined(item)) {
         expect(!(wrapper.hasClass(`${classPrefix}-row--justify-${item}`)));
       } else {
@@ -55,7 +55,7 @@ describe('Progress', () => {
   it('组件属性 align', () => {
     const align = [_.noop(), 'top', 'middle', 'bottom'];
     _.forEach(align, item => {
-      const wrapper = mount(<Row align={item}/>);
+      const wrapper = mount(<Row align={item} />);
       if (_.isUndefined(item)) {
         expect(!(wrapper.hasClass(`${classPrefix}-row--justify-${item}`)));
       } else {
@@ -97,7 +97,7 @@ describe('Progress', () => {
     const components = [Row, Col];
     _.forEach(components, Component => {
       const className = Mock.mock('@string("lower",1,100)');
-      const wrapper = mount(<Component className={className}/>);
+      const wrapper = mount(<Component className={className} />);
       expect(wrapper.hasClass(`${className}`));
       wrapper.unmount();
     });
@@ -111,7 +111,7 @@ describe('Progress', () => {
         "number|+1": Mock.mock('@integer()'),
         "boolean|1": Mock.mock('@boolean').toString(),
       });
-      const wrapper = mount(<Component attributes={attributes}/>);
+      const wrapper = mount(<Component attributes={attributes} />);
       const domNodes = wrapper.getDOMNode();
       _.forOwn(attributes, (value, key) => {
         expect(_.isEqual(domNodes[key], value));

@@ -14,7 +14,7 @@ import {Button, Col, Row} from 'shineDev';
 
 export default () => (
   <Fragment>
-    <Background title="快速上手"/>
+    <Background title="快速上手" />
     <Content>
       <div className="container">
         <div className="row">
@@ -69,7 +69,8 @@ export default () => (
 create-react-app my-app
                     `,
                             language: 'apacheconf',
-                          }}/>
+                          }}
+                          />
                           <blockquote>
                             <p>不同版本的 create-react-app 可能存在差异，具体命令以 create-react-app
                               官方教程为准。
@@ -88,7 +89,8 @@ create-react-app my-app
 npm install shined
                     `,
                             language: 'apacheconf',
-                          }}/>
+                          }}
+                          />
                           <blockquote>
                             <p>在 NPM 平台上，Shine Design 被命名为 <code>shined</code>。</p>
                           </blockquote>
@@ -106,7 +108,8 @@ npm start
 
 `,
                             language: 'apacheconf',
-                          }}/>
+                          }}
+                          />
                           <p>静待片刻，开发服务器启动成功后，你可以在浏览器中访问
                             <a
                               href='http://127.0.0.1:8000'
@@ -126,7 +129,8 @@ npm start
                       ),
                     },
                   ],
-                }}/>
+                }}
+                />
                 <p>至此，依赖配置成功，开始使用第一个组件吧。</p>
                 <h2>使用组件</h2>
                 <p>
@@ -151,7 +155,8 @@ class App extends Component {
   }
 }
                                             `,
-                }}/>
+                }}
+                />
                 <blockquote>
                   <p>部分工具创建的项目可能入口文件路径不同，详情可查阅相关文档。</p>
                 </blockquote>

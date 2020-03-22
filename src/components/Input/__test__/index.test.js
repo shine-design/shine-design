@@ -17,18 +17,18 @@ const checkProps = (propName, enumList) => {
 describe('Input', () => {
 
   it('快照测试', () => {
-    const wrapper = mount(<Input/>);
+    const wrapper = mount(<Input />);
     expect(wrapper).toMatchSnapshot();
   });
 
   it('渲染组件', () => {
-    const wrapper = mount(<Input/>);
+    const wrapper = mount(<Input />);
     expect(wrapper.exists(`.${classPrefix}-form-control`));
     wrapper.unmount();
   });
 
   it('默认属性', () => {
-    const wrapper = mount(<Input/>);
+    const wrapper = mount(<Input />);
     expect(wrapper.props()).toEqual(Input.defaultProps);
     wrapper.unmount();
   });
@@ -39,7 +39,7 @@ describe('Input', () => {
   });
 
   it('组件属性 isDisabled,isReadOnly', () => {
-    const wrapper = mount(<Input isDisabled={true} isReadOnly={true}/>);
+    const wrapper = mount(<Input isDisabled={true} isReadOnly={true} />);
     const domNodes = wrapper.getDOMNode();
     expect(domNodes.disabled).toEqual(true);
     expect(domNodes.readOnly).toEqual(true);
@@ -54,7 +54,7 @@ describe('Input', () => {
   it('组件属性 size', () => {
     const sizeList = ['default', 'small', 'large'];
     _.forEach(sizeList, size => {
-      const wrapper = mount(<Input size={size}/>);
+      const wrapper = mount(<Input size={size} />);
       expect(wrapper.hasClass(`${classPrefix}-form-control-${size}`));
       wrapper.unmount();
     });
@@ -63,7 +63,7 @@ describe('Input', () => {
   it('组件属性 formStyle', () => {
     const styleList = ['default', 'pill', 'square'];
     _.forEach(styleList, style => {
-      const wrapper = mount(<Input formStyle={style}/>);
+      const wrapper = mount(<Input formStyle={style} />);
       expect(wrapper.hasClass(`${classPrefix}-form-control--${style}`));
       wrapper.unmount();
     });
@@ -71,7 +71,7 @@ describe('Input', () => {
 
   it('通用属性 className', () => {
     const className = Mock.mock('@string("lower",1,100)');
-    const wrapper = mount(<Input className={className}/>);
+    const wrapper = mount(<Input className={className} />);
     expect(wrapper.hasClass(`${className}`));
     wrapper.unmount();
   });
@@ -82,7 +82,7 @@ describe('Input', () => {
       "number|+1": Mock.mock('@integer()'),
       "boolean|1": Mock.mock('@boolean').toString(),
     });
-    const wrapper = mount(<Input attributes={attributes}/>);
+    const wrapper = mount(<Input attributes={attributes} />);
     const domNodes = wrapper.getDOMNode();
     _.forOwn(attributes, (value, key) => {
       expect(_.isEqual(domNodes[key], value));

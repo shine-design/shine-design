@@ -19,6 +19,7 @@ const eslintrc = {
     'react/jsx-indent': 0,
     'react/jsx-boolean-value': 0,
     'react/destructuring-assignment': 0,
+    'import/no-webpack-loader-syntax': 0,
     'jsx-a11y/interactive-supports-focus': 0,
     'jsx-a11y/label-has-associated-control': 0,
     'jsx-a11y/label-has-for': 0,
