@@ -21,9 +21,9 @@ export default {
     components,
     jsx: `
 <div className="shine-input-helper">
-    <Input size="small" placeholder="请输入文本" />
-    <Input size="default" placeholder="请输入文本" />
-    <Input size="large" placeholder="请输入文本" />
+    <Input size="sm" placeholder="请输入文本" />
+    <Input placeholder="请输入文本" />
+    <Input size="lg" placeholder="请输入文本" />
 </div>
 `,
   },
@@ -31,18 +31,8 @@ export default {
     components,
     jsx: `
 <div className="shine-input-helper">
-    <Input isDisabled={true} value="禁用文本框" placeholder="请输入文本" />
-    <Input isReadOnly={true}  value="只读文本框" placeholder="请输入文本" />
-</div>
-`,
-  },
-  formStyle: {
-    components,
-    jsx: `
-<div className="shine-input-helper">
-    <Input formStyle="default" placeholder="圆角矩形文本框" />
-    <Input formStyle="square" placeholder="直角矩形文本框" />
-    <Input formStyle="pill" placeholder="椭圆矩形文本框" />
+    <Input isDisabled value="禁用文本框" placeholder="请输入文本" />
+    <Input isReadOnly  value="只读文本框" placeholder="请输入文本" />
 </div>
 `,
   },

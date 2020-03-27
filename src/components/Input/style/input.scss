@@ -47,4 +47,8 @@
       width: array-get($shine-input, layout, self, size, sm, fixed);
     }
   }
+
+  textarea.#{$classPrefix}-form-control {
+    height: auto;
+  }
 }

@@ -35,17 +35,20 @@ class Item extends Component {
         <div id={id} className="changelog-item js-changelog-item">
           <header className="changelog-header">
             <h3 className="changelog-version">
-              <a target='_blank'
-                 href={'//github.com/shine-design/shine-design/releases/tag/' + version}>{version}</a>
+              <a
+                target='_blank'
+                href={'//github.com/shine-design/shine-design/releases/tag/' + version}
+              >{version}
+              </a>
             </h3>
             <p className="changelog-date">{updateData}</p>
           </header>
           <div className="changelog-update-descriptions">
             {
-              description.map((item, index) => <Description key={index} {...item}/>)
+              description.map((item, index) => <Description key={index} {...item} />)
             }
           </div>
-          <div className="changelog-link"/>
+          <div className="changelog-link" />
         </div>
       </Fragment>
     );
@@ -57,10 +60,12 @@ class Description extends Component {
     const {type, value} = this.props;
     const tagName = type === 0 ? '新特性' : (type === 1 ? '修复更新' : '移除');
     const typeName = type === 0 ? 'feature' : (type === 1 ? 'improvement' : 'bug-fix');
-    let _render = (
+    const _render = (
       <Fragment>
-        <div className={'changelog-update-description js-changelog-update-description changelog-' + typeName}
-             data-instafilta-category={typeName}>
+        <div
+          className={'changelog-update-description js-changelog-update-description changelog-' + typeName}
+          data-instafilta-category={typeName}
+        >
           <span className="changelog-type">{tagName}</span>
           {value}
         </div>
@@ -80,8 +85,10 @@ class File extends Component {
     const typeName = type === 0 ? 'new' : (type === 1 ? 'updated' : 'removed');
     return (
       <Fragment>
-        <div className={'changelog-file-changed js-changelog-file changelog-file-' + typeName}
-             data-instafilta-category={typeName}> {fileName}
+        <div
+          className={'changelog-file-changed js-changelog-file changelog-file-' + typeName}
+          data-instafilta-category={typeName}
+        > {fileName}
         </div>
       </Fragment>
     );

@@ -16,7 +16,7 @@ export default class extends Component {
   render() {
     return (
       <Fragment>
-        <Background title="组件文档"/>
+        <Background title="组件文档" />
         <div id='content'>
           <div className="container">
             <div className="row">

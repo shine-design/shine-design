@@ -1,19 +1,19 @@
 /*! ReSmenu v0.1.1 by Alessandro Benoit */
 (function ($, window, i) {
 
-    'use strict';
+    
 
     $.fn.ReSmenu = function (options) {
 
         // Settings
-        var s = $.extend({
+        const s = $.extend({
             menuClass: 'responsive_menu', // Responsive menu class
             selectId: 'resmenu',
             textBefore: false, // Text to add before the mobile menu
             selectOption: false, // First select option
             activeClass: 'current-menu-item', // Active menu li class
             maxWidth: 480, // Size to which the menu is responsive
-            prependTo: 'body'
+            prependTo: 'body',
         }, options);
 
         // Convert the menu to select
@@ -23,7 +23,7 @@
 
             $(element).children('li').each(function () {
 
-                var url = $(this).children('a').attr('href');
+                let url = $(this).children('a').attr('href');
 
                 if (url === undefined || url === false || url === '#' || url.length === 0) {
                     url = '';
@@ -32,8 +32,8 @@
                 $('<option/>', {
                     value: url,
                     html: add + $(this).children('a').text(),
-                    disabled: (!url) ? true : false,
-                    selected: ($(this).hasClass(s.activeClass) && !s.selectOption) ? true : false
+                    disabled: (!url),
+                    selected: !!(($(this).hasClass(s.activeClass) && !s.selectOption)),
                 }).appendTo(select);
 
                 // Submenu
@@ -48,11 +48,11 @@
         // Build the responsive menu container and fill it with build_menu()
         function create_responsive_menus(element, i) {
 
-            var responsive_menu = $('<div/>', {
-                class: s.menuClass
-            }).prependTo(s.prependTo),
-                select = $('<select/>', {
-                    id: s.selectId + i
+            const responsive_menu = $('<div/>', {
+                class: s.menuClass,
+            }).prependTo(s.prependTo);
+                const select = $('<select/>', {
+                    id: s.selectId + i,
                 }).appendTo(responsive_menu);
 
             // Bind change to select
@@ -66,7 +66,7 @@
             if (s.textBefore) {
                 $('<label/>', {
                     html: s.textBefore,
-                    for: s.selectId + i
+                    for: s.selectId + i,
                 }).prependTo(responsive_menu);
             }
 
@@ -74,7 +74,7 @@
             if (s.selectOption) {
                 $('<option/>', {
                     text: s.selectOption,
-                    value: ''
+                    value: '',
                 }).appendTo(select);
             }
 
@@ -88,8 +88,8 @@
         // Let's do it
         this.each(function () {
 
-            var element = $(this),
-                responsive_menu;
+            const element = $(this);
+                let responsive_menu;
 
             i += 1;
 

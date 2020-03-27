@@ -45,19 +45,3 @@
     opacity: 1;
   }
 }
-
-.#{$classPrefix}-form-control-small {
-  height: $input-height-sm;
-  padding: $input-btn-padding-y-sm $input-btn-padding-x-sm;
-  font-size: $input-font-size-sm;
-  line-height: $input-btn-line-height-sm;
-  @include border-radius($input-border-radius-sm);
-}
-
-.#{$classPrefix}-form-control-large {
-  height: $input-height-lg;
-  padding: $input-btn-padding-y-lg $input-btn-padding-x-lg;
-  font-size: $input-font-size-lg;
-  line-height: $input-btn-line-height-lg;
-  @include border-radius($input-border-radius-lg);
-}

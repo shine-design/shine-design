@@ -98,11 +98,11 @@ export default class Language extends Component {
           <div className="header-back-container">
             <div className="container">
               <div className="row">
-                <div className="col-md-12"><Title/></div>
+                <div className="col-md-12"><Title /></div>
               </div>
             </div>
           </div>
-          <span className="next-section js-scroll-to " data-target="#content"><i className="fa-angle-down fa"/></span>
+          <span className="next-section js-scroll-to " data-target="#content"><i className="fa-angle-down fa" /></span>
         </div>
       </Fragment>
     )

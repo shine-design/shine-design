@@ -102,10 +102,10 @@ export default class Footer extends Component {
                   <div className="row">
                     <div className="col-md-12 col-sm-12 col-xs-12">
                       <div className="footer-wrapper">
-                        <span className="scroll-top js-scroll-top hidden"><i className="fa fa-angle-up"/></span>
+                        <span className="scroll-top js-scroll-top hidden"><i className="fa fa-angle-up" /></span>
                         <p className="copyright helper center">Copyright &copy; 2018 · Shine Design · All Rights
                           Reserved
-                          <br/><a href="http://www.miitbeian.gov.cn/"> 苏ICP备16022318号 </a>
+                          <br /><a href="http://www.miitbeian.gov.cn/"> 苏ICP备16022318号 </a>
                         </p>
                       </div>
                     </div>

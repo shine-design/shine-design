@@ -7,13 +7,6 @@ import {Select} from 'shineDev';
 
 const components = {Select};
 
-const basicOptions = [
-  {label: '选项一', value: 1},
-  {label: '选项二', value: 2},
-  {label: '选项三', value: 3},
-  {label: '选项四', value: 4},
-];
-
 export default {
   basic: {
     components,

@@ -13,65 +13,41 @@ import {classPrefix} from 'variables';
 const REFS = [];
 
 class Verifier extends PureComponent {
-  constructor() {
-    super();
 
-    this.onForceValidate = this.onForceValidate.bind(this);
-  }
-
-  getChildContext() {
-    const {errorState, successState, errorMsg} = this.props;
-
-    return {errorState, successState, errorMsg};
-  }
+  getChildContext = () => _.pick(this.props, ['errorState', 'successState', 'errorMsg']);
 
   /** 强制获取表单校验结果 */
-  onForceValidate() {
-    const {refs} = this;
-
-    if (!_.isEmpty(REFS)) {
-      return _.map(REFS, refName => {
-        const {_onForceValidate} = refs[refName];
-        return _onForceValidate();
-      });
-    }
-    return true;
-  }
+  onForceValidate = () => _.isEmpty(REFS) || _.map(REFS, refName => this.refs[refName]._onForceValidate());
 
   render() {
     const {isHighlight, isValidate, children} = this.props;
-    let childrens = null;
+    let _children = null;
 
     /** 计算样式 */
-    const classes = classNames(
-      {
-        [`${classPrefix}-form--state`]: isHighlight,
-      },
-    );
+    const classes = classNames({[`${classPrefix}-form--state`]: isHighlight});
 
     if (!_.isUndefined(children)) {
       if (_.isArray(children)) {
-        childrens = _.map(children, (child, index) => {
-          if (React.isValidElement(child) && _.isEqual(child.type.name, 'Item')) {
+        // 数组类型 Children：针对多元素 DOM
+        _children = _.map(children, (child, index) => {
+          if (React.isValidElement(child) && child.props.isFormItem) {
             REFS.push(`formItem-${index}`);
             return React.cloneElement(child, {isValidate, key: index, ref: `formItem-${index}`});
           }
           return child;
         });
       } else {
+        // 单个元素
         REFS.push('formItem');
-        childrens = React.cloneElement(children, {isValidate, ref: 'formItem'});
+        _children = React.cloneElement(children, {isValidate, ref: 'formItem'});
       }
     }
 
-    return isHighlight ? (
-      <div className={classes}>
-        {childrens}
-      </div>
-    ) : childrens;
+    return isHighlight ? <div className={classes}>{_children}</div> : _children;
   }
 }
 
+/* eslint-disable react/no-unused-prop-types */
 Verifier.propTypes = {
   /** 校验失败提示状态颜色，目前支持 danger 和 warning */
   errorState: PropTypes.string,

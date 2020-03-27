@@ -11,7 +11,7 @@ import * as PropTypes from 'prop-types';
 import reactComposition from 'react-composition';
 import {classPrefix} from 'variables';
 import {buildDefaultRules, runRegExp, VALIDATION_RULES} from 'validations';
-import './style/index.scss';
+// import './style/index.scss';
 
 const DEFAULT_RULE = _.keys(VALIDATION_RULES);
 
@@ -64,20 +64,21 @@ class Input extends PureComponent {
   };
 
   render() {
-    const {defaultValue, isDisabled, isReadOnly, id, type, value, name, placeholder} = this.props;
-    const {size, formStyle, rules} = this.props;
+    const {defaultValue, isDisabled, isReadOnly, id, type, value, name, placeholder, _className} = this.props;
+    const {size, rules} = this.props;
     const {onChange, onBlur, onClick, onFocus, onInput} = this.props;
     const {className, attributes} = this.props;
     const {isValidate} = this.props;
 
     /** 计算样式 */
     const classes = classNames(
+      'form-control',
       `${classPrefix}-form-control`,
       {
-        [`${classPrefix}-form-control-${size}`]: _.includes(['small', 'large'], size),
-        [`${classPrefix}-form-control--${formStyle}`]: _.includes(['pill', 'square'], formStyle),
+        [`${classPrefix}-form-control-${size}`]: _.includes(['lg', 'sm'], size),
       },
       className,
+      _className
     );
 
     // 回调函数
@@ -134,8 +135,6 @@ Input.propTypes = {
   type: PropTypes.string,
   /** 设置输入框尺寸，支持 default：默认 / small：小尺寸 / large：大尺寸 */
   size: PropTypes.oneOf(['default', 'small', 'large']),
-  /** 输入框样式，支持 default：圆角矩形 / pill：椭圆形矩形 / square：直角矩形 */
-  formStyle: PropTypes.oneOf(['default', 'pill', 'square']),
   /** 表单校验规则 */
   rules: PropTypes.object,
   /** 表单校验失败提示文字 */
@@ -150,6 +149,8 @@ Input.propTypes = {
   className: PropTypes.string,
   /** 用户自定义属性 */
   attributes: PropTypes.object,
+  /** 定位表单元素 */
+  isFormElement: PropTypes.bool
 };
 
 Input.defaultProps = {
@@ -162,7 +163,6 @@ Input.defaultProps = {
   isReadOnly: false,
   type: 'text',
   size: 'default',
-  formStyle: 'default',
   rules: undefined,
   errorMsg: undefined,
   onChange: undefined,
@@ -170,6 +170,7 @@ Input.defaultProps = {
   onClick: undefined,
   className: '',
   attributes: {},
+  isFormElement: true
 };
 
 export default Input;

@@ -9,7 +9,7 @@ import _ from 'lodash';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import {classPrefix} from 'variables';
-import './style/index.scss';
+// import './style/index.scss';
 
 /** 支持布局类型 */
 const TYPES = ['flex'];

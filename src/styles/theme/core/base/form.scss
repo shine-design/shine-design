@@ -1,0 +1,75 @@
+//
+// Form
+//
+
+.#{$classPrefix}-form {
+	.#{$classPrefix}-form__group {
+		&.#{$classPrefix}-form__group--inline {
+			display: table;
+			padding: 0;
+
+			> .#{$classPrefix}-form__label {
+				display: table-cell;
+				vertical-align: middle;
+				margin: 0;
+				padding-right: 1rem;
+
+				&.#{$classPrefix}-form__label-no-wrap {
+					white-space:nowrap;
+				}
+
+				> label {
+					margin: 0;
+				}
+			}
+
+			> .#{$classPrefix}-form__control {
+				display: table-cell;
+				vertical-align: middle;
+				margin: 0;
+				width: 100%;
+			}
+		}
+	}
+
+	// Action bar
+	.#{$classPrefix}-form__actions {
+		&.#{$classPrefix}-form__actions--right {
+			text-align: right;
+		}
+
+		&.#{$classPrefix}-form__actions--center {
+			text-align: center;
+		}
+	}
+
+	&.#{$classPrefix}-form--center{
+		width: 60%;
+		margin: 0 auto;
+	}
+}
+
+// Validation feedback
+.is-valid {
+	.valid-feedback {
+		display: inline-block;
+	}
+}
+
+.is-invalid {
+	.invalid-feedback {
+		display: inline-block;
+	}
+}
+
+@include shine-desktop {
+	.#{$classPrefix}-form {
+		&.#{$classPrefix}-form--label-right {
+			.form-group {
+				label:not(.#{$classPrefix}-checkbox):not(.#{$classPrefix}-radio):not(.#{$classPrefix}-option) {
+					text-align: right;
+				}
+			}
+		}
+	}
+}

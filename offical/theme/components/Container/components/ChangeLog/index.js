@@ -24,7 +24,7 @@ export default class Changelog extends Component {
 
     return (
       <Fragment>
-        <Background title="更新日志" description={description}/>
+        <Background title="更新日志" description={description} />
         <Content>
           <div className="container">
             <div className="row">

@@ -1,0 +1,88 @@
+//
+// Base Animations
+//
+
+
+
+
+// Classes
+.kt-animate-fade-in-up {
+    animation: kt-animate-fade-in-up .5s;
+}
+
+.kt-animate-fade-out {
+    animation: kt-animate-fade-out .5s;
+}
+
+.kt-animate-fade-in {
+    animation: kt-animate-fade-in .5s;
+}  
+
+.kt-animate-blink {
+    animation: kt-animate-blink 1s step-start 0s infinite;
+    animation-fill-mode: initial;
+}
+
+.kt-animate-shake {
+    animation: kt-animate-shake 0.1s ease-in 0.1s infinite alternate;
+    animation-fill-mode: initial;
+}
+
+.kt-animate-pause {
+    animation-play-state:paused;
+}
+
+.kt-notransition {
+    transition: none !important;
+}
+
+// Animations
+
+@keyframes kt-animate-fade-out {
+    from   { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes kt-animate-fade-in {
+    from   { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes kt-animate-fade-in-up {
+    from   { 
+        opacity: 0; 
+        transform: translateY(15px);
+    }
+
+    to { opacity: 1; 
+        transform: translateY(0px); 
+    }
+}
+
+@keyframes kt-animate-fade-out-up {
+    from   { 
+        opacity: 1; 
+        transform: translateY(15px);
+    }
+
+    to { opacity: 0; 
+        transform: translateY(0px);    
+    }
+}
+
+@keyframes kt-animate-blink {
+    50% {
+        opacity: 0.0;
+    }
+}
+
+@keyframes kt-animate-shake {
+    from {
+        transform: rotate(13deg);
+    }
+    
+    to {
+       -webkit-transform-origin:center center;
+       transform: rotate(-13deg);
+    }
+}

@@ -57,7 +57,7 @@ export default class extends Component {
                       placeholder="search"
                       onChange={e => this.setState({searchKey: e.target.value})}
                     />
-                    <i className="fa fa-search search-icon"/>
+                    <i className="fa fa-search search-icon" />
                   </form>
                 </div>
               </div>

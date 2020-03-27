@@ -1,6 +1,6 @@
 {
   "name": "shined",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.1",
   "title": "Shine Design",
   "description": "A UI Design Language for Developers, Designers, and Product Managers",
   "homepage": "https://shine.design",
@@ -37,7 +37,7 @@
   "scripts": {
     "release": "standard-version",
     "build": "node scripts/build.js",
-    "lint": "eslint src tests website scripts",
+    "lint": "eslint src --fix",
     "lint:watch": "esw -w src",
     "prepublish": "npm run build",
     "test": "jest --no-cache --coverage --verbose",
@@ -46,7 +46,7 @@
     "clean": "sudo rimraf node_modules && yarn && jest --clearCache",
     "start": "node scripts/start.js",
     "start:offical": "docz dev --config offical/doczrc.js --debug",
-    "build:offical": "docz build --config offical/doczrc.js"
+    "build:offical": "rimraf .docz && docz build --config offical/doczrc.js"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "jest-enzyme",

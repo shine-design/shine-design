@@ -1,0 +1,87 @@
+/**
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2020-03-22 13:02
+ */
+
+// Layout
+$kt-aside-default-width: 265px;
+$kt-aside-minimize-width: 70px;
+$kt-aside-offcanvas-width: 255px;
+
+
+
+// Brand Color
+$shine-state-colors: (
+  // states
+  brand: (
+    base: #5D78FF,
+    inverse: #FFFFFF
+  ),
+  light: (
+    base: #FFFFFF,
+    inverse: #282a3c
+  ),
+  dark: (
+    base: #282A3C,
+    inverse: #FFFFFF
+  ),
+  grace:(
+    base: #00C5DC,
+    inverse: #FFFFFF
+  ),
+  metal: (
+    base: #C4C5D6,
+    inverse: #FFFFFF
+  ),
+  accent: (
+    base: #716ACA,
+    inverse: #FFFFFF
+  ),
+  focus: (
+    base: #9816F4,
+    inverse: #FFFFFF
+  ),
+
+  // Bootstrap states
+  primary: (
+    base: #5867dd,
+    inverse: #ffffff
+  ),
+  success: (
+    base: #0abb87, //1dc9b7,
+    inverse: #ffffff
+  ),
+  info: (
+    base: #5578eb,
+    inverse: #ffffff
+  ),
+  warning: (
+    base: #ffb822,
+    inverse: #111111
+  ),
+  danger: (
+    base: #fd397a,
+    inverse: #ffffff
+  )
+);
+
+// Layout Skins
+$kt-layout-skins: (
+  dark: #1e1e2d,
+  light: #ffffff
+);
+
+// content bg color
+$kt-content-bg-color: #f2f3f8;
+
+// Border Radius
+$shine-border-radius: 4px;
+
+// Page padding
+$kt-page-padding: (
+  desktop: 25px,
+  mobile: 15px
+);
+
+// Page container width
+$kt-page-container-width: 1380px;

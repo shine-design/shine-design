@@ -12,10 +12,8 @@ import {
   Code,
   PropsTable
 } from "theme";
-import {Form , Input} from 'shineDev';
-import VerifierDemo from '../demo/Verifier';
-import CustomVerifierDemo from '../demo/CustomVerifier';
-import code from "../demo";
+import {Form} from 'shineDev';
+import code from "./demo";
 import "../demo/index.scss";
 
 # Item 表单项
@@ -34,7 +32,7 @@ import "../demo/index.scss";
 
 表单项组件通常用于将基础组件组合成通用的表单模板。
 
-<Example 
+<Example
   display={<JsxParser {...code.label} />}
   code={{code:code.label.jsx}}
   components={code.label.components}
