@@ -1,0 +1,84 @@
+---
+name: TextArea 文本域
+route: /guide/textArea
+menu: form
+---
+
+import JsxParser from "react-jsx-parser";
+import {
+  MessageBox,
+  InlineCode,
+  Example,
+  Code,
+  PropsTable,
+  Link
+} from "theme";
+import { TextArea } from "shineDev";
+import code from "./demo";
+import "./demo/index.scss";
+
+# TextArea 文本域
+
+## 概述
+文本域组件是一种可容纳多行文本的文本域组件，其中的文本的默认字体是等宽字体。
+
+## 代码示例
+
+<MessageBox messageType="info">
+  为了让用户直观地查看代码演示，我们加入了{" "}
+  <InlineCode>shine-input-helper</InlineCode>{" "}
+  修饰符，在开发过程中无需配置该字段。
+</MessageBox>
+
+#### 基础文本域
+
+文本域组件是由基础输入标签封装而成，可以快速的创建一些常见的表单控件。
+
+<Example
+  display={<JsxParser {...code.basic} />}
+  code={{code:code.basic.jsx}}
+  components={code.basic.components}
+/>
+
+#### 状态
+
+在部分应用场景下，文本域需要展示为禁用和只读状态。
+
+<Example
+  display={<JsxParser {...code.state} />}
+  code={{code:code.state.jsx}}
+  components={code.state.components}
+/>
+
+#### 文本域类型
+
+使用 `textAreaStyle` 属性可以指定单个文本域的类型，目前支持三种类型，通过不同类型搭配可以实现个性化表单。
+
+<Example
+  display={<JsxParser {...code.textAreaStyle} />}
+  code={{code:code.textAreaStyle.jsx}}
+  components={code.textAreaStyle.components}
+/>
+
+#### 事件
+
+<MessageBox messageType="info">
+  打开浏览器控制台，并操作下方文本域，即可查看事件效果。
+</MessageBox>
+
+<Example
+  display={
+    <TextArea
+        placeholder="打开控制台查看效果"
+        onChange={e=>{console.log('onChange',e.target.value)}}
+        onBlur={e=>{console.log('onBlur',e.target.value)}}
+        onClick={e=>{console.log('onClick',e.target.value)}}
+    />
+  }
+  code={{code:code.event.jsx}}
+  components={code.event.components}
+/>
+
+## 配置参数
+
+<PropsTable of={TextArea} />

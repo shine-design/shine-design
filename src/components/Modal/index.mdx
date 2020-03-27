@@ -1,0 +1,73 @@
+---
+name: Modal 模态框
+route: /guide/modal
+menu: response
+---
+
+import JsxParser from "react-jsx-parser";
+import {
+  MessageBox,
+  InlineCode,
+  Example,
+  Code,
+  PropsTable
+} from "theme";
+import { Modal,Button } from "shineDev";
+import Basic from "./demo/Basic";
+import Size from "./demo/Size";
+import Center from "./demo/Center";
+import code from "./demo";
+import './demo/index.scss';
+
+# Modal 模态框
+## 概述
+
+在保留当前页面状态的情况下，告知用户并承载相关操作。
+
+## 代码示例
+
+<MessageBox messageType="info">
+  为了让用户直观地查看代码演示，我们加入了{" "}
+  <InlineCode>shine-modal-helper</InlineCode>{" "}
+  修饰符，在开发过程中无需配置该字段。
+</MessageBox>
+
+#### 基础模态框
+使用 `isOpen` 属性，开发者可以自定义模态框弹出的时机。
+
+  <Example 
+    display={<Basic />}
+    code={{code:code.basic.jsx}}
+    components={code.basic.components}
+    isDisabledLive={true}
+  />
+
+#### 模态框尺寸
+可以通过设置 `Size` 属性，对模态框进行尺寸调整，以适应不同的应用场景。
+ 
+  <Example 
+    display={
+      <div>
+        <Size size="sm" />
+        <Size size="lg" />
+      </div>
+    }
+    code={{code:code.size.jsx}}
+    components={code.size.components}
+    isDisabledLive={true}
+  />
+
+#### 垂直居中
+
+通过切换模态框布局 `isCentered`，可以实现垂直居中或者吸顶定位。
+
+  <Example 
+    display={<Center />}
+    code={{code:code.center.jsx}}
+    components={code.center.components}
+    isDisabledLive={true}
+  />
+
+### 配置参数
+
+<PropsTable of={Modal} />

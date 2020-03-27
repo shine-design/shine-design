@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/components/Input/index.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">src/components/Input</a> index.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/50</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/28</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/3</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/45</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * @Component Input
+ * @Type 输入框组件
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2019-04-27 13:25
+ */
+<span class="cstat-no" title="statement not covered" >import _ from 'lodash';</span>
+<span class="cstat-no" title="statement not covered" >import React, {PureComponent} from 'react';</span>
+<span class="cstat-no" title="statement not covered" >import classNames from 'classnames';</span>
+<span class="cstat-no" title="statement not covered" >import * as PropTypes from 'prop-types';</span>
+<span class="cstat-no" title="statement not covered" >import reactComposition from 'react-composition';</span>
+<span class="cstat-no" title="statement not covered" >import {classPrefix} from 'variables';</span>
+<span class="cstat-no" title="statement not covered" >import {buildDefaultRules, runRegExp, VALIDATION_RULES} from 'validations';</span>
+<span class="cstat-no" title="statement not covered" >import './style/index.scss';</span>
+&nbsp;
+const DEFAULT_RULE = <span class="cstat-no" title="statement not covered" >_.keys(VALIDATION_RULES);</span>
+&nbsp;
+class Input extends PureComponent {
+&nbsp;
+  onValidate = isFullResult =&gt; {
+    const {value} = <span class="cstat-no" title="statement not covered" >this.textInput;</span>
+    const {rules} = <span class="cstat-no" title="statement not covered" >this.props;</span>
+    const resultList = <span class="cstat-no" title="statement not covered" >[];</span>
+    // 移除 rules 中为false 的规则
+<span class="cstat-no" title="statement not covered" >    _.omitBy(rules, <span class="fstat-no" title="function not covered" >item<span class="cstat-no" title="statement not covered" > =&gt; _.isBoolean(item) &amp;&amp; !item);</span></span></span>
+    // 依次校验家表单规则
+<span class="cstat-no" title="statement not covered" >    _.mapValues(rules, <span class="fstat-no" title="function not covered" >(</span>rule, key) =&gt; {</span>
+      let _result = <span class="cstat-no" title="statement not covered" >true;</span>
+      // 预设校验规则
+<span class="cstat-no" title="statement not covered" >      if (_.includes(DEFAULT_RULE, key)) {</span>
+        const buildRules = <span class="cstat-no" title="statement not covered" >buildDefaultRules(key, rule);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (_.isRegExp(buildRules)) {</span>
+<span class="cstat-no" title="statement not covered" >          _result = runRegExp(buildRules, value);</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (_.isFunction(buildRules)) {</span>
+<span class="cstat-no" title="statement not covered" >          _result = buildRules(value, rule);</span>
+        }
+      }
+&nbsp;
+      // Function：自定义校验规则,返回值不为 true 则校验不通过。
+<span class="cstat-no" title="statement not covered" >      if (_.isFunction(rule)) {</span>
+<span class="cstat-no" title="statement not covered" >        _result = rule(value);</span>
+      }
+&nbsp;
+      // RegExp：自定义校验规则，使用正则进行匹配，不符合则校验不通过
+<span class="cstat-no" title="statement not covered" >      if (_.isRegExp(rule)) {</span>
+<span class="cstat-no" title="statement not covered" >        _result = runRegExp(rule, value);</span>
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (!_result) <span class="cstat-no" title="statement not covered" >r</span>esultList.push(key);</span>
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return _.isEmpty(resultList) || (isFullResult ? resultList : resultList[0]);</span>
+  };
+&nbsp;
+  _onChange = event =&gt; <span class="cstat-no" title="statement not covered" >{</span>
+    const {onChange, _onValidateResult} = <span class="cstat-no" title="statement not covered" >this.props;</span>
+<span class="cstat-no" title="statement not covered" >    if (event.reactComposition.composition === false) {</span>
+<span class="cstat-no" title="statement not covered" >      if (_.isFunction(_onValidateResult)) <span class="cstat-no" title="statement not covered" >_</span>onValidateResult(this.onValidate());</span>
+<span class="cstat-no" title="statement not covered" >      if (_.isFunction(onChange)) <span class="cstat-no" title="statement not covered" >o</span>nChange(event);</span>
+    }
+  };
+&nbsp;
+  render() <span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" >{</span></span>
+    const {defaultValue, isDisabled, isReadOnly, id, type, value, name, placeholder} = <span class="cstat-no" title="statement not covered" >this.props;</span>
+    const {size, formStyle, rules} = <span class="cstat-no" title="statement not covered" >this.props;</span>
+    const {onChange, onBlur, onClick, onFocus, onInput} = <span class="cstat-no" title="statement not covered" >this.props;</span>
+    const {className, attributes} = <span class="cstat-no" title="statement not covered" >this.props;</span>
+    const {isValidate} = <span class="cstat-no" title="statement not covered" >this.props;</span>
+&nbsp;
+    /** 计算样式 */
+    const classes = <span class="cstat-no" title="statement not covered" >classNames(</span>
+      `${classPrefix}-form-control`,
+      {
+        [`${classPrefix}-form-control-${size}`]: _.includes(['small', 'large'], size),
+        [`${classPrefix}-form-control--${formStyle}`]: _.includes(['pill', 'square'], formStyle),
+      },
+      className,
+    );
+&nbsp;
+    // 回调函数
+    const callbacks = <span class="cstat-no" title="statement not covered" >{</span>
+      onInput,
+      onBlur,
+      onClick,
+      onFocus,
+      onChange: (isValidate &amp;&amp; !_.isUndefined(rules)) ? this._onChange : onChange,
+    };
+&nbsp;
+    // 输入框属性配置
+    const props<span class="cstat-no" title="statement not covered" > = {</span>
+      defaultValue,
+      value,
+      placeholder,
+      name,
+      type,
+      id,
+      disabled: isDisabled,
+      readOnly: isReadOnly,
+      className: classes,
+      ...attributes,
+    };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return (</span>
+      &lt;input
+        ref={<span class="fstat-no" title="function not covered" >(</span>input) =&gt; {
+<span class="cstat-no" title="statement not covered" >          this.textInput = input;</span>
+        }}
+        {...props}
+        {...reactComposition(callbacks)}
+      /&gt;
+    );
+  }
+}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >Input.propTypes = {</span>
+  /** 默认值，仅展示时生效 */
+  defaultValue: PropTypes.node,
+  /** 输入框值 */
+  value: PropTypes.node,
+  /** 输入框名称 */
+  name: PropTypes.node,
+  /** 输入框占位符，当输入框无内容时展示 */
+  placeholder: PropTypes.node,
+  /** 输入框ID */
+  id: PropTypes.node,
+  /** 设置是否禁用输入框 */
+  isDisabled: PropTypes.bool,
+  /** 设置是否只读输入框 */
+  isReadOnly: PropTypes.bool,
+  /** 设置输入框类型 */
+  type: PropTypes.string,
+  /** 设置输入框尺寸，支持 default：默认 / small：小尺寸 / large：大尺寸 */
+  size: PropTypes.oneOf(['default', 'small', 'large']),
+  /** 输入框样式，支持 default：圆角矩形 / pill：椭圆形矩形 / square：直角矩形 */
+  formStyle: PropTypes.oneOf(['default', 'pill', 'square']),
+  /** 表单校验规则 */
+  rules: PropTypes.object,
+  /** 表单校验失败提示文字 */
+  errorMsg: PropTypes.object,
+  /** 输入框内容发生改变时触发 */
+  onChange: PropTypes.func,
+  /** 输入框失去焦点时触发 */
+  onBlur: PropTypes.func,
+  /** 输入框被点击时触发 */
+  onClick: PropTypes.func,
+  /** 用户自定义修饰符 */
+  className: PropTypes.string,
+  /** 用户自定义属性 */
+  attributes: PropTypes.object,
+};
+&nbsp;
+<span class="cstat-no" title="statement not covered" >Input.defaultProps = {</span>
+  defaultValue: undefined,
+  value: undefined,
+  placeholder: undefined,
+  name: undefined,
+  id: undefined,
+  isDisabled: false,
+  isReadOnly: false,
+  type: 'text',
+  size: 'default',
+  formStyle: 'default',
+  rules: undefined,
+  errorMsg: undefined,
+  onChange: undefined,
+  onBlur: undefined,
+  onClick: undefined,
+  className: '',
+  attributes: {},
+};
+&nbsp;
+export default Input;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Aug 25 2019 21:16:20 GMT+0800 (GMT+08:00)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

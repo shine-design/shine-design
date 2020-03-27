@@ -1,0 +1,20 @@
+/**
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2020-03-22 13:12
+ */
+
+$classPrefix: 'shine';
+
+/* 加载主题配置文件 */
+@import './theme/config';
+
+/* 加载全局配置文件 */
+@import 'core/config';
+
+/* 加载 Bootstrap 配置文件 */
+@import './bootstrap/variables';
+@import '~bootstrap/scss/bootstrap';
+@import './bootstrap/bootstrap';
+
+/* 加载组件库样式文件 */
+@import './theme/includes';

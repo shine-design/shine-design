@@ -1,0 +1,115 @@
+/**
+ * Grid Mixins
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2020-03-22 13:02
+ */
+@mixin shine-grid-generate($mode) {
+	$mode-class: '';
+	$mode-dir: '';
+
+	// Grid mode
+	@if ($mode == general) {
+		$mode-class: ":not(.kt-grid--desktop):not(.kt-grid--desktop-and-tablet):not(.kt-grid--tablet):not(.kt-grid--tablet-and-mobile):not(.kt-grid--mobile)";
+	} @else {
+		$mode-class: ".kt-grid--" + $mode;
+		$mode-dir: "-" + $mode;
+	}
+
+	// Horizontal grid
+	.kt-grid.kt-grid--hor#{$mode-dir}#{$mode-class} {
+		display: flex;
+		flex-direction: column;
+
+		&.kt-grid--root {
+			flex: 1;
+			-ms-flex: 1 0 0px; // IE10-11 fix
+		}
+
+		> .kt-grid__item {
+			flex: none;
+
+			&.kt-grid__item--fluid,
+			&.kt-grid__item--fluid#{$mode-dir} {
+				flex: 1 0 auto;
+				//-ms-flex: 1 0 0px;  // IE10-11 fix
+			}
+		}
+
+		// flex ordering
+		@for $i from 1 through 12 {
+			> .kt-grid__item.kt-grid__item--order-#{$i}#{$mode-dir} {
+				order: $i;
+			}
+		}
+	}
+
+	// Vertical grid
+	.kt-grid.kt-grid--ver#{$mode-dir}#{$mode-class} {
+		display: flex;
+		flex-direction: row;
+
+		&.kt-grid--root {
+			flex: 1;
+			-ms-flex: 1 0 0px;  // IE10-11 fix
+		}
+
+		> .kt-grid__item {
+			flex: 0 0 auto;
+
+			&.kt-grid__item--fluid,
+			&.kt-grid__item--fluid#{$mode-dir} {
+				flex: 1 auto;
+				-ms-flex: 1 0 0px;  // IE10-11 fix
+				min-width: 0;
+
+				@include kt-hack-ie {
+					min-width: none;  // IE10-11 fix
+				}
+			}
+		}
+
+		// flex ordering
+		@for $i from 1 through 12 {
+			> .kt-grid__item.kt-grid__item--order-#{$i}#{$mode-dir} {
+				order: $i;
+			}
+		}
+	}
+
+	// Grid item order
+	.kt-grid {
+		// horizontal items aligment
+		&.kt-grid--center {
+			align-content: center;
+		}
+
+		&.kt-grid--stretch {
+			align-items: stretch;
+		}
+
+		// vertical item alignment
+		> .kt-grid__item {
+			max-width:100%;
+
+			&.kt-grid__item--top {
+				align-self: flex-start;
+			}
+
+			&.kt-grid__item--middle {
+				align-self: center;
+			}
+
+
+			&.kt-grid__item--bottom {
+				align-self: flex-end;
+			}
+		}
+
+		// flex ordering
+		@for $i from 1 through 12 {
+			> .kt-grid__item.kt-grid__item--order-#{$i} {
+				order: $i;
+			}
+		}
+	}
+}

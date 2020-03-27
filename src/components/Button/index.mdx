@@ -1,0 +1,85 @@
+---
+name: Button 按钮
+route: /guide/button
+menu: button
+---
+
+import JsxParser from "react-jsx-parser";
+import {
+  MessageBox,
+  InlineCode,
+  Example,
+  Code,
+  PropsTable
+} from "theme";
+import { Button } from "shineDev";
+import code from "./demo";
+import './demo/index.scss';
+
+# Button 按钮
+
+## 概述
+
+用于触发若干操作命令或用户行为。
+
+## 代码示例
+
+#### 基础按钮
+基于[Color 色彩](./color)配置，我们提供了所有色彩样式的基础按钮以及基础轮廓按钮。
+
+<Example
+  display={<JsxParser {...code.basic} />}
+  code={{code:code.basic.jsx}}
+  components={code.basic.components}
+/>
+
+#### 抖动效果
+在鼠标 hover 到按钮上时，可以通过配置实现按钮的抖动效果。
+
+<Example
+  display={<JsxParser {...code.shake} />}
+  code={{code:code.shake.jsx}}
+  components={code.shake.components}
+/>
+
+#### 按钮边框
+针对不同风格的主题，提供了不同的边框样式可供选择，目前支持圆角矩形、直角矩形和椭圆矩形。
+
+<Example
+  display={<JsxParser {...code.btnStyle} />}
+  code={{code:code.btnStyle.jsx}}
+  components={code.btnStyle.components}
+/>
+
+#### 按钮尺寸
+组件提供除了默认值以外的两种不同尺寸，可以在不同场景下选择合适的按钮尺寸。
+
+<Example
+  display={<JsxParser {...code.btnSize} />}
+  code={{code:code.btnSize.jsx}}
+  components={code.btnSize.components}
+/>
+
+
+#### 带图标的按钮
+按钮支持在按钮文字前展示图标，只需要从图标库中指定一个合适的图标即可。
+
+<Example
+  display={<JsxParser {...code.btnIcon} />}
+  code={{code:code.btnIcon.jsx}}
+  components={code.btnIcon.components}
+/>
+
+#### 仅带图标的按钮
+按钮支持仅展示图标，只需指定按照图标展示即可。
+
+<Example
+  display={<JsxParser {...code.isOnlyIcon} />}
+  code={{code:code.isOnlyIcon.jsx}}
+  components={code.isOnlyIcon.components}
+/>
+
+### 配置参数
+
+<PropsTable of={Button} />
+

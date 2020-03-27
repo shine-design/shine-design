@@ -1,0 +1,53 @@
+---
+name: Typography 排版
+route: /guide/typography
+menu: common
+---
+
+import { Row, Col } from "shineDev";
+import FontBox from './demo/FontBox';
+import code from "./demo";
+
+# Typography 排版
+
+## 概述
+
+使用统一的字体以提供一致的浏览器展示效果，
+
+## 字体库
+
+字体库遵循排序优先级策略，字体库可以将多个字体名称作为一个“回退”系统来保存，浏览器会使用它可识别的第一个值。
+
+### 中文字体
+
+<Row>
+  <Col col={8}>
+    <FontBox fontName="PingFang SC" className="font-pingFang" />
+  </Col>
+  <Col col={8}>
+    <FontBox fontName="Hiragino Sans GB" className="font-Hiragino" />
+  </Col>
+  <Col col={8}>
+    <FontBox fontName="Microsoft YaHei" className="font-microsoft" />
+  </Col>
+</Row>
+
+### 英文字体
+
+<Row>
+  <Col col={8}>
+    <FontBox fontName="Helvetica Neue" displayName="Shine" className="font-Helvetica-neue" />
+  </Col>
+  <Col col={8}>
+    <FontBox fontName="Helvetica" displayName="Shine" className="font-Helvetica" />
+  </Col>
+  <Col col={8}>
+    <FontBox fontName="Arial" displayName="Shine" className="font-Arial" />
+  </Col>
+</Row>
+
+### 字体代码
+
+```css
+font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+```

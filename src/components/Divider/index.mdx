@@ -1,0 +1,45 @@
+---
+name: Divider 分隔线
+route: /guide/divider
+menu: other
+---
+
+import JsxParser from "react-jsx-parser";
+import {
+  MessageBox,
+  InlineCode,
+  Example,
+  Code,
+  PropsTable
+} from "theme";
+import { Divider } from "shineDev";
+import code from "./demo";
+import "./demo/index.scss";
+
+# Divider 分隔线
+
+## 概述
+
+用于在视觉上分隔两个独立的区域。
+
+## 代码示例
+
+<MessageBox messageType="info">
+  为了让用户直观地查看代码演示，我们加入了{" "}
+  <InlineCode>shine-divider-helper</InlineCode>{" "}
+  修饰符，在开发过程中无需配置该字段。
+</MessageBox>
+
+#### 基础示例
+
+使用 `Divider` 可以设置一条分隔线，若设置了 `message` 属性，则文字会被显示在分隔线上。
+
+<Example 
+  display={<JsxParser {...code.basic} />}
+  code={{code:code.basic.jsx}}
+  components={code.basic.components}
+/>
+
+## 配置参数
+
+<PropsTable of={Divider} />

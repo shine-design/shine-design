@@ -1,0 +1,12 @@
+/**
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2019-04-27 12:01
+ */
+@import "~style/mixins/shadow";
+@import "~style/mixins/border-radio";
+@import "~style/mixins/rounded";
+@import "~style/bootstrap/input/index";
+
+@import "./input";
+
+@include sh-build-component--input-base();

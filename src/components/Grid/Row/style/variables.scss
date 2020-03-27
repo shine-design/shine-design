@@ -1,0 +1,11 @@
+/**
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2019-03-17 00:09
+ */
+
+/** 水平对齐选项 */
+$justify: (name:start, value:flex-start), (name:end, value:flex-end), (name:center, value:center),
+(name:space-around, value:space-around), (name:space-between, value:space-between);
+
+/** 垂直对齐选项 */
+$align: (name:top, value:flex-start), (name:bottom, value:flex-end), (name:middle, value:center);

@@ -1,0 +1,50 @@
+/**
+ * Row Mixins
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2019-03-16 08:51
+ */
+@mixin shine--justify($justify,$classPrefix) {
+
+  &.#{$classPrefix}-row--justify-#{shine-get($justify,name)} {
+    justify-content: shine-get($justify, value);
+  }
+
+}
+
+@mixin shine--align($align,$classPrefix) {
+
+  &.#{$classPrefix}-row--align-#{shine-get($align,name)} {
+    align-items: shine-get($align, value);
+  }
+
+}
+
+@mixin shine--build-row() {
+
+  .#{$classPrefix}-row {
+    display: flex;
+    display: -ms-flexbox;
+    flex-direction: row;
+    -ms-flex-direction: row;
+
+    &.#{$classPrefix}-row--root {
+      flex: 1;
+      -ms-flex: 1 0 0px;
+      height: 100%;
+    }
+
+  }
+
+  .#{$classPrefix}-row {
+
+    @each $item in $shine-justify {
+      @include shine--justify($item, $classPrefix);
+    }
+
+    @each $item in $shine-align {
+      @include shine--align($item, $classPrefix);
+    }
+
+  }
+}
+

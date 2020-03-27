@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/components/Button/index.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">src/components/Button</a> index.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/12</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * @Component Button
+ * @Type 按钮
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2019/5/12 09:35
+ */
+<span class="cstat-no" title="statement not covered" >import _ from 'lodash';</span>
+<span class="cstat-no" title="statement not covered" >import React, {PureComponent} from 'react';</span>
+<span class="cstat-no" title="statement not covered" >import classNames from 'classnames';</span>
+<span class="cstat-no" title="statement not covered" >import * as PropTypes from 'prop-types';</span>
+<span class="cstat-no" title="statement not covered" >import {classPrefix} from 'variables';</span>
+<span class="cstat-no" title="statement not covered" >import './style/index.scss';</span>
+&nbsp;
+class Button extends PureComponent {
+  render() <span class="cstat-no" title="statement not covered" >{</span>
+    const {label, type, bgColor, outlineColor, btnStyle, size, gradientStart, gradientEnd, onClick, className, attributes, children} = <span class="cstat-no" title="statement not covered" >this.props;</span>
+&nbsp;
+    /** 计算样式 */
+    const classes = <span class="cstat-no" title="statement not covered" >classNames(</span>
+      `${classPrefix}-btn`, 'btn', 'sh-btn',
+      {
+        [`btn-outline-${outlineColor}`]: _.isString(outlineColor),
+        [`btn-${bgColor}`]: _.isString(bgColor),
+        [`sh-btn--${btnStyle}`]: _.isString(btnStyle),
+        [`btn-${size}`]: _.isString(size),
+        [`sh-btn--gradient-from-${gradientStart}`]: _.isString(gradientStart) &amp;&amp; _.isString(gradientEnd),
+        [`sh-btn--gradient-to-${gradientEnd}`]: _.isString(gradientStart) &amp;&amp; _.isString(gradientEnd),
+      },
+      className,
+    );
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return (</span>
+      // eslint-disable-next-line react/button-has-type
+      &lt;button
+        type={type}
+        className={classes}
+        onClick={onClick}
+        {...attributes}
+      &gt;
+        {label || children}
+      &lt;/button&gt;
+    );
+  }
+}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >Button.propTypes = {</span>
+  /** 按钮提示文案 */
+  label: PropTypes.node,
+  /** 按钮类型，支持普通按钮:button，提交按钮:submit，重置按钮:reset */
+  type: PropTypes.oneOf(['button', 'submit', 'reset']),
+  /** 按钮背景颜色 */
+  bgColor: PropTypes.string,
+  /** 按钮轮廓颜色 */
+  outlineColor: PropTypes.string,
+  /** 按钮类型，圆角矩形:normal，直角矩形:square，椭圆形:pill */
+  btnStyle: PropTypes.oneOf(['normal', 'square', 'pill']),
+  /** 按钮渐变色起始颜色，该属性与 gradientEnd 搭配使用 */
+  gradientStart: PropTypes.string,
+  /** 按钮渐变色结束颜色，该属性与 gradientStart 搭配使用 */
+  gradientEnd: PropTypes.string,
+  /** 按钮类型尺寸，支持 normal：默认尺寸 / sm：小尺寸 / lg：大尺寸 */
+  size: PropTypes.oneOf(['normal', 'sm', 'lg']),
+  /** 按钮是否被激活 */
+  isActive: PropTypes.bool,
+  /** 按钮是否被禁用 */
+  isDisabled: PropTypes.bool,
+  /** 按钮被点击触发事件 */
+  onClick: PropTypes.func,
+  /** 用户自定义修饰符 */
+  className: PropTypes.string,
+  /** 用户自定义属性 */
+  attributes: PropTypes.object,
+};
+&nbsp;
+<span class="cstat-no" title="statement not covered" >Button.defaultProps = {</span>
+  label: undefined,
+  type: 'button',
+  bgColor: 'light',
+  outlineColor: undefined,
+  btnStyle: 'normal',
+  gradientStart: undefined,
+  gradientEnd: undefined,
+  size: 'normal',
+  isActive: false,
+  isDisabled: false,
+  onClick: undefined,
+  className: '',
+  attributes: {},
+};
+&nbsp;
+export default Button;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Aug 25 2019 21:16:20 GMT+0800 (GMT+08:00)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

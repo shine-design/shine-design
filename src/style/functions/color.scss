@@ -1,0 +1,89 @@
+/**
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2018/9/5 下午6:29
+ */
+@import "../variables";
+
+@function get-brand-color($i: null) {
+  $base: array-get($shine-colors, brand, base);
+
+  @if $i == '+' {
+    $base: darken($base, 5%);
+  }
+
+  @if $i == '++' {
+    $base: darken($base, 10%);
+  }
+
+  @if $i == '+++' {
+    $base: darken($base, 15%);
+  }
+
+  @if $i == '++++' {
+    $base: darken($base, 20%);
+  }
+
+  @if $i == '-' {
+    $base: lighten($base, 5%);
+  }
+
+  @if $i == '--' {
+    $base: lighten($base, 10%);
+  }
+
+  @if $i == '---' {
+    $base: lighten($base, 15%);
+  }
+
+  @if $i == '----' {
+    $base: lighten($base, 20%);
+  }
+
+  @return $base;
+}
+
+@function get-brand-inverse-color($i: null) {
+  $base: array-get($shine-colors, brand, inverse);
+
+  @if $i == '-' {
+    $base: darken($base, 5%);
+  }
+
+  @if $i == '--' {
+    $base: darken($base, 10%);
+  }
+
+  @if $i == '---' {
+    $base: darken($base, 15%);
+  }
+
+  @if $i == '----' {
+    $base: darken($base, 20%);
+  }
+
+  @if $i == '+' {
+    $base: lighten($base, 5%);
+  }
+
+  @if $i == '++' {
+    $base: lighten($base, 10%);
+  }
+
+  @if $i == '+++' {
+    $base: lighten($base, 15%);
+  }
+
+  @if $i == '++++' {
+    $base: lighten($base, 20%);
+  }
+
+  @return $base;
+}
+
+@function get-state-color($name, $type: null) {
+  @if ($type == null) {
+    $type: base;
+  }
+
+  @return array-get($shine-colors, $name, $type);
+}

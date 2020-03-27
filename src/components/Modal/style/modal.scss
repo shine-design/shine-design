@@ -1,0 +1,77 @@
+/**
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2018/10/2 上午9:56
+ */
+
+@mixin sh-build-component--modal-base() {
+  .modal {
+    .modal-content {
+      border: 0;
+      @include border-radius(0);
+      @include rounded {
+        @include border-radius(array-get($modal--border-radius, general));
+      }
+      .modal-header {
+        padding: 25px;
+
+        .modal-title {
+          font-weight: get-font-weight(bold);
+          font-size: get-font-size(regular, '++');
+        }
+
+        .close {
+          line-height: 0;
+          @include sh-generate-close-icon();
+          font-size: 0;
+
+          &:before {
+            font-size: get-font-size(icon, '-');
+          }
+
+          outline: none !important;
+          span {
+            display: none;
+          }
+        }
+      }
+
+      .modal-body {
+        padding: 25px;
+      }
+
+      .modal-footer {
+        padding: 25px;
+      }
+    }
+  }
+
+  .modal-open {
+    overflow: auto !important;
+    padding: 0 !important;
+  }
+}
+
+//== Component Skin
+@mixin sh-build-component--modal-skin($skin) {
+  .modal {
+    .modal-content {
+      @include shadow(get-shadow($skin));
+
+      .modal-header {
+        .modal-title {
+          color: get-color($skin, regular, '+');
+        }
+
+        .close {
+          span {
+            color: get-color($skin, regular);
+          }
+        }
+      }
+    }
+  }
+}
+
+@include sh-build-component--modal-base();
+
+@include sh-build-component--modal-skin(light);

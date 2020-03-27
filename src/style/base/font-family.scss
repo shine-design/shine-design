@@ -1,0 +1,11 @@
+/**
+ * 公共字体集
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2019/3/16 01:37
+ */
+@import "../variables";
+
+.#{$classPrefix}--font-family {
+  font-family: $fontFamily;
+}
+
