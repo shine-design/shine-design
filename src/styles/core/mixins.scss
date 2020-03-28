@@ -4,283 +4,284 @@
  */
 
 @mixin shine-clearfix() {
-	&:before,
-	&:after {
-		content: " "; // 1
-		display: table; // 2
-	}
-	&:after {
-		clear: both;
-	}
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
 }
 
 @mixin kt-button-reset() {
-    appearance: none;
-    box-shadow: none;
-    border-radius: none;
-    border: none;
-    cursor: pointer;
-    background: none;
-    outline: none !important;
-    margin: 0;
-    padding: 0;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+  border: none;
+  cursor: pointer;
+  background: none;
+  outline: none !important;
+  margin: 0;
+  padding: 0;
 }
 
 @mixin kt-input-reset() {
-	border: 0;
-	background: none;
-	outline: none !important;
-	box-shadow: none;
+  border: 0;
+  background: none;
+  outline: none !important;
+  box-shadow: none;
 }
 
 @mixin kt-btn-reset() {
-    border: 0;
-    background: none;
-    outline: none !important;
-    box-shadow: none;
-    outline: none !important;
+  border: 0;
+  background: none;
+  outline: none !important;
+  box-shadow: none;
+  outline: none !important;
 }
 
 @mixin kt-fix-fixed-position-lags() {
-	// webkit hack for smooth font view on fixed positioned elements
-	-webkit-backface-visibility:hidden;
-	backface-visibility:hidden;
+  // webkit hack for smooth font view on fixed positioned elements
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 @mixin kt-fix-animation-lags() {
-    transform: translateZ(0);
-    -webkit-transform-style: preserve-3d;
+  transform: translateZ(0);
+  -webkit-transform-style: preserve-3d;
 }
 
 @mixin kt-attr($attr, $value, $important: '') {
-    @if  $value != null  {
-        #{$attr}: #{$value} #{$important};
-    }
+  @if $value != null {
+    #{$attr}: #{$value} #{$important};
+  }
 }
 
 @mixin kt-hack-ie {
-	@media screen\0 {
-		@content;
-	}
+  @media screen
+  {
+    @content;
+  }
 }
 
 @mixin kt-hack-edge-all {
-	@supports (-ms-ime-align:auto) {
-		@content;
-	}
+  @supports (-ms-ime-align:auto) {
+    @content;
+  }
 }
 
 @mixin kt-rounded {
-    @if $kt-rounded == true {
-       @content;
-    }
+  @if $kt-rounded == true {
+    @content;
+  }
 }
 
 @mixin kt-not-rounded {
-    @if $kt-rounded == false {
-        @content;
-    }
+  @if $kt-rounded == false {
+    @content;
+  }
 }
 
 // Input placeholder color
 @mixin kt-input-placeholder($color) {
-    &::-moz-placeholder {
-        color: $color;
-        opacity: 1;
-    }
-    // See https://github.com/twbs/bootstrap/pull/11526
-    &:-ms-input-placeholder {
-        color: $color;
-    }
-    // Internet Explorer 10+
-    &::-webkit-input-placeholder {
-        color: $color;
-    }
-    // Safari and Chrome
+  &::-moz-placeholder {
+    color: $color;
+    opacity: 1;
+  }
+  // See https://github.com/twbs/bootstrap/pull/11526
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+  // Internet Explorer 10+
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+  // Safari and Chrome
 }
 
 @mixin kt-hover-transition {
-    transition: $kt-transition;
+  transition: $kt-transition;
 
-    &:hover {
-        transition: $kt-transition;
-    }
+  &:hover {
+    transition: $kt-transition;
+  }
 }
 
 @mixin kt-transition {
-    transition: $kt-transition;
+  transition: $kt-transition;
 }
 
 // Icon Sizing
 // SASS Map:  (lineawesome: 1.1rem, fontawesome: 1.2rem, flaticon: 1.1rem)
 @mixin shine-icons-size($config) {
-    // Lineawesome
-    [class^="la-"],
-    [class*=" la-"] {
-        font-size: shine-get($config, lineawesome);
-    }
+  // Lineawesome
+  [class^="la-"],
+  [class*=" la-"] {
+    font-size: shine-get($config, lineawesome);
+  }
 
-    // Fontawesome
-    [class^="fa-"],
-    [class*=" fa-"] {
-        font-size: shine-get($config, fontawesome);
-    }
+  // Fontawesome
+  [class^="fa-"],
+  [class*=" fa-"] {
+    font-size: shine-get($config, fontawesome);
+  }
 
-    // Flaticon
-    [class^="flaticon-"],
-    [class*=" flaticon-"],
-    [class^="flaticon2-"],
-    [class*=" flaticon2-"] {
-        font-size: shine-get($config, flaticon);
-    }
+  // Flaticon
+  [class^="flaticon-"],
+  [class*=" flaticon-"],
+  [class^="flaticon2-"],
+  [class*=" flaticon2-"] {
+    font-size: shine-get($config, flaticon);
+  }
 }
 
 // Icon attr
 // SASS Map:  (lineawesome: 1.1rem, fontawesome: 1.2rem, flaticon: 1.1rem)
 @mixin kt-icons-style($attr, $config) {
-    // lineawesome
-    [class^="la-"],
-    [class*=" la-"] {
-        #{$attr}: shine-get($config, lineawesome);
-    }
+  // lineawesome
+  [class^="la-"],
+  [class*=" la-"] {
+    #{$attr}: shine-get($config, lineawesome);
+  }
 
-    // Fontawesome
-    [class^="fa-"],
-    [class*=" fa-"] {
-        #{$attr}: shine-get($config, fontawesome);
-    }
+  // Fontawesome
+  [class^="fa-"],
+  [class*=" fa-"] {
+    #{$attr}: shine-get($config, fontawesome);
+  }
 
-    // Flaticon
-    [class^="flaticon-"],
-    [class*=" flaticon-"],
-    [class^="flaticon2-"],
-    [class*=" flaticon2-"] {
-        #{$attr}: shine-get($config, flaticon);
-    }
+  // Flaticon
+  [class^="flaticon-"],
+  [class*=" flaticon-"],
+  [class^="flaticon2-"],
+  [class*=" flaticon2-"] {
+    #{$attr}: shine-get($config, flaticon);
+  }
 }
 
 // SASS Map:  (lineawesome: 1.1rem, fontawesome: 1.2rem, flaticon: 1.1rem)
 @mixin kt-icons {
-    [class^="la-"],
-    [class*=" la-"],
-    [class^="fa-"],
-    [class*=" fa-"],
-    [class^="flaticon-"],
-    [class*=" flaticon-"],
-    [class^="flaticon2-"],
-    [class*=" flaticon2-"] {
-        @content;
-    }
+  [class^="la-"],
+  [class*=" la-"],
+  [class^="fa-"],
+  [class*=" fa-"],
+  [class^="flaticon-"],
+  [class*=" flaticon-"],
+  [class^="flaticon2-"],
+  [class*=" flaticon2-"] {
+    @content;
+  }
 }
 
 // Lineawesome icon
 @mixin kt-la-icon($icon) {
-    font-family: "LineAwesome";
-    text-decoration: inherit;
-    text-rendering: optimizeLegibility;
-    text-transform: none;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    font-smoothing: antialiased;
+  font-family: "LineAwesome";
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
 
-    &:before {
-        content: "#{$icon}";
-    }
+  &:before {
+    content: "#{$icon}";
+  }
 }
 
 @mixin kt-la-icon-change($icon) {
-    &:before {
-        content: "#{$icon}";
-    }
+  &:before {
+    content: "#{$icon}";
+  }
 }
 
 @mixin kt-flaticon2-icon($icon) {
-    font-family: Flaticon2;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    line-height: 1;
-    text-decoration: inherit;
-    text-rendering: optimizeLegibility;
-    text-transform: none;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    font-smoothing: antialiased;
-    content: "#{$icon}";
+  font-family: Flaticon2;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  content: "#{$icon}";
 }
 
 // Lineawesome icon
-@mixin kt-la-icon-self($icon) {
-    font-family: "LineAwesome";
-    text-decoration: inherit;
-    text-rendering: optimizeLegibility;
-    text-transform: none;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    font-smoothing: antialiased;
-    content: "#{$icon}";
+@mixin shine-la-icon-self($icon) {
+  font-family: "LineAwesome";
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  content: "#{$icon}";
 }
 
 // Close icon
 @mixin kt-close-icon($self:null) {
-    @if $self == true {
-        @include kt-la-icon-self( shine-get($kt-action-icons, close) );
-    } @else {
-        @include kt-la-icon( shine-get($kt-action-icons, close) );
-    }
+  @if $self == true {
+    @include shine-la-icon-self(shine-get($kt-action-icons, close));
+  } @else {
+    @include kt-la-icon(shine-get($kt-action-icons, close));
+  }
 }
 
 // Arrow icon
 @mixin kt-arrow-icon($dir, $self:null) {
-    @if $dir == down {
-        @if $self == true {
-            @include kt-la-icon-self( shine-get($kt-action-icons, down) );
-        } @else {
-            @include kt-la-icon( shine-get($kt-action-icons, down) );
-        }
+  @if $dir == down {
+    @if $self == true {
+      @include shine-la-icon-self(shine-get($kt-action-icons, down));
+    } @else {
+      @include kt-la-icon(shine-get($kt-action-icons, down));
     }
+  }
 
-    @if $dir == up {
-        @if $self == true {
-            @include kt-la-icon-self( shine-get($kt-action-icons, up) );
-        } @else {
-            @include kt-la-icon( shine-get($kt-action-icons, up) );
-        }
+  @if $dir == up {
+    @if $self == true {
+      @include shine-la-icon-self(shine-get($kt-action-icons, up));
+    } @else {
+      @include kt-la-icon(shine-get($kt-action-icons, up));
     }
+  }
 
-    @if $dir == left {
-        @if $self == true {
-            @include kt-la-icon-self( shine-get($kt-action-icons, left) );
-        } @else {
-            @include kt-la-icon( shine-get($kt-action-icons, left) );
-        }
+  @if $dir == left {
+    @if $self == true {
+      @include shine-la-icon-self(shine-get($kt-action-icons, left));
+    } @else {
+      @include kt-la-icon(shine-get($kt-action-icons, left));
     }
+  }
 
-    @if $dir == right {
-        @if $self == true {
-            @include kt-la-icon-self( shine-get($kt-action-icons, right) );
-        } @else {
-            @include kt-la-icon( shine-get($kt-action-icons, right) );
-        }
+  @if $dir == right {
+    @if $self == true {
+      @include shine-la-icon-self(shine-get($kt-action-icons, right));
+    } @else {
+      @include kt-la-icon(shine-get($kt-action-icons, right));
     }
+  }
 }
 
 // Svg icon color
 @mixin kt-svg-icon-color($color) {
-    g {
-        [fill] {
-            transition: fill 0.3s ease;
-            fill: $color;
-        }
+  g {
+    [fill] {
+      transition: fill 0.3s ease;
+      fill: $color;
     }
+  }
 
-    &:hover {
-        g {
-            [fill] {
-                transition: fill 0.3s ease;
-            }
-        }
+  &:hover {
+    g {
+      [fill] {
+        transition: fill 0.3s ease;
+      }
     }
+  }
 }
 
 // Breakpoint mixins
@@ -288,97 +289,97 @@
 // Define the minimum and maximum dimensions at which your layout will change, adapting to different screen sizes, for use in media queries.
 
 @mixin kt-media-below($width) {
-    @media (max-width: #{kt-media-breakpoint($width)}) {
-        @content;
-    }
+  @media (max-width: #{kt-media-breakpoint($width)}) {
+    @content;
+  }
 }
 
 @mixin kt-media-above($width) {
-    @media (min-width: #{kt-media-breakpoint($width) + 1px}) {
-        @content;
-    }
+  @media (min-width: #{kt-media-breakpoint($width) + 1px}) {
+    @content;
+  }
 }
 
 @mixin kt-media-range($from, $to) {
-    @media (min-width: #{kt-media-breakpoint($from) + 1px}) and (max-width: #{kt-media-breakpoint($to)}) {
-        @content;
-    }
+  @media (min-width: #{kt-media-breakpoint($from) + 1px}) and (max-width: #{kt-media-breakpoint($to)}) {
+    @content;
+  }
 }
 
 @mixin kt-minimal-desktop {
-    @media (min-width: #{kt-media-breakpoint(lg) + 1px}) and (max-width: #{kt-media-breakpoint(xl)}) {
-        @content;
-    }
+  @media (min-width: #{kt-media-breakpoint(lg) + 1px}) and (max-width: #{kt-media-breakpoint(xl)}) {
+    @content;
+  }
 }
 
 @mixin kt-minimal-desktop-and-below {
-    @media (max-width: #{kt-media-breakpoint(xl)}) {
-        @content;
-    }
+  @media (max-width: #{kt-media-breakpoint(xl)}) {
+    @content;
+  }
 }
 
 @mixin shine-desktop {
-    @media (min-width: #{kt-media-breakpoint(lg) + 1px}) {
-        @content;
-    }
+  @media (min-width: #{kt-media-breakpoint(lg) + 1px}) {
+    @content;
+  }
 }
 
 @mixin shine-desktop-xl {
-    @media (min-width: #{kt-media-breakpoint(xl) + 1px}) {
-        @content;
-    }
+  @media (min-width: #{kt-media-breakpoint(xl) + 1px}) {
+    @content;
+  }
 }
 
 @mixin shine-desktop-xxl {
-    @media (min-width: #{kt-media-breakpoint(xxl) + 1px}) {
-        @content;
-    }
+  @media (min-width: #{kt-media-breakpoint(xxl) + 1px}) {
+    @content;
+  }
 }
 
 @mixin shine-desktop-and-tablet {
-    @media (min-width: #{kt-media-breakpoint(md) + 1px}) {
-        @content;
-    }
+  @media (min-width: #{kt-media-breakpoint(md) + 1px}) {
+    @content;
+  }
 }
 
 @mixin shine-tablet {
-    @media (min-width: #{kt-media-breakpoint(md) + 1px}) and (max-width: #{kt-media-breakpoint(lg)}) {
-        @content;
-    }
+  @media (min-width: #{kt-media-breakpoint(md) + 1px}) and (max-width: #{kt-media-breakpoint(lg)}) {
+    @content;
+  }
 }
 
 @mixin shine-tablet-and-mobile {
-    @media (max-width: #{kt-media-breakpoint(lg)}) {
-        @content;
-    }
+  @media (max-width: #{kt-media-breakpoint(lg)}) {
+    @content;
+  }
 }
 
 @mixin shine-mobile {
-    @media (max-width: #{kt-media-breakpoint(md)}) {
-        @content;
-    }
+  @media (max-width: #{kt-media-breakpoint(md)}) {
+    @content;
+  }
 }
 
 @mixin shine-mobile-sm {
-    @media (max-width: #{kt-media-breakpoint(sm)}) {
-        @content;
-    }
+  @media (max-width: #{kt-media-breakpoint(sm)}) {
+    @content;
+  }
 }
 
 @mixin kt-responsive-below($width) {
-    @media (max-width: #{$width}) {
-      @content;
-    }
+  @media (max-width: #{$width}) {
+    @content;
+  }
 }
 
 @mixin kt-responsive-above($width) {
-    @media (min-width: #{$width}) {
-      @content;
-    }
+  @media (min-width: #{$width}) {
+    @content;
+  }
 }
 
 @mixin kt-responsive-range($from, $to) {
-    @media (min-width: #{$from}) and (max-width: #{$to}) {
-      @content;
-    }
+  @media (min-width: #{$from}) and (max-width: #{$to}) {
+    @content;
+  }
 }

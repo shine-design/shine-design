@@ -184,8 +184,8 @@ $kt-font-size: (
 $kt-font-color: (
   text: #646c9a,
   link: (
-    default: kt-state-color(brand),
-    hover: darken(kt-state-color(brand), 6%)
+    default: shine-state-color(brand),
+    hover: darken(shine-state-color(brand), 6%)
   )
 ) !default;
 

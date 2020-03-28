@@ -92,7 +92,7 @@
   }
 }
 
-@function kt-state-color($name, $type: null) {
+@function shine-state-color($name, $type: null) {
   @if ($type == null) {
     $type: base;
   }
@@ -101,7 +101,7 @@
 }
 
 @function shine-brand-color($type: null) {
-  @return kt-state-color(brand, $type);
+  @return shine-state-color(brand, $type);
 }
 
 @function shine-base-color($type, $level) {
