@@ -13,8 +13,6 @@ import uuid from 'uuid/v1';
 import {VALIDATION_MSG} from 'validations';
 import {Col} from '../../Grid';
 
-// import './style/index.scss';
-
 class Item extends PureComponent {
 
   state = {
