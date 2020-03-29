@@ -15,7 +15,12 @@ import 'bootstrap/js/src/alert';
 class Alert extends PureComponent {
 
   render() {
-    const {title, message, messageRenderer, bgColor, isOutline, isSolid, isBold, isElevate, iconProps, iconName, isCloseable, isOpen, onClose, className, attributes, children} = this.props;
+    // 基础配置
+    const {title, message, messageRenderer, bgColor, iconProps, iconName, onClose} = this.props;
+    // 布尔值
+    const {isOutline, isSolid, isBold, isElevate, isCloseable, isOpen} = this.props;
+    // 通用配置
+    const {className, attributes, children} = this.props;
 
     /** 计算样式 */
     const classes = classNames(
