@@ -47,7 +47,7 @@ class Options extends PureComponent {
           {...callbacks}
         />
         {label || children}
-        <span/>
+        <span />
       </label>
     );
   }
