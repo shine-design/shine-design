@@ -1,12 +1,13 @@
 /**
+ * 配置项
  * @Author 瞿龙俊 - qulongjun@shine.design
  * @Date 2020-03-22 13:02
  */
 
 // Layout
-$kt-aside-default-width: 265px;
-$kt-aside-minimize-width: 70px;
-$kt-aside-offcanvas-width: 255px;
+$shine-aside-default-width: 265px;
+$shine-aside-minimize-width: 70px;
+$shine-aside-offcanvas-width: 255px;
 
 
 
@@ -66,22 +67,22 @@ $shine-state-colors: (
 );
 
 // Layout Skins
-$kt-layout-skins: (
+$shine-layout-skins: (
   dark: #1e1e2d,
   light: #ffffff
 );
 
 // content bg color
-$kt-content-bg-color: #f2f3f8;
+$shine-content-bg-color: #f2f3f8;
 
 // Border Radius
 $shine-border-radius: 4px;
 
 // Page padding
-$kt-page-padding: (
+$shine-page-padding: (
   desktop: 25px,
   mobile: 15px
 );
 
 // Page container width
-$kt-page-container-width: 1380px;
+$shine-page-container-width: 1380px;

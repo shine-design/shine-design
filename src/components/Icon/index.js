@@ -13,11 +13,13 @@ import * as PropTypes from "prop-types";
 class Icon extends PureComponent {
 
   render() {
-    const {iconName, size, isSpin, isPulse, rotate, flip, className, attributes, children} = this.props;
+    const {iconName, size, isSpin, isPulse, rotate, flip, source, className, attributes, children} = this.props;
     /** 计算样式 */
     const classes = classNames(
-      `${classPrefix}-icon-${iconName}`,
       {
+        [`${classPrefix}-icon-${iconName}`]: _.isUndefined(source) || _.isEqual(source, 'shine'),
+        [`la la-${iconName}`]: _.isEqual(source, 'line-awesome'),
+        [iconName]: _.isUndefined(source) || _.isEqual(source, 'outside'),
         [`${classPrefix}-icon-${size}`]: _.isString(size),
         [`${classPrefix}-icon-spin`]: isSpin,
         [`${classPrefix}-icon-pulse`]: isPulse,
@@ -46,6 +48,8 @@ Icon.propTypes = {
   rotate: PropTypes.oneOf([90, 180, 270]),
   /** 翻转图标 */
   flip: PropTypes.oneOf(['horizontal', 'vertical']),
+  /** 指定图标来源，shine：组件库图标 / line-awesome：LineAwesome 图标库 / outside：外部图标库 */
+  source: PropTypes.oneOf(['shine', 'line-awesome', 'outside']),
   /** 用户自定义修饰符 */
   className: PropTypes.string,
   /** 用户自定义属性 */
@@ -59,6 +63,7 @@ Icon.defaultProps = {
   isPulse: false,
   rotate: undefined,
   flip: undefined,
+  source: undefined,
   className: '',
   attributes: {},
 };

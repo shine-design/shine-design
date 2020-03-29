@@ -12,8 +12,6 @@ export default {
     jsx: `
 <div className="shine-input-helper">
     <Input placeholder="请输入文本" />
-    <Input type="password" placeholder="请输入密码" />
-    <Input type="number" placeholder="请输入数字" />
 </div>
 `,
   },

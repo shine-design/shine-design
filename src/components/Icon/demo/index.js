@@ -19,22 +19,22 @@ export default {
   size: {
     components,
     jsx: `<div className="shine-icon-helper">
-  <div class="block">
+  <div className="block">
   <Icon iconName="camera-retro" /> Normal
   </div>
-  <div class="block">
+  <div className="block">
     <Icon iconName="camera-retro" size="lg" /> Large
   </div>
-  <div class="block">
+  <div className="block">
     <Icon iconName="camera-retro" size="2x" /> 2X
   </div>
-  <div class="block">
+  <div className="block">
     <Icon iconName="camera-retro" size="3x" /> 3X
   </div>
-  <div class="block">
+  <div className="block">
     <Icon iconName="camera-retro" size="4x" /> 4X
   </div>
-  <div class="block">
+  <div className="block">
     <Icon iconName="camera-retro" size="5x" /> 5X
   </div>
 </div>`,
@@ -42,12 +42,12 @@ export default {
   spin: {
     components,
     jsx: `<div className="shine-icon-helper">
-  <div class="block">
+  <div className="block">
     <Icon iconName="spinner" isSpin={true} size="3x" />
     <Icon iconName="circle-o-notch" isSpin={true} size="3x" />
     <Icon iconName="refresh" isSpin={true} size="3x" />
   </div>
-  <div class="block">
+  <div className="block">
     <Icon iconName="spinner" isPulse={true} size="3x" />
     <Icon iconName="circle-o-notch" isPulse={true} size="3x" />
     <Icon iconName="refresh" isPulse={true} size="3x" />
@@ -57,13 +57,13 @@ export default {
   rotate: {
     components,
     jsx: `<div className="shine-icon-helper">
-  <div class="block">
+  <div className="block">
     <Icon iconName="shield" size="3x" />
     <Icon iconName="shield" rotate={90} size="3x" />
     <Icon iconName="shield" rotate={180} size="3x" />
     <Icon iconName="shield" rotate={270} size="3x" />
   </div>
-  <div class="block">
+  <div className="block">
     <Icon iconName="shield" flip="horizontal" size="3x" />    
     <Icon iconName="shield" flip="vertical" size="3x" />
   </div>

@@ -8,20 +8,18 @@ import React, {PureComponent} from 'react';
 import _ from 'lodash';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
-import {classPrefix} from 'variables';
-import '../style/index.scss';
 
 class Progress extends PureComponent {
 
   render() {
     const {height, className, attributes, children} = this.props;
 
-    const isDefaultHeight = !_.isUndefined(height) && _.includes(['small', 'large'], height);
+    const isDefaultHeight = !_.isUndefined(height) && _.includes(['sm', 'lg'], height);
 
     /** 计算样式 */
     const classes = classNames(
-      `${classPrefix}-progress`,
-      {[`${classPrefix}-progress-${height}`]: isDefaultHeight},
+      `progress`,
+      {[`progress-${height}`]: isDefaultHeight},
       className,
     );
 
