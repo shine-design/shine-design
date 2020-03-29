@@ -14,7 +14,7 @@ class TextArea extends PureComponent {
 
   render() {
     const {defaultValue, isDisabled, isReadOnly, id, value, name, placeholder} = this.props;
-    const {size, textAreaStyle, height} = this.props;
+    const {size, height} = this.props;
     const {onChange, onBlur, onClick} = this.props;
     const {className, attributes} = this.props;
 
@@ -97,7 +97,6 @@ TextArea.defaultProps = {
   isDisabled: false,
   isReadOnly: false,
   size: 'default',
-  textAreaStyle: 'default',
   height: '100px',
   onChange: undefined,
   onBlur: undefined,
