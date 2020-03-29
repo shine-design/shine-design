@@ -6,13 +6,11 @@
  */
 import React, {Fragment, PureComponent} from 'react';
 import _ from 'lodash';
-import {classPrefix} from 'variables';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import jQuery from 'jquery';
 import Button from '../Button';
 import 'bootstrap/js/src/modal';
-import './style/index.scss';
 
 class Modal extends PureComponent {
 
@@ -49,7 +47,6 @@ class Modal extends PureComponent {
 
     /** 计算样式 */
     const classes = classNames(
-      `${classPrefix}-modal`,
       'modal',
       'fade',
       className,
@@ -126,8 +123,8 @@ class Modal extends PureComponent {
 Modal.propTypes = {
   /** 是否显示模态框 */
   isOpen: PropTypes.bool,
-  /** 模态框尺寸 小尺寸:sm，大尺寸:lg，默认:normal */
-  size: PropTypes.oneOf(['normal', 'sm', 'lg']),
+  /** 模态框尺寸 小尺寸:sm，大尺寸:lg */
+  size: PropTypes.oneOf(['sm', 'lg']),
   /** 模态框标题 */
   title: PropTypes.node,
   /** 确认按钮文字提示 */

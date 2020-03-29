@@ -20,10 +20,10 @@ class TextArea extends PureComponent {
 
     /** 计算样式 */
     const classes = classNames(
+      `form-control`,
       `${classPrefix}-form-control`,
       {
-        [`${classPrefix}-form-control-${size}`]: _.includes(['small', 'large'], size),
-        [`${classPrefix}-form-control--${textAreaStyle}`]: _.includes(['pill', 'square'], textAreaStyle),
+        [`${classPrefix}-form-control-${size}`]: _.includes(['sm', 'lg'], size)
       },
       className,
     );
@@ -72,10 +72,8 @@ TextArea.propTypes = {
   isDisabled: PropTypes.bool,
   /** 设置是否只读文本域 */
   isReadOnly: PropTypes.bool,
-  /** 设置文本域尺寸，支持 default：默认 / small：小尺寸 / large：大尺寸 */
-  size: PropTypes.oneOf(['default', 'small', 'large']),
-  /** 文本域样式，default：圆角矩形 / pill：椭圆形矩形 / square：直角矩形 */
-  textAreaStyle: PropTypes.oneOf(['default', 'pill', 'square']),
+  /** 设置文本域尺寸，支持 sm：小尺寸 / lg：大尺寸 */
+  size: PropTypes.oneOf(['sm', 'lg']),
   /** 文本框高度 */
   height: PropTypes.string,
   /** 文本域内容发生改变时触发 */

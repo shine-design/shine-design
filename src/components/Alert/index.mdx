@@ -33,46 +33,38 @@ import "./demo/index.scss";
 #### 基础警告提示
 最基础的警告提示样式，组件通过 `isOpen` 属性控制是否展示，需要显式的指定 `bgColor`。
 
-<Example 
+<Example
   display={<JsxParser {...code.basic} />}
   code={{code:code.basic.jsx}}
   components={code.basic.components}
 />
 
-#### 边框样式
-警告提示组件支持圆角矩形和直角矩形两种样式，通过设置 `alertStyle` 属性可以切换边框样式。
+#### 带图标的警告提示
+在警告提示组件中使用图标可以更直观的显示警告状态。
 
-<Example 
-  display={<JsxParser {...code.alertStyle} />}
-  code={{code:code.alertStyle.jsx}}
-  components={code.alertStyle.components}
+<Example
+  display={<JsxParser {...code.icon} />}
+  code={{code:code.icon.jsx}}
+  components={code.icon.components}
 />
 
 #### 阴影效果
-通过设置 `isAir` 属性可以使警告框产生阴影效果。
+通过设置 `isElevate` 属性可以使警告框产生阴影效果。
 
-<Example 
+<Example
   display={<JsxParser {...code.air} />}
   code={{code:code.air.jsx}}
   components={code.air.components}
 />
 
-#### 双轮廓
-使用双倍宽度的轮廓可以加强警告作用，使警告以更高的对比度展示，通过指定 `isDoubleOutline` 属性可以设置双倍的轮廓边框。
+#### 自定义警告提示
 
-<Example 
-  display={<JsxParser {...code.double} />}
-  code={{code:code.double.jsx}}
-  components={code.double.components}
-/>
+用户可以自定义警告提示的标题和正文内容，支持 React 组件。
 
-#### 带图标的警告提示
-在警告提示组件中使用图标可以更直观的显示警告状态。
-
-<Example 
-  display={<JsxParser {...code.icon} />}
-  code={{code:code.icon.jsx}}
-  components={code.icon.components}
+<Example
+  display={<JsxParser {...code.custom} />}
+  code={{code:code.custom.jsx}}
+  components={code.custom.components}
 />
 
 ## 配置参数

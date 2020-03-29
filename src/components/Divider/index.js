@@ -9,7 +9,6 @@ import React, {PureComponent} from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {classPrefix} from 'variables';
-import './style/index.scss';
 
 class Divider extends PureComponent {
 

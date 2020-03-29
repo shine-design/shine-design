@@ -9,7 +9,6 @@ import React, {PureComponent} from 'react';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import {classPrefix} from 'variables';
-import './style/index.scss';
 import {buildDefaultRules, runRegExp, VALIDATION_RULES} from "validations";
 
 const DEFAULT_RULE = _.keys(VALIDATION_RULES);
@@ -120,8 +119,8 @@ Switch.propTypes = {
   isShowIcon: PropTypes.bool,
   /** 是否将组件设置为受控组件 */
   isControlled: PropTypes.bool,
-  /** 设置开关尺寸，支持 default：默认 / small：小尺寸 / large：大尺寸 */
-  size: PropTypes.oneOf(['default', 'small', 'large']),
+  /** 设置开关尺寸，支持 sm：小尺寸 / lg：大尺寸 */
+  size: PropTypes.oneOf(['sm', 'lg']),
   /** 表单校验规则 */
   rules: PropTypes.object,
   /** 表单校验失败提示文字 */
@@ -143,7 +142,7 @@ Switch.defaultProps = {
   isDisabled: false,
   isControlled: false,
   isShowIcon: false,
-  size: 'default',
+  size: undefined,
   rules: undefined,
   errorMsg: undefined,
   onChange: undefined,

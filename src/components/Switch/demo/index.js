@@ -140,18 +140,18 @@ export default {
   <Form>
     <Row>
       <Col col={8}>
-        <Form.Item isInline={true} labelCol={8} label="默认打开">
-          <Switch isChecked={true} size="small" isShowIcon={true} />
+        <Form.Item isInline={true} labelCol={8} label="小尺寸">
+          <Switch isChecked={true} size="sm" isShowIcon={true} />
         </Form.Item>
       </Col>
       <Col col={8}>
-        <Form.Item isInline={true} labelCol={8} label="默认打开">
+        <Form.Item isInline={true} labelCol={8} label="默认尺寸">
           <Switch isChecked={true} isShowIcon={true} />
         </Form.Item>
       </Col>
       <Col col={8}>
-        <Form.Item isInline={true} labelCol={8} label="默认打开">
-          <Switch isChecked={true} size="large" isShowIcon={true} />
+        <Form.Item isInline={true} labelCol={8} label="大尺寸">
+          <Switch isChecked={true} size="lg" isShowIcon={true} />
         </Form.Item>
       </Col>
     </Row>  

@@ -8,9 +8,7 @@
 // Mixins
 @import '../core/mixins';
 
-// Layout Breakpoints(bootstrap responsive breakpoints)
-// Define the minimum and maximum dimensions at which your layout will change, adapting to different screen sizes, for use in media queries.
-$kt-media-breakpoints: (
+$shine-media-breakpoints: (
   // Extra small screen / phone
   xs: 0,
 
@@ -28,13 +26,13 @@ $kt-media-breakpoints: (
 ) !default;
 
 // Global rounded border mode
-$kt-rounded: true !default;
+$shine-rounded: true !default;
 
 // Border Radius
 $shine-border-radius: 4px !default;
 
 // Core icon codes(lineawesome icons: https://icons8.com/line-awesome)
-$kt-action-icons: (
+$shine-action-icons: (
   close: '\f191',
   down: '\f110',
   up: '\f113',
@@ -44,8 +42,7 @@ $kt-action-icons: (
   minus: '\f28e'
 ) !default;
 
-// Core bold icon codes(lineawesome icons: https://keenthemes.com/metronic/preview/default/components/icons/flaticon.html)
-$kt-action-bold-icons: (
+$shine-action-bold-icons: (
   down: '\f1b1',
   up: '\f1b3',
   left: '\f1b2',
@@ -53,23 +50,23 @@ $kt-action-bold-icons: (
 ) !default;
 
 // Elevate shadow
-$kt-elevate-shadow: 0px 0px 13px 0px rgba(82,63,105,0.05) !default;
-$kt-elevate-shadow-2: 0px 0px 13px 0px rgba(82,63,105,0.1) !default;
+$shine-elevate-shadow: 0px 0px 13px 0px rgba(82,63,105,0.05) !default;
+$shine-elevate-shadow-2: 0px 0px 13px 0px rgba(82,63,105,0.1) !default;
 
 // Dropdown shadow
-$kt-dropdown-shadow: 0px 0px 50px 0px rgba(82,63,105, 0.15) !default;
+$shine-dropdown-shadow: 0px 0px 50px 0px rgba(82,63,105, 0.15) !default;
 
 // Custom scrollbar color
-$kt-scroll-color: darken(#ebedf2, 6%) !default;
+$shine-scroll-color: darken(#ebedf2, 6%) !default;
 
 // Transition
-$kt-transition: all 0.3s !default;
+$shine-transition: all 0.3s !default;
 
 // Modal Z-index
-$kt-modal-zindex: 1050 !default;
+$shine-modal-zindex: 1050 !default;
 
 // dropdown Z-index
-$kt-dropdown-zindex: 95 !default;
+$shine-dropdown-zindex: 95 !default;
 
 // State colors
 $shine-state-colors: (
@@ -165,13 +162,13 @@ $shine-social-colors: (
 ) !default;
 
 // Root Font Settings
-$kt-font-families: (
+$shine-font-families: (
   regular: 'Poppins',
   heading: 'Poppins'
 ) !default;
 
 // Root Font Settings
-$kt-font-size: (
+$shine-font-size: (
   size: (
     desktop: 13px,
     tablet: 12px,
@@ -181,16 +178,16 @@ $kt-font-size: (
 ) !default;
 
 // General Link Settings
-$kt-font-color: (
+$shine-font-color: (
   text: #646c9a,
   link: (
-    default: kt-state-color(brand),
-    hover: darken(kt-state-color(brand), 6%)
+    default: shine-state-color(brand),
+    hover: darken(shine-state-color(brand), 6%)
   )
 ) !default;
 
 // Portlet settings
-$kt-portlet: (
+$shine-portlet: (
   min-height: (
     default: (
       desktop: 60px,
@@ -223,16 +220,16 @@ $kt-portlet: (
 ) !default;
 
 // Page padding
-$kt-page-padding: (
+$shine-page-padding: (
   desktop: 25px,
   mobile: 15px
 ) !default;
 
 // Page container width
-$kt-page-container-width: 1380px !default;
+$shine-page-container-width: 1380px !default;
 
 // Custom Scroll(Perfect Scrollbar) size
-$kt-custom-scroll-size: 4px !default;
+$shine-custom-scroll-size: 4px !default;
 
 /** 水平对齐选项 */
 $shine-justify: (name:start, value:flex-start), (name:end, value:flex-end), (name:center, value:center),

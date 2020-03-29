@@ -75,7 +75,7 @@ class Input extends PureComponent {
       'form-control',
       `${classPrefix}-form-control`,
       {
-        [`${classPrefix}-form-control-${size}`]: _.includes(['lg', 'sm'], size),
+        [`form-control-${size}`]: _.includes(['lg', 'sm'], size),
       },
       className,
       _className
@@ -133,8 +133,8 @@ Input.propTypes = {
   isReadOnly: PropTypes.bool,
   /** 设置输入框类型 */
   type: PropTypes.string,
-  /** 设置输入框尺寸，支持 default：默认 / small：小尺寸 / large：大尺寸 */
-  size: PropTypes.oneOf(['default', 'small', 'large']),
+  /** 设置输入框尺寸，支持 sm：小尺寸 / lg：大尺寸 */
+  size: PropTypes.oneOf(['sm', 'lg']),
   /** 表单校验规则 */
   rules: PropTypes.object,
   /** 表单校验失败提示文字 */
@@ -162,7 +162,7 @@ Input.defaultProps = {
   isDisabled: false,
   isReadOnly: false,
   type: 'text',
-  size: 'default',
+  size: undefined,
   rules: undefined,
   errorMsg: undefined,
   onChange: undefined,

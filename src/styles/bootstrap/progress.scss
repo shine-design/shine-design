@@ -1,0 +1,29 @@
+/**
+ * Progress 进度条
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2019/3/24 14:43
+ */
+
+.progress {
+    background-color: shine-base-color(grey, 2);
+
+    .progress-bar {
+        transition: all 0.5s ease;
+    }
+
+    &.progress-sm {
+        height: 6px;
+
+        .progress-bar {
+        	border-radius: 3px;
+        }
+    }
+
+    &.progress-lg {
+        height: 20px;
+
+       	.progress-bar {
+        	border-radius: 4px;
+        }
+    }
+}

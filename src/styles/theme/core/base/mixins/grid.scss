@@ -9,27 +9,27 @@
 
 	// Grid mode
 	@if ($mode == general) {
-		$mode-class: ":not(.kt-grid--desktop):not(.kt-grid--desktop-and-tablet):not(.kt-grid--tablet):not(.kt-grid--tablet-and-mobile):not(.kt-grid--mobile)";
+		$mode-class: ":not(.#{$classPrefix}-grid--desktop):not(.#{$classPrefix}-grid--desktop-and-tablet):not(.#{$classPrefix}-grid--tablet):not(.#{$classPrefix}-grid--tablet-and-mobile):not(.#{$classPrefix}-grid--mobile)";
 	} @else {
-		$mode-class: ".kt-grid--" + $mode;
+		$mode-class: ".#{$classPrefix}-grid--" + $mode;
 		$mode-dir: "-" + $mode;
 	}
 
 	// Horizontal grid
-	.kt-grid.kt-grid--hor#{$mode-dir}#{$mode-class} {
+	.#{$classPrefix}-grid.#{$classPrefix}-grid--hor#{$mode-dir}#{$mode-class} {
 		display: flex;
 		flex-direction: column;
 
-		&.kt-grid--root {
+		&.#{$classPrefix}-grid--root {
 			flex: 1;
 			-ms-flex: 1 0 0px; // IE10-11 fix
 		}
 
-		> .kt-grid__item {
+		> .#{$classPrefix}-grid__item {
 			flex: none;
 
-			&.kt-grid__item--fluid,
-			&.kt-grid__item--fluid#{$mode-dir} {
+			&.#{$classPrefix}-grid__item--fluid,
+			&.#{$classPrefix}-grid__item--fluid#{$mode-dir} {
 				flex: 1 0 auto;
 				//-ms-flex: 1 0 0px;  // IE10-11 fix
 			}
@@ -37,32 +37,32 @@
 
 		// flex ordering
 		@for $i from 1 through 12 {
-			> .kt-grid__item.kt-grid__item--order-#{$i}#{$mode-dir} {
+			> .#{$classPrefix}-grid__item.#{$classPrefix}-grid__item--order-#{$i}#{$mode-dir} {
 				order: $i;
 			}
 		}
 	}
 
 	// Vertical grid
-	.kt-grid.kt-grid--ver#{$mode-dir}#{$mode-class} {
+	.#{$classPrefix}-grid.#{$classPrefix}-grid--ver#{$mode-dir}#{$mode-class} {
 		display: flex;
 		flex-direction: row;
 
-		&.kt-grid--root {
+		&.#{$classPrefix}-grid--root {
 			flex: 1;
 			-ms-flex: 1 0 0px;  // IE10-11 fix
 		}
 
-		> .kt-grid__item {
+		> .#{$classPrefix}-grid__item {
 			flex: 0 0 auto;
 
-			&.kt-grid__item--fluid,
-			&.kt-grid__item--fluid#{$mode-dir} {
+			&.#{$classPrefix}-grid__item--fluid,
+			&.#{$classPrefix}-grid__item--fluid#{$mode-dir} {
 				flex: 1 auto;
 				-ms-flex: 1 0 0px;  // IE10-11 fix
 				min-width: 0;
 
-				@include kt-hack-ie {
+				@include shine-hack-ie {
 					min-width: none;  // IE10-11 fix
 				}
 			}
@@ -70,44 +70,44 @@
 
 		// flex ordering
 		@for $i from 1 through 12 {
-			> .kt-grid__item.kt-grid__item--order-#{$i}#{$mode-dir} {
+			> .#{$classPrefix}-grid__item.#{$classPrefix}-grid__item--order-#{$i}#{$mode-dir} {
 				order: $i;
 			}
 		}
 	}
 
 	// Grid item order
-	.kt-grid {
+	.#{$classPrefix}-grid {
 		// horizontal items aligment
-		&.kt-grid--center {
+		&.#{$classPrefix}-grid--center {
 			align-content: center;
 		}
 
-		&.kt-grid--stretch {
+		&.#{$classPrefix}-grid--stretch {
 			align-items: stretch;
 		}
 
 		// vertical item alignment
-		> .kt-grid__item {
+		> .#{$classPrefix}-grid__item {
 			max-width:100%;
 
-			&.kt-grid__item--top {
+			&.#{$classPrefix}-grid__item--top {
 				align-self: flex-start;
 			}
 
-			&.kt-grid__item--middle {
+			&.#{$classPrefix}-grid__item--middle {
 				align-self: center;
 			}
 
 
-			&.kt-grid__item--bottom {
+			&.#{$classPrefix}-grid__item--bottom {
 				align-self: flex-end;
 			}
 		}
 
 		// flex ordering
 		@for $i from 1 through 12 {
-			> .kt-grid__item.kt-grid__item--order-#{$i} {
+			> .#{$classPrefix}-grid__item.#{$classPrefix}-grid__item--order-#{$i} {
 				order: $i;
 			}
 		}
