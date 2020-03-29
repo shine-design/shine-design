@@ -48,7 +48,7 @@ class Alert extends PureComponent {
                 aria-label="Close"
                 onClick={_.isFunction(onClose) ? onClose : _.noop}
               >
-                <span aria-hidden="true"><Icon source="line-awesome" iconName="close"/></span>
+                <span aria-hidden="true"><Icon source="line-awesome" iconName="close" /></span>
               </button>
             </div>
           )
