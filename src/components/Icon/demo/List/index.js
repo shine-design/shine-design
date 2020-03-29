@@ -6,7 +6,7 @@
 import _ from 'lodash';
 import React, {Component} from 'react';
 import {Icon} from 'shineDev';
-import dictionary from '!!raw-loader!../../../../style/icon/dictionary.scss';
+import dictionary from '!!raw-loader!../../../../styles/theme/icon/dictionary.scss';
 import './style.scss';
 
 // 图标字典

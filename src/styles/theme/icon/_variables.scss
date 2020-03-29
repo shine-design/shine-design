@@ -1,6 +1,6 @@
-@import "~style/variables";
 @import "./dictionary";
 
+$classPrefixIcon: 'shine-icon' !default;
 $fa-font-size-base:   14px !default;
 $fa-line-height-base: 1 !default;
 $fa-css-prefix:       $classPrefixIcon !default;
