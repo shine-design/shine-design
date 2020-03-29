@@ -49,15 +49,19 @@ export default {
     jsx: `
 <Divider message="竖向排列" />
   <CheckboxGroup 
+    isControlled={false}
+    value={[2]}
     options={[
       {label: '选项一', value: 1},
-      {label: '选项二', value: 2,defaultChecked:true},
+      {label: '选项二', value: 2},
       {label: '选项三', value: 3}
     ]}
   />
 <Divider message="横向排列" />
   <CheckboxGroup 
     isInline
+    isControlled={false}
+    value={[2]}
     options={[
       {label: '选项一', value: 1},
       {label: '选项二', value: 2,defaultChecked:true},

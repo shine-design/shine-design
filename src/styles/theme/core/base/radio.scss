@@ -1,0 +1,275 @@
+/**
+ * Radio 选择框
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2020-03-22 13:09
+ */
+$shine-radio-base-color: shine-base-color(grey, 1);
+
+$shine-radio-config: (
+	self: (
+		transition: all 0.3s ease,
+		size: 18px,
+		tick: 6px
+	),
+
+	outline: (
+		border: (
+			default: darken($shine-radio-base-color, 12%),
+			checked: darken($shine-radio-base-color, 15%)
+		),
+		tick: darken($shine-radio-base-color, 18%)
+	),
+
+	solid: (
+		bg: (
+			default: darken($shine-radio-base-color, 6%),
+			checked: darken($shine-radio-base-color, 8%)
+		),
+		tick: darken($shine-radio-base-color, 30%)
+	)
+);
+
+// Base
+.#{$classPrefix}-radio {
+    display: inline-block;
+    position: relative;
+    padding-left: 30px;
+    text-align: left;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: shine-get($shine-radio-config, self, transition);
+
+    &.#{$classPrefix}-radio--disabled {
+        opacity: 0.8;
+        cursor: not-allowed;
+    }
+
+    // Hide default browser input
+    > input {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+    }
+
+    > span {
+        background: none;
+        position: absolute;
+        top: 1px;
+        left: 0;
+        height: shine-get($shine-radio-config, self, size);
+        width: shine-get($shine-radio-config, self, size);
+        border-radius: 50% !important; // Makes radio buttons circlular
+
+        &:after {
+            content:'';
+            position: absolute;
+            display: none; // Hide check
+            top: 50%;
+            left: 50%;
+            margin-left: -(shine-get($shine-radio-config, self, tick) / 2);
+            margin-top: -(shine-get($shine-radio-config, self, tick) / 2);
+            width: shine-get($shine-radio-config, self, tick);
+            height: shine-get($shine-radio-config, self, tick);
+            border-radius: 100% !important;
+        }
+    }
+
+    > input:checked ~ span {
+        transition: shine-get($shine-radio-config, self, transition);
+        background: none;
+        &:after {
+            display: block;
+        }
+    }
+
+    &:hover > input:not([disabled]):checked ~ span,
+    > input:checked ~ span {
+        transition: shine-get($shine-radio-config, self, transition);
+
+    }
+
+    > input:disabled ~ span {
+        opacity: 0.6;
+        pointer-events: none;
+    }
+
+    &.#{$classPrefix}-radio--solid {
+        > span {
+            border: 1px solid transparent;
+        }
+
+        &:hover > input:not([disabled]) ~ span,
+        > input:focus ~ span {
+            transition: shine-get($shine-radio-config, self, transition);
+        }
+    }
+
+    &.#{$classPrefix}-radio--square {
+        > span {
+            border-radius: 0;
+        }
+    }
+
+    &.#{$classPrefix}-radio--bold > span {
+        border-width: 2px !important;
+        transition: shine-get($shine-radio-config, self, transition);
+    }
+
+    .form-inline & {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    &.#{$classPrefix}-radio--single {
+        width: shine-get($shine-radio-config, self, size);
+        height: shine-get($shine-radio-config, self, size);
+
+        > span {
+            top: 0px;
+        }
+
+        th > &,
+        td > & {
+            right: -5px;
+        }
+    }
+
+    // Input group
+    .input-group & {
+        margin-bottom: 0 !important;
+        padding-left: 0;
+    }
+}
+
+.#{$classPrefix}-radio-list {
+    padding: 0 0;
+
+    .form-horizontal .form-group & {
+        padding-top: 0;
+    }
+
+    .#{$classPrefix}-radio {
+        display: block;
+        text-align: left;
+
+        &:last-child {
+            margin-bottom: 5px;
+        }
+    }
+}
+
+.#{$classPrefix}-radio-inline {
+    padding: 0 0;
+
+    .#{$classPrefix}-radio {
+        display: inline-block;
+        margin-right: 15px;
+        margin-bottom: 5px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.form-group.row {
+    .#{$classPrefix}-radio-inline {
+        margin-top: 0.75rem;
+    }
+
+    .#{$classPrefix}-radio-list {
+        margin-top: 2px;
+    }
+}
+
+// Skin
+@mixin shine-radio-theme(
+    $outline-border-color,
+    $outline-border-checked-color,
+    $outline-tick-color,
+    $solid-bg-color,
+    $solid-bg-checked-color,
+    $solid-tick-color) {
+
+    &.#{$classPrefix}-radio--disabled {
+        opacity: 0.8;
+    }
+
+    // Outline
+    > span {
+        border: 1px solid $outline-border-color;
+
+        &:after {
+            border: solid $outline-tick-color;
+            background: $outline-tick-color;
+        }
+    }
+
+    > input:disabled ~ span {
+        &:after {
+            border-color: $outline-border-checked-color;
+        }
+    }
+
+    > input:checked ~ span {
+        border: 1px solid $outline-border-checked-color;
+    }
+
+    &.#{$classPrefix}-radio--bold > input:checked ~ span {
+        border: 2px solid $outline-border-checked-color;
+    }
+
+    > input:disabled ~ span {
+        opacity: 0.6;
+    }
+
+    // Solid
+    &.#{$classPrefix}-radio--solid {
+        > span {
+            background: $solid-bg-color;
+            border: 1px solid transparent !important;
+
+            &:after {
+                border: solid $solid-tick-color;
+                background: $solid-tick-color;
+            }
+        }
+
+
+        > input:focus ~ span {
+            border: 1px solid transparent !important;
+        }
+
+        > input:checked ~ span {
+            background: $solid-bg-checked-color;
+        }
+    }
+}
+
+// Default
+.#{$classPrefix}-radio {
+    @include shine-radio-theme(
+        shine-get($shine-radio-config, outline, border, default),
+        shine-get($shine-radio-config, outline, border, checked),
+        shine-get($shine-radio-config, outline, tick),
+        shine-get($shine-radio-config, solid, bg, default),
+        shine-get($shine-radio-config, solid, bg, checked),
+        shine-get($shine-radio-config, solid, tick)
+        );
+
+    // State Colors
+    @each $name, $color in $shine-state-colors {
+        // default state
+        &.#{$classPrefix}-radio--#{$name} {
+            @include shine-radio-theme(
+                shine-get($color, base),
+                shine-get($color, base),
+                shine-get($color, base),
+                shine-get($color, base),
+                shine-get($color, base),
+                shine-get($color, inverse)
+                );
+        }
+    }
+}
