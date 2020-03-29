@@ -108,9 +108,9 @@
   @return shine-get($shine-base-colors, $type, $level);
 }
 
-@function kt-media-breakpoint($type) {
-  @if (kt-has($kt-media-breakpoints, $type)) {
-    @return shine-get($kt-media-breakpoints, $type);
+@function shine-media-breakpoint($type) {
+  @if (kt-has($shine-media-breakpoints, $type)) {
+    @return shine-get($shine-media-breakpoints, $type);
   } @else {
     @return $type;
   }

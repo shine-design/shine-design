@@ -52,7 +52,7 @@ $kt-checkbox-config: (
   }
 
   > span {
-    @include kt-rounded {
+    @include shine-rounded {
       border-radius: 3px;
     }
 

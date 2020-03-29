@@ -10,7 +10,7 @@
 
 // Layout Breakpoints(bootstrap responsive breakpoints)
 // Define the minimum and maximum dimensions at which your layout will change, adapting to different screen sizes, for use in media queries.
-$kt-media-breakpoints: (
+$shine-media-breakpoints: (
   // Extra small screen / phone
   xs: 0,
 
@@ -28,7 +28,7 @@ $kt-media-breakpoints: (
 ) !default;
 
 // Global rounded border mode
-$kt-rounded: true !default;
+$shine-rounded: true !default;
 
 // Border Radius
 $shine-border-radius: 4px !default;

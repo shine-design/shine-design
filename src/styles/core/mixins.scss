@@ -71,14 +71,14 @@
   }
 }
 
-@mixin kt-rounded {
-  @if $kt-rounded == true {
+@mixin shine-rounded {
+  @if $shine-rounded == true {
     @content;
   }
 }
 
-@mixin kt-not-rounded {
-  @if $kt-rounded == false {
+@mixin shine-not-rounded {
+  @if $shine-rounded == false {
     @content;
   }
 }
@@ -100,7 +100,7 @@
   // Safari and Chrome
 }
 
-@mixin kt-hover-transition {
+@mixin shine-hover-transition {
   transition: $kt-transition;
 
   &:hover {
@@ -223,7 +223,7 @@
 }
 
 // Close icon
-@mixin kt-close-icon($self:null) {
+@mixin shine-close-icon($self:null) {
   @if $self == true {
     @include shine-la-icon-self(shine-get($kt-action-icons, close));
   } @else {
@@ -289,79 +289,79 @@
 // Define the minimum and maximum dimensions at which your layout will change, adapting to different screen sizes, for use in media queries.
 
 @mixin kt-media-below($width) {
-  @media (max-width: #{kt-media-breakpoint($width)}) {
+  @media (max-width: #{shine-media-breakpoint($width)}) {
     @content;
   }
 }
 
-@mixin kt-media-above($width) {
-  @media (min-width: #{kt-media-breakpoint($width) + 1px}) {
+@mixin shine-media-above($width) {
+  @media (min-width: #{shine-media-breakpoint($width) + 1px}) {
     @content;
   }
 }
 
 @mixin kt-media-range($from, $to) {
-  @media (min-width: #{kt-media-breakpoint($from) + 1px}) and (max-width: #{kt-media-breakpoint($to)}) {
+  @media (min-width: #{shine-media-breakpoint($from) + 1px}) and (max-width: #{shine-media-breakpoint($to)}) {
     @content;
   }
 }
 
 @mixin kt-minimal-desktop {
-  @media (min-width: #{kt-media-breakpoint(lg) + 1px}) and (max-width: #{kt-media-breakpoint(xl)}) {
+  @media (min-width: #{shine-media-breakpoint(lg) + 1px}) and (max-width: #{shine-media-breakpoint(xl)}) {
     @content;
   }
 }
 
 @mixin kt-minimal-desktop-and-below {
-  @media (max-width: #{kt-media-breakpoint(xl)}) {
+  @media (max-width: #{shine-media-breakpoint(xl)}) {
     @content;
   }
 }
 
 @mixin shine-desktop {
-  @media (min-width: #{kt-media-breakpoint(lg) + 1px}) {
+  @media (min-width: #{shine-media-breakpoint(lg) + 1px}) {
     @content;
   }
 }
 
 @mixin shine-desktop-xl {
-  @media (min-width: #{kt-media-breakpoint(xl) + 1px}) {
+  @media (min-width: #{shine-media-breakpoint(xl) + 1px}) {
     @content;
   }
 }
 
 @mixin shine-desktop-xxl {
-  @media (min-width: #{kt-media-breakpoint(xxl) + 1px}) {
+  @media (min-width: #{shine-media-breakpoint(xxl) + 1px}) {
     @content;
   }
 }
 
 @mixin shine-desktop-and-tablet {
-  @media (min-width: #{kt-media-breakpoint(md) + 1px}) {
+  @media (min-width: #{shine-media-breakpoint(md) + 1px}) {
     @content;
   }
 }
 
 @mixin shine-tablet {
-  @media (min-width: #{kt-media-breakpoint(md) + 1px}) and (max-width: #{kt-media-breakpoint(lg)}) {
+  @media (min-width: #{shine-media-breakpoint(md) + 1px}) and (max-width: #{shine-media-breakpoint(lg)}) {
     @content;
   }
 }
 
 @mixin shine-tablet-and-mobile {
-  @media (max-width: #{kt-media-breakpoint(lg)}) {
+  @media (max-width: #{shine-media-breakpoint(lg)}) {
     @content;
   }
 }
 
 @mixin shine-mobile {
-  @media (max-width: #{kt-media-breakpoint(md)}) {
+  @media (max-width: #{shine-media-breakpoint(md)}) {
     @content;
   }
 }
 
 @mixin shine-mobile-sm {
-  @media (max-width: #{kt-media-breakpoint(sm)}) {
+  @media (max-width: #{shine-media-breakpoint(sm)}) {
     @content;
   }
 }

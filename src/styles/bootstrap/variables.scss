@@ -2,7 +2,7 @@
 // Override Bootstrap Variables
 //
 
-$enable-rounded: $kt-rounded; // pass rounded corners setting to bootstrap SASS
+$enable-rounded: $shine-rounded; // pass rounded corners setting to bootstrap SASS
 
 // Fonts
 $font-family-base:									shine-get($kt-font-families, regular);
@@ -37,7 +37,7 @@ $theme-colors: (
 // Define the minimum dimensions at which your layout will change,
 // adapting to different screen sizes, for use in media queries.
 
-$grid-breakpoints: 									$kt-media-breakpoints !default;
+$grid-breakpoints: 									$shine-media-breakpoints !default;
 
 // Border Radiues
 $border-radius:               						.25rem !default;
