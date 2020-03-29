@@ -4,9 +4,9 @@
  * @Author 瞿龙俊 - qulongjun@shine.design
  * @Date 2020-03-21 22:21
  */
-import {Form, Input} from "shineDev";
+import {Form, Input, CheckboxGroup} from "shineDev";
 
-const components = {Form, Input};
+const components = {Form, Input, CheckboxGroup};
 
 export default {
   label: {
@@ -20,9 +20,32 @@ export default {
         <Form.Item label="普通文本" helper="We'll never share your text with anyone else.">
           <Input placeholder="请输入文本" />
         </Form.Item>
+        <Form.Item label="复选组件" helper="We'll never share your text with anyone else.">
+          <CheckboxGroup 
+            isInline
+            isControlled={false}
+            options={[
+              {label:'选项一',value:1},
+              {label:'选项二',value:2},
+              {label:'选项三',value:3}
+            ]}
+            onChange={e=>console.log(e)}
+           />
+        </Form.Item>
+        <Form.Item label="复选组件" helper="We'll never share your text with anyone else.">
+          <CheckboxGroup 
+            isControlled={false}
+            options={[
+              {label:'选项一',value:1},
+              {label:'选项二',value:2},
+              {label:'选项三',value:3}
+            ]}
+            onChange={e=>console.log(e)}
+           />
+        </Form.Item>
     </Form>
   </div>
-`
-  }
+`,
+  },
 };
 

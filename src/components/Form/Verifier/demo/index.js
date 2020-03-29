@@ -4,9 +4,9 @@
  * @Author 瞿龙俊 - qulongjun@shine.design
  * @Date 2020-03-21 22:21
  */
-import {Form, Input} from 'shineDev';
+import {Form, Input, CheckboxGroup} from 'shineDev';
 
-const components = {Form, Input};
+const components = {Form, Input, CheckboxGroup};
 
 export default {
   custom: {
@@ -34,7 +34,7 @@ export default {
 `,
   },
   verifier: {
-    components: {Form, Input},
+    components,
     jsx: `
   <Form>
     <Form.Verifier isHighlight >
@@ -65,8 +65,21 @@ export default {
       <Form.Item label="普通文本">
         <Input name="equalToText" placeholder="请输入预设值（love）" rules={{equalTo: 'love'}}/>
       </Form.Item>
+      <Form.Item label="复选组件" helper="目前复选组件仅支持非空校验和自定义方法校验" >
+          <CheckboxGroup 
+            isInline
+            isControlled={false}
+            options={[
+              {label:'选项一',value:1},
+              {label:'选项二',value:2},
+              {label:'选项三',value:3}
+            ]}
+            rules={{required: true}}
+            onChange={e=>console.log(e)}
+           />
+        </Form.Item>
     </Form.Verifier>
   </Form>
-`
-  }
+`,
+  },
 };
