@@ -10,10 +10,13 @@
 @import './core/base/grid';
 
 @import './core/base/mixins/row';
+/* 栅格系统 */
 @import './core/base/row';
 /* 表单 */
 @import './core/base/form';
 /* 复选框 */
 @import './core/base/checkbox';
-
+/* 开关 */
 @import './core/base/switch';
+/* 徽章 */
+@import './core/base/badge';

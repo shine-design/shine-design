@@ -34,7 +34,7 @@ import "./demo/index.scss";
 
 在合适的位置引入 `Badge`  即可创建一个基础徽章，通过 `bgColor` 可以配置徽章的状态颜色，颜色信息可参考[Color 色彩](./color)。
 
-  <Example 
+  <Example
     display={<JsxParser {...code.basic} />}
     code={{code:code.basic.jsx}}
     components={code.basic.components}
@@ -42,9 +42,9 @@ import "./demo/index.scss";
 
 #### 点状徽章
 
-在某些应用场景，例如展示用户在线状态时，仅需点状徽章即可表达含义。
+在某些应用场景，例如展示用户在线状态时，仅需点状徽章即可表达含义，只需设置内容为空，即可展示点状徽章。
 
-  <Example 
+  <Example
     display={<JsxParser {...code.dot} />}
     code={{code:code.dot.jsx}}
     components={code.dot.components}
@@ -52,12 +52,32 @@ import "./demo/index.scss";
 
 #### 徽章边框
 
-除了默认的圆形边框，徽章还支持直角矩形（加宽）和圆角矩形（加宽）的应用场景。
+除了默认的圆形边框，徽章还支持直角矩形（加宽）和圆角矩形（加宽）的应用场景，且不同边框支持设置不同的尺寸（sm尺寸除外）。
 
-  <Example 
+  <Example
     display={<JsxParser {...code.border} />}
     code={{code:code.border.jsx}}
     components={code.border.components}
+  />
+
+#### 长文本
+
+我们为更长的文本内容，准备了加宽的徽章样式。
+
+  <Example
+    display={<JsxParser {...code.inline} />}
+    code={{code:code.inline.jsx}}
+    components={code.inline.components}
+  />
+
+#### 统一样式
+
+圆形、圆角矩形、直角矩形的统一样式。
+
+  <Example
+    display={<JsxParser {...code.unified} />}
+    code={{code:code.unified.jsx}}
+    components={code.unified.components}
   />
 
 ## 配置参数
