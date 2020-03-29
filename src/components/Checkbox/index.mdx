@@ -1,5 +1,5 @@
 ---
-name: Checkbox 单选框
+name: Checkbox 复选框
 route: /guide/checkbox
 menu: form
 ---
@@ -16,10 +16,10 @@ import { Checkbox } from "shineDev";
 import code from "./demo";
 import "./demo/index.scss";
 
-# Checkbox 单选框
+# Checkbox 复选框
 
 ## 概述
-在页面上生成一个表单容器，用户可以通过鼠标、键盘等设备输入内容，是最基本的表单组件。
+在页面上生成一个可同时选中多项的基础控件，通过勾选实现让数据输入更轻松。
 
 ## 代码示例
 
@@ -29,15 +29,35 @@ import "./demo/index.scss";
   修饰符，在开发过程中无需配置该字段。
 </MessageBox>
 
-#### 基础单选框
+#### 基础复选框
 
-输入框组件是由基础输入标签封装而成，可以快速的创建一些常见的表单控件。
+复选框适用于具有多个选项的表单。 当你的用户只有一种选择时，使用选项按钮更合适。
 
 <Example
   display={<JsxParser {...code.basic} />}
   code={{code:code.basic.jsx}}
   components={code.basic.components}
 />
+
+#### 带状态的复选框
+
+复选框支持多种带状态的样式，适用于不同业务场景下的用户提示。
+
+<Example
+  display={<JsxParser {...code.state} />}
+  code={{code:code.state.jsx}}
+  components={code.state.components}
+/>
+
+
+#### 复选框组
+
+<Example
+  display={<JsxParser {...code.group} />}
+  code={{code:code.group.jsx}}
+  components={code.group.components}
+/>
+
 
 ## 配置参数
 

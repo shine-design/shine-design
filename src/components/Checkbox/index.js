@@ -1,6 +1,6 @@
 /**
  * @Component Checkbox
- * @Type 单选框组件
+ * @Type 复选框组件
  * @Author 瞿龙俊 - qulongjun@shine.design
  * @Date 2020-03-22 11:47
  */
@@ -62,20 +62,16 @@ class Checkbox extends PureComponent {
   };
 
   render() {
-    const {isChecked, name, id, isDisabled, isControlled} = this.props;
-    const {bgColor, outlineColor, size} = this.props;
-    const {onChange} = this.props;
-    const {isValidate, rules} = this.props;
-    const {className, attributes} = this.props;
-
+    const {label, checked, defaultChecked, name, id, disabled, isControlled, isBold, isSolid, bgColor, isValidate, rules, onChange} = this.props;
+    const {className, attributes, children} = this.props;
     /** 计算样式 */
     const classes = classNames(
       `${classPrefix}-checkbox`,
       {
-        // [`${classPrefix}-switch--icon`]: isShowIcon,
-        [`${classPrefix}-checkbox--${bgColor || outlineColor}`]: _.isString(bgColor) || _.isString(outlineColor),
-        // [`${classPrefix}-switch--outline`]: _.isString(outlineColor),
-        [`${classPrefix}-checkbox--${size}`]: _.isString(size),
+        [`${classPrefix}-checkbox--${bgColor}`]: _.isString(bgColor),
+        [`${classPrefix}-checkbox--disabled`]: disabled,
+        [`${classPrefix}-checkbox--bold`]: isBold,
+        [`${classPrefix}-checkbox--solid`]: isSolid,
       },
       className,
     );
@@ -83,10 +79,10 @@ class Checkbox extends PureComponent {
     // 开关属性配置
     const props = {
       type: 'checkbox',
-      ...isControlled ? {checked: isChecked} : {defaultChecked: isChecked},
+      ...isControlled ? {checked} : {defaultChecked},
       name,
       id,
-      disabled: isDisabled,
+      disabled,
       ...attributes,
     };
 
@@ -96,29 +92,37 @@ class Checkbox extends PureComponent {
     };
 
     return (
-      <span className={classes}>
-        <label>
-          <input {...props} {...callbacks} />
-          <span />
-        </label>
-      </span>
+      <label className={classes}>
+        <input
+          {...props}
+          {...callbacks}
+        />
+        {label || children}
+        <span />
+      </label>
     );
   }
 }
 
 Checkbox.propTypes = {
-  /** 单选框表单名称 */
+  /** 选框文本 */
+  label: PropTypes.string,
+  /** 选框表单名称 */
   name: PropTypes.node,
-  /** 单选框表单ID */
+  /** 选框表单ID */
   id: PropTypes.node,
-  /** 是否勾选单选框 */
-  isChecked: PropTypes.bool,
-  /** 设置是否禁用单选框 */
-  isDisabled: PropTypes.bool,
+  /** 受控状态下，是否勾选选框 */
+  checked: PropTypes.bool,
+  /** 非受控状态下，默认勾选状态 */
+  defaultChecked: PropTypes.bool,
+  /** 设置是否禁用选框 */
+  disabled: PropTypes.bool,
+  /** 是否以加粗样式显示 */
+  isBold: PropTypes.bool,
+  /** 是否以实心样式显示 */
+  isSolid: PropTypes.bool,
   /** 是否将组件设置为受控组件 */
   isControlled: PropTypes.bool,
-  /** 设置单选框尺寸，支持 default：默认 / small：小尺寸 / large：大尺寸 */
-  size: PropTypes.oneOf(['default', 'small', 'large']),
   /** 表单校验规则 */
   rules: PropTypes.object,
   /** 表单校验失败提示文字 */
@@ -130,22 +134,25 @@ Checkbox.propTypes = {
   /** 用户自定义属性 */
   attributes: PropTypes.object,
   /** 定位表单元素 */
-  isFormElement: PropTypes.bool
+  isFormElement: PropTypes.bool,
 };
 
 Checkbox.defaultProps = {
+  label: undefined,
   name: undefined,
   id: undefined,
-  isChecked: false,
-  isDisabled: false,
+  checked: false,
+  defaultChecked: false,
+  disabled: false,
   isControlled: false,
-  size: 'default',
+  isBold: false,
+  isSolid: false,
   rules: undefined,
   errorMsg: undefined,
   onChange: undefined,
   className: '',
   attributes: {},
-  isFormElement: true
+  isFormElement: true,
 };
 
 export default Checkbox;
