@@ -1,6 +1,6 @@
 ---
-name: Checkbox 复选框
-route: /guide/checkbox
+name: Radio 单选框
+route: /guide/radio
 menu: form
 ---
 
@@ -16,13 +16,13 @@ import { OptionsGroup, Options } from "shineDev";
 import code from "./demo";
 import "./demo/index.scss";
 
-# Checkbox 复选框
+# Radio 单选框
 
 ## 概述
-在页面上生成一个可同时选中多项的基础控件，通过勾选实现让数据输入更轻松。
+在页面上生成一个互斥的多选项的基础控件，通过勾选实现让数据输入更轻松。
 
 <MessageBox messageType="warning">
-  我们推荐您使用复选框组 <InlineCode>CheckboxGroup</InlineCode>，而非单个复选框 <InlineCode>Checkbox</InlineCode>，表单校验功能仅在复选框组生效。
+  我们推荐您使用单选框组 <InlineCode>RadioGroup</InlineCode>，而非单个单选框 <InlineCode>RadioGroup</InlineCode>，表单校验功能仅在单选框组生效。
 </MessageBox>
 
 ## 代码示例
@@ -33,9 +33,9 @@ import "./demo/index.scss";
   修饰符，在开发过程中无需配置该字段。
 </MessageBox>
 
-#### 基础复选框
+#### 基础单选框
 
-复选框适用于具有多个选项的表单。 当你的用户只有一种选择时，使用选项按钮更合适。
+单选框适用于具有互斥的多个选项的表单。 当你的用户有多种选择时，使用单选框按钮更合适。
 
 <Example
   display={<JsxParser {...code.basic} />}
@@ -43,9 +43,9 @@ import "./demo/index.scss";
   components={code.basic.components}
 />
 
-#### 带状态的复选框
+#### 带状态的单选框
 
-复选框支持多种带状态的样式，适用于不同业务场景下的用户提示。
+单选框支持多种带状态的样式，适用于不同业务场景下的用户提示。
 
 <Example
   display={<JsxParser {...code.state} />}
@@ -54,7 +54,7 @@ import "./demo/index.scss";
 />
 
 
-#### 复选框组
+#### 单选框组
 
 <Example
   display={<JsxParser {...code.group} />}
@@ -65,10 +65,10 @@ import "./demo/index.scss";
 
 ## 配置参数
 
-#### Checkbox
+#### Radio
 
 <PropsTable of={Options} />
 
-#### CheckboxGroup
+#### RadioGroup
 
 <PropsTable of={OptionsGroup} />
