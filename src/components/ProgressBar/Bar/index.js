@@ -8,7 +8,6 @@ import React, {PureComponent} from 'react';
 import _ from 'lodash';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
-import {classPrefix} from 'variables';
 
 class Bar extends PureComponent {
   render() {
@@ -16,10 +15,10 @@ class Bar extends PureComponent {
     let checkedPercent = percent;
 
     const classes = classNames(
-      `${classPrefix}-progress-bar`,
+      `progress-bar`,
       {
-        [`${classPrefix}-progress-bar-striped`]: isStriped || isAnimated,
-        [`${classPrefix}-progress-bar-animated`]: isAnimated,
+        [`progress-bar-striped`]: isStriped || isAnimated,
+        [`progress-bar-animated`]: isAnimated,
       },
       className,
     );
