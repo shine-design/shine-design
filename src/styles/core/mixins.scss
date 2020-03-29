@@ -1,4 +1,5 @@
 /**
+ * Mixins
  * @Author 瞿龙俊 - qulongjun@shine.design
  * @Date 2020-03-22 13:02
  */
@@ -14,7 +15,7 @@
   }
 }
 
-@mixin kt-button-reset() {
+@mixin shine-button-reset() {
   appearance: none;
   box-shadow: none;
   border-radius: none;
@@ -26,14 +27,14 @@
   padding: 0;
 }
 
-@mixin kt-input-reset() {
+@mixin shine-input-reset() {
   border: 0;
   background: none;
   outline: none !important;
   box-shadow: none;
 }
 
-@mixin kt-btn-reset() {
+@mixin shine-btn-reset() {
   border: 0;
   background: none;
   outline: none !important;
@@ -41,31 +42,31 @@
   outline: none !important;
 }
 
-@mixin kt-fix-fixed-position-lags() {
+@mixin shine-fix-fixed-position-lags() {
   // webkit hack for smooth font view on fixed positioned elements
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
-@mixin kt-fix-animation-lags() {
+@mixin shine-fix-animation-lags() {
   transform: translateZ(0);
   -webkit-transform-style: preserve-3d;
 }
 
-@mixin kt-attr($attr, $value, $important: '') {
+@mixin shine-attr($attr, $value, $important: '') {
   @if $value != null {
     #{$attr}: #{$value} #{$important};
   }
 }
 
-@mixin kt-hack-ie {
+@mixin shine-hack-ie {
   @media screen
   {
     @content;
   }
 }
 
-@mixin kt-hack-edge-all {
+@mixin shine-hack-edge-all {
   @supports (-ms-ime-align:auto) {
     @content;
   }
@@ -84,7 +85,7 @@
 }
 
 // Input placeholder color
-@mixin kt-input-placeholder($color) {
+@mixin shine-input-placeholder($color) {
   &::-moz-placeholder {
     color: $color;
     opacity: 1;
@@ -101,15 +102,15 @@
 }
 
 @mixin shine-hover-transition {
-  transition: $kt-transition;
+  transition: $shine-transition;
 
   &:hover {
-    transition: $kt-transition;
+    transition: $shine-transition;
   }
 }
 
-@mixin kt-transition {
-  transition: $kt-transition;
+@mixin shine-transition {
+  transition: $shine-transition;
 }
 
 // Icon Sizing
@@ -138,7 +139,7 @@
 
 // Icon attr
 // SASS Map:  (lineawesome: 1.1rem, fontawesome: 1.2rem, flaticon: 1.1rem)
-@mixin kt-icons-style($attr, $config) {
+@mixin shine-icons-style($attr, $config) {
   // lineawesome
   [class^="la-"],
   [class*=" la-"] {
@@ -161,7 +162,7 @@
 }
 
 // SASS Map:  (lineawesome: 1.1rem, fontawesome: 1.2rem, flaticon: 1.1rem)
-@mixin kt-icons {
+@mixin shine-icons {
   [class^="la-"],
   [class*=" la-"],
   [class^="fa-"],
@@ -175,7 +176,7 @@
 }
 
 // Lineawesome icon
-@mixin kt-la-icon($icon) {
+@mixin shine-la-icon($icon) {
   font-family: "LineAwesome";
   text-decoration: inherit;
   text-rendering: optimizeLegibility;
@@ -189,13 +190,13 @@
   }
 }
 
-@mixin kt-la-icon-change($icon) {
+@mixin shine-la-icon-change($icon) {
   &:before {
     content: "#{$icon}";
   }
 }
 
-@mixin kt-flaticon2-icon($icon) {
+@mixin shine-flaticon2-icon($icon) {
   font-family: Flaticon2;
   font-style: normal;
   font-weight: normal;
@@ -225,49 +226,49 @@
 // Close icon
 @mixin shine-close-icon($self:null) {
   @if $self == true {
-    @include shine-la-icon-self(shine-get($kt-action-icons, close));
+    @include shine-la-icon-self(shine-get($shine-action-icons, close));
   } @else {
-    @include kt-la-icon(shine-get($kt-action-icons, close));
+    @include shine-la-icon(shine-get($shine-action-icons, close));
   }
 }
 
 // Arrow icon
-@mixin kt-arrow-icon($dir, $self:null) {
+@mixin shine-arrow-icon($dir, $self:null) {
   @if $dir == down {
     @if $self == true {
-      @include shine-la-icon-self(shine-get($kt-action-icons, down));
+      @include shine-la-icon-self(shine-get($shine-action-icons, down));
     } @else {
-      @include kt-la-icon(shine-get($kt-action-icons, down));
+      @include shine-la-icon(shine-get($shine-action-icons, down));
     }
   }
 
   @if $dir == up {
     @if $self == true {
-      @include shine-la-icon-self(shine-get($kt-action-icons, up));
+      @include shine-la-icon-self(shine-get($shine-action-icons, up));
     } @else {
-      @include kt-la-icon(shine-get($kt-action-icons, up));
+      @include shine-la-icon(shine-get($shine-action-icons, up));
     }
   }
 
   @if $dir == left {
     @if $self == true {
-      @include shine-la-icon-self(shine-get($kt-action-icons, left));
+      @include shine-la-icon-self(shine-get($shine-action-icons, left));
     } @else {
-      @include kt-la-icon(shine-get($kt-action-icons, left));
+      @include shine-la-icon(shine-get($shine-action-icons, left));
     }
   }
 
   @if $dir == right {
     @if $self == true {
-      @include shine-la-icon-self(shine-get($kt-action-icons, right));
+      @include shine-la-icon-self(shine-get($shine-action-icons, right));
     } @else {
-      @include kt-la-icon(shine-get($kt-action-icons, right));
+      @include shine-la-icon(shine-get($shine-action-icons, right));
     }
   }
 }
 
 // Svg icon color
-@mixin kt-svg-icon-color($color) {
+@mixin shine-svg-icon-color($color) {
   g {
     [fill] {
       transition: fill 0.3s ease;
@@ -288,7 +289,7 @@
 // Layout Breakpoints
 // Define the minimum and maximum dimensions at which your layout will change, adapting to different screen sizes, for use in media queries.
 
-@mixin kt-media-below($width) {
+@mixin shine-media-below($width) {
   @media (max-width: #{shine-media-breakpoint($width)}) {
     @content;
   }
@@ -300,19 +301,19 @@
   }
 }
 
-@mixin kt-media-range($from, $to) {
+@mixin shine-media-range($from, $to) {
   @media (min-width: #{shine-media-breakpoint($from) + 1px}) and (max-width: #{shine-media-breakpoint($to)}) {
     @content;
   }
 }
 
-@mixin kt-minimal-desktop {
+@mixin shine-minimal-desktop {
   @media (min-width: #{shine-media-breakpoint(lg) + 1px}) and (max-width: #{shine-media-breakpoint(xl)}) {
     @content;
   }
 }
 
-@mixin kt-minimal-desktop-and-below {
+@mixin shine-minimal-desktop-and-below {
   @media (max-width: #{shine-media-breakpoint(xl)}) {
     @content;
   }
@@ -366,19 +367,19 @@
   }
 }
 
-@mixin kt-responsive-below($width) {
+@mixin shine-responsive-below($width) {
   @media (max-width: #{$width}) {
     @content;
   }
 }
 
-@mixin kt-responsive-above($width) {
+@mixin shine-responsive-above($width) {
   @media (min-width: #{$width}) {
     @content;
   }
 }
 
-@mixin kt-responsive-range($from, $to) {
+@mixin shine-responsive-range($from, $to) {
   @media (min-width: #{$from}) and (max-width: #{$to}) {
     @content;
   }

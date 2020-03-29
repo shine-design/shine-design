@@ -1,15 +1,16 @@
-//
-// Override Bootstrap Variables
-//
-
+/**
+ * 变量 覆盖 Bootstrap
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2019/3/24 14:43
+ */
 $enable-rounded: $shine-rounded; // pass rounded corners setting to bootstrap SASS
 
-// Fonts
-$font-family-base:									shine-get($kt-font-families, regular);
+// 字体
+$font-family-base:									shine-get($shine-font-families, regular);
 
 
 
-// Color System
+// 色彩系统
 $primary:       									shine-get($shine-state-colors, primary, base) !default;
 $secondary:     									#e1e1ef !default;
 $success:       									shine-get($shine-state-colors, success, base) !default;
@@ -32,20 +33,17 @@ $theme-colors: (
 
 
 
-// Grid breakpoints
-//
-// Define the minimum dimensions at which your layout will change,
-// adapting to different screen sizes, for use in media queries.
+// 栅格系统
 
 $grid-breakpoints: 									$shine-media-breakpoints !default;
 
-// Border Radiues
+// 边框
 $border-radius:               						.25rem !default;
 $border-radius-lg:            						.3rem !default;
 $border-radius-sm:            						.2rem !default;
 
 
-// Form & Button Controls
+// 表单和按钮控制
 $btn-font-weight:             						normal !default;
 $input-plaintext-color:                 			shine-base-color(label, 3) !default;
 $input-placeholder-color:               			shine-base-color(label, 2) !default;
@@ -83,7 +81,7 @@ $btn-elevate-shadow-3:								0px 0px 11px 0px rgba(56,36,99,0.12);
 $btn-elevate-shadow-3-hover:						0px 0px 22px 0px rgba(56,36,99,0.15);
 
 
-// Table
+// 表格
 $table-bg:                      					transparent !default;
 $table-accent-bg:               					lighten(#f4f5f8, 1%);
 $table-hover-bg:                					lighten(#f4f5f8, 2%);
@@ -157,10 +155,10 @@ $tooltip-padding-x:                 				1rem !default;
 $tooltip-margin:                    				0 !default;
 
 // Custom Toasts
-$toast-zindex:										$kt-dropdown-zindex + 100 !default;
+$toast-zindex:										$shine-dropdown-zindex + 100 !default;
 $toast-spacing:										2rem  !default;
 $toast-width: 										350px !default;
-$toast-box-shadow:									$kt-dropdown-shadow !default;
+$toast-box-shadow:									$shine-dropdown-shadow !default;
 
 $toast-header-color: 								shine-base-color(label, 3) !default;
 $toast-header-background-color: 					#fff !default;
@@ -174,8 +172,8 @@ $progress-bg:                       				shine-get-color() !default;
 
 
 // Dropdown
-$dropdown-box-shadow:								$kt-dropdown-shadow !default;
-$zindex-dropdown:                   				$kt-dropdown-zindex !default;
+$dropdown-box-shadow:								$shine-dropdown-shadow !default;
+$zindex-dropdown:                   				$shine-dropdown-zindex !default;
 
 
 

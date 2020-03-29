@@ -162,7 +162,7 @@ Input.defaultProps = {
   isDisabled: false,
   isReadOnly: false,
   type: 'text',
-  size: 'default',
+  size: undefined,
   rules: undefined,
   errorMsg: undefined,
   onChange: undefined,

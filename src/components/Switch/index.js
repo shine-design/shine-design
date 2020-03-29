@@ -142,7 +142,7 @@ Switch.defaultProps = {
   isDisabled: false,
   isControlled: false,
   isShowIcon: false,
-  size: 'default',
+  size: undefined,
   rules: undefined,
   errorMsg: undefined,
   onChange: undefined,

@@ -1,10 +1,11 @@
 /**
+ * 方法
  * @Author 瞿龙俊 - qulongjun@shine.design
  * @Date 2020-03-22 13:01
  */
 @import 'config';
 
-@function kt-unitless($number) {
+@function shine-unitless($number) {
   @if type-of($number) == 'number' and not unitless($number) {
     @return $number / ($number * 0 + 1);
   }
@@ -40,7 +41,7 @@
   @return $get;
 }
 
-@function kt-has($map, $keys...) {
+@function shine-has($map, $keys...) {
   @if length($keys) == 1 {
     $keys: nth($keys, 1);
   }
@@ -83,7 +84,7 @@
   @return null;
 }
 
-@function kt-display-color($color) {
+@function shine-display-color($color) {
   @if (lightness( $color ) > 50) {
     @return darken($color, 50%);
   }
