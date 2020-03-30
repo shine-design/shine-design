@@ -134,6 +134,12 @@ export default {
       ],
     },
     {
+      label: '导航',
+      children: [
+        {label: 'Dropdown 下拉菜单', link: '/guide/dropdown'},
+      ],
+    },
+    {
       label: '数据展示',
       children: [
         {label: 'Badge 徽章', link: '/guide/badge'},

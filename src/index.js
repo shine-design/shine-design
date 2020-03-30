@@ -41,6 +41,9 @@ export {default as Divider} from './components/Divider';
 /** 开关 */
 export {default as Switch} from './components/Switch';
 
+export {default as Dropdown} from './components/Dropdown';
+
 /** 内部组件 */
 export {default as Options} from './components/Option/Options';
 export {default as OptionsGroup} from './components/Option/OptionsGroup';
+export {default as DropdownOptions} from './components/Dropdown/Options';
