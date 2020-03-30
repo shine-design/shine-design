@@ -12,12 +12,17 @@ export default {
     components,
     jsx:
 `<div className="shine-select-helper">
-   <Select options={[
-    {label: '选项一', value: 1},
-    {label: '选项二', value: 2},
-    {label: '选项三', value: 3},
-    {label: '选项四', value: 4},
-]} />
+   <Select 
+    options={[
+      {label: '选项一', value: 1},
+      {label: '选项二', value: 2},
+      {label: '选项三', value: 3},
+      {label: '选项四', value: 4},
+      {label: '选项四', value: 5},
+      {label: '选项四', value: 6},
+      {label: '选项四', value: 7},
+    ]
+  } />
 </div>`,
   },
 };

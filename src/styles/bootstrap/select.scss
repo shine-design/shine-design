@@ -1,0 +1,289 @@
+/**
+ * Select
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2020/3/30 20:32
+ */
+
+// Base
+@mixin shine-bootstrap-select-base() {
+  $shine-general-padding: 10px 15px;
+  $shine-title-padding: 10px 15px;
+
+  // Bootstrap select base
+  .bootstrap-select {
+    > .dropdown-toggle {
+      position: relative;
+      outline: none !important;
+      padding: $input-btn-padding-y $input-btn-padding-x;
+
+      @include shine-rounded {
+        border-radius: $input-border-radius !important;
+      }
+
+      &:focus {
+        outline: none !important;
+      }
+
+      &:after {
+        border: 0;
+        margin-right: -2px;
+        font-size: 0.6rem;
+        //right: ($input-btn-padding-x);
+        display: inline-block;
+
+        //@include shine-arrow-icon(down, true);
+        @include shine-flaticon2-icon('\f1b1');
+      }
+
+      &:before {
+        width: auto;
+      }
+    }
+
+    .dropdown-menu.inner {
+      display: block;
+
+      > li {
+        > a {
+          display: block;
+          position: relative;
+          outline: none !important;
+          padding: $shine-general-padding;
+
+          &:hover {
+            text-decoration: none;
+          }
+
+          // icons
+          @include shine-icons-size((fontawesome: 1.2rem, lineawesome: 1.2rem, flaticon: 1.1rem));
+
+          i {
+            vertical-align: middle;
+          }
+        }
+
+        &.selected {
+          > a {
+            span.check-mark {
+              @include shine-la-icon('\f17b');
+              top: 50%;
+              position: absolute;
+              margin-top: - (0.85rem / 2);
+              font-size: 0.85rem;
+              right: $input-btn-padding-x;
+              display: inline-block;
+
+              &:after {
+                display: none;
+              }
+            }
+          }
+        }
+
+        &.divider {
+          margin: 10px 0;
+        }
+
+        &.hidden {
+          display: none;
+        }
+
+        &.no-results {
+          padding: $shine-general-padding;
+        }
+      }
+    }
+
+    .popover-title {
+      padding: $shine-title-padding;
+      margin-bottom: 5px;
+
+      .close {
+        display: none;
+      }
+    }
+
+    .bs-searchbox,
+    .bs-actionsbox,
+    .bs-donebutton {
+      padding: $shine-title-padding;
+    }
+  }
+}
+
+// Skin
+@mixin shine-bootstrap-select-skin() {
+  // Bootstrap select base
+  .bootstrap-select {
+    // dropdown button
+    > .dropdown-toggle {
+
+      &.btn-light,
+      &.btn-secondary {
+        background: #fff;
+        color: $input-plaintext-color;
+        border-color: $input-border-color;
+        box-shadow: none;
+
+        &:focus,
+        &.active {
+          background-color: transparent;
+          border-color: $input-focus-border-color;
+        }
+
+        &.disabled,
+        &:disabled {
+          background: $input-disabled-bg;
+          border-color: $input-disabled-bg
+        }
+
+        .filter-option {
+          @include shine-icons {
+            color: shine-base-color(label, 2);
+          }
+        }
+      }
+
+      &.bs-placeholder {
+        color:  $input-placeholder-color;
+
+        // state colors
+        @each $name, $color in $shine-state-colors {
+          &.btn-#{$name} {
+            color: shine-get($color, inverse);
+
+            > .filter-option {
+              opacity: 0.8;
+            }
+          }
+        }
+      }
+    }
+
+    // menu shown state
+    &.show {
+      > .dropdown-toggle {
+        &.btn-light,
+        &.btn-secondary {
+          border-color: $input-focus-border-color;
+          box-shadow: none;
+        }
+      }
+    }
+
+    // Validation
+    &.is-invalid {
+      .btn.dropdown-toggle {
+        border-color: shine-state-color(danger, base);
+
+      }
+    }
+
+    &.is-valid {
+      .btn.dropdown-toggle {
+        border-color: shine-state-color(success, base);
+      }
+    }
+
+    // menu dropdown
+    .dropdown-menu.inner {
+      > li {
+        > a {
+          .text {
+            color: shine-base-color(label, 3);
+
+            small {
+              color: shine-base-color(label, 1);
+            }
+          }
+
+          span.check-mark {
+            color: shine-base-color(label, 2);
+          }
+
+          @include shine-icons {
+            color: shine-base-color(label, 1);
+          }
+        }
+
+        &.selected,
+        &:hover {
+          > a {
+            background: shine-base-color(grey, 1);
+
+            .text {
+              color: shine-base-color(label, 3);
+            }
+
+            @include shine-icons {
+              color: shine-base-color(label, 1);
+            }
+
+            span.check-mark {
+              color: shine-base-color(label, 2);
+            }
+          }
+        }
+
+        &.dropdown-header {
+          color: shine-base-color(label, 2);
+        }
+
+        &.selected {
+          > a {
+            background: shine-base-color(grey, 1);
+          }
+        }
+
+        &.disabled {
+          > a {
+            opacity: 0.6;
+          }
+        }
+
+        &.divider {
+          border-bottom: 1px solid shine-base-color(grey, 1);
+        }
+
+        &.active:not(.selected) {
+          > a {
+            background: shine-state-color(primary, base);
+
+            .text {
+              color: shine-state-color(primary, inverse);
+            }
+
+            @include shine-icons {
+              color: shine-state-color(primary, inverse);
+            }
+
+            span.check-mark {
+              color: shine-state-color(primary, inverse);
+            }
+          }
+        }
+
+        &.no-results {
+          color: shine-base-color(label, 2);
+        }
+      }
+    }
+
+    // menu header
+    .popover-title {
+      background: shine-base-color(grey, 1);
+      border: 0;
+    }
+
+    .dropdown-menu {
+      margin-top: 1px;
+    }
+  }
+}
+
+
+// Base
+@include shine-bootstrap-select-base();
+
+// Skin
+@include shine-bootstrap-select-skin();

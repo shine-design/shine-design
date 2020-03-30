@@ -20,8 +20,9 @@ class Select extends PureComponent {
   }
 
   componentDidMount() {
+    const {size} = this.props;
     const _select = this.select.current;
-    jQuery(_select).selectpicker();
+    jQuery(_select).selectpicker({size});
   }
 
   render() {
@@ -29,6 +30,7 @@ class Select extends PureComponent {
 
     /** 计算样式 */
     const classes = classNames(
+      'form-control',
       `${classPrefix}-form-control`,
       {
         [`${classPrefix}-form-control-${size}`]: _.includes(['small', 'large'], size),
