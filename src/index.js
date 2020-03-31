@@ -42,8 +42,10 @@ export {default as Alert} from './components/Alert';
 export {default as Divider} from './components/Divider';
 /** 开关 */
 export {default as Switch} from './components/Switch';
-
+/** 下拉菜单 */
 export {default as Dropdown} from './components/Dropdown';
+/** 分页 */
+export {default as Pagination} from './components/Pagination';
 
 /** 内部组件 */
 export {default as Options} from './components/Option/Options';

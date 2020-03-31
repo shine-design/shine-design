@@ -144,6 +144,7 @@ export default {
       children: [
         {label: 'Badge 徽章', link: '/guide/badge'},
         {label: 'Progress 进度条', link: '/guide/progressBar'},
+        {label: 'Pagination 页码', link: '/guide/pagination'}
       ],
     },
     {
