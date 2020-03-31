@@ -13,13 +13,14 @@ import Icon from '../Icon';
 
 class Button extends PureComponent {
   render() {
-    const {label, type, bgColor, outlineColor, outlineHoverColor, btnStyle, icon, size, disabled, active, wide, tall, shake, isOnlyIcon, onClick, className, attributes, children} = this.props;
+    const {label, type, bgColor, hoverColor, outlineColor, outlineHoverColor, btnStyle, icon, size, disabled, active, wide, tall, shake, isOnlyIcon, onClick, className, attributes, children} = this.props;
 
     /** 计算样式 */
     const classes = classNames(
       `${classPrefix}-btn`, 'btn', 'sh-btn',
       {
         [`btn-outline-${outlineColor}`]: _.isString(outlineColor),
+        [`btn-hover-${hoverColor}`]: _.isString(hoverColor),
         [`btn-outline-hover-${outlineHoverColor}`]: _.isString(outlineHoverColor),
         [`btn-${bgColor}`]: _.isString(bgColor),
         [`btn-${btnStyle}`]: _.isString(btnStyle),
@@ -44,7 +45,7 @@ class Button extends PureComponent {
         disabled={disabled}
         {...attributes}
       >
-        {_.isString(icon) ? <Icon iconName={icon} /> : icon}
+        {_.isString(icon) ? <Icon iconName={icon}/> : icon}
         {!isOnlyIcon && (label || children)}
       </button>
     );
@@ -58,6 +59,8 @@ Button.propTypes = {
   type: PropTypes.oneOf(['button', 'submit', 'reset']),
   /** 按钮背景颜色 */
   bgColor: PropTypes.string,
+  /** 按钮聚焦颜色 */
+  hoverColor:PropTypes.string,
   /** 按钮轮廓颜色 */
   outlineColor: PropTypes.string,
   /** 按钮悬停时轮廓颜色 */

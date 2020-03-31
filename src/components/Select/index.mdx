@@ -13,9 +13,12 @@ import {
   PropsTable
 } from "theme";
 import code from "./demo";
+import { Select, SelectOption } from "shineDev";
 import "./demo/index.scss";
 
 # Select 选择框
+
+选择框组件用于创建一个带下拉列表的选项，支持单选和多选。
 
 ## 概述
 
@@ -28,12 +31,20 @@ import "./demo/index.scss";
   修饰符，在开发过程中无需配置该字段。
 </MessageBox>
 
-### 基础下拉选框
+### 选择器示例
 
-下拉选框组件是由基础输入标签封装而成，可以快速的创建一些常见的表单控件。
-
-<Example 
+<Example
   display={<JsxParser {...code.basic} />}
   code={{code:code.basic.jsx}}
   components={code.basic.components}
 />
+
+## 配置参数
+
+#### Select
+
+<PropsTable of={Select} />
+
+#### Select Option
+
+<PropsTable of={SelectOption} />

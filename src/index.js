@@ -30,6 +30,8 @@ export {default as RadioGroup} from './components/Radio/Group';
 export {default as TextArea} from './components/TextArea';
 /** 下拉选择 */
 export {default as Select} from './components/Select';
+/** 下拉选项 */
+export {default as SelectOption} from './components/Select/Option';
 /** 模态框 */
 export {default as Modal} from './components/Modal';
 /** 图标 */
@@ -41,6 +43,9 @@ export {default as Divider} from './components/Divider';
 /** 开关 */
 export {default as Switch} from './components/Switch';
 
+export {default as Dropdown} from './components/Dropdown';
+
 /** 内部组件 */
 export {default as Options} from './components/Option/Options';
 export {default as OptionsGroup} from './components/Option/OptionsGroup';
+export {default as DropdownOptions} from './components/Dropdown/Options';
