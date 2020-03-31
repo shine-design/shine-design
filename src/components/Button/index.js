@@ -45,7 +45,7 @@ class Button extends PureComponent {
         disabled={disabled}
         {...attributes}
       >
-        {_.isString(icon) ? <Icon iconName={icon}/> : icon}
+        {_.isString(icon) ? <Icon iconName={icon} /> : icon}
         {!isOnlyIcon && (label || children)}
       </button>
     );
@@ -60,7 +60,7 @@ Button.propTypes = {
   /** 按钮背景颜色 */
   bgColor: PropTypes.string,
   /** 按钮聚焦颜色 */
-  hoverColor:PropTypes.string,
+  hoverColor: PropTypes.string,
   /** 按钮轮廓颜色 */
   outlineColor: PropTypes.string,
   /** 按钮悬停时轮廓颜色 */
@@ -95,6 +95,7 @@ Button.defaultProps = {
   label: undefined,
   type: 'button',
   bgColor: 'light',
+  hoverColor: undefined,
   outlineColor: undefined,
   outlineHoverColor: undefined,
   btnStyle: 'normal',

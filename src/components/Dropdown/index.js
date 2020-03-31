@@ -4,6 +4,7 @@
  * @Author 瞿龙俊 - qulongjun@shine.design
  * @Date 2020-03-30 11:58
  */
+import _ from 'lodash';
 import React, {PureComponent} from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -65,7 +66,7 @@ class Dropdown extends PureComponent {
           className={classNames('dropdown-menu', {[`dropdown-menu-${menuAlign}`]: menuAlign})}
           aria-labelledby={id}
         >
-          {_.isArray(options) && _.map(options, (item, index) => <Options {...item} key={index}/>)}
+          {_.isArray(options) && _.map(options, (item, index) => <Options {...item} key={index} />)}
         </div>
       </div>
     );
@@ -108,6 +109,7 @@ Dropdown.defaultProps = {
   isInline: true,
   isHideToggle: false,
   direction: 'down',
+  menuAlign: undefined,
   toggleProps: {},
   splitProps: {},
   className: '',
