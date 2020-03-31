@@ -4,9 +4,9 @@
  * @Author 瞿龙俊 - qulongjun@shine.design
  * @Date 2020-03-21 22:21
  */
-import {Form, Input, CheckboxGroup} from "shineDev";
+import {Form, Input, CheckboxGroup, Select} from "shineDev";
 
-const components = {Form, Input, CheckboxGroup};
+const components = {Form, Input, CheckboxGroup, Select};
 
 export default {
   label: {
@@ -43,6 +43,20 @@ export default {
             onChange={e=>console.log(e)}
            />
         </Form.Item>
+        <Form.Item label="选择组件">
+          <Select 
+              options={[
+                {label: '选项一', value: 1},
+                {label: '选项二', value: 2},
+                {label: '选项三', value: 3},
+                {label: '选项四', value: 4},
+                {label: '选项四', value: 5},
+                {label: '选项四', value: 6},
+                {label: '选项四', value: 7},
+              ]
+            } 
+          />
+        </Form.Item>   
     </Form>
   </div>
 `,

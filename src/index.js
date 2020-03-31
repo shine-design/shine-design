@@ -30,6 +30,8 @@ export {default as RadioGroup} from './components/Radio/Group';
 export {default as TextArea} from './components/TextArea';
 /** 下拉选择 */
 export {default as Select} from './components/Select';
+/** 下拉选项 */
+export {default as SelectOption} from './components/Select/Option';
 /** 模态框 */
 export {default as Modal} from './components/Modal';
 /** 图标 */
