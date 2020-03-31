@@ -50,7 +50,8 @@ const eslintrc = {
     'class-methods-use-this': 0,
     'prefer-template': 0,
     'no-underscore-dangle': 0,
-    'no-unused-expressions': 0
+    'no-unused-expressions': 0,
+    'no-nested-ternary': 0
   },
 };
 

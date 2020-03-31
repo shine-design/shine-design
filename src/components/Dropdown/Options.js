@@ -20,14 +20,14 @@ class Options extends PureComponent {
         renderer = <div className="dropdown-header">{label}</div>;
         break;
       case 'divider':
-        renderer = <div className="dropdown-divider"/>;
+        renderer = <div className="dropdown-divider" />;
         break;
       case 'custom':
         renderer = customRender;
         break;
       default:
         renderer = (
-          <button {...this.props} className={classNames('dropdown-item', {active, disabled},this.props.className)} >
+          <button type="button" {...this.props} className={classNames('dropdown-item', {active, disabled},this.props.className)}>
             <Icon iconName={iconName} {...iconProps} />
             {label}
           </button>
