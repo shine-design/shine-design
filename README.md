@@ -6,7 +6,7 @@
 
 <div align="center">
 
-![](https://img.shields.io/badge/node-%3E%3D9.0.0-brightgreen.svg) ![](https://img.shields.io/badge/npm-%3E%3D6.1.0-brightgreen.svg) ![](https://img.shields.io/appveyor/ci/gruntjs/grunt.svg)  ![](https://img.shields.io/badge/stable-v0.2.7-blue.svg) ![](https://img.shields.io/badge/alpha-v1.0.1-blue.svg) ![](https://img.shields.io/npm/l/express.svg)
+![](https://img.shields.io/badge/node-%3E%3D9.0.0-brightgreen.svg) ![](https://img.shields.io/badge/npm-%3E%3D6.1.0-brightgreen.svg) ![](https://img.shields.io/appveyor/ci/gruntjs/grunt.svg)  ![](https://img.shields.io/badge/stable-v1.0.3-blue.svg) ![](https://img.shields.io/badge/alpha-v1.0.4-blue.svg) ![](https://img.shields.io/npm/l/express.svg)
 
 </div>
 <div align="center">
@@ -41,6 +41,9 @@ Shine Design 入门比你想象的更简单, **你只需做如下事情**:
 
 >  开发环境下启动调试后，在浏览器中打开 [http://127.0.0.1:3000](http://127.0.0.1:3000) 查看效果。
 
+## 更新日志
+您可以从 [更新日志](https://github.com/shine-design/shine-design/releases) 获取相关版本信息。 
+
 ## 发布周期
 本项目更新参照 [Semantic Versioning 2.0.0](https://semver.org/) 标准进行：
 - 修订版本：每周一个修订版本，用于进行日常的 Bug 修复（非紧急）。
@@ -49,7 +52,7 @@ Shine Design 入门比你想象的更简单, **你只需做如下事情**:
 
 ## 获取帮助
 如果您在使用的过程中碰到问题，可以通过下面几个途径寻求帮助：
-* 我们提供了详细的[组件文档](https://shine.design/tutorial)，大部分问题都可以在文档中得以解决。
+* 我们提供了详细的[组件文档](https://shine.design/guide)，大部分问题都可以在文档中得以解决。
 * 利用强大的 [Issue](https://github.com/qulongjun/Shine-Design/issues) 功能，您可以直接进行提问，我们会随时关注并解答，同时我们也鼓励资深用户通过 Issue 给新人提供帮助。
 
 ## 参与项目
