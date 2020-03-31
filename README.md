@@ -30,7 +30,7 @@
 ## 使用示例
 
 Shine Design 入门比你想象的更简单, **你只需做如下事情**:
-![](https://cdn.shine.design/demo/code.png)
+<img src="https://cdn.shine.design/demo/code.png" />
 
 >  我们提供了丰富的组件供开发者使用，可以查看[组件文档](https://shine.design/tutorial)。
 
