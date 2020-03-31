@@ -14,7 +14,7 @@ export default {
     <Dropdown 
       title="下拉菜单"
       options={[
-        {label:'操作按钮一'}},
+        {label:'操作按钮一'},
         {label:'操作按钮二', value:2},
         {label:'操作按钮二', value:3}
       ]}
