@@ -1,0 +1,43 @@
+---
+name: Pagination 页码
+route: /guide/pagination
+menu: other
+---
+
+import JsxParser from "react-jsx-parser";
+import {
+  MessageBox,
+  InlineCode,
+  Example,
+  Code,
+  PropsTable
+} from "theme";
+import { Pagination } from "shineDev";
+import code from "./demo";
+import "./demo/index.scss";
+
+# Pagination 页码
+
+## 概述
+
+用于显示分页以指示多个页面中存在的一系列相关内容的文档和示例。
+
+## 代码示例
+
+<MessageBox messageType="info">
+  为了让用户直观地查看代码演示，我们加入了{" "}
+  <InlineCode>shine-pagination-helper</InlineCode>{" "}
+  修饰符，在开发过程中无需配置该字段。
+</MessageBox>
+
+#### 基础示例
+
+<Example 
+  display={<JsxParser {...code.basic} />}
+  code={{code:code.basic.jsx}}
+  components={code.basic.components}
+/>
+
+## 配置参数
+
+<PropsTable of={Pagination} />
