@@ -24,20 +24,20 @@
 ## 快速构建
 
 推荐使用快速构建工具  `Shined CLI`  搭建项目，只需依次执行：
- ![](https://cdn.shine.design/demo/tools.png)
+ ![](./offical/assets/readme/tools.png)
 > 构建工具具体用法清参考[构建工具说明](https://shine.design/cli)。
 
 ## 使用示例
 
 Shine Design 入门比你想象的更简单, **你只需做如下事情**:
-<img src="https://cdn.shine.design/demo/code.png" />
+![](./offical/assets/readme/code.png)
 
 >  我们提供了丰富的组件供开发者使用，可以查看[组件文档](https://shine.design/tutorial)。
 
 ## 调试与部署
 
 快速构建工具已经集成了一键式调试与部署指令，只需执行如下命令即可实现开发环境下的调试和生产环境的部署：
-![](https://cdn.shine.design/demo/command.png)
+![](./offical/assets/readme/command.png)
 
 >  开发环境下启动调试后，在浏览器中打开 [http://127.0.0.1:3000](http://127.0.0.1:3000) 查看效果。
 
