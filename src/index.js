@@ -46,8 +46,10 @@ export {default as Switch} from './components/Switch';
 export {default as Dropdown} from './components/Dropdown';
 /** 分页 */
 export {default as Pagination} from './components/Pagination';
-
+/** 标签页 */
 export {default as Tabs} from './components/Tabs';
+/** 折叠面板 */
+export {default as Collapse} from './components/Collapse';
 
 /** 内部组件 */
 export {default as Options} from './components/Option/Options';

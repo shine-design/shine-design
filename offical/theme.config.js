@@ -138,6 +138,7 @@ export default {
       children: [
         {label: 'Dropdown 下拉菜单', link: '/guide/dropdown'},
         {label: 'Tabs 标签页', link: '/guide/tabs'},
+        {label: 'Collapse 折叠面板', link: '/guide/collapse'}
       ],
     },
     {
