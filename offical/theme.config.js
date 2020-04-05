@@ -137,6 +137,7 @@ export default {
       label: '导航',
       children: [
         {label: 'Dropdown 下拉菜单', link: '/guide/dropdown'},
+        {label: 'Tabs 标签页', link: '/guide/tabs'},
       ],
     },
     {

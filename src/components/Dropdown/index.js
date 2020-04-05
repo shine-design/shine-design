@@ -5,11 +5,12 @@
  * @Date 2020-03-30 11:58
  */
 import _ from 'lodash';
-import React, {PureComponent} from 'react';
+import React, {PureComponent, Fragment} from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import uuid from 'uuid/v1';
 import {classPrefix} from 'variables';
+import Icon from '../Icon';
 import Button from '../Button';
 import Options from './Options';
 import 'bootstrap/js/src/dropdown';
@@ -17,7 +18,7 @@ import 'bootstrap/js/src/dropdown';
 class Dropdown extends PureComponent {
 
   render() {
-    const {options, toggleProps, splitProps, direction, menuAlign, isSplit, isInline, isHideToggle, title, bgColor} = this.props;
+    const {options, toggleProps, splitProps, direction, menuAlign, isSplit, isInline, isHideToggle, title, bgColor, isFragment, iconName, iconProps} = this.props;
     const {className, attributes} = this.props;
     const directionClass = 'drop' + direction;
     /** 计算样式 */
@@ -37,7 +38,7 @@ class Dropdown extends PureComponent {
     const mergedToggleProps = {
       ...toggleProps,
       label: isSplit ? null : toggleProps.label || title,
-      bgColor: toggleProps.bgColor || bgColor,
+      ...isFragment ? {} : {bgColor: toggleProps.bgColor || bgColor},
       className: mergedClassNames,
       attributes: {
         ...toggleProps.attributes,
@@ -56,19 +57,30 @@ class Dropdown extends PureComponent {
 
     const id = uuid();
 
+    const Father = isFragment ? Fragment : 'div';
+
     return (
-      <div className={classes} {...attributes} id={id}>
+      <Father {...(isFragment ? {} : {className: classes, ...attributes, id})}>
         {
           isSplit && <Button {...mergedSplitProps} />
         }
-        <Button {...mergedToggleProps} />
+        {
+          isFragment
+            ? (
+              <a {...mergedToggleProps} {...mergedToggleProps.attributes}>
+                <Icon iconName={iconName} {...iconProps} />
+                {mergedToggleProps.label}
+              </a>
+            )
+            : <Button {...mergedToggleProps} />
+        }
         <div
           className={classNames('dropdown-menu', {[`dropdown-menu-${menuAlign}`]: menuAlign})}
           aria-labelledby={id}
         >
-          {_.isArray(options) && _.map(options, (item, index) => <Options {...item} key={index} />)}
+          {_.isArray(options) && _.map(options, (item, index) => <Options {...item} key={index}/>)}
         </div>
-      </div>
+      </Father>
     );
   }
 }

@@ -1,0 +1,146 @@
+/**
+ * Tabs 标签页
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2020/4/05 14:43
+ */
+
+.nav-pills,
+.nav-tabs {
+	margin: 0 0 25px 0;
+
+	.nav-item {
+		.nav-link {
+			padding: 0.75rem 1.25rem;
+			font-size: 1rem;
+			font-weight: 400;
+			@include shine-transition();
+			@include shine-icons-style(font-size, (fontawesome: 1.2rem, lineawesome: 1.3rem, flaticon: 1.4rem) );
+			font-size: 1rem;
+			font-weight: 400;
+      cursor: pointer;
+
+			i {
+				vertical-align: middle;
+				line-height: 0;
+				display: inline-block;
+				margin-right: 0.5rem;
+			}
+
+			&.active,
+			&:active,
+			&:hover {
+				@include shine-transition();
+			}
+		}
+	}
+}
+
+// Default Tabs
+.nav-tabs {
+	.nav-item {
+		.nav-link {
+			color: shine-brand-color();
+
+			i {
+				//color: shine-brand-color();
+			}
+
+			&.active,
+			&:active,
+			&:hover {
+				color: shine-brand-color();
+
+				i {
+					//color: shine-brand-color();
+				}
+			}
+
+			&.disabled {
+				color: shine-base-color(label, 2);
+
+				i {
+					color: shine-base-color(label, 2);
+				}
+			}
+		}
+
+		&.show > .nav-link {
+			color: shine-brand-color();
+
+			i {
+				color: shine-brand-color();
+			}
+		}
+	}
+}
+
+// Pill Tabs
+.nav-pills {
+	.nav-item {
+		margin-right: 0.5rem;
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		.nav-link {
+			color: shine-base-color(label, 3);
+
+			&:active,
+			&.active,
+			&.active:hover {
+				background-color: shine-brand-color();
+				color: shine-brand-color(inverse);
+			}
+		}
+
+		&.show > .nav-link {
+			background-color: shine-brand-color();
+			color: shine-brand-color(inverse);
+		}
+	}
+
+	// Sizing
+	&.nav-pills-sm {
+		.nav-item {
+			.nav-link {
+				font-size: 0.9rem;
+				padding: $input-btn-padding-y-sm $input-btn-padding-x-sm;
+			}
+		}
+	}
+
+	// Bold
+	&.nav-pills-bold {
+		.nav-item {
+			.nav-link {
+				font-weight: 500;
+			}
+		}
+	}
+
+	// Label style
+	&.nav-pills-label {
+		.nav-item {
+
+			.nav-link {
+				&:active,
+				&.active,
+				&.active:hover {
+					background-color: rgba(shine-brand-color(), 0.1);
+					color: shine-brand-color();
+				}
+			}
+
+			&.show > .nav-link {
+				background-color: rgba(shine-brand-color(), 0.1);
+				color: shine-brand-color();
+			}
+		}
+	}
+}
+
+// Marginless
+.nav-fit {
+	margin: 0 !important;
+}
