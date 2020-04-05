@@ -60,7 +60,7 @@ class Collapse extends PureComponent {
     if (isControlled) {
       _.isFunction(onChange) && onChange(this.onCountActive(this.props.active, index));
     } else {
-      this.setState({active: this.onCountActive(this.state.active, index)});
+      this.setState(({active}) => this.onCountActive(active, index));
     }
   };
 
