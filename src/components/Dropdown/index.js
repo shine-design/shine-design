@@ -78,7 +78,7 @@ class Dropdown extends PureComponent {
           className={classNames('dropdown-menu', {[`dropdown-menu-${menuAlign}`]: menuAlign})}
           aria-labelledby={id}
         >
-          {_.isArray(options) && _.map(options, (item, index) => <Options {...item} key={index}/>)}
+          {_.isArray(options) && _.map(options, (item, index) => <Options {...item} key={index} />)}
         </div>
       </Father>
     );
