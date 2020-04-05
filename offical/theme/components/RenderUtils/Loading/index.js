@@ -5,4 +5,4 @@
  */
 import React from 'react';
 
-export default () => (<div>这是一个loading</div>);
+export default () => (<div>正在加载，请稍后...</div>);

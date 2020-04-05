@@ -47,6 +47,8 @@ export {default as Dropdown} from './components/Dropdown';
 /** 分页 */
 export {default as Pagination} from './components/Pagination';
 
+export {default as Tabs} from './components/Tabs';
+
 /** 内部组件 */
 export {default as Options} from './components/Option/Options';
 export {default as OptionsGroup} from './components/Option/OptionsGroup';
