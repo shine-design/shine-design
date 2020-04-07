@@ -67,7 +67,7 @@ class Collapse extends PureComponent {
   render() {
     const {isControlled, isLight, isSolid, isToggle, toggleType, className, attributes} = this.props;
     const active = isControlled ? this.props.active : this.state.active;
-    console.log('active',active);
+
     /** 计算样式 */
     const classes = classNames(
       'accordion',
