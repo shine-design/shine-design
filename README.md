@@ -1,6 +1,8 @@
-<p align="center">
-  <a href="javascript:;" rel="noopener" target="_blank"><img width="50%" src="https://cdn.shine.design/logo/logo_blue.png" alt="Shine. logo"></a></p>
-</p>
+<div align="center">
+
+  ![](./offical/assets/readme/logo_blue.png)
+
+</div>
 
 ------
 
