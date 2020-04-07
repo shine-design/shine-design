@@ -60,14 +60,14 @@ class Collapse extends PureComponent {
     if (isControlled) {
       _.isFunction(onChange) && onChange(this.onCountActive(this.props.active, index));
     } else {
-      this.setState(({active}) => this.onCountActive(active, index));
+      this.setState(({active}) => ({active: this.onCountActive(active, index)}));
     }
   };
 
   render() {
     const {isControlled, isLight, isSolid, isToggle, toggleType, className, attributes} = this.props;
     const active = isControlled ? this.props.active : this.state.active;
-
+    console.log('active',active);
     /** 计算样式 */
     const classes = classNames(
       'accordion',
