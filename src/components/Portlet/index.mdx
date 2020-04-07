@@ -1,0 +1,96 @@
+---
+name: Portlet 容器
+route: /guide/portlet
+menu: other
+---
+
+import JsxParser from "react-jsx-parser";
+import {
+  MessageBox,
+  InlineCode,
+  Example,
+  Code,
+  PropsTable
+} from "theme";
+import { Portlet } from "shineDev";
+import code from "./demo";
+import "./demo/index.scss";
+
+# Portlet 容器
+
+## 概述
+
+基础组件，用于在视觉上创建一块独立的区域。
+
+## 代码示例
+
+<MessageBox messageType="info">
+  为了让用户直观地查看代码演示，我们加入了{" "}
+  <InlineCode>shine-portlet-helper</InlineCode>{" "}
+  修饰符，在开发过程中无需配置该字段。
+</MessageBox>
+
+#### 基础示例
+
+只需使用 `Portlet` 包裹业务组件，即可快速创建一个基础的容器。
+
+<Example 
+  display={<JsxParser {...code.basic} />}
+  code={{code:code.basic.jsx}}
+  components={code.basic.components}
+/>
+
+#### 带标题和页脚的容器
+
+也可以为容器添加标题栏和页脚按钮。
+
+<Example 
+  display={<JsxParser {...code.header} />}
+  code={{code:code.header.jsx}}
+  components={code.header.components}
+/>
+
+#### 带边框的容器
+
+在浅色系背景下，也可以指定展示边框样式，突出显示容器。
+
+<Example 
+  display={<JsxParser {...code.border} />}
+  code={{code:code.border.jsx}}
+  components={code.border.components}
+/>
+
+#### 带工具栏的容器
+
+工具栏位于容器右上角，可以绑定多个按钮，方便对容器进行操作。
+
+<Example 
+  display={<JsxParser {...code.toolbar} />}
+  code={{code:code.toolbar.jsx}}
+  components={code.toolbar.components}
+/>
+
+#### 背景颜色
+
+容器组件支持定义背景颜色，可以在不同的场景下提示用户。
+
+<Example 
+  display={<JsxParser {...code.bgColor} />}
+  code={{code:code.bgColor.jsx}}
+  components={code.bgColor.components}
+/>
+
+
+## 配置参数
+
+#### Portlet
+
+<PropsTable of={Portlet} />
+
+#### Header
+
+<PropsTable of={Portlet.Header} />
+
+#### Footer
+
+<PropsTable of={Portlet.Footer} />

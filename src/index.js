@@ -50,6 +50,8 @@ export {default as Pagination} from './components/Pagination';
 export {default as Tabs} from './components/Tabs';
 /** 折叠面板 */
 export {default as Collapse} from './components/Collapse';
+/** 容器 */
+export {default as Portlet} from './components/Portlet';
 
 /** 内部组件 */
 export {default as Options} from './components/Option/Options';

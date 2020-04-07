@@ -33,14 +33,14 @@ class Tabs extends PureComponent {
   };
 
   render() {
-    const {isAdjusted, tabConfig, isControlled, isPill, className, attributes} = this.props;
+    const {isAdjusted, tabConfig, isControlled, isPill, isSingle, className, attributes} = this.props;
     const activeTab = isControlled ? this.props.activeTab : this.state.activeTab;
 
     /** 计算样式 */
     const classes = classNames(
       'nav',
-      'nav-tabs',
       {
+        'nav-tabs': !isSingle,
         'nav-fill': isAdjusted,
         'nav-pills': isPill
       },
@@ -74,6 +74,8 @@ Tabs.propTypes = {
   isAdjusted: PropTypes.bool,
   /** 是否以 Pill 样式显示标签 */
   isPill: PropTypes.bool,
+  /** 不显示下划线 */
+  isSingle: PropTypes.bool,
   /** 切换选项卡时触发 */
   onChange: PropTypes.func,
   /** 用户自定义修饰符 */
@@ -88,6 +90,7 @@ Tabs.defaultProps = {
   isAdjusted: false,
   activeTab: undefined,
   isPill: false,
+  isSingle: false,
   onChange: undefined,
   className: '',
   attributes: {},

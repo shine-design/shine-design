@@ -117,6 +117,7 @@ export default {
         {label: 'Typography 排版', link: '/guide/typography'},
         {label: 'Button 按钮', link: '/guide/button'},
         {label: 'Icon 图标', link: '/guide/icon'},
+        {label: 'Portlet 容器', link: '/guide/portlet'}
       ],
     },
     {
