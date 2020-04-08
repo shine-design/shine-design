@@ -4,6 +4,7 @@
  * @Author 瞿龙俊 - qulongjun@shine.design
  * @Date 2020-04-07 13:46
  */
+import _ from 'lodash';
 import React, {PureComponent} from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -35,7 +36,7 @@ class Footer extends PureComponent {
               <Row>
                 <Col col={24}>
                   {_.isArray(actions) && _.map(actions, (item, index) => (
-                    <Button key={index} {...item} className={classNames(`${classPrefix}-margin-r-10`, item.className)}/>
+                    <Button key={index} {...item} className={classNames(`${classPrefix}-margin-r-10`, item.className)} />
                   ))}
                 </Col>
               </Row>
