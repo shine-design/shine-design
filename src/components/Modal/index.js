@@ -149,7 +149,7 @@ Modal.propTypes = {
 
 Modal.defaultProps = {
   isOpen: false,
-  size: 'normal',
+  size: undefined,
   title: '',
   confirmLabel: '确认',
   closeLabel: '取消',

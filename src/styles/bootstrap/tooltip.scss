@@ -1,0 +1,119 @@
+/**
+ * Tooltip 文字提示
+ * @Author 瞿龙俊 - qulongjun@shine.design
+ * @Date 2019/3/24 14:43
+ */
+
+.tooltip {
+    .tooltip-inner {
+        box-shadow: $popover-box-shadow;
+    }    
+
+    &.bs-tooltip-left .arrow, 
+    &.bs-tooltip-auto[x-placement^="left"] .arrow {
+    	/*rtl:raw:
+        left: auto;
+        right: 0;
+        */
+
+        &:before {
+        /*rtl:raw:
+        border-width: 0.4rem 0 0.4rem 0.4rem;
+        border-left-color: #fff;
+        */
+        }
+    }
+
+    &.bs-tooltip-right .arrow, 
+    &.bs-tooltip-auto[x-placement^="right"] .arrow {
+        /*rtl:raw:
+        right: auto;
+        left: 0;
+        */
+    	
+    	&:before {
+        /*rtl:raw:
+        border-width: 0.4rem 0.4rem 0.4rem 0;
+        border-right-color: #fff;
+        */
+    	}
+    }
+
+    &.tooltop-auto-width {
+       	.tooltip-inner {
+       		white-space:nowrap;
+  			max-width:none;
+        }
+    }
+
+    // Skins
+    // Dark skin
+    &.tooltip-dark {
+        $m-bg-color: #2c2e3e;
+        $m-font-color: #fff;
+
+        .tooltip-inner {
+            color: $m-font-color; 
+            background: #{$m-bg-color};
+        }
+
+        &.bs-tooltip-top {
+            .arrow::before {
+                border-top-color:  #{$m-bg-color};
+            }
+        }
+         
+        &.bs-tooltip-right {
+            .arrow::before {
+                border-right-color:  #{$m-bg-color}#{'/*rtl:ignore*/'};
+            }
+        }
+
+        &.bs-tooltip-bottom {
+            .arrow::before {
+                border-bottom-color:  #{$m-bg-color};
+            }
+        }
+
+        &.bs-tooltip-left {
+            .arrow::before {
+                border-left-color:  #{$m-bg-color}#{'/*rtl:ignore*/'};
+            }
+        }        
+    }
+
+    // Brand skin
+    &.tooltip-brand {
+        $m-bg-color: shine-brand-color();
+        $m-font-color: shine-brand-color(inverse);
+
+        .tooltip-inner {
+            color: $m-font-color; 
+            background: #{$m-bg-color};
+        }
+
+        &.bs-tooltip-top {
+            .arrow::before {
+                border-top-color:  #{$m-bg-color};
+            }
+        }
+         
+        &.bs-tooltip-right {
+            .arrow::before {
+                border-right-color:  #{$m-bg-color}#{'/*rtl:ignore*/'};
+            }
+        }
+
+        &.bs-tooltip-bottom {
+            .arrow::before {
+                border-bottom-color:  #{$m-bg-color};
+            }
+        }
+
+        &.bs-tooltip-left {
+            .arrow::before {
+                border-left-color:  #{$m-bg-color}#{'/*rtl:ignore*/'};
+            }
+        }        
+    }
+}

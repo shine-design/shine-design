@@ -52,6 +52,8 @@ export {default as Tabs} from './components/Tabs';
 export {default as Collapse} from './components/Collapse';
 /** 容器 */
 export {default as Portlet} from './components/Portlet';
+/** 文字提示 */
+export {default as Tooltip} from './components/Tooltip';
 
 /** 内部组件 */
 export {default as Options} from './components/Option/Options';

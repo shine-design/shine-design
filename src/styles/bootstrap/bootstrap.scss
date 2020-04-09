@@ -6,8 +6,8 @@
 /* Mixins */
 @import './mixins/breakpoints';
 @import 'mixins/grid';
-
 // =================== 组件 ===================
+
 /* 栅格系统化 */
 @import 'grid';
 /* 按钮 */
@@ -31,3 +31,5 @@
 @import './tabs';
 /* 折叠面板 */
 @import './accordion';
+/* 文字提示 */
+@import './tooltip';
