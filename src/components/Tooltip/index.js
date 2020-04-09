@@ -34,10 +34,7 @@ class Tooltip extends PureComponent {
         placement,
         html: isHtmlRender,
         animation: isAnimated,
-        template: '<div class="' + classes + '" role="tooltip">\
-                <div class="arrow"></div>\
-                <div class="tooltip-inner"></div>\
-            </div>'
+        template: '<div class="' + classes + '" role="tooltip"> <div class="arrow"></div><div class="tooltip-inner"></div></div>'
       });
     }
   };
@@ -60,7 +57,7 @@ class Tooltip extends PureComponent {
     return (
       <div
         className={classes}
-        ref={item => this.tooltip = item}
+        ref={item => (this.tooltip = item)}
         title={title}
         data-trigger={trigger}
         {...attributes}
@@ -92,7 +89,6 @@ Tooltip.propTypes = {
 };
 
 Tooltip.defaultProps = {
-  title: undefined,
   bgColor: undefined,
   isAnimated: true,
   isHtmlRender: false,
