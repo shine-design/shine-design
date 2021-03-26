@@ -18,6 +18,12 @@
 
 </div>
 
+## 预告
+
+Shine Design 即将迎来重大更新，新版本（2.0）将带来更全面的组件系统，和更丰富的样式选择，尽请期待！
+
+美好的事情值得我们等待。
+
 ## 功能特性
 * 开箱即用的高质量组件，为开发者、设计师和产品经理提供丰富的创意和思路。
 * 兼容 IE, Chrome 和 Firefox 等绝大部分主流浏览器，为用户带来统一的视觉体验。
@@ -44,7 +50,7 @@ Shine Design 入门比你想象的更简单, **你只需做如下事情**:
 >  开发环境下启动调试后，在浏览器中打开 [http://127.0.0.1:3000](http://127.0.0.1:3000) 查看效果。
 
 ## 更新日志
-您可以从 [更新日志](https://github.com/shine-design/shine-design/releases) 获取相关版本信息。 
+您可以从 [更新日志](https://github.com/shine-design/shine-design/releases) 获取相关版本信息。
 
 ## 发布周期
 本项目更新参照 [Semantic Versioning 2.0.0](https://semver.org/) 标准进行：
