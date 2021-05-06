@@ -3,7 +3,7 @@
     "baseUrl": "./",
     "paths": {
       "shined": [
-        "src/components/index.tsx"
+        "src/index.ts"
       ],
       "shined/es/*": [
         "src/components/*"

@@ -217,7 +217,7 @@ module.exports = function (webpackEnv) {
       rules: [
         // 禁用 require.ensure
         {parser: {requireEnsure: false}},
-
+        {test: /\.ts$/, use: 'ts-loader'},
         // 在 Babel 之前执行代码风格检查
         {
           test: /\.(js|mjs|jsx)$/,
