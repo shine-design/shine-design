@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "shined": [
+        "src/components/index.tsx"
+      ],
+      "shined/es/*": [
+        "src/components/*"
+      ]
+    },
+    "strictNullChecks": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "jsx": "preserve",
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": true,
+    "target": "es6",
+    "lib": [
+      "dom",
+      "es2017"
+    ],
+    "skipLibCheck": true
+  },
+  "exclude": [
+    "node_modules",
+    "lib",
+    "es"
+  ]
+}
