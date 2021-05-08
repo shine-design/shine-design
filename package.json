@@ -36,7 +36,9 @@
   },
   "scripts": {
     "start": "webpack serve --mode=development --config config/webpack/webpack.dev.js",
-    "build": "webpack --mode=production --config config/webpack/webpack.prod.js"
+    "build": "webpack --mode=production --config config/webpack/webpack.prod.js",
+    "lint": "eslint src --ext .ts,.tsx,.js,jsx",
+    "lint_fix": "eslint src --ext .ts,.tsx,.js,jsx --fix"
   },
   "author": "qulongjun",
   "license": "ISC",
@@ -48,11 +50,17 @@
     "@babel/runtime-corejs3": "^7.14.0",
     "@types/react": "^17.0.5",
     "@types/react-dom": "^17.0.3",
+    "@typescript-eslint/eslint-plugin": "^4.22.1",
+    "@typescript-eslint/parser": "^4.22.1",
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "copy-webpack-plugin": "^8.1.1",
     "css-loader": "^5.2.4",
     "css-minimizer-webpack-plugin": "^2.0.0",
+    "eslint": "^7.26.0",
+    "eslint-config-alloy": "^4.1.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-react": "^7.23.2",
     "fork-ts-checker-webpack-plugin": "^6.2.6",
     "less": "^4.1.1",
     "less-loader": "^8.1.1",
