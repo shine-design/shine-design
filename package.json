@@ -16,7 +16,7 @@
     "frontend"
   ],
   "contributors": [
-    "shine"
+    "qulongjun@shine.design"
   ],
   "repository": {
     "type": "git",
@@ -35,15 +35,33 @@
     "test": "tests"
   },
   "scripts": {
-    "start": "webpack serve --mode=development --config ./config/webpack/webpack.base.config.js",
-    "build": "webpack --mode=production --config ./config/webpack/webpack.base.config.js",
-    "ts:init": "tsc --init"
+    "start": "webpack serve --mode=development --config config/webpack/webpack.dev.js",
+    "build": "webpack --mode=production --config config/webpack/webpack.prod.js"
   },
   "author": "qulongjun",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.14.0",
+    "@babel/plugin-transform-runtime": "^7.13.15",
+    "@babel/preset-env": "^7.14.1",
+    "@babel/preset-typescript": "^7.13.0",
+    "@babel/runtime-corejs3": "^7.14.0",
     "@types/react": "^17.0.5",
     "@types/react-dom": "^17.0.3",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "copy-webpack-plugin": "^8.1.1",
+    "css-loader": "^5.2.4",
+    "css-minimizer-webpack-plugin": "^2.0.0",
+    "fork-ts-checker-webpack-plugin": "^6.2.6",
+    "less": "^4.1.1",
+    "less-loader": "^8.1.1",
+    "mini-css-extract-plugin": "^1.6.0",
+    "node-sass": "^5.0.0",
+    "postcss-loader": "^5.2.0",
+    "postcss-preset-env": "^6.7.0",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
     "ts-loader": "^9.1.2",
     "typescript": "^4.2.4",
     "webpack": "^5.35.1",
@@ -54,10 +72,11 @@
   "browserslist": [
     ">0.2%",
     "not dead",
-    "not ie <= 11",
+    "ie >= 9",
     "not op_mini all"
   ],
   "dependencies": {
+    "@babel/preset-react": "^7.13.13",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   }
