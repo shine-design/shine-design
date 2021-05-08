@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 /**
  * @File 项目配置 - webpack 配置 - 生产环境 webpack 配置
  * @Author qulongjun@shine.design
