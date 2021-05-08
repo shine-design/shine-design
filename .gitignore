@@ -9,6 +9,7 @@ yarn-error.log*
 package-lock.json
 .markeditor/
 .docz/
+coverage/
 
 # Editor directories and files
 .idea

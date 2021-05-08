@@ -72,12 +72,27 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.(js|mjs|jsx|ts|tsx)$/,
+                enforce: 'pre',
+                use: [
+                    {
+                        options: {
+                            cache: true,
+                            formatter: require.resolve('react-dev-utils/eslintFormatter'),
+                            eslintPath: require.resolve('eslint'),
+                            resolvePluginsRelativeTo: __dirname,
+
+                        },
+                        loader: require.resolve('eslint-loader'),
+                    },
+                ],
+                exclude: /node_modules/,
+            },
+            {
                 test: /\.(tsx?|js)$/,
                 loader: 'babel-loader',
                 options: { cacheDirectory: true },
                 exclude: /node_modules/,
-                use: ['eslint-loader'],
-                enforce: 'pre'
             },
             {
                 test: /\.css$/,

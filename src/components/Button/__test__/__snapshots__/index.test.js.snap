@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button测试 Example组件中按钮的名字为text的值 1`] = `
+<div>
+  This is a Button Test
+</div>
+`;
