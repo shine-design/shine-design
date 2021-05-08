@@ -28,10 +28,11 @@ module.exports = merge(common, {
                 },
             }),
         ],
-        // 代码分割
-        splitChunks: {
-            chunks: 'all',
-            minSize: 0,
-        },
     },
+    externals: [
+        /^react\/.+$/,
+        /^react-dom\/.+$/,
+        /^lodash\/.+$/,
+        /^@babel\/runtime\/.+$/,
+    ],
 });

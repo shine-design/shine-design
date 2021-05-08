@@ -49,10 +49,19 @@ const getCssLoaders = () => {
 };
 
 module.exports = {
-    entry: path.resolve(PROJECT_PATH, './src/index.ts'),
+    entry: {
+        index: {
+            import: 'src/index.ts',  // 入口文件地址
+            filename: 'index.js', // 打包后输出文件地址，会覆盖 output.fileName 的配置
+            dependOn: [ 'Button' ], // 将其他 entry 块设置为 dependOn 后 当前文件如果引用了这几个块，则不会将其打包进来，可以一定程度的实现代码复用
+            // dependOn: ['Button', 'Alert'], // 将其他 entry 块设置为 dependOn 后 当前文件如果引用了这几个块，则不会将其打包进来，可以一定程度的实现代码复用
+        },
+        Button: path.resolve(PROJECT_PATH, './src/components/Button/index.tsx'),
+        // path.resolve(PROJECT_PATH, './src/index.ts'),
+    },
     output: {
         path: path.resolve(PROJECT_PATH, './dist'),
-        filename: 'index.js',
+        filename: '[name].js',
         globalObject: 'this',
         umdNamedDefine: true,
         library: {
